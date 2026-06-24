@@ -45,7 +45,7 @@
         "dns_names": [],
         "fdb_total_macs": 1,
         "hostnames": [],
-        "id": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+        "id": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
         "ip_addresses": [
           "192.0.2.11"
         ],
@@ -53,8 +53,8 @@
         "lldp_neighbor_count": 1,
         "mac_addresses": [
           "02:00:00:00:02:01",
-          "02:aa:00:00:02:01",
-          "02:aa:00:00:02:02"
+          "02:dd:ce:cc:45:64",
+          "02:dd:ce:cc:4a:7d"
         ],
         "management_ip": "192.0.2.11",
         "parent_devices": [],
@@ -77,6 +77,7 @@
         "capabilities": [
           "bridge"
         ],
+        "cdp_neighbor_count": 1,
         "chart_id_prefix": "snmp_device_prof_",
         "chassis_ids": [
           "02:00:00:00:02:02"
@@ -84,17 +85,23 @@
         "display_name": "switch-b",
         "dns_names": [],
         "hostnames": [],
-        "id": "macAddress:02:00:00:00:02:02",
+        "id": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
         "ip_addresses": [
-          "10.10.10.3",
           "192.0.2.12"
         ],
         "layer": "network",
         "mac_addresses": [
-          "02:00:00:00:02:02"
+          "02:00:00:00:02:02",
+          "02:dd:c9:e4:b5:2c"
         ],
         "management_ip": "192.0.2.12",
         "parent_devices": [],
+        "ports_total": 1,
+        "protocols": [
+          "bridge",
+          "cdp",
+          "stp"
+        ],
         "source": "snmp",
         "sys_descr": "Synthetic SNMP topology scenario device",
         "sys_name": "switch-b",
@@ -112,7 +119,7 @@
         "display_name": "router-a",
         "dns_names": [],
         "hostnames": [],
-        "id": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+        "id": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "ip_addresses": [
           "192.0.2.1"
         ],
@@ -120,8 +127,8 @@
         "lldp_neighbor_count": 1,
         "mac_addresses": [
           "02:00:00:00:01:01",
-          "02:aa:00:00:01:01",
-          "02:aa:00:00:01:02"
+          "02:20:11:1c:54:5f",
+          "02:20:11:1c:56:12"
         ],
         "management_ip": "192.0.2.1",
         "parent_devices": [],
@@ -147,17 +154,21 @@
         "display_name": "router-b",
         "dns_names": [],
         "hostnames": [],
-        "id": "macAddress:02:00:00:00:01:02",
+        "id": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
         "ip_addresses": [
-          "192.0.2.2",
-          "198.51.100.2"
+          "192.0.2.2"
         ],
         "layer": "network",
         "mac_addresses": [
-          "02:00:00:00:01:02"
+          "02:00:00:00:01:02",
+          "02:20:02:64:5d:77"
         ],
         "management_ip": "192.0.2.2",
         "parent_devices": [],
+        "ports_total": 1,
+        "protocols": [
+          "bridge"
+        ],
         "source": "snmp",
         "sys_descr": "Synthetic SNMP topology scenario device",
         "sys_name": "router-b",
@@ -218,9 +229,9 @@
           {
             "attachment_mode": "logical_l3_bgp",
             "direction": "observed",
-            "dst_actor": "macAddress:02:00:00:00:01:02",
+            "dst_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
             "inference": "bgp_established_adjacency",
-            "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e macAddress:02:00:00:00:01:02 | bgp_adjacency | bgp_adjacency | established | \u003cnil\u003e | \u003cnil\u003e",
+            "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e mac:02:00:00:00:01:02,02:20:02:64:5d:77 | bgp_adjacency | bgp_adjacency | established | \u003cnil\u003e | \u003cnil\u003e",
             "local_as": "65001",
             "local_identifier": "192.0.2.101",
             "local_ip": "198.51.100.1",
@@ -230,12 +241,53 @@
             "remote_as": "65002",
             "routing_instance": "default",
             "source": "bgp_mib",
-            "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+            "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
             "state": "established"
           }
         ]
       },
       "type": "bgp_adjacency"
+    },
+    "cdp": {
+      "table": {
+        "columns": [
+          "link:link_ref:role=reference",
+          "src_actor:actor_ref:role=reference",
+          "dst_actor:actor_ref:role=reference",
+          "protocol:string_ref:dict=strings:role=group_key",
+          "direction:string_ref:dict=strings:role=group_key",
+          "state:string_ref:dict=strings:nullable",
+          "src_port_name:string_ref:dict=strings:nullable",
+          "dst_port_name:string_ref:dict=strings:nullable",
+          "src_if_index:uint:nullable",
+          "dst_if_index:uint:nullable",
+          "src_port_id:string_ref:dict=strings:nullable",
+          "dst_port_id:string_ref:dict=strings:nullable",
+          "src_management_ip:string_ref:dict=strings:nullable",
+          "dst_management_ip:string_ref:dict=strings:nullable",
+          "confidence:string_ref:dict=strings:nullable",
+          "inference:string_ref:dict=strings:nullable",
+          "attachment_mode:string_ref:dict=strings:nullable"
+        ],
+        "rows": [
+          {
+            "direction": "bidirectional",
+            "dst_actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+            "dst_if_index": 1,
+            "dst_management_ip": "192.0.2.12",
+            "dst_port_id": "uplink-b",
+            "dst_port_name": "uplink-b",
+            "link": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d -\u003e mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c | cdp | cdp | \u003cnil\u003e | uplink-a | uplink-b",
+            "protocol": "cdp",
+            "src_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+            "src_if_index": 1,
+            "src_management_ip": "192.0.2.11",
+            "src_port_id": "uplink-a",
+            "src_port_name": "uplink-a"
+          }
+        ]
+      },
+      "type": "cdp"
     },
     "l3_subnet": {
       "table": {
@@ -269,18 +321,18 @@
           {
             "attachment_mode": "logical_l3_subnet",
             "direction": "observed",
-            "dst_actor": "macAddress:02:00:00:00:01:02",
+            "dst_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
             "dst_if_index": 1,
             "dst_ip": "198.51.100.2",
             "dst_port_name": "wan0",
             "inference": "shared_subnet",
-            "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e macAddress:02:00:00:00:01:02 | l3_subnet | l3_subnet | \u003cnil\u003e | wan0 | wan0",
+            "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e mac:02:00:00:00:01:02,02:20:02:64:5d:77 | l3_subnet | l3_subnet | \u003cnil\u003e | wan0 | wan0",
             "netmask": "255.255.255.252",
             "network": "198.51.100.0",
             "prefix": 30,
             "protocol": "l3_subnet",
             "source": "ip_mib",
-            "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+            "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
             "src_if_index": 1,
             "src_ip": "198.51.100.1",
             "src_port_name": "wan0",
@@ -328,8 +380,8 @@
             "direction": "observed",
             "dst_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
             "inference": "shared_subnet_membership",
-            "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e l3_subnet_segment:1758d71a9f4f3cd7 | l3_subnet_membership | l3_subnet_membership | \u003cnil\u003e | lan0 | \u003cnil\u003e",
-            "member_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+            "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e l3_subnet_segment:1758d71a9f4f3cd7 | l3_subnet_membership | l3_subnet_membership | \u003cnil\u003e | lan0 | \u003cnil\u003e",
+            "member_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
             "member_if_descr": "lan0",
             "member_if_index": 2,
             "member_if_name": "lan0",
@@ -340,7 +392,7 @@
             "protocol": "l3_subnet_membership",
             "segment_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
             "source": "ip_mib",
-            "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+            "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
             "src_if_index": 2,
             "src_port_name": "lan0",
             "subnet": "10.10.10.0/24"
@@ -350,8 +402,8 @@
             "direction": "observed",
             "dst_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
             "inference": "shared_subnet_membership",
-            "link": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02 -\u003e l3_subnet_segment:1758d71a9f4f3cd7 | l3_subnet_membership | l3_subnet_membership | \u003cnil\u003e | uplink-a | \u003cnil\u003e",
-            "member_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+            "link": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d -\u003e l3_subnet_segment:1758d71a9f4f3cd7 | l3_subnet_membership | l3_subnet_membership | \u003cnil\u003e | uplink-a | \u003cnil\u003e",
+            "member_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
             "member_if_descr": "uplink-a",
             "member_if_index": 1,
             "member_if_name": "uplink-a",
@@ -362,7 +414,7 @@
             "protocol": "l3_subnet_membership",
             "segment_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
             "source": "ip_mib",
-            "src_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+            "src_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
             "src_if_index": 1,
             "src_port_name": "uplink-a",
             "subnet": "10.10.10.0/24"
@@ -372,8 +424,8 @@
             "direction": "observed",
             "dst_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
             "inference": "shared_subnet_membership",
-            "link": "macAddress:02:00:00:00:02:02 -\u003e l3_subnet_segment:1758d71a9f4f3cd7 | l3_subnet_membership | l3_subnet_membership | \u003cnil\u003e | uplink-b | \u003cnil\u003e",
-            "member_actor": "macAddress:02:00:00:00:02:02",
+            "link": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c -\u003e l3_subnet_segment:1758d71a9f4f3cd7 | l3_subnet_membership | l3_subnet_membership | \u003cnil\u003e | uplink-b | \u003cnil\u003e",
+            "member_actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
             "member_if_descr": "uplink-b",
             "member_if_index": 1,
             "member_if_name": "uplink-b",
@@ -384,7 +436,7 @@
             "protocol": "l3_subnet_membership",
             "segment_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
             "source": "ip_mib",
-            "src_actor": "macAddress:02:00:00:00:02:02",
+            "src_actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
             "src_if_index": 1,
             "src_port_name": "uplink-b",
             "subnet": "10.10.10.0/24"
@@ -417,14 +469,14 @@
         "rows": [
           {
             "direction": "bidirectional",
-            "dst_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+            "dst_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
             "dst_if_index": 1,
             "dst_management_ip": "192.0.2.11",
             "dst_port_id": "uplink-a",
             "dst_port_name": "uplink-a",
-            "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02 | lldp | lldp | \u003cnil\u003e | lan0 | uplink-a",
+            "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d | lldp | lldp | \u003cnil\u003e | lan0 | uplink-a",
             "protocol": "lldp",
-            "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+            "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
             "src_if_index": 2,
             "src_management_ip": "192.0.2.1",
             "src_port_id": "lan0",
@@ -468,17 +520,17 @@
           {
             "attachment_mode": "logical_l3_ospf",
             "direction": "observed",
-            "dst_actor": "macAddress:02:00:00:00:01:02",
+            "dst_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
             "dst_ip": "198.51.100.2",
             "dst_router_id": "192.0.2.102",
             "inference": "ospf_full_adjacency",
-            "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e macAddress:02:00:00:00:01:02 | ospf_adjacency | ospf_adjacency | full | \u003cnil\u003e | \u003cnil\u003e",
+            "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e mac:02:00:00:00:01:02,02:20:02:64:5d:77 | ospf_adjacency | ospf_adjacency | full | \u003cnil\u003e | \u003cnil\u003e",
             "netmask": "255.255.255.252",
             "network": "198.51.100.0",
             "prefix": 30,
             "protocol": "ospf_adjacency",
             "source": "ospf_mib",
-            "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+            "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
             "src_ip": "198.51.100.1",
             "src_router_id": "192.0.2.101",
             "state": "full",
@@ -507,21 +559,33 @@
       {
         "direction": "bidirectional",
         "discovered_at": "2026-06-23T12:00:00Z",
-        "dst_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+        "dst_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
         "dst_port_name": "uplink-a",
         "evidence_count": 1,
         "last_seen": "2026-06-23T12:00:00Z",
         "protocol": "lldp",
-        "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+        "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "src_port_name": "lan0",
         "type": "lldp"
+      },
+      {
+        "direction": "bidirectional",
+        "discovered_at": "2026-06-23T12:00:00Z",
+        "dst_actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+        "dst_port_name": "uplink-b",
+        "evidence_count": 1,
+        "last_seen": "2026-06-23T12:00:00Z",
+        "protocol": "cdp",
+        "src_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+        "src_port_name": "uplink-a",
+        "type": "cdp"
       },
       {
         "direction": "observed",
         "dst_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
         "evidence_count": 1,
         "protocol": "l3_subnet_membership",
-        "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+        "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "src_port_name": "lan0",
         "type": "l3_subnet_membership"
       },
@@ -530,7 +594,7 @@
         "dst_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
         "evidence_count": 1,
         "protocol": "l3_subnet_membership",
-        "src_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+        "src_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
         "src_port_name": "uplink-a",
         "type": "l3_subnet_membership"
       },
@@ -539,35 +603,35 @@
         "dst_actor": "l3_subnet_segment:1758d71a9f4f3cd7",
         "evidence_count": 1,
         "protocol": "l3_subnet_membership",
-        "src_actor": "macAddress:02:00:00:00:02:02",
+        "src_actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
         "src_port_name": "uplink-b",
         "type": "l3_subnet_membership"
       },
       {
         "direction": "observed",
-        "dst_actor": "macAddress:02:00:00:00:01:02",
+        "dst_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
         "dst_port_name": "wan0",
         "evidence_count": 1,
         "protocol": "l3_subnet",
-        "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+        "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "src_port_name": "wan0",
         "type": "l3_subnet"
       },
       {
         "direction": "observed",
-        "dst_actor": "macAddress:02:00:00:00:01:02",
+        "dst_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
         "evidence_count": 1,
         "protocol": "bgp_adjacency",
-        "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+        "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "state": "established",
         "type": "bgp_adjacency"
       },
       {
         "direction": "observed",
-        "dst_actor": "macAddress:02:00:00:00:01:02",
+        "dst_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
         "evidence_count": 1,
         "protocol": "ospf_adjacency",
-        "src_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+        "src_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "state": "full",
         "type": "ospf_adjacency"
       }
@@ -828,7 +892,7 @@
     "links_lldp": 1,
     "links_probable": 0,
     "links_stp": 2,
-    "links_total": 7,
+    "links_total": 8,
     "links_unidirectional": 2,
     "managed_snmp_device_focus": "all_devices",
     "map_type": "lldp_cdp_managed",
@@ -869,7 +933,7 @@
           ],
           "rows": [
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "admin_status": "enabled",
               "bgp_version": "4",
               "description": "synthetic peer router-b",
@@ -880,14 +944,14 @@
               "neighbor_ip": "198.51.100.2",
               "peer_identifier": "192.0.2.102",
               "peer_type": "external",
-              "remote_actor": "macAddress:02:00:00:00:01:02",
+              "remote_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "remote_as": "65002",
               "routing_instance": "default",
               "source": "bgp_mib",
               "state": "established"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "admin_status": "enabled",
               "bgp_version": "4",
               "description": "synthetic peer router-a",
@@ -898,7 +962,7 @@
               "neighbor_ip": "198.51.100.1",
               "peer_identifier": "192.0.2.101",
               "peer_type": "external",
-              "remote_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "remote_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "remote_as": "65001",
               "routing_instance": "default",
               "source": "bgp_mib",
@@ -969,14 +1033,14 @@
               "value": "ip_mib"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "actor_type",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "router"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "capabilities",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -984,7 +1048,7 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "capabilities_enabled",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -992,7 +1056,7 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "capabilities_supported",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1000,21 +1064,21 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "chart_context_prefix",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "snmp.device_prof_"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "chart_id_prefix",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "snmp_device_prof_"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "chassis_id",
               "kind": "match",
               "source": "snmp-l2",
@@ -1022,49 +1086,49 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "display_name",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "router-a"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "display_name",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "router-a"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "display_name",
               "kind": "label",
               "source": "producer_label",
               "value": "router-a"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "display_source",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "sys_name"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "display_source",
               "kind": "label",
               "source": "producer_label",
               "value": "sys_name"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_admin_status_counts",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "up:2"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_indexes",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1072,7 +1136,7 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_indexes",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1080,14 +1144,14 @@
               "value_index": 1
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_link_mode_counts",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "unknown:2"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_names",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1095,7 +1159,7 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_names",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1103,28 +1167,28 @@
               "value_index": 1
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_oper_status_counts",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "up:2"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "if_topology_role_counts",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "switch_facing:1,unknown:1"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "inferred",
               "kind": "label",
               "source": "producer_label",
               "value": "false"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "ip_address",
               "kind": "match",
               "source": "snmp-l2",
@@ -1132,35 +1196,35 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "layer",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "network"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "lldp_loc_sys_cap_enabled",
               "kind": "label",
               "source": "producer_label",
               "value": "08"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "lldp_loc_sys_cap_supported",
               "kind": "label",
               "source": "producer_label",
               "value": "08"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "lldp_neighbor_count",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "1"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "mac_address",
               "kind": "match",
               "source": "snmp-l2",
@@ -1168,58 +1232,58 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "mac_address",
               "kind": "match",
               "source": "snmp-l2",
-              "value": "02:aa:00:00:01:01",
+              "value": "02:20:11:1c:54:5f",
               "value_index": 1
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "mac_address",
               "kind": "match",
               "source": "snmp-l2",
-              "value": "02:aa:00:00:01:02",
+              "value": "02:20:11:1c:56:12",
               "value_index": 2
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "management_ip",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "192.0.2.1"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "ospf_router_id",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "192.0.2.101"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "ospf_router_id",
               "kind": "label",
               "source": "producer_label",
               "value": "192.0.2.101"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "ports_total",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "2"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "ports_up",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "2"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "protocols",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1227,7 +1291,7 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "protocols",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1235,7 +1299,7 @@
               "value_index": 1
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "protocols_collected",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1243,7 +1307,7 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "protocols_collected",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1251,165 +1315,151 @@
               "value_index": 1
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "protocols_observed",
               "kind": "label",
               "source": "producer_label",
               "value": "bridge,lldp"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "source",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "snmp"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "sys_descr",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "Synthetic SNMP topology scenario device"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "sys_name",
               "kind": "match",
               "source": "snmp-l2",
               "value": "router-a"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "sys_object_id",
               "kind": "match",
               "source": "snmp-l2",
               "value": "1.3.6.1.4.1.8072.3.2.1"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "sys_uptime",
               "kind": "label",
               "source": "producer_label",
               "value": "3600"
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "key": "type",
               "kind": "label",
               "source": "producer_label",
               "value": "router"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "actor_type",
               "kind": "identity",
               "source": "snmp-l2",
-              "value": "switch"
+              "value": "router"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "capabilities",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "bridge",
+              "value": "router",
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "capabilities_enabled",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "bridge",
+              "value": "router",
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "capabilities_supported",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "bridge",
+              "value": "router",
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "cdp_neighbor_count",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "1"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "chart_context_prefix",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "snmp.device_prof_"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "chart_id_prefix",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "snmp_device_prof_"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "chassis_id",
               "kind": "match",
               "source": "snmp-l2",
-              "value": "02:00:00:00:02:01",
+              "value": "02:00:00:00:01:02",
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "display_name",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "switch-a"
+              "value": "router-b"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "display_name",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "switch-a"
+              "value": "router-b"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "display_name",
               "kind": "label",
               "source": "producer_label",
-              "value": "switch-a"
+              "value": "router-b"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "display_source",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "sys_name"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "display_source",
               "kind": "label",
               "source": "producer_label",
               "value": "sys_name"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "fdb_total_macs",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "1"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "if_admin_status_counts",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "up:2"
+              "value": "up:1"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "if_indexes",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1417,352 +1467,43 @@
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "if_indexes",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "2",
-              "value_index": 1
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "if_link_mode_counts",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "unknown:2"
+              "value": "unknown:1"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "if_names",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "host-a",
+              "value": "wan0",
               "value_index": 0
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "if_names",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "uplink-a",
-              "value_index": 1
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "if_oper_status_counts",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "up:2"
+              "value": "up:1"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "if_topology_role_counts",
               "kind": "attribute",
               "source": "snmp-l2",
-              "value": "host_facing:1,switch_facing:1"
+              "value": "unknown:1"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "inferred",
               "kind": "label",
               "source": "producer_label",
               "value": "false"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "ip_address",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "192.0.2.11",
-              "value_index": 0
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "layer",
-              "kind": "identity",
-              "source": "snmp-l2",
-              "value": "network"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "lldp_loc_sys_cap_enabled",
-              "kind": "label",
-              "source": "producer_label",
-              "value": "20"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "lldp_loc_sys_cap_supported",
-              "kind": "label",
-              "source": "producer_label",
-              "value": "20"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "lldp_neighbor_count",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "1"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "mac_address",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "02:00:00:00:02:01",
-              "value_index": 0
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "mac_address",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "02:aa:00:00:02:01",
-              "value_index": 1
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "mac_address",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "02:aa:00:00:02:02",
-              "value_index": 2
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "management_ip",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "192.0.2.11"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "ports_total",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "2"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "ports_up",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "2"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "arp",
-              "value_index": 0
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "bridge",
-              "value_index": 1
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "cdp",
-              "value_index": 2
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "fdb",
-              "value_index": 3
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "lldp",
-              "value_index": 4
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "stp",
-              "value_index": 5
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_collected",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "arp",
-              "value_index": 0
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_collected",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "bridge",
-              "value_index": 1
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_collected",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "cdp",
-              "value_index": 2
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_collected",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "fdb",
-              "value_index": 3
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_collected",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "lldp",
-              "value_index": 4
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_collected",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "stp",
-              "value_index": 5
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "protocols_observed",
-              "kind": "label",
-              "source": "producer_label",
-              "value": "arp,bridge,cdp,fdb,lldp,stp"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "source",
-              "kind": "identity",
-              "source": "snmp-l2",
-              "value": "snmp"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "sys_descr",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "Synthetic SNMP topology scenario device"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "sys_name",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "switch-a"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "sys_object_id",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "1.3.6.1.4.1.8072.3.2.3"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "sys_uptime",
-              "kind": "label",
-              "source": "producer_label",
-              "value": "3600"
-            },
-            {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
-              "key": "type",
-              "kind": "label",
-              "source": "producer_label",
-              "value": "switch"
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "actor_type",
-              "kind": "identity",
-              "source": "snmp-l2",
-              "value": "router"
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "capabilities",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "router",
-              "value_index": 0
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "capabilities_enabled",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "router",
-              "value_index": 0
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "capabilities_supported",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "router",
-              "value_index": 0
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "chart_context_prefix",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "snmp.device_prof_"
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "chart_id_prefix",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "snmp_device_prof_"
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "chassis_id",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "02:00:00:00:01:02",
-              "value_index": 0
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "display_name",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "router-b"
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "display_name",
-              "kind": "attribute",
-              "source": "snmp-l2",
-              "value": "router-b"
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "ip_address",
               "kind": "match",
               "source": "snmp-l2",
@@ -1770,36 +1511,28 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
-              "key": "ip_address",
-              "kind": "match",
-              "source": "snmp-l2",
-              "value": "198.51.100.2",
-              "value_index": 1
-            },
-            {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "layer",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "network"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "lldp_loc_sys_cap_enabled",
               "kind": "label",
               "source": "producer_label",
               "value": "08"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "lldp_loc_sys_cap_supported",
               "kind": "label",
               "source": "producer_label",
               "value": "08"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "mac_address",
               "kind": "match",
               "source": "snmp-l2",
@@ -1807,77 +1540,122 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "mac_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "02:20:02:64:5d:77",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "management_ip",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "192.0.2.2"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "ospf_router_id",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "192.0.2.102"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "ospf_router_id",
               "kind": "label",
               "source": "producer_label",
               "value": "192.0.2.102"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "ports_total",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "ports_up",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "protocols_observed",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "bridge"
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "source",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "snmp"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "sys_descr",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "Synthetic SNMP topology scenario device"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "sys_name",
               "kind": "match",
               "source": "snmp-l2",
               "value": "router-b"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "sys_object_id",
               "kind": "match",
               "source": "snmp-l2",
               "value": "1.3.6.1.4.1.8072.3.2.2"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "sys_uptime",
               "kind": "label",
               "source": "producer_label",
               "value": "3600"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "type",
               "kind": "label",
               "source": "producer_label",
               "value": "router"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "key": "actor_type",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "switch"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "key": "capabilities",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1885,7 +1663,7 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "key": "capabilities_enabled",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1893,7 +1671,7 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "key": "capabilities_supported",
               "kind": "attribute",
               "source": "snmp-l2",
@@ -1901,21 +1679,423 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "cdp_neighbor_count",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "key": "chart_context_prefix",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "snmp.device_prof_"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "key": "chart_id_prefix",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "snmp_device_prof_"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "chassis_id",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "02:00:00:00:02:01",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "display_name",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "switch-a"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "display_name",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "switch-a"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "display_name",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "switch-a"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "display_source",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "sys_name"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "display_source",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "sys_name"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "fdb_total_macs",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_admin_status_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "up:2"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_indexes",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_indexes",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "2",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_link_mode_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "unknown:2"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_names",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "host-a",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_names",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "uplink-a",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_oper_status_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "up:2"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "if_topology_role_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "host_facing:1,switch_facing:1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "inferred",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "false"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "ip_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "192.0.2.11",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "layer",
+              "kind": "identity",
+              "source": "snmp-l2",
+              "value": "network"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "lldp_loc_sys_cap_enabled",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "20"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "lldp_loc_sys_cap_supported",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "20"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "lldp_neighbor_count",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "mac_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "02:00:00:00:02:01",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "mac_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "02:dd:ce:cc:45:64",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "mac_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "02:dd:ce:cc:4a:7d",
+              "value_index": 2
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "management_ip",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "192.0.2.11"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "ports_total",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "2"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "ports_up",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "2"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "arp",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "cdp",
+              "value_index": 2
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "fdb",
+              "value_index": 3
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "lldp",
+              "value_index": 4
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "stp",
+              "value_index": 5
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "arp",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "cdp",
+              "value_index": 2
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "fdb",
+              "value_index": 3
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "lldp",
+              "value_index": 4
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "stp",
+              "value_index": 5
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "protocols_observed",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "arp,bridge,cdp,fdb,lldp,stp"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "source",
+              "kind": "identity",
+              "source": "snmp-l2",
+              "value": "snmp"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "sys_descr",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "Synthetic SNMP topology scenario device"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "sys_name",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "switch-a"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "sys_object_id",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "1.3.6.1.4.1.8072.3.2.3"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "sys_uptime",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "3600"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "type",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "switch"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "actor_type",
+              "kind": "identity",
+              "source": "snmp-l2",
+              "value": "switch"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "capabilities",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "capabilities_enabled",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "capabilities_supported",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "cdp_neighbor_count",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "chart_context_prefix",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "snmp.device_prof_"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "chart_id_prefix",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "snmp_device_prof_"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "chassis_id",
               "kind": "match",
               "source": "snmp-l2",
@@ -1923,58 +2103,122 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "display_name",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "switch-b"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "display_name",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "switch-b"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
-              "key": "ip_address",
-              "kind": "match",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "display_name",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "switch-b"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "display_source",
+              "kind": "attribute",
               "source": "snmp-l2",
-              "value": "10.10.10.3",
+              "value": "sys_name"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "display_source",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "sys_name"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "if_admin_status_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "up:1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "if_indexes",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1",
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "if_link_mode_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "unknown:1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "if_names",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "uplink-b",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "if_oper_status_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "up:1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "if_topology_role_counts",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "switch_facing:1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "inferred",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "false"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "ip_address",
               "kind": "match",
               "source": "snmp-l2",
               "value": "192.0.2.12",
-              "value_index": 1
+              "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "layer",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "network"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "lldp_loc_sys_cap_enabled",
               "kind": "label",
               "source": "producer_label",
               "value": "20"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "lldp_loc_sys_cap_supported",
               "kind": "label",
               "source": "producer_label",
               "value": "20"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "mac_address",
               "kind": "match",
               "source": "snmp-l2",
@@ -1982,49 +2226,126 @@
               "value_index": 0
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "mac_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "02:dd:c9:e4:b5:2c",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "management_ip",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "192.0.2.12"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "ports_total",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "ports_up",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "1"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "cdp",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "stp",
+              "value_index": 2
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "bridge",
+              "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "cdp",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols_collected",
+              "kind": "attribute",
+              "source": "snmp-l2",
+              "value": "stp",
+              "value_index": 2
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "protocols_observed",
+              "kind": "label",
+              "source": "producer_label",
+              "value": "bridge,cdp,stp"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "source",
               "kind": "identity",
               "source": "snmp-l2",
               "value": "snmp"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "sys_descr",
               "kind": "attribute",
               "source": "snmp-l2",
               "value": "Synthetic SNMP topology scenario device"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "sys_name",
               "kind": "match",
               "source": "snmp-l2",
               "value": "switch-b"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "sys_object_id",
               "kind": "match",
               "source": "snmp-l2",
               "value": "1.3.6.1.4.1.8072.3.2.4"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "sys_uptime",
               "kind": "label",
               "source": "producer_label",
               "value": "3600"
             },
             {
-              "actor": "macAddress:02:00:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "key": "type",
               "kind": "label",
               "source": "producer_label",
@@ -2042,7 +2363,7 @@
           ],
           "rows": [
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "labels": {
                 "display_name": "router-a",
                 "display_source": "sys_name",
@@ -2056,7 +2377,21 @@
               }
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "labels": {
+                "display_name": "router-b",
+                "display_source": "sys_name",
+                "inferred": "false",
+                "lldp_loc_sys_cap_enabled": "08",
+                "lldp_loc_sys_cap_supported": "08",
+                "ospf_router_id": "192.0.2.102",
+                "protocols_observed": "bridge",
+                "sys_uptime": "3600",
+                "type": "router"
+              }
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "labels": {
                 "display_name": "switch-a",
                 "display_source": "sys_name",
@@ -2069,20 +2404,14 @@
               }
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
               "labels": {
-                "lldp_loc_sys_cap_enabled": "08",
-                "lldp_loc_sys_cap_supported": "08",
-                "ospf_router_id": "192.0.2.102",
-                "sys_uptime": "3600",
-                "type": "router"
-              }
-            },
-            {
-              "actor": "macAddress:02:00:00:00:02:02",
-              "labels": {
+                "display_name": "switch-b",
+                "display_source": "sys_name",
+                "inferred": "false",
                 "lldp_loc_sys_cap_enabled": "20",
                 "lldp_loc_sys_cap_supported": "20",
+                "protocols_observed": "bridge,cdp,stp",
                 "sys_uptime": "3600",
                 "type": "switch"
               }
@@ -2107,25 +2436,25 @@
           ],
           "rows": [
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "addressless_index": "0",
               "local_ip": "198.51.100.1",
               "local_router_id": "192.0.2.101",
               "neighbor_ip": "198.51.100.2",
               "neighbor_router_id": "192.0.2.102",
-              "remote_actor": "macAddress:02:00:00:00:01:02",
+              "remote_actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "source": "ospf_mib",
               "state": "full",
               "subnet": "198.51.100.0/30"
             },
             {
-              "actor": "macAddress:02:00:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "addressless_index": "0",
               "local_ip": "198.51.100.2",
               "local_router_id": "192.0.2.102",
               "neighbor_ip": "198.51.100.1",
               "neighbor_router_id": "192.0.2.101",
-              "remote_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "remote_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "source": "ospf_mib",
               "state": "full",
               "subnet": "198.51.100.0/30"
@@ -2158,36 +2487,68 @@
           ],
           "rows": [
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "discovered_at": "2026-06-23T12:00:00Z",
               "evidence_count": 1,
               "if_index": 2,
               "last_seen": "2026-06-23T12:00:00Z",
-              "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02 | lldp | lldp | \u003cnil\u003e | lan0 | uplink-a",
+              "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d | lldp | lldp | \u003cnil\u003e | lan0 | uplink-a",
               "port_id": "lan0",
               "port_name": "lan0",
               "protocol": "lldp",
-              "remote_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "remote_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "remote_if_index": 1,
               "remote_port_id": "uplink-a",
               "remote_port_name": "uplink-a",
               "type": "lldp"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "discovered_at": "2026-06-23T12:00:00Z",
               "evidence_count": 1,
               "if_index": 1,
               "last_seen": "2026-06-23T12:00:00Z",
-              "link": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02 -\u003e mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02 | lldp | lldp | \u003cnil\u003e | lan0 | uplink-a",
+              "link": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12 -\u003e mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d | lldp | lldp | \u003cnil\u003e | lan0 | uplink-a",
               "port_id": "uplink-a",
               "port_name": "uplink-a",
               "protocol": "lldp",
-              "remote_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "remote_actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "remote_if_index": 2,
               "remote_port_id": "lan0",
               "remote_port_name": "lan0",
               "type": "lldp"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "discovered_at": "2026-06-23T12:00:00Z",
+              "evidence_count": 1,
+              "if_index": 1,
+              "last_seen": "2026-06-23T12:00:00Z",
+              "link": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d -\u003e mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c | cdp | cdp | \u003cnil\u003e | uplink-a | uplink-b",
+              "port_id": "uplink-a",
+              "port_name": "uplink-a",
+              "protocol": "cdp",
+              "remote_actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "remote_if_index": 1,
+              "remote_port_id": "uplink-b",
+              "remote_port_name": "uplink-b",
+              "type": "cdp"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "discovered_at": "2026-06-23T12:00:00Z",
+              "evidence_count": 1,
+              "if_index": 1,
+              "last_seen": "2026-06-23T12:00:00Z",
+              "link": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d -\u003e mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c | cdp | cdp | \u003cnil\u003e | uplink-a | uplink-b",
+              "port_id": "uplink-b",
+              "port_name": "uplink-b",
+              "protocol": "cdp",
+              "remote_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "remote_if_index": 1,
+              "remote_port_id": "uplink-a",
+              "remote_port_name": "uplink-a",
+              "type": "cdp"
             }
           ]
         },
@@ -2228,7 +2589,7 @@
           ],
           "rows": [
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "admin_status": "up",
               "duplex": "full",
               "if_alias": "scenario lan0",
@@ -2241,9 +2602,9 @@
               "link_mode_sources": [
                 "peer_link"
               ],
-              "mac": "02:aa:00:00:01:02",
+              "mac": "02:20:11:1c:54:5f",
               "name": "lan0",
-              "neighbor_actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "neighbor_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "neighbor_count": 1,
               "neighbor_port_name": "uplink-a",
               "neighbors": [
@@ -2266,7 +2627,7 @@
               ]
             },
             {
-              "actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
               "admin_status": "up",
               "duplex": "full",
               "if_alias": "scenario wan0",
@@ -2275,7 +2636,7 @@
               "if_name": "wan0",
               "link_mode": "unknown",
               "link_mode_confidence": "low",
-              "mac": "02:aa:00:00:01:01",
+              "mac": "02:20:11:1c:56:12",
               "name": "wan0",
               "oper_status": "up",
               "port_type": "ethernetcsmacd",
@@ -2284,7 +2645,25 @@
               "topology_role_confidence": "low"
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "admin_status": "up",
+              "duplex": "full",
+              "if_alias": "scenario wan0",
+              "if_descr": "wan0",
+              "if_index": 1,
+              "if_name": "wan0",
+              "link_mode": "unknown",
+              "link_mode_confidence": "low",
+              "mac": "02:20:02:64:5d:77",
+              "name": "wan0",
+              "oper_status": "up",
+              "port_type": "ethernetcsmacd",
+              "speed": 1000000000,
+              "topology_role": "unknown",
+              "topology_role_confidence": "low"
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "admin_status": "up",
               "duplex": "full",
               "fdb_mac_count": 1,
@@ -2298,7 +2677,7 @@
               "link_mode_sources": [
                 "fdb"
               ],
-              "mac": "02:aa:00:00:02:02",
+              "mac": "02:dd:ce:cc:45:64",
               "name": "host-a",
               "oper_status": "up",
               "port_type": "ethernetcsmacd",
@@ -2310,7 +2689,7 @@
               ]
             },
             {
-              "actor": "mac:02:00:00:00:02:01,02:aa:00:00:02:01,02:aa:00:00:02:02",
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
               "admin_status": "up",
               "duplex": "full",
               "if_alias": "scenario uplink-a",
@@ -2324,11 +2703,9 @@
                 "stp",
                 "peer_link"
               ],
-              "mac": "02:aa:00:00:02:01",
+              "mac": "02:dd:ce:cc:4a:7d",
               "name": "uplink-a",
-              "neighbor_actor": "mac:02:00:00:00:01:01,02:aa:00:00:01:01,02:aa:00:00:01:02",
               "neighbor_count": 2,
-              "neighbor_port_name": "lan0",
               "neighbors": [
                 {
                   "protocol": "cdp",
@@ -2343,6 +2720,47 @@
                   "remote_device": "router-a",
                   "remote_ip": "192.0.2.1",
                   "remote_port": "lan0"
+                }
+              ],
+              "oper_status": "up",
+              "port_type": "ethernetcsmacd",
+              "speed": 1000000000,
+              "stp_state": "forwarding",
+              "topology_role": "switch_facing",
+              "topology_role_confidence": "high",
+              "topology_role_sources": [
+                "peer_link",
+                "bridge_link",
+                "stp"
+              ]
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "admin_status": "up",
+              "duplex": "full",
+              "if_alias": "scenario uplink-b",
+              "if_descr": "uplink-b",
+              "if_index": 1,
+              "if_name": "uplink-b",
+              "link_count": 3,
+              "link_mode": "unknown",
+              "link_mode_confidence": "low",
+              "link_mode_sources": [
+                "stp",
+                "peer_link"
+              ],
+              "mac": "02:dd:c9:e4:b5:2c",
+              "name": "uplink-b",
+              "neighbor_actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "neighbor_count": 1,
+              "neighbor_port_name": "uplink-a",
+              "neighbors": [
+                {
+                  "protocol": "cdp",
+                  "remote_chassis_id": "02:00:00:00:02:01",
+                  "remote_device": "switch-a",
+                  "remote_ip": "192.0.2.11",
+                  "remote_port": "uplink-a"
                 }
               ],
               "oper_status": "up",
