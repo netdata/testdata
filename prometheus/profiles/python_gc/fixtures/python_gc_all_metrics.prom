@@ -1,0 +1,17 @@
+# Synthetic Prometheus client Python garbage-collector structural fixture; this is not a captured scrape.
+# Labels and values are non-production placeholders derived from public exporter source.
+# HELP python_gc_objects_collected_total Objects collected during gc
+# TYPE python_gc_objects_collected_total counter
+python_gc_objects_collected_total{generation="0"} 101
+python_gc_objects_collected_total{generation="1"} 102
+python_gc_objects_collected_total{generation="2"} 103
+# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC
+# TYPE python_gc_objects_uncollectable_total counter
+python_gc_objects_uncollectable_total{generation="0"} 101
+python_gc_objects_uncollectable_total{generation="1"} 102
+python_gc_objects_uncollectable_total{generation="2"} 103
+# HELP python_gc_collections_total Number of times this generation was collected
+# TYPE python_gc_collections_total counter
+python_gc_collections_total{generation="0"} 101
+python_gc_collections_total{generation="1"} 102
+python_gc_collections_total{generation="2"} 103

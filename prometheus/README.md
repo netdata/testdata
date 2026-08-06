@@ -5,12 +5,10 @@ stock Prometheus profiles in `netdata/netdata`.
 
 ## Data boundary
 
-- `profiles/<profile-revision>/fixtures/` contains sanitized, source-derived synthetic
+- `profiles/<profile>/fixtures/` contains sanitized, source-derived synthetic
   Prometheus exposition.
-- `profiles/<profile-revision>/SOURCE-INVENTORY.tsv` contains the generated
+- `profiles/<profile>/SOURCE-INVENTORY.tsv` contains the generated
   source-family-to-profile reconciliation ledger.
-- `profiles/<profile-revision>/manifest.yaml` records the size and SHA-256 digest of
-  every evidence file.
 
 These fixtures are structural unions assembled from public exporter source and
 documentation. Mutually exclusive releases, roles, features, and exporter
@@ -25,20 +23,10 @@ directory in `netdata/netdata`.
 
 ## Consumer contract
 
-Consumers use the latest `netdata/testdata` `master` and verify the referenced
-manifest plus every file size and SHA-256 digest it declares. The default branch
-is the transport; immutable paths and content digests are the reproducibility
-boundary, so consumers do not need a repository commit lock.
+Prometheus profile validation uses the latest `netdata/testdata` `master`. Each
+profile has one stable directory; evidence and the matching validator proof are
+updated together when exporter coverage or validation behavior changes.
 
-## Producer contract
-
-- A merged profile-evidence directory is immutable. Do not modify or delete a
-  manifest, source inventory, or fixture referenced by a merged Netdata commit.
-- Changed evidence must use a new `profiles/<profile-revision>/` directory with
-  a new manifest. The current unversioned profile directories are their initial
-  revisions.
-- The Prometheus evidence workflow rejects edits or deletions in existing
-  profile-revision directories and rejects new files added below an existing
-  directory.
-- Land the testdata change before the Netdata change that references its new
-  manifest.
+The Netdata proof descriptor owns expected counts, findings, and exact source
+inventory reconciliation. Git owns transport integrity; this repository does
+not preserve historical evidence revisions for old Netdata checkouts.
