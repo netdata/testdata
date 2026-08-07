@@ -1,0 +1,306 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: 1
+profile: process_runtime
+upstreams:
+  - id: prometheus_client_python
+    repository: prometheus/client_python
+    revision: f417f6ea8f058165a1934e368fed245e91aafc14
+    version_scope: 0.24.1
+    role: producer
+evidence:
+  - id: ev_process_availability
+    kind: availability
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 16, line_end: 100}]
+    claim: The default process collector is registered when enabled and emits only when the selected proc entry is readable.
+  - id: ev_process_registration
+    kind: registration
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 65, line_end: 93}]
+    claim: The collector defines virtual memory, resident memory, start time, CPU time, open descriptors, and descriptor limit families.
+  - id: ev_process_type_shape
+    kind: type_shape
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 65, line_end: 93}]
+    claim: CPU time is a scalar counter and the other process families are scalar gauges.
+  - id: ev_process_meaning
+    kind: meaning
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 65, line_end: 93}]
+    claim: Family names, help text, and proc-field reads define the process resource measured by each signal.
+  - id: ev_process_population
+    kind: population
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 19, line_end: 30}, {path: prometheus_client/process_collector.py, line_start: 54, line_end: 63}]
+    claim: Every emitted process observation describes the one process selected by the collector pid function.
+  - id: ev_process_relationship
+    kind: relationship
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 65, line_end: 93}]
+    claim: The six process families are independent resource aspects emitted by one collector and are not additive peers.
+  - id: ev_process_identity
+    kind: identity
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 19, line_end: 30}, {path: prometheus_client/process_collector.py, line_start: 54, line_end: 58}]
+    claim: The collector invocation selects one process and emits no subordinate identity label.
+  - id: ev_process_cardinality
+    kind: cardinality
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 54, line_end: 97}]
+    claim: One successful collection emits at most one scalar observation for each process family.
+  - id: ev_process_lifecycle
+    kind: lifecycle
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 65, line_end: 93}]
+    claim: CPU time is cumulative for the selected process; memory, start time, and descriptor values are current snapshots.
+  - id: ev_process_unit
+    kind: unit
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 65, line_end: 93}]
+    claim: The implementation emits memory in bytes, CPU and start time in seconds, and descriptor counts as descriptors.
+  - id: ev_start_normalization
+    kind: normalization
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/process_collector.py, line_start: 69, line_end: 72}]
+    claim: Process start time is emitted as an absolute Unix-epoch value rather than elapsed uptime.
+  - id: ev_python_availability
+    kind: availability
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 8, line_end: 24}, {path: prometheus_client/platform_collector.py, line_start: 58}]
+    claim: The platform collector registers python_info in the default registry when enabled.
+  - id: ev_python_registration
+    kind: registration
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 15, line_end: 24}]
+    claim: The platform collector defines and caches the python_info family.
+  - id: ev_python_type_shape
+    kind: type_shape
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 29, line_end: 35}]
+    claim: python_info is a gauge-valued information family with value one and metadata labels.
+  - id: ev_python_meaning
+    kind: meaning
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 20, line_end: 21}, {path: prometheus_client/platform_collector.py, line_start: 37, line_end: 55}]
+    claim: The family reports Python implementation and version metadata, with additional JVM metadata on Java runtimes.
+  - id: ev_python_population
+    kind: population
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 15, line_end: 27}]
+    claim: One python_info observation describes the current Python runtime.
+  - id: ev_python_relationship
+    kind: relationship
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 20, line_end: 27}]
+    claim: python_info is metadata and is independent of the numeric process resource families.
+  - id: ev_python_lifecycle
+    kind: lifecycle
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 15, line_end: 27}]
+    claim: Platform metadata is captured at collector construction and remains constant for that runtime.
+  - id: ev_python_unit
+    kind: unit
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 29, line_end: 35}]
+    claim: The information family uses the conventional unitless value one.
+  - id: ev_python_labels
+    kind: labels
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 29, line_end: 55}]
+    claim: Mapping keys become python_info labels; CPython supplies implementation and version fields and Java adds JVM fields.
+  - id: ev_python_cardinality
+    kind: cardinality
+    upstream: prometheus_client_python
+    locations: [{path: prometheus_client/platform_collector.py, line_start: 20, line_end: 35}]
+    claim: The collector emits exactly one python_info observation for the current runtime.
+availability:
+  - id: process_collector_available
+    proposition: The process collector is registered and its selected proc entry is readable on this platform.
+    evidence: [ev_process_availability]
+  - id: platform_collector_available
+    proposition: The platform collector is registered in the exporter registry.
+    evidence: [ev_python_availability]
+source_signals:
+  - id: cpu_time
+    family_scope: process_cpu_seconds_total
+    prometheus_type: counter
+    shape: scalar
+    meaning: Total user and system CPU time consumed by the selected process.
+    population: One cumulative CPU-time observation for the selected process.
+    relationships: []
+    availability: [process_collector_available]
+    evidence: [ev_process_registration, ev_process_type_shape, ev_process_meaning, ev_process_population, ev_process_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: cumulative
+        raw_unit: seconds
+        measured_object: process CPU time
+        structural_labels: []
+        evidence: [ev_process_lifecycle, ev_process_unit, ev_process_meaning]
+    labels: []
+  - id: resident_memory
+    family_scope: process_resident_memory_bytes
+    prometheus_type: gauge
+    shape: scalar
+    meaning: Resident memory occupied by the selected process.
+    population: One current resident-memory observation for the selected process.
+    relationships: [virtual_memory]
+    availability: [process_collector_available]
+    evidence: [ev_process_registration, ev_process_type_shape, ev_process_meaning, ev_process_population, ev_process_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: current
+        raw_unit: bytes
+        measured_object: resident process memory
+        structural_labels: []
+        evidence: [ev_process_lifecycle, ev_process_unit, ev_process_meaning]
+    labels: []
+  - id: virtual_memory
+    family_scope: process_virtual_memory_bytes
+    prometheus_type: gauge
+    shape: scalar
+    meaning: Virtual memory address space occupied by the selected process.
+    population: One current virtual-memory observation for the selected process.
+    relationships: [resident_memory]
+    availability: [process_collector_available]
+    evidence: [ev_process_registration, ev_process_type_shape, ev_process_meaning, ev_process_population, ev_process_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: current
+        raw_unit: bytes
+        measured_object: virtual process memory
+        structural_labels: []
+        evidence: [ev_process_lifecycle, ev_process_unit, ev_process_meaning]
+    labels: []
+  - id: process_start_time
+    family_scope: process_start_time_seconds
+    prometheus_type: gauge
+    shape: scalar
+    meaning: Unix epoch timestamp at which the selected process started.
+    population: One start-time observation for the selected process.
+    relationships: []
+    availability: [process_collector_available]
+    evidence: [ev_process_registration, ev_process_type_shape, ev_process_meaning, ev_process_population, ev_process_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: current
+        raw_unit: seconds since Unix epoch
+        measured_object: process start timestamp
+        structural_labels: []
+        evidence: [ev_process_lifecycle, ev_process_unit, ev_process_meaning]
+    labels: []
+  - id: open_file_descriptors
+    family_scope: process_open_fds
+    prometheus_type: gauge
+    shape: scalar
+    meaning: Number of file descriptors currently open by the selected process.
+    population: One current open-descriptor observation for the selected process.
+    relationships: [file_descriptor_limit]
+    availability: [process_collector_available]
+    evidence: [ev_process_registration, ev_process_type_shape, ev_process_meaning, ev_process_population, ev_process_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: current
+        raw_unit: file descriptors
+        measured_object: open file descriptors
+        structural_labels: []
+        evidence: [ev_process_lifecycle, ev_process_unit, ev_process_meaning]
+    labels: []
+  - id: file_descriptor_limit
+    family_scope: process_max_fds
+    prometheus_type: gauge
+    shape: scalar
+    meaning: Maximum number of file descriptors available to the selected process.
+    population: One current descriptor-limit observation for the selected process.
+    relationships: [open_file_descriptors]
+    availability: [process_collector_available]
+    evidence: [ev_process_registration, ev_process_type_shape, ev_process_meaning, ev_process_population, ev_process_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: current
+        raw_unit: file descriptors
+        measured_object: file descriptor capacity
+        structural_labels: []
+        evidence: [ev_process_lifecycle, ev_process_unit, ev_process_meaning]
+    labels: []
+  - id: python_runtime_info
+    family_scope: python_info
+    prometheus_type: gauge
+    shape: info
+    meaning: Metadata identifying the current Python runtime and, when applicable, its JVM.
+    population: One information observation for the current Python runtime.
+    relationships: []
+    availability: [platform_collector_available]
+    evidence: [ev_python_registration, ev_python_type_shape, ev_python_meaning, ev_python_population, ev_python_relationship]
+    components:
+      - token: scalar
+        raw_lifecycle: constant
+        raw_unit: information
+        measured_object: Python runtime metadata
+        structural_labels: []
+        evidence: [ev_python_lifecycle, ev_python_unit, ev_python_meaning]
+    labels:
+      - name: implementation
+        presence: required
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: observed_lower_bound, value: 1, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: major
+        presence: required
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: observed_lower_bound, value: 1, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: minor
+        presence: required
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: observed_lower_bound, value: 1, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: patchlevel
+        presence: required
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: observed_lower_bound, value: 1, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: version
+        presence: required
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: observed_lower_bound, value: 1, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: jvm_version
+        presence: optional
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: unknown, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: jvm_release
+        presence: optional
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: unknown, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: jvm_vendor
+        presence: optional
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: unknown, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
+      - name: jvm_name
+        presence: optional
+        role: observation_metadata
+        domain: operational_population
+        closed_values: []
+        cardinality: {kind: unknown, evidence: [ev_python_cardinality]}
+        evidence: [ev_python_labels]
