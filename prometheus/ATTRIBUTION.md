@@ -32,6 +32,14 @@ remain in the corresponding `netdata/netdata` profile proof.
   - <https://github.com/BerriAI/litellm/blob/23de7a15d9d40006ee596e617475ba101d60c5e9/LICENSE>
   - <https://github.com/prometheus/client_python/blob/f417f6ea8f058165a1934e368fed245e91aafc14/LICENSE>
 
+## FastAPI instrumentator
+
+- `trallnag/prometheus-fastapi-instrumentator` at `2f841527277a21ac9ea622a9f923a5f9078234c4`.
+- `prometheus/client_python` at `f417f6ea8f058165a1934e368fed245e91aafc14`.
+- Licenses:
+  - <https://github.com/trallnag/prometheus-fastapi-instrumentator/blob/2f841527277a21ac9ea622a9f923a5f9078234c4/LICENSE>
+  - <https://github.com/prometheus/client_python/blob/f417f6ea8f058165a1934e368fed245e91aafc14/LICENSE>
+
 ## Shared Python runtime collectors
 
 - The `process_runtime` and `python_gc` source packs use `prometheus/client_python` 0.24.1 at

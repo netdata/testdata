@@ -1,0 +1,99 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: fastapi
+generated: true
+family_grammars:
+  python_created_family:
+    forms:
+      generated:
+        canonical: {prefix: http_requests, suffix: _created}
+        embedded:
+          prefix: http_
+          suffix: created
+          separator: _
+          identity_slot: {name: instrument, nonempty: true}
+groups:
+  default_http:
+    registrations:
+      http_request_duration_highr_seconds:
+        family: {exact: http_request_duration_highr_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 750, end: 760}
+      http_request_duration_seconds:
+        family: {exact: http_request_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 766, end: 777}
+      http_request_size_bytes:
+        family: {exact: http_request_size_bytes}
+        prometheus: {type: summary, shape: summary}
+        components:
+          count: {wire_role: summary_count}
+          sum: {wire_role: summary_sum}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 723, end: 734}
+      http_requests_total:
+        family: {exact: http_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 713, end: 720}
+      http_response_size_bytes:
+        family: {exact: http_response_size_bytes}
+        prometheus: {type: summary, shape: summary}
+        components:
+          count: {wire_role: summary_count}
+          sum: {wire_role: summary_sum}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 737, end: 748}
+      python_created_component:
+        family: {grammar: python_created_family, form: generated}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 750, end: 760}
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 766, end: 777}
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 723, end: 734}
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 713, end: 720}
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/metrics.py
+            range: {start: 737, end: 748}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 360, end: 367}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 565, end: 572}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 692, end: 703}

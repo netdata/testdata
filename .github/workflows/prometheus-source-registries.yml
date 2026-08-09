@@ -1,0 +1,30 @@
+name: Prometheus source registries
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/prometheus-source-registries.yml'
+      - 'prometheus/profiles/**/SOURCE-REGISTRY.generator.yaml'
+      - 'prometheus/profiles/**/SOURCE-REGISTRY.yaml'
+      - 'prometheus/profiles/**/generator/**'
+      - 'prometheus/tools/source_registry_runner.py'
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/prometheus-source-registries.yml'
+      - 'prometheus/profiles/**/SOURCE-REGISTRY.generator.yaml'
+      - 'prometheus/profiles/**/SOURCE-REGISTRY.yaml'
+      - 'prometheus/profiles/**/generator/**'
+      - 'prometheus/tools/source_registry_runner.py'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reproduce generated registries
+        run: python3 prometheus/tools/source_registry_runner.py

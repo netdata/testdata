@@ -1,32 +1,37 @@
-# Prometheus profile evidence
+# Prometheus profile proof data
 
 This directory stores the bulky, machine-readable evidence used to validate
 stock Prometheus profiles in `netdata/netdata`.
 
 ## Data boundary
 
-- `profiles/<profile>/fixtures/` contains sanitized, source-derived synthetic
-  Prometheus exposition.
-- `profiles/<profile>/SOURCE-INVENTORY.tsv` contains the generated
-  source-family-to-profile reconciliation ledger.
+- `profiles/<profile>/fixtures/` contains sanitized, source-derived synthetic Prometheus exposition.
+- `profiles/<profile>/SOURCE-SEMANTICS.yaml` records source-owned metric semantics and exact upstream revisions.
+- Optional `SOURCE-REGISTRY.yaml` contains generated mechanical registration truth. Its sibling
+  `SOURCE-REGISTRY.generator.yaml` and `generator/` directory reproduce it from the declared upstream source closure.
 
-These fixtures are structural unions assembled from public exporter source and
-documentation. Mutually exclusive releases, roles, features, and exporter
-modes may coexist to exercise the complete declared profile surface. They are
-not recordings of one realizable deployment.
+Each proof case is a realizable deployment state. Separate fixtures represent mutually exclusive releases, roles,
+features, and exporter modes.
 
-Operational dumps, credentials, private endpoints, and real deployment label
-values must not be committed here. The compact operator model, validation job,
-validation summary, source revisions, and detailed provenance remain in the
-matching `src/go/plugin/go.d/collector/prometheus/profile-proofs/<profile>/`
-directory in `netdata/netdata`.
+Operational dumps, credentials, private endpoints, and real deployment label values must not be committed here. Profile
+design, replay cases, and operator rationale remain in the matching
+`src/go/plugin/go.d/collector/prometheus/profile-proofs/<profile>/` directory in `netdata/netdata`.
+
+## Generated registries
+
+Run all generated-registry checks from the repository root:
+
+```sh
+python3 prometheus/tools/source_registry_runner.py
+```
+
+The fixed runner fetches each declared full upstream commit, exposes only declared source files and the reviewed generator
+directory, runs conventionally discovered fail-closed tests with network and writes disabled, and compares generated stdout
+byte-for-byte with the committed registry. Generators use only the Python standard library.
 
 ## Consumer contract
 
-Prometheus profile validation uses the latest `netdata/testdata` `master`. Each
-profile has one stable directory; evidence and the matching validator proof are
-updated together when exporter coverage or validation behavior changes.
+Prometheus profile validation uses the latest `netdata/testdata` `master`. Each profile has one stable directory; proof
+data and the matching Netdata profile proof are updated together when exporter coverage or validation behavior changes.
 
-The Netdata proof descriptor owns expected counts, findings, and exact source
-inventory reconciliation. Git owns transport integrity; this repository does
-not preserve historical evidence revisions for old Netdata checkouts.
+Git owns transport integrity; this repository does not preserve historical proof revisions for old Netdata checkouts.
