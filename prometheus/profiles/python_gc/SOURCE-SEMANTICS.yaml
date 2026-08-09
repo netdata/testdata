@@ -1,143 +1,126 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-version: 1
+version: v2
 profile: python_gc
 upstreams:
-  - id: prometheus_client_python
+  prometheus_client_python:
     repository: prometheus/client_python
-    revision: f417f6ea8f058165a1934e368fed245e91aafc14
-    version_scope: 0.24.1
-    role: producer
+    commit: f417f6ea8f058165a1934e368fed245e91aafc14
 evidence:
-  - id: ev_gc_availability
-    kind: availability
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 9, line_end: 15}]
-    claim: The collector registers only when CPython provides gc.get_stats.
-  - id: ev_gc_registration
+  gc_registration:
     kind: registration
     upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 17, line_end: 33}]
-    claim: The collector defines collected objects, uncollectable objects, and collection-count families.
-  - id: ev_gc_type_shape
-    kind: type_shape
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 17, line_end: 33}]
-    claim: All three Python GC signals are scalar counter families partitioned by generation.
-  - id: ev_gc_meaning
-    kind: meaning
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 17, line_end: 41}]
-    claim: Help text and gc.get_stats keys define collections, collected objects, and uncollectable objects.
-  - id: ev_gc_population
+    locations: [prometheus_client/gc_collector.py:17-33]
+    claim: The collector registers three scalar Python garbage-collector counters.
+  gc_population:
     kind: population
     upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 35, line_end: 39}]
-    claim: Each observation is the cumulative statistic for one garbage-collector generation.
-  - id: ev_gc_relationship
-    kind: relationship
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 35, line_end: 41}]
-    claim: The three families share the generation partition but measure distinct event populations.
-  - id: ev_gc_lifecycle
+    locations: [prometheus_client/gc_collector.py:35-41]
+    claim: Each observation is one cumulative statistic for one garbage-collector generation.
+  gc_lifecycle:
     kind: lifecycle
     upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 17, line_end: 39}]
-    claim: Counter families export cumulative gc.get_stats values for each generation.
-  - id: ev_gc_unit
+    locations: [prometheus_client/gc_collector.py:17-39]
+    claim: All three families export cumulative gc.get_stats values for each generation.
+  gc_unit:
     kind: unit
     upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 17, line_end: 39}]
-    claim: The source counts collection events or objects without additional scaling.
-  - id: ev_gc_labels
-    kind: labels
+    locations: [prometheus_client/gc_collector.py:17-39]
+    claim: The source counts objects or collection events without additional scaling.
+  gc_generation:
+    kind: label
     upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 18, line_end: 39}]
-    claim: Every family carries the generation label populated from the enumerated gc.get_stats index.
-  - id: ev_gc_cardinality
-    kind: cardinality
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 35, line_end: 39}]
-    claim: The collector emits one observation per gc.get_stats generation; the proof fixture observes generations 0, 1, and 2.
-  - id: ev_gc_identity
-    kind: identity
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/gc_collector.py, line_start: 35, line_end: 39}]
-    claim: Generation identifies the bounded comparison within the one Python runtime owned by the collector job.
-availability:
-  - id: gc_collector_available
-    proposition: CPython provides gc.get_stats and the GC collector is registered.
-    evidence: [ev_gc_availability]
-source_signals:
-  - id: objects_collected
-    family_scope: python_gc_objects_collected_total
-    prometheus_type: counter
-    shape: scalar
-    meaning: Objects successfully collected by the garbage collector.
-    population: One cumulative object count per garbage-collector generation.
-    relationships: [objects_uncollectable, collections]
-    availability: [gc_collector_available]
-    evidence: [ev_gc_registration, ev_gc_type_shape, ev_gc_meaning, ev_gc_population, ev_gc_relationship]
+    locations: [prometheus_client/gc_collector.py:18-39]
+    claim: Every family labels each observation with the enumerated gc.get_stats generation index.
+environment:
+  axes: {}
+  policies: {}
+component_policies: {}
+label_policies:
+  generation:
+    generation:
+      meaning: Garbage-collector generation index.
+      presence: required
+      domain: {kind: open}
+      endpoint_cardinality: {kind: bounded_configuration}
+      stability: stable
+      evidence: [gc_generation]
+signals:
+  objects_collected:
+    source:
+      inline:
+        registrations:
+          canonical:
+            family: {exact: python_gc_objects_collected_total}
+            prometheus: {type: counter, shape: scalar}
+            evidence: [gc_registration]
+    population:
+      id: gc_generation
+      meaning: One garbage-collector generation in the Python runtime.
+      evidence: [gc_population]
     components:
-      - token: scalar
-        raw_lifecycle: cumulative
-        raw_unit: objects
-        measured_object: collected objects
-        structural_labels: []
-        evidence: [ev_gc_lifecycle, ev_gc_unit, ev_gc_meaning]
-    labels:
-      - name: generation
-        presence: required
-        role: category
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: observed_lower_bound, value: 3, evidence: [ev_gc_cardinality]}
-        evidence: [ev_gc_labels]
-  - id: objects_uncollectable
-    family_scope: python_gc_objects_uncollectable_total
-    prometheus_type: counter
-    shape: scalar
-    meaning: Objects found to be uncollectable by the garbage collector.
-    population: One cumulative object count per garbage-collector generation.
-    relationships: [objects_collected, collections]
-    availability: [gc_collector_available]
-    evidence: [ev_gc_registration, ev_gc_type_shape, ev_gc_meaning, ev_gc_population, ev_gc_relationship]
+      value:
+        wire_role: scalar
+        lifecycle: {kind: cumulative, evidence: [gc_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: objects
+          aspect: collected
+          evidence: [gc_unit]
+    label_policy: generation
+    functional_dependencies: {}
+  objects_uncollectable:
+    source:
+      inline:
+        registrations:
+          canonical:
+            family: {exact: python_gc_objects_uncollectable_total}
+            prometheus: {type: counter, shape: scalar}
+            evidence: [gc_registration]
+    population:
+      id: gc_generation
+      meaning: One garbage-collector generation in the Python runtime.
+      evidence: [gc_population]
     components:
-      - token: scalar
-        raw_lifecycle: cumulative
-        raw_unit: objects
-        measured_object: uncollectable objects
-        structural_labels: []
-        evidence: [ev_gc_lifecycle, ev_gc_unit, ev_gc_meaning]
-    labels:
-      - name: generation
-        presence: required
-        role: category
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: observed_lower_bound, value: 3, evidence: [ev_gc_cardinality]}
-        evidence: [ev_gc_labels]
-  - id: collections
-    family_scope: python_gc_collections_total
-    prometheus_type: counter
-    shape: scalar
-    meaning: Garbage-collection cycles completed for a generation.
-    population: One cumulative collection count per garbage-collector generation.
-    relationships: [objects_collected, objects_uncollectable]
-    availability: [gc_collector_available]
-    evidence: [ev_gc_registration, ev_gc_type_shape, ev_gc_meaning, ev_gc_population, ev_gc_relationship]
+      value:
+        wire_role: scalar
+        lifecycle: {kind: cumulative, evidence: [gc_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: objects
+          aspect: uncollectable
+          evidence: [gc_unit]
+    label_policy: generation
+    functional_dependencies: {}
+  collections:
+    source:
+      inline:
+        registrations:
+          canonical:
+            family: {exact: python_gc_collections_total}
+            prometheus: {type: counter, shape: scalar}
+            evidence: [gc_registration]
+    population:
+      id: gc_generation
+      meaning: One garbage-collector generation in the Python runtime.
+      evidence: [gc_population]
     components:
-      - token: scalar
-        raw_lifecycle: cumulative
-        raw_unit: collections
-        measured_object: garbage-collection cycles
-        structural_labels: []
-        evidence: [ev_gc_lifecycle, ev_gc_unit, ev_gc_meaning]
-    labels:
-      - name: generation
-        presence: required
-        role: category
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: observed_lower_bound, value: 3, evidence: [ev_gc_cardinality]}
-        evidence: [ev_gc_labels]
+      value:
+        wire_role: scalar
+        lifecycle: {kind: cumulative, evidence: [gc_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: collections
+          aspect: completed
+          evidence: [gc_unit]
+    label_policy: generation
+    functional_dependencies: {}
+relationships: {}
+state_encodings: {}
+source_exclusions: {}
