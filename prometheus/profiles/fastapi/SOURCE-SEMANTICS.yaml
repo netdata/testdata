@@ -1,318 +1,321 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-version: 1
+version: v2
 profile: fastapi
 upstreams:
-  - id: fastapi_instrumentator
+  fastapi_instrumentator:
     repository: trallnag/prometheus-fastapi-instrumentator
-    revision: 2f841527277a21ac9ea622a9f923a5f9078234c4
-    version_scope: default metric closure at the pinned revision
-    role: producer
-  - id: prometheus_client_python
+    commit: 2f841527277a21ac9ea622a9f923a5f9078234c4
+  prometheus_client_python:
     repository: prometheus/client_python
-    revision: f417f6ea8f058165a1934e368fed245e91aafc14
-    version_scope: 0.24.1
-    role: metric representation
+    commit: f417f6ea8f058165a1934e368fed245e91aafc14
 evidence:
-  - id: ev_availability
-    kind: availability
-    upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 648, line_end: 777}]
-    claim: The default instrumentation closure registers the five HTTP families when its metric names are available in the registry.
-  - id: ev_registration
-    kind: registration
-    upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 653, line_end: 777}]
-    claim: The default closure registers one request counter, two size summaries, and two duration histograms with their standard labels.
-  - id: ev_type_shape
-    kind: type_shape
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/metrics.py, line_start: 290, line_end: 367}, {path: prometheus_client/metrics.py, line_start: 505, line_end: 572}, {path: prometheus_client/metrics.py, line_start: 575, line_end: 703}]
-    claim: Counter, Summary, and Histogram emit scalar total, count-plus-sum, and bucket-plus-count-plus-sum shapes respectively.
-  - id: ev_meaning
-    kind: meaning
-    upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 653, line_end: 688}, {path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 713, line_end: 777}]
-    claim: Metric names, documentation, labels, and bucket choices define request outcomes, body sizes, and request durations.
-  - id: ev_population
+  request_population:
     kind: population
     upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 779, line_end: 820}]
-    claim: One instrumentation call records one request total, one request-size observation, one response-size observation, and one observation in each enabled duration histogram.
-  - id: ev_relationship
-    kind: relationship
-    upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 779, line_end: 820}]
-    claim: All five families are observations of the same handled request, while each family retains its own labels and measured aspect.
-  - id: ev_lifecycle
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:779-820]
+    claim: One instrumentation call records one request outcome, both size observations, and both enabled duration observations.
+  component_lifecycle:
     kind: lifecycle
     upstream: prometheus_client_python
-    locations: [{path: prometheus_client/metrics.py, line_start: 330, line_end: 367}, {path: prometheus_client/metrics.py, line_start: 538, line_end: 572}, {path: prometheus_client/metrics.py, line_start: 650, line_end: 703}]
-    claim: Request totals, summary counts and sums, and histogram buckets, counts, and sums are cumulative; created companions are registration timestamps.
-  - id: ev_unit
+    locations: [prometheus_client/metrics.py:330-367, prometheus_client/metrics.py:538-572, prometheus_client/metrics.py:650-703]
+    claim: Counter values, summary count and sum, and histogram bucket, count, and sum accumulate observations.
+  created_registration:
+    kind: registration
+    upstream: prometheus_client_python
+    locations: [prometheus_client/metrics.py:44-60, prometheus_client/metrics.py:360-367, prometheus_client/metrics.py:565-572, prometheus_client/metrics.py:692-703]
+    claim: Counters, summaries, and histograms emit one optional terminal _created sample for each registered child.
+  created_population:
+    kind: population
+    upstream: prometheus_client_python
+    locations: [prometheus_client/metrics.py:360-367, prometheus_client/metrics.py:565-572, prometheus_client/metrics.py:692-703]
+    claim: Each observable counter, summary, or histogram child emits its own _created sample when created samples are enabled.
+  created_lifecycle:
+    kind: lifecycle
+    upstream: prometheus_client_python
+    locations: [prometheus_client/metrics.py:330-367, prometheus_client/metrics.py:538-572, prometheus_client/metrics.py:650-703]
+    claim: Each _created value is captured when its metric child is initialized and emitted unchanged by normal counter increments and summary or histogram observations.
+  created_unit:
+    kind: unit
+    upstream: prometheus_client_python
+    locations: [prometheus_client/metrics.py:330-367, prometheus_client/metrics.py:538-572, prometheus_client/metrics.py:650-703]
+    claim: Each _created sample exposes the time.time registration epoch in Unix seconds.
+  request_units:
     kind: unit
     upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 653, line_end: 688}, {path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 722, line_end: 777}]
-    claim: Request totals and counts are requests, size sums are bytes, and duration sums and bucket bounds are seconds.
-  - id: ev_labels
-    kind: labels
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:653-688, src/prometheus_fastapi_instrumentator/metrics.py:713-777]
+    claim: Outcome and count components count requests, size sums measure bytes, and duration sums and bucket bounds measure seconds.
+  request_labels:
+    kind: label
     upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 708, line_end: 777}, {path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 786, line_end: 820}]
-    claim: Default request totals use method, status, and handler; size summaries use handler; endpoint duration uses method and handler; high-resolution duration is global.
-  - id: ev_identity
-    kind: identity
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:706-777, src/prometheus_fastapi_instrumentator/metrics.py:786-820]
+    claim: Default request outcomes use method, status, and handler; size summaries use handler; endpoint duration uses method and handler; service duration is global.
+  status_domain:
+    kind: label
     upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 708, line_end: 777}, {path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 786, line_end: 820}]
-    claim: Handler and method identify an endpoint request population, while handler alone is the finest identity retained by the size summaries.
-  - id: ev_status_grouping
-    kind: cardinality
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:23-24, src/prometheus_fastapi_instrumentator/middleware.py:178-214]
+    claim: Default middleware replaces the exact HTTP response code with its one-digit status class.
+  count_projection:
+    kind: relationship
     upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/middleware.py, line_start: 23, line_end: 27}, {path: src/prometheus_fastapi_instrumentator/middleware.py, line_start: 178, line_end: 215}]
-    claim: Default middleware groups HTTP response status codes by their first digit into the five standard HTTP status classes.
-  - id: ev_cardinality
-    kind: cardinality
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:786-809]
+    claim: Each handled request increments the outcome counter once and observes each size summary once, so each handler-level summary count equals outcomes summed over method and status.
+  request_concurrency_display:
+    kind: display_convention
     upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 640, line_end: 688}, {path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 708, line_end: 777}]
-    claim: Handler and method populations have no producer-side bound; the default high- and low-resolution histograms have 22 and 4 buckets including positive infinity.
-  - id: ev_created_normalization
-    kind: normalization
-    upstream: prometheus_client_python
-    locations: [{path: prometheus_client/metrics.py, line_start: 330, line_end: 367}, {path: prometheus_client/metrics.py, line_start: 538, line_end: 572}, {path: prometheus_client/metrics.py, line_start: 650, line_end: 703}]
-    claim: The client emits created companions from metric registration time; they are lifecycle metadata rather than request observations.
-  - id: ev_count_equivalence
-    kind: equivalence
-    upstream: fastapi_instrumentator
-    locations: [{path: src/prometheus_fastapi_instrumentator/metrics.py, line_start: 786, line_end: 809}]
-    claim: Each handled request increments the request counter once and observes each size summary once, so each summary count by handler is the request-outcomes population aggregated over method and status.
-availability:
-  - id: default_http_metrics_available
-    proposition: The default instrumentation closure is enabled with its standard unprefixed names, labels, and empty custom-label set.
-    evidence: [ev_availability]
-source_signals:
-  - id: request_outcomes
-    family_scope: http_requests_total
-    prometheus_type: counter
-    shape: scalar
-    meaning: Total handled HTTP requests by handler, method, and grouped status class.
-    population: One cumulative outcome observation for each handled request.
-    relationships: [request_size, response_size, endpoint_duration, service_duration]
-    availability: [default_http_metrics_available]
-    evidence: [ev_registration, ev_type_shape, ev_meaning, ev_population, ev_relationship]
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:779-820]
+    claim: Summing request duration and taking its per-second increase yields the average number of requests in flight during the interval.
+environment:
+  axes: {}
+  policies: {}
+component_policies:
+  duration_histogram:
+    bucket:
+      wire_role: histogram_bucket
+      lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: distributed
+        evidence: [request_units]
+    count:
+      wire_role: histogram_count
+      lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: requests
+        aspect: completed
+        evidence: [request_units]
+    sum:
+      wire_role: histogram_sum
+      lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+      unit:
+        quantity: duration
+        base: second
+        rate: none
+        object: request_time
+        aspect: elapsed
+        evidence: [request_units]
+label_policies: {}
+signals:
+  request_outcomes:
+    source:
+      generated:
+        registry_groups: [default_http]
+        scope: {registrations: [http_requests_total]}
+    population:
+      id: handled_requests
+      meaning: Requests handled by the instrumented FastAPI application.
+      evidence: [request_population]
     components:
-      - token: scalar
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: handled HTTP requests
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
+      value:
+        wire_role: scalar
+        lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: completed
+          evidence: [request_units]
     labels:
-      - name: handler
+      handler:
+        meaning: Normalized FastAPI route handler.
         presence: required
-        role: entity_key
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels, ev_identity]
-      - name: method
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+      method:
+        meaning: HTTP request method.
         presence: required
-        role: entity_key
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels, ev_identity]
-      - name: status
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+      status:
+        meaning: One-digit HTTP response status class.
         presence: required
-        role: category
-        domain: closed
-        closed_values: [1xx, 2xx, 3xx, 4xx, 5xx]
-        cardinality: {kind: authoritative_bound, value: 5, evidence: [ev_status_grouping]}
-        evidence: [ev_labels]
-  - id: request_size
-    family_scope: http_request_size_bytes
-    prometheus_type: summary
-    shape: summary
-    meaning: Cumulative incoming HTTP request content length by handler.
-    population: One size observation for every handled request, using zero when Content-Length is absent.
-    relationships: [request_outcomes, response_size]
-    availability: [default_http_metrics_available]
-    evidence: [ev_registration, ev_type_shape, ev_meaning, ev_population, ev_relationship]
+        domain: {kind: closed, values: [1xx, 2xx, 3xx, 4xx, 5xx]}
+        endpoint_cardinality: {kind: closed_domain}
+        stability: stable
+        evidence: [request_labels, status_domain]
+    functional_dependencies: {}
+  request_size:
+    source:
+      generated:
+        registry_groups: [default_http]
+        scope: {registrations: [http_request_size_bytes]}
+    population:
+      id: handled_requests
+      meaning: Requests handled by the instrumented FastAPI application.
+      evidence: [request_population]
     components:
-      - token: summary_count
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: requests whose incoming body size was observed
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-      - token: summary_sum
-        raw_lifecycle: cumulative
-        raw_unit: bytes
-        measured_object: incoming HTTP request body bytes
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
+      count:
+        wire_role: summary_count
+        lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: completed
+          evidence: [request_units]
+      sum:
+        wire_role: summary_sum
+        lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: http_body
+          aspect: request
+          evidence: [request_units]
     labels:
-      - name: handler
+      handler:
+        meaning: Normalized FastAPI route handler.
         presence: required
-        role: entity_key
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels, ev_identity]
-  - id: response_size
-    family_scope: http_response_size_bytes
-    prometheus_type: summary
-    shape: summary
-    meaning: Cumulative outgoing HTTP response content length by handler.
-    population: One size observation for every handled request, using zero when no response headers are available.
-    relationships: [request_outcomes, request_size]
-    availability: [default_http_metrics_available]
-    evidence: [ev_registration, ev_type_shape, ev_meaning, ev_population, ev_relationship]
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+    functional_dependencies: {}
+  response_size:
+    source:
+      generated:
+        registry_groups: [default_http]
+        scope: {registrations: [http_response_size_bytes]}
+    population:
+      id: handled_requests
+      meaning: Requests handled by the instrumented FastAPI application.
+      evidence: [request_population]
     components:
-      - token: summary_count
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: requests whose outgoing response size was observed
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-      - token: summary_sum
-        raw_lifecycle: cumulative
-        raw_unit: bytes
-        measured_object: outgoing HTTP response body bytes
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
+      count:
+        wire_role: summary_count
+        lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: completed
+          evidence: [request_units]
+      sum:
+        wire_role: summary_sum
+        lifecycle: {kind: cumulative, evidence: [component_lifecycle]}
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: http_body
+          aspect: response
+          evidence: [request_units]
     labels:
-      - name: handler
+      handler:
+        meaning: Normalized FastAPI route handler.
         presence: required
-        role: entity_key
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels, ev_identity]
-  - id: service_duration
-    family_scope: http_request_duration_highr_seconds
-    prometheus_type: histogram
-    shape: histogram
-    meaning: High-resolution handled-request duration across the whole service.
-    population: One duration observation per handled request unless the optional success-only mode is enabled.
-    relationships: [request_outcomes, endpoint_duration]
-    availability: [default_http_metrics_available]
-    evidence: [ev_registration, ev_type_shape, ev_meaning, ev_population, ev_relationship]
-    components:
-      - token: histogram_bucket
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: handled requests by duration bound
-        structural_labels:
-          - name: le
-            presence: required
-            role: structural
-            domain: closed
-            closed_values: ["0.01", "0.025", "0.05", "0.075", "0.1", "0.25", "0.5", "0.75", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0", "7.5", "10.0", "30.0", "60.0", +Inf]
-            cardinality: {kind: authoritative_bound, value: 22, evidence: [ev_cardinality]}
-            evidence: [ev_labels]
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-      - token: histogram_count
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: handled requests observed for service duration
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-      - token: histogram_sum
-        raw_lifecycle: cumulative
-        raw_unit: seconds
-        measured_object: elapsed handled-request time
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-    labels: []
-  - id: endpoint_duration
-    family_scope: http_request_duration_seconds
-    prometheus_type: histogram
-    shape: histogram
-    meaning: Coarse handled-request duration by handler and method.
-    population: One duration observation for each handled request.
-    relationships: [request_outcomes, service_duration]
-    availability: [default_http_metrics_available]
-    evidence: [ev_registration, ev_type_shape, ev_meaning, ev_population, ev_relationship]
-    components:
-      - token: histogram_bucket
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: endpoint requests by duration bound
-        structural_labels:
-          - name: le
-            presence: required
-            role: structural
-            domain: closed
-            closed_values: ["0.1", "0.5", "1.0", +Inf]
-            cardinality: {kind: authoritative_bound, value: 4, evidence: [ev_cardinality]}
-            evidence: [ev_labels]
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-      - token: histogram_count
-        raw_lifecycle: cumulative
-        raw_unit: requests
-        measured_object: handled endpoint requests
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
-      - token: histogram_sum
-        raw_lifecycle: cumulative
-        raw_unit: seconds
-        measured_object: elapsed endpoint-request time
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+    functional_dependencies: {}
+  endpoint_duration:
+    source:
+      generated:
+        registry_groups: [default_http]
+        scope: {registrations: [http_request_duration_seconds]}
+    population:
+      id: handled_requests
+      meaning: Requests handled by the instrumented FastAPI application.
+      evidence: [request_population]
+    component_policy: duration_histogram
     labels:
-      - name: handler
+      handler:
+        meaning: Normalized FastAPI route handler.
         presence: required
-        role: entity_key
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels, ev_identity]
-      - name: method
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+      method:
+        meaning: HTTP request method.
         presence: required
-        role: entity_key
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels, ev_identity]
-  - id: registration_timestamps
-    family_scope: >-
-      http_requests_created
-      http_request_size_bytes_created
-      http_response_size_bytes_created
-      http_request_duration_highr_seconds_created
-      http_request_duration_seconds_created
-    prometheus_type: gauge
-    shape: scalar
-    meaning: Client-library registration timestamps for the five default HTTP instruments.
-    population: One timestamp for each instantiated standard-label set.
-    relationships: [request_outcomes, request_size, response_size, service_duration, endpoint_duration]
-    availability: [default_http_metrics_available]
-    evidence: [ev_registration, ev_type_shape, ev_meaning, ev_population, ev_relationship]
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+    functional_dependencies: {}
+  service_duration:
+    source:
+      generated:
+        registry_groups: [default_http]
+        scope: {registrations: [http_request_duration_highr_seconds]}
+    population:
+      id: handled_requests
+      meaning: Requests handled by the instrumented FastAPI application.
+      evidence: [request_population]
+    component_policy: duration_histogram
+    labels: {}
+    functional_dependencies: {}
+  registration_timestamps:
+    source:
+      generated:
+        registry_groups: [default_http]
+        scope: {registrations: [python_created_component]}
+    population:
+      id: metric_registrations
+      meaning: Registered metric children emitted by the Python Prometheus client.
+      evidence: [created_population]
     components:
-      - token: scalar
-        raw_lifecycle: constant
-        raw_unit: seconds since Unix epoch
-        measured_object: metric child registration time
-        structural_labels: []
-        evidence: [ev_lifecycle, ev_unit, ev_meaning]
+      timestamp:
+        wire_role: scalar
+        lifecycle: {kind: constant, evidence: [created_lifecycle]}
+        unit:
+          quantity: timestamp
+          base: unix_second
+          rate: none
+          object: metric_registration
+          aspect: recorded
+          evidence: [created_unit]
     labels:
-      - name: handler
+      handler:
+        meaning: Normalized FastAPI route handler when the registered instrument has endpoint identity.
         presence: optional
-        role: observation_metadata
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels]
-      - name: method
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+      method:
+        meaning: HTTP request method when the registered instrument has method identity.
         presence: optional
-        role: observation_metadata
-        domain: operational_population
-        closed_values: []
-        cardinality: {kind: authoritative_unbounded, evidence: [ev_cardinality]}
-        evidence: [ev_labels]
-      - name: status
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [request_labels]
+      status:
+        meaning: HTTP response status class when the registered instrument has outcome identity.
         presence: optional
-        role: category
-        domain: closed
-        closed_values: [1xx, 2xx, 3xx, 4xx, 5xx]
-        cardinality: {kind: authoritative_bound, value: 5, evidence: [ev_status_grouping]}
-        evidence: [ev_labels]
+        domain: {kind: closed, values: [1xx, 2xx, 3xx, 4xx, 5xx]}
+        endpoint_cardinality: {kind: closed_domain}
+        stability: stable
+        evidence: [request_labels, status_domain]
+    functional_dependencies: {}
+relationships:
+  request_size_count_by_handler:
+    kind: sum_projection
+    coarse: {signal: request_size, components: [count]}
+    fine: {signal: request_outcomes, components: [value]}
+    group_by: [handler]
+    evidence: [count_projection]
+  response_size_count_by_handler:
+    kind: sum_projection
+    coarse: {signal: response_size, components: [count]}
+    fine: {signal: request_outcomes, components: [value]}
+    group_by: [handler]
+    evidence: [count_projection]
+state_encodings: {}
+source_exclusions: {}
