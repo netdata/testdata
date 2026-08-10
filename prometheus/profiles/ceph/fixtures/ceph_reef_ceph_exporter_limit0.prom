@@ -1,0 +1,37 @@
+# Generated source-complete Ceph fixture; identities and values are synthetic.
+# Environment: source=ceph_exporter, release=reef, perf_priority_limit=0, mgr_perf_counters=disabled, mgr_rbd_stats=disabled.
+# Source authority: SOURCE-REGISTRY.yaml and SOURCE-SEMANTICS.yaml.
+
+# HELP ceph_exporter_cpu_total Process time in kernel/user/idle mode.
+# TYPE ceph_exporter_cpu_total counter
+ceph_exporter_cpu_total{ceph_daemon="osd.0",mode="idle"} 100
+ceph_exporter_cpu_total{ceph_daemon="osd.0",mode="kernel"} 101
+ceph_exporter_cpu_total{ceph_daemon="osd.0",mode="user"} 102
+
+# HELP ceph_exporter_cpu_usage CPU usage of a daemon.
+# TYPE ceph_exporter_cpu_usage gauge
+ceph_exporter_cpu_usage{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_majflt_total Number of major page faults of daemon.
+# TYPE ceph_exporter_majflt_total counter
+ceph_exporter_majflt_total{ceph_daemon="osd.0"} 100
+
+# HELP ceph_exporter_minflt_total Number of minor page faults of daemon.
+# TYPE ceph_exporter_minflt_total counter
+ceph_exporter_minflt_total{ceph_daemon="osd.0"} 100
+
+# HELP ceph_exporter_num_threads Number of threads used by daemon.
+# TYPE ceph_exporter_num_threads gauge
+ceph_exporter_num_threads{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_resident_size Resident memory in a daemon.
+# TYPE ceph_exporter_resident_size gauge
+ceph_exporter_resident_size{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_scrape_time Time spent scraping and transforming perf counters to metrics.
+# TYPE ceph_exporter_scrape_time gauge
+ceph_exporter_scrape_time{function="function_a",host="host_a"} 1
+
+# HELP ceph_exporter_vm_size Virtual memory used in a daemon.
+# TYPE ceph_exporter_vm_size gauge
+ceph_exporter_vm_size{ceph_daemon="osd.0"} 1

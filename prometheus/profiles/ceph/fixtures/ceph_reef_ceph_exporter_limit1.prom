@@ -1,0 +1,3012 @@
+# Generated source-complete Ceph fixture; identities and values are synthetic.
+# Environment: source=ceph_exporter, release=reef, perf_priority_limit=1, mgr_perf_counters=disabled, mgr_rbd_stats=disabled.
+# Source authority: SOURCE-REGISTRY.yaml and SOURCE-SEMANTICS.yaml.
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_active_queue_pair Created queue pair number.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_active_queue_pair counter
+ceph_AsyncMessenger_RDMADispatcher_active_queue_pair{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_async_last_wqe_events The number of last wqe events.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_async_last_wqe_events counter
+ceph_AsyncMessenger_RDMADispatcher_async_last_wqe_events{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_created_queue_pair Active queue pair number.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_created_queue_pair counter
+ceph_AsyncMessenger_RDMADispatcher_created_queue_pair{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_handshake_errors The number of handshake errors.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_handshake_errors counter
+ceph_AsyncMessenger_RDMADispatcher_handshake_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_inflight_tx_chunks The number of inflight tx chunks.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_inflight_tx_chunks counter
+ceph_AsyncMessenger_RDMADispatcher_inflight_tx_chunks{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_polling Whether dispatcher thread is polling.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_polling counter
+ceph_AsyncMessenger_RDMADispatcher_polling{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_rx_bufs_in_use The number of rx buffers that are holding data and being processed.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_rx_bufs_in_use counter
+ceph_AsyncMessenger_RDMADispatcher_rx_bufs_in_use{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_rx_bufs_total The total number of rx buffers.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_rx_bufs_total counter
+ceph_AsyncMessenger_RDMADispatcher_rx_bufs_total{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_rx_fin The number of rx finish work request.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_rx_fin counter
+ceph_AsyncMessenger_RDMADispatcher_rx_fin{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_rx_total_wc The number of total rx work completion.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_rx_total_wc counter
+ceph_AsyncMessenger_RDMADispatcher_rx_total_wc{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_rx_total_wc_errors The number of total rx error work completion.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_rx_total_wc_errors counter
+ceph_AsyncMessenger_RDMADispatcher_rx_total_wc_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_total_async_events The number of async events.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_total_async_events counter
+ceph_AsyncMessenger_RDMADispatcher_total_async_events{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_tx_retry_errors The number of tx retry errors.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_tx_retry_errors counter
+ceph_AsyncMessenger_RDMADispatcher_tx_retry_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_tx_total_wc The number of tx work comletions.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_tx_total_wc counter
+ceph_AsyncMessenger_RDMADispatcher_tx_total_wc{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_tx_total_wc_errors The number of tx errors.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_tx_total_wc_errors counter
+ceph_AsyncMessenger_RDMADispatcher_tx_total_wc_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMADispatcher_tx_wr_flush_errors The number of tx work request flush errors.
+# TYPE ceph_AsyncMessenger_RDMADispatcher_tx_wr_flush_errors counter
+ceph_AsyncMessenger_RDMADispatcher_tx_wr_flush_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_pending_sent_conns Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_pending_sent_conns.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_pending_sent_conns counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_pending_sent_conns{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_rx_bytes Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_rx_bytes.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_rx_bytes counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_rx_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_rx_chunks Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_rx_chunks.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_rx_chunks counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_rx_chunks{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_bytes Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_tx_bytes.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_bytes counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_chunks Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_tx_chunks.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_chunks counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_chunks{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_failed_post Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_tx_failed_post.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_failed_post counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_failed_post{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_no_mem Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_tx_no_mem.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_no_mem counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_no_mem{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_parital_mem Source-derived dynamic AsyncMessenger RDMA worker metric: AsyncMessenger_RDMAWorker_7_tx_parital_mem.
+# TYPE ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_parital_mem counter
+ceph_AsyncMessenger_RDMAWorker_rdma_worker_a_tx_parital_mem{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_active_connections Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_active_connections.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_active_connections counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_active_connections{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_created_connections Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_created_connections.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_created_connections counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_created_connections{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_handle_ack_lat_count Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_handle_ack_lat_count.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_handle_ack_lat_count counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_handle_ack_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_handle_ack_lat_sum Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_handle_ack_lat_sum.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_handle_ack_lat_sum gauge
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_handle_ack_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_bytes Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_recv_bytes.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_bytes counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_encrypted_bytes Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_recv_encrypted_bytes.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_encrypted_bytes counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_encrypted_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_messages Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_recv_messages.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_messages counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_recv_messages{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_fast_dispatch_time Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_running_fast_dispatch_time.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_fast_dispatch_time gauge
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_fast_dispatch_time{ceph_daemon="osd.0"} 1
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_recv_time Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_running_recv_time.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_recv_time gauge
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_recv_time{ceph_daemon="osd.0"} 1
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_send_time Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_running_send_time.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_send_time gauge
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_send_time{ceph_daemon="osd.0"} 1
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_total_time Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_running_total_time.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_total_time gauge
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_running_total_time{ceph_daemon="osd.0"} 1
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_bytes Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_send_bytes.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_bytes counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_encrypted_bytes Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_send_encrypted_bytes.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_encrypted_bytes counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_encrypted_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_send_messages.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_count Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_send_messages_queue_lat_count.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_count counter
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_sum Source-derived dynamic AsyncMessenger worker metric: AsyncMessenger_Worker_7_msgr_send_messages_queue_lat_sum.
+# TYPE ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_sum gauge
+ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_KStore_state_done_lat_count Average done state latency Count.
+# TYPE ceph_KStore_state_done_lat_count counter
+ceph_KStore_state_done_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_KStore_state_done_lat_sum Average done state latency Total.
+# TYPE ceph_KStore_state_done_lat_sum gauge
+ceph_KStore_state_done_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_KStore_state_finishing_lat_count Average finishing state latency Count.
+# TYPE ceph_KStore_state_finishing_lat_count counter
+ceph_KStore_state_finishing_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_KStore_state_finishing_lat_sum Average finishing state latency Total.
+# TYPE ceph_KStore_state_finishing_lat_sum gauge
+ceph_KStore_state_finishing_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_KStore_state_kv_done_lat_count Average kv_done state latency Count.
+# TYPE ceph_KStore_state_kv_done_lat_count counter
+ceph_KStore_state_kv_done_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_KStore_state_kv_done_lat_sum Average kv_done state latency Total.
+# TYPE ceph_KStore_state_kv_done_lat_sum gauge
+ceph_KStore_state_kv_done_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_KStore_state_kv_queued_lat_count Average kv_queued state latency Count.
+# TYPE ceph_KStore_state_kv_queued_lat_count counter
+ceph_KStore_state_kv_queued_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_KStore_state_kv_queued_lat_sum Average kv_queued state latency Total.
+# TYPE ceph_KStore_state_kv_queued_lat_sum gauge
+ceph_KStore_state_kv_queued_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_KStore_state_prepare_lat_count Average prepare state latency Count.
+# TYPE ceph_KStore_state_prepare_lat_count counter
+ceph_KStore_state_prepare_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_KStore_state_prepare_lat_sum Average prepare state latency Total.
+# TYPE ceph_KStore_state_prepare_lat_sum gauge
+ceph_KStore_state_prepare_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluefs_files_written_sst Files written to SSTs.
+# TYPE ceph_bluefs_files_written_sst counter
+ceph_bluefs_files_written_sst{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_files_written_wal Files written to WAL.
+# TYPE ceph_bluefs_files_written_wal counter
+ceph_bluefs_files_written_wal{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_log_compactions Compactions of the metadata log.
+# TYPE ceph_bluefs_log_compactions counter
+ceph_bluefs_log_compactions{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_log_write_count Write op count to the metadata log.
+# TYPE ceph_bluefs_log_write_count counter
+ceph_bluefs_log_write_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_read_zeros_candidate How many times bluefs read found page with all 0s.
+# TYPE ceph_bluefs_read_zeros_candidate gauge
+ceph_bluefs_read_zeros_candidate{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluefs_read_zeros_errors How many times bluefs read found transient page with all 0s.
+# TYPE ceph_bluefs_read_zeros_errors gauge
+ceph_bluefs_read_zeros_errors{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluefs_write_count Write requests processed.
+# TYPE ceph_bluefs_write_count counter
+ceph_bluefs_write_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_write_count_sst Write op count to SSTs.
+# TYPE ceph_bluefs_write_count_sst counter
+ceph_bluefs_write_count_sst{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_write_count_wal Write op count to WAL.
+# TYPE ceph_bluefs_write_count_wal counter
+ceph_bluefs_write_count_wal{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluefs_write_disk_count Write requests sent to disk.
+# TYPE ceph_bluefs_write_disk_count counter
+ceph_bluefs_write_disk_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_blob_split Sum for blob splitting due to resharding.
+# TYPE ceph_bluestore_blob_split counter
+ceph_bluestore_blob_split{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_buffer_bytes Number of buffer bytes in cache.
+# TYPE ceph_bluestore_buffer_bytes gauge
+ceph_bluestore_buffer_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_buffer_hit_bytes Sum for bytes of read hit in the cache.
+# TYPE ceph_bluestore_buffer_hit_bytes counter
+ceph_bluestore_buffer_hit_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_buffer_miss_bytes Sum for bytes of read missed in the cache.
+# TYPE ceph_bluestore_buffer_miss_bytes counter
+ceph_bluestore_buffer_miss_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_buffers Number of buffers in cache.
+# TYPE ceph_bluestore_buffers gauge
+ceph_bluestore_buffers{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_compress_rejected_count Sum for compress ops rejected due to low net gain of space.
+# TYPE ceph_bluestore_compress_rejected_count counter
+ceph_bluestore_compress_rejected_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_compress_success_count Sum for beneficial compress ops.
+# TYPE ceph_bluestore_compress_success_count counter
+ceph_bluestore_compress_success_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_extent_compress Sum for extents that have been removed due to compression.
+# TYPE ceph_bluestore_extent_compress counter
+ceph_bluestore_extent_compress{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_gc_merged gc_merged.
+# TYPE ceph_bluestore_gc_merged counter
+ceph_bluestore_gc_merged{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_issued_deferred_write_bytes Total bytes in issued deferred writes.
+# TYPE ceph_bluestore_issued_deferred_write_bytes counter
+ceph_bluestore_issued_deferred_write_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_issued_deferred_writes Total deferred writes issued.
+# TYPE ceph_bluestore_issued_deferred_writes counter
+ceph_bluestore_issued_deferred_writes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_omap_clear_lat_count Average omap clear call latency Count.
+# TYPE ceph_bluestore_omap_clear_lat_count counter
+ceph_bluestore_omap_clear_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_omap_clear_lat_sum Average omap clear call latency Total.
+# TYPE ceph_bluestore_omap_clear_lat_sum gauge
+ceph_bluestore_omap_clear_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_omap_iterator_count Open omap iterators count.
+# TYPE ceph_bluestore_omap_iterator_count counter
+ceph_bluestore_omap_iterator_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_omap_rmkey_range_count amount of omap key ranges removed via rmkeys.
+# TYPE ceph_bluestore_omap_rmkey_range_count counter
+ceph_bluestore_omap_rmkey_range_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_omap_rmkeys_count amount of omap keys removed via rmkeys.
+# TYPE ceph_bluestore_omap_rmkeys_count counter
+ceph_bluestore_omap_rmkeys_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_onode_blobs Number of blobs in cache.
+# TYPE ceph_bluestore_onode_blobs gauge
+ceph_bluestore_onode_blobs{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_onode_extents Number of extents in cache.
+# TYPE ceph_bluestore_onode_extents gauge
+ceph_bluestore_onode_extents{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_onode_reshard Onode extent map reshard events.
+# TYPE ceph_bluestore_onode_reshard counter
+ceph_bluestore_onode_reshard{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_onode_shard_hits Count of onode shard cache lookups hits.
+# TYPE ceph_bluestore_onode_shard_hits counter
+ceph_bluestore_onode_shard_hits{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_onode_shard_misses Count of onode shard cache lookups misses.
+# TYPE ceph_bluestore_onode_shard_misses counter
+ceph_bluestore_onode_shard_misses{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_onodes Number of onodes in cache.
+# TYPE ceph_bluestore_onodes gauge
+ceph_bluestore_onodes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_onodes_pinned Number of pinned onodes in cache.
+# TYPE ceph_bluestore_onodes_pinned gauge
+ceph_bluestore_onodes_pinned{ceph_daemon="osd.0"} 1
+
+# HELP ceph_bluestore_read_eio Read EIO errors propagated to high level callers.
+# TYPE ceph_bluestore_read_eio counter
+ceph_bluestore_read_eio{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_submitted_deferred_write_bytes Total bytes submitted to disk by deferred writes.
+# TYPE ceph_bluestore_submitted_deferred_write_bytes counter
+ceph_bluestore_submitted_deferred_write_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_submitted_deferred_writes Total deferred writes submitted to disk.
+# TYPE ceph_bluestore_submitted_deferred_writes counter
+ceph_bluestore_submitted_deferred_writes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_txc_count Transactions committed.
+# TYPE ceph_bluestore_txc_count counter
+ceph_bluestore_txc_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_big Large aligned writes into fresh blobs.
+# TYPE ceph_bluestore_write_big counter
+ceph_bluestore_write_big{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_big_blobs Large aligned writes into fresh blobs (blobs).
+# TYPE ceph_bluestore_write_big_blobs counter
+ceph_bluestore_write_big_blobs{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_big_bytes Large aligned writes into fresh blobs (bytes).
+# TYPE ceph_bluestore_write_big_bytes counter
+ceph_bluestore_write_big_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_big_deferred Big overwrites using deferred.
+# TYPE ceph_bluestore_write_big_deferred counter
+ceph_bluestore_write_big_deferred{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_big_skipped_blobs Large aligned writes into fresh blobs skipped due to zero detection (blobs).
+# TYPE ceph_bluestore_write_big_skipped_blobs counter
+ceph_bluestore_write_big_skipped_blobs{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_big_skipped_bytes Large aligned writes into fresh blobs skipped due to zero detection (bytes).
+# TYPE ceph_bluestore_write_big_skipped_bytes counter
+ceph_bluestore_write_big_skipped_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_new Write into new blob.
+# TYPE ceph_bluestore_write_new counter
+ceph_bluestore_write_new{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_pad_bytes Sum for write-op padded bytes.
+# TYPE ceph_bluestore_write_pad_bytes counter
+ceph_bluestore_write_pad_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_penalty_read_ops Sum for write penalty read ops.
+# TYPE ceph_bluestore_write_penalty_read_ops counter
+ceph_bluestore_write_penalty_read_ops{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_small Small writes into existing or sparse small blobs.
+# TYPE ceph_bluestore_write_small counter
+ceph_bluestore_write_small{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_small_bytes Small writes into existing or sparse small blobs (bytes).
+# TYPE ceph_bluestore_write_small_bytes counter
+ceph_bluestore_write_small_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_small_pre_read write_small_pre_read.
+# TYPE ceph_bluestore_write_small_pre_read counter
+ceph_bluestore_write_small_pre_read{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_small_skipped Small writes into existing or sparse small blobs skipped due to zero detection.
+# TYPE ceph_bluestore_write_small_skipped counter
+ceph_bluestore_write_small_skipped{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_small_skipped_bytes Small writes into existing or sparse small blobs skipped due to zero detection (bytes).
+# TYPE ceph_bluestore_write_small_skipped_bytes counter
+ceph_bluestore_write_small_skipped_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_bluestore_write_small_unused Small writes into unused portion of existing blob.
+# TYPE ceph_bluestore_write_small_unused counter
+ceph_bluestore_write_small_unused{ceph_daemon="osd.0"} 100
+
+# HELP ceph_cct_total_workers Total workers.
+# TYPE ceph_cct_total_workers gauge
+ceph_cct_total_workers{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cct_unhealthy_workers Unhealthy workers.
+# TYPE ceph_cct_unhealthy_workers gauge
+ceph_cct_unhealthy_workers{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_fsync_count Latency of a file sync operation Count.
+# TYPE ceph_client_fsync_count counter
+ceph_client_fsync_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_client_fsync_sum Latency of a file sync operation Total.
+# TYPE ceph_client_fsync_sum gauge
+ceph_client_fsync_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_lat_count Latency of processing a metadata request Count.
+# TYPE ceph_client_lat_count counter
+ceph_client_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_client_lat_sum Latency of processing a metadata request Total.
+# TYPE ceph_client_lat_sum gauge
+ceph_client_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_mdavg Average latency for processing metadata requests.
+# TYPE ceph_client_mdavg gauge
+ceph_client_mdavg{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_mdops Total metadata IO operations.
+# TYPE ceph_client_mdops gauge
+ceph_client_mdops{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_mdsqsum Sum of squares (to calculate variability/stdev) for metadata requests.
+# TYPE ceph_client_mdsqsum gauge
+ceph_client_mdsqsum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_rdlat_count Latency of a file data read operation Count.
+# TYPE ceph_client_rdlat_count counter
+ceph_client_rdlat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_client_rdlat_sum Latency of a file data read operation Total.
+# TYPE ceph_client_rdlat_sum gauge
+ceph_client_rdlat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_rdops Total write IO operations.
+# TYPE ceph_client_rdops gauge
+ceph_client_rdops{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_readavg Average latency for processing read requests.
+# TYPE ceph_client_readavg gauge
+ceph_client_readavg{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_readsqsum Sum of squares ((to calculate variability/stdev) for read requests.
+# TYPE ceph_client_readsqsum gauge
+ceph_client_readsqsum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_reply_count Latency of receiving a reply on metadata request Count.
+# TYPE ceph_client_reply_count counter
+ceph_client_reply_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_client_reply_sum Latency of receiving a reply on metadata request Total.
+# TYPE ceph_client_reply_sum gauge
+ceph_client_reply_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_writeavg Average latency for processing write requests.
+# TYPE ceph_client_writeavg gauge
+ceph_client_writeavg{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_writesqsum Sum of squares ((to calculate variability/stdev) for write requests.
+# TYPE ceph_client_writesqsum gauge
+ceph_client_writesqsum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_client_wrlat_count Latency of a file data write operation Count.
+# TYPE ceph_client_wrlat_count counter
+ceph_client_wrlat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_client_wrlat_sum Latency of a file data write operation Total.
+# TYPE ceph_client_wrlat_sum gauge
+ceph_client_wrlat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_bytes Size of all objects.
+# TYPE ceph_cluster_num_bytes gauge
+ceph_cluster_num_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_mon Monitors.
+# TYPE ceph_cluster_num_mon gauge
+ceph_cluster_num_mon{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_mon_quorum Monitors in quorum.
+# TYPE ceph_cluster_num_mon_quorum gauge
+ceph_cluster_num_mon_quorum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_object Objects.
+# TYPE ceph_cluster_num_object gauge
+ceph_cluster_num_object{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_object_degraded Degraded (missing replicas) objects.
+# TYPE ceph_cluster_num_object_degraded gauge
+ceph_cluster_num_object_degraded{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_object_misplaced Misplaced (wrong location in the cluster) objects.
+# TYPE ceph_cluster_num_object_misplaced gauge
+ceph_cluster_num_object_misplaced{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_object_unfound Unfound objects.
+# TYPE ceph_cluster_num_object_unfound gauge
+ceph_cluster_num_object_unfound{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_osd OSDs.
+# TYPE ceph_cluster_num_osd gauge
+ceph_cluster_num_osd{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_osd_in OSD in state "in" (they are in cluster).
+# TYPE ceph_cluster_num_osd_in gauge
+ceph_cluster_num_osd_in{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_osd_up OSDs that are up.
+# TYPE ceph_cluster_num_osd_up gauge
+ceph_cluster_num_osd_up{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_pg Placement groups.
+# TYPE ceph_cluster_num_pg gauge
+ceph_cluster_num_pg{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_pg_active Placement groups in active state.
+# TYPE ceph_cluster_num_pg_active gauge
+ceph_cluster_num_pg_active{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_pg_active_clean Placement groups in active+clean state.
+# TYPE ceph_cluster_num_pg_active_clean gauge
+ceph_cluster_num_pg_active_clean{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_pg_peering Placement groups in peering state.
+# TYPE ceph_cluster_num_pg_peering gauge
+ceph_cluster_num_pg_peering{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_num_pool Pools.
+# TYPE ceph_cluster_num_pool gauge
+ceph_cluster_num_pool{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_osd_bytes Total capacity of cluster.
+# TYPE ceph_cluster_osd_bytes gauge
+ceph_cluster_osd_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_osd_bytes_avail Available space.
+# TYPE ceph_cluster_osd_bytes_avail gauge
+ceph_cluster_osd_bytes_avail{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_osd_bytes_used Used space.
+# TYPE ceph_cluster_osd_bytes_used gauge
+ceph_cluster_osd_bytes_used{ceph_daemon="osd.0"} 1
+
+# HELP ceph_cluster_osd_epoch Current epoch of OSD map.
+# TYPE ceph_cluster_osd_epoch gauge
+ceph_cluster_osd_epoch{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_admin_cancel Cancels.
+# TYPE ceph_dmclock_admin_cancel counter
+ceph_dmclock_admin_cancel{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_cancel_cost Canceled cost.
+# TYPE ceph_dmclock_admin_cancel_cost counter
+ceph_dmclock_admin_cancel_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_cost Cost of queued requests.
+# TYPE ceph_dmclock_admin_cost gauge
+ceph_dmclock_admin_cost{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_admin_limit Requests rejected by limit.
+# TYPE ceph_dmclock_admin_limit counter
+ceph_dmclock_admin_limit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_limit_cost Cost rejected by limit.
+# TYPE ceph_dmclock_admin_limit_cost counter
+ceph_dmclock_admin_limit_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_prio Requests satisfied by priority.
+# TYPE ceph_dmclock_admin_prio counter
+ceph_dmclock_admin_prio{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_prio_cost Cost satisfied by priority.
+# TYPE ceph_dmclock_admin_prio_cost counter
+ceph_dmclock_admin_prio_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_prio_latency_count Priority latency Count.
+# TYPE ceph_dmclock_admin_prio_latency_count counter
+ceph_dmclock_admin_prio_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_prio_latency_sum Priority latency Total.
+# TYPE ceph_dmclock_admin_prio_latency_sum gauge
+ceph_dmclock_admin_prio_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_admin_qlen Queue size.
+# TYPE ceph_dmclock_admin_qlen gauge
+ceph_dmclock_admin_qlen{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_admin_res Requests satisfied by reservation.
+# TYPE ceph_dmclock_admin_res counter
+ceph_dmclock_admin_res{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_res_cost Cost satisfied by reservation.
+# TYPE ceph_dmclock_admin_res_cost counter
+ceph_dmclock_admin_res_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_res_latency_count Reservation latency Count.
+# TYPE ceph_dmclock_admin_res_latency_count counter
+ceph_dmclock_admin_res_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_admin_res_latency_sum Reservation latency Total.
+# TYPE ceph_dmclock_admin_res_latency_sum gauge
+ceph_dmclock_admin_res_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_auth_cancel Cancels.
+# TYPE ceph_dmclock_auth_cancel counter
+ceph_dmclock_auth_cancel{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_cancel_cost Canceled cost.
+# TYPE ceph_dmclock_auth_cancel_cost counter
+ceph_dmclock_auth_cancel_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_cost Cost of queued requests.
+# TYPE ceph_dmclock_auth_cost gauge
+ceph_dmclock_auth_cost{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_auth_limit Requests rejected by limit.
+# TYPE ceph_dmclock_auth_limit counter
+ceph_dmclock_auth_limit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_limit_cost Cost rejected by limit.
+# TYPE ceph_dmclock_auth_limit_cost counter
+ceph_dmclock_auth_limit_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_prio Requests satisfied by priority.
+# TYPE ceph_dmclock_auth_prio counter
+ceph_dmclock_auth_prio{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_prio_cost Cost satisfied by priority.
+# TYPE ceph_dmclock_auth_prio_cost counter
+ceph_dmclock_auth_prio_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_prio_latency_count Priority latency Count.
+# TYPE ceph_dmclock_auth_prio_latency_count counter
+ceph_dmclock_auth_prio_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_prio_latency_sum Priority latency Total.
+# TYPE ceph_dmclock_auth_prio_latency_sum gauge
+ceph_dmclock_auth_prio_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_auth_qlen Queue size.
+# TYPE ceph_dmclock_auth_qlen gauge
+ceph_dmclock_auth_qlen{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_auth_res Requests satisfied by reservation.
+# TYPE ceph_dmclock_auth_res counter
+ceph_dmclock_auth_res{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_res_cost Cost satisfied by reservation.
+# TYPE ceph_dmclock_auth_res_cost counter
+ceph_dmclock_auth_res_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_res_latency_count Reservation latency Count.
+# TYPE ceph_dmclock_auth_res_latency_count counter
+ceph_dmclock_auth_res_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_auth_res_latency_sum Reservation latency Total.
+# TYPE ceph_dmclock_auth_res_latency_sum gauge
+ceph_dmclock_auth_res_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_data_cancel Cancels.
+# TYPE ceph_dmclock_data_cancel counter
+ceph_dmclock_data_cancel{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_cancel_cost Canceled cost.
+# TYPE ceph_dmclock_data_cancel_cost counter
+ceph_dmclock_data_cancel_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_cost Cost of queued requests.
+# TYPE ceph_dmclock_data_cost gauge
+ceph_dmclock_data_cost{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_data_limit Requests rejected by limit.
+# TYPE ceph_dmclock_data_limit counter
+ceph_dmclock_data_limit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_limit_cost Cost rejected by limit.
+# TYPE ceph_dmclock_data_limit_cost counter
+ceph_dmclock_data_limit_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_prio Requests satisfied by priority.
+# TYPE ceph_dmclock_data_prio counter
+ceph_dmclock_data_prio{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_prio_cost Cost satisfied by priority.
+# TYPE ceph_dmclock_data_prio_cost counter
+ceph_dmclock_data_prio_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_prio_latency_count Priority latency Count.
+# TYPE ceph_dmclock_data_prio_latency_count counter
+ceph_dmclock_data_prio_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_prio_latency_sum Priority latency Total.
+# TYPE ceph_dmclock_data_prio_latency_sum gauge
+ceph_dmclock_data_prio_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_data_qlen Queue size.
+# TYPE ceph_dmclock_data_qlen gauge
+ceph_dmclock_data_qlen{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_data_res Requests satisfied by reservation.
+# TYPE ceph_dmclock_data_res counter
+ceph_dmclock_data_res{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_res_cost Cost satisfied by reservation.
+# TYPE ceph_dmclock_data_res_cost counter
+ceph_dmclock_data_res_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_res_latency_count Reservation latency Count.
+# TYPE ceph_dmclock_data_res_latency_count counter
+ceph_dmclock_data_res_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_data_res_latency_sum Reservation latency Total.
+# TYPE ceph_dmclock_data_res_latency_sum gauge
+ceph_dmclock_data_res_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_metadata_cancel Cancels.
+# TYPE ceph_dmclock_metadata_cancel counter
+ceph_dmclock_metadata_cancel{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_cancel_cost Canceled cost.
+# TYPE ceph_dmclock_metadata_cancel_cost counter
+ceph_dmclock_metadata_cancel_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_cost Cost of queued requests.
+# TYPE ceph_dmclock_metadata_cost gauge
+ceph_dmclock_metadata_cost{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_metadata_limit Requests rejected by limit.
+# TYPE ceph_dmclock_metadata_limit counter
+ceph_dmclock_metadata_limit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_limit_cost Cost rejected by limit.
+# TYPE ceph_dmclock_metadata_limit_cost counter
+ceph_dmclock_metadata_limit_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_prio Requests satisfied by priority.
+# TYPE ceph_dmclock_metadata_prio counter
+ceph_dmclock_metadata_prio{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_prio_cost Cost satisfied by priority.
+# TYPE ceph_dmclock_metadata_prio_cost counter
+ceph_dmclock_metadata_prio_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_prio_latency_count Priority latency Count.
+# TYPE ceph_dmclock_metadata_prio_latency_count counter
+ceph_dmclock_metadata_prio_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_prio_latency_sum Priority latency Total.
+# TYPE ceph_dmclock_metadata_prio_latency_sum gauge
+ceph_dmclock_metadata_prio_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_metadata_qlen Queue size.
+# TYPE ceph_dmclock_metadata_qlen gauge
+ceph_dmclock_metadata_qlen{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_metadata_res Requests satisfied by reservation.
+# TYPE ceph_dmclock_metadata_res counter
+ceph_dmclock_metadata_res{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_res_cost Cost satisfied by reservation.
+# TYPE ceph_dmclock_metadata_res_cost counter
+ceph_dmclock_metadata_res_cost{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_res_latency_count Reservation latency Count.
+# TYPE ceph_dmclock_metadata_res_latency_count counter
+ceph_dmclock_metadata_res_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_dmclock_metadata_res_latency_sum Reservation latency Total.
+# TYPE ceph_dmclock_metadata_res_latency_sum gauge
+ceph_dmclock_metadata_res_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_scheduler_outstanding Outstanding Requests.
+# TYPE ceph_dmclock_scheduler_outstanding gauge
+ceph_dmclock_scheduler_outstanding{ceph_daemon="osd.0"} 1
+
+# HELP ceph_dmclock_scheduler_throttle Requests throttled.
+# TYPE ceph_dmclock_scheduler_throttle gauge
+ceph_dmclock_scheduler_throttle{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_cpu_total Process time in kernel/user/idle mode.
+# TYPE ceph_exporter_cpu_total counter
+ceph_exporter_cpu_total{ceph_daemon="osd.0",mode="idle"} 100
+ceph_exporter_cpu_total{ceph_daemon="osd.0",mode="kernel"} 101
+ceph_exporter_cpu_total{ceph_daemon="osd.0",mode="user"} 102
+
+# HELP ceph_exporter_cpu_usage CPU usage of a daemon.
+# TYPE ceph_exporter_cpu_usage gauge
+ceph_exporter_cpu_usage{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_majflt_total Number of major page faults of daemon.
+# TYPE ceph_exporter_majflt_total counter
+ceph_exporter_majflt_total{ceph_daemon="osd.0"} 100
+
+# HELP ceph_exporter_minflt_total Number of minor page faults of daemon.
+# TYPE ceph_exporter_minflt_total counter
+ceph_exporter_minflt_total{ceph_daemon="osd.0"} 100
+
+# HELP ceph_exporter_num_threads Number of threads used by daemon.
+# TYPE ceph_exporter_num_threads gauge
+ceph_exporter_num_threads{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_resident_size Resident memory in a daemon.
+# TYPE ceph_exporter_resident_size gauge
+ceph_exporter_resident_size{ceph_daemon="osd.0"} 1
+
+# HELP ceph_exporter_scrape_time Time spent scraping and transforming perf counters to metrics.
+# TYPE ceph_exporter_scrape_time gauge
+ceph_exporter_scrape_time{function="function_a",host="host_a"} 1
+
+# HELP ceph_exporter_vm_size Virtual memory used in a daemon.
+# TYPE ceph_exporter_vm_size gauge
+ceph_exporter_vm_size{ceph_daemon="osd.0"} 1
+
+# HELP ceph_finisher_finisher_key_a_complete_latency_count Source-derived dynamic Finisher metric: finisher_fixture_a_complete_latency_count.
+# TYPE ceph_finisher_finisher_key_a_complete_latency_count counter
+ceph_finisher_finisher_key_a_complete_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_finisher_finisher_key_a_complete_latency_sum Source-derived dynamic Finisher metric: finisher_fixture_a_complete_latency_sum.
+# TYPE ceph_finisher_finisher_key_a_complete_latency_sum gauge
+ceph_finisher_finisher_key_a_complete_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_finisher_finisher_key_a_queue_len Source-derived dynamic Finisher metric: finisher_fixture_a_queue_len.
+# TYPE ceph_finisher_finisher_key_a_queue_len gauge
+ceph_finisher_finisher_key_a_queue_len{ceph_daemon="osd.0"} 1
+
+# HELP ceph_ipv4_dpdk_ip_linearize_operations DPDK IP Packet linearization operations.
+# TYPE ceph_ipv4_dpdk_ip_linearize_operations counter
+ceph_ipv4_dpdk_ip_linearize_operations{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_lock Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_lock.
+# TYPE ceph_libcephsqlite_striper_lock counter
+ceph_libcephsqlite_striper_lock{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_shrink Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_shrink.
+# TYPE ceph_libcephsqlite_striper_shrink counter
+ceph_libcephsqlite_striper_shrink{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_shrink_bytes Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_shrink_bytes.
+# TYPE ceph_libcephsqlite_striper_shrink_bytes counter
+ceph_libcephsqlite_striper_shrink_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_unlock Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_unlock.
+# TYPE ceph_libcephsqlite_striper_unlock counter
+ceph_libcephsqlite_striper_unlock{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_update_allocated Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_update_allocated.
+# TYPE ceph_libcephsqlite_striper_update_allocated counter
+ceph_libcephsqlite_striper_update_allocated{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_update_metadata Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_update_metadata.
+# TYPE ceph_libcephsqlite_striper_update_metadata counter
+ceph_libcephsqlite_striper_update_metadata{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_update_size Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_update_size.
+# TYPE ceph_libcephsqlite_striper_update_size counter
+ceph_libcephsqlite_striper_update_size{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_striper_update_version Source-derived SimpleRADOSStriper metric: libcephsqlite_striper_update_version.
+# TYPE ceph_libcephsqlite_striper_update_version counter
+ceph_libcephsqlite_striper_update_version{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_op_access_count Time average of Access operations Count.
+# TYPE ceph_libcephsqlite_vfs_op_access_count counter
+ceph_libcephsqlite_vfs_op_access_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_op_access_sum Time average of Access operations Total.
+# TYPE ceph_libcephsqlite_vfs_op_access_sum gauge
+ceph_libcephsqlite_vfs_op_access_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_op_currenttime_count Time average of Currenttime operations Count.
+# TYPE ceph_libcephsqlite_vfs_op_currenttime_count counter
+ceph_libcephsqlite_vfs_op_currenttime_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_op_currenttime_sum Time average of Currenttime operations Total.
+# TYPE ceph_libcephsqlite_vfs_op_currenttime_sum gauge
+ceph_libcephsqlite_vfs_op_currenttime_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_op_delete_count Time average of Delete operations Count.
+# TYPE ceph_libcephsqlite_vfs_op_delete_count counter
+ceph_libcephsqlite_vfs_op_delete_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_op_delete_sum Time average of Delete operations Total.
+# TYPE ceph_libcephsqlite_vfs_op_delete_sum gauge
+ceph_libcephsqlite_vfs_op_delete_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_op_fullpathname_count Time average of FullPathname operations Count.
+# TYPE ceph_libcephsqlite_vfs_op_fullpathname_count counter
+ceph_libcephsqlite_vfs_op_fullpathname_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_op_fullpathname_sum Time average of FullPathname operations Total.
+# TYPE ceph_libcephsqlite_vfs_op_fullpathname_sum gauge
+ceph_libcephsqlite_vfs_op_fullpathname_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_op_open_count Time average of Open operations Count.
+# TYPE ceph_libcephsqlite_vfs_op_open_count counter
+ceph_libcephsqlite_vfs_op_open_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_op_open_sum Time average of Open operations Total.
+# TYPE ceph_libcephsqlite_vfs_op_open_sum gauge
+ceph_libcephsqlite_vfs_op_open_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_checkreservedlock_count Time average of CheckReservedLock file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_checkreservedlock_count counter
+ceph_libcephsqlite_vfs_opf_checkreservedlock_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_checkreservedlock_sum Time average of CheckReservedLock file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_checkreservedlock_sum gauge
+ceph_libcephsqlite_vfs_opf_checkreservedlock_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_close_count Time average of Close file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_close_count counter
+ceph_libcephsqlite_vfs_opf_close_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_close_sum Time average of Close file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_close_sum gauge
+ceph_libcephsqlite_vfs_opf_close_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_devicecharacteristics_count Time average of DeviceCharacteristics file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_devicecharacteristics_count counter
+ceph_libcephsqlite_vfs_opf_devicecharacteristics_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_devicecharacteristics_sum Time average of DeviceCharacteristics file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_devicecharacteristics_sum gauge
+ceph_libcephsqlite_vfs_opf_devicecharacteristics_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_filecontrol_count Time average of FileControl file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_filecontrol_count counter
+ceph_libcephsqlite_vfs_opf_filecontrol_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_filecontrol_sum Time average of FileControl file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_filecontrol_sum gauge
+ceph_libcephsqlite_vfs_opf_filecontrol_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_filesize_count Time average of FileSize file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_filesize_count counter
+ceph_libcephsqlite_vfs_opf_filesize_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_filesize_sum Time average of FileSize file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_filesize_sum gauge
+ceph_libcephsqlite_vfs_opf_filesize_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_lock_count Time average of Lock file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_lock_count counter
+ceph_libcephsqlite_vfs_opf_lock_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_lock_sum Time average of Lock file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_lock_sum gauge
+ceph_libcephsqlite_vfs_opf_lock_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_read_count Time average of Read file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_read_count counter
+ceph_libcephsqlite_vfs_opf_read_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_read_sum Time average of Read file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_read_sum gauge
+ceph_libcephsqlite_vfs_opf_read_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_sectorsize_count Time average of SectorSize file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_sectorsize_count counter
+ceph_libcephsqlite_vfs_opf_sectorsize_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_sectorsize_sum Time average of SectorSize file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_sectorsize_sum gauge
+ceph_libcephsqlite_vfs_opf_sectorsize_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_sync_count Time average of Sync file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_sync_count counter
+ceph_libcephsqlite_vfs_opf_sync_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_sync_sum Time average of Sync file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_sync_sum gauge
+ceph_libcephsqlite_vfs_opf_sync_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_truncate_count Time average of Truncate file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_truncate_count counter
+ceph_libcephsqlite_vfs_opf_truncate_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_truncate_sum Time average of Truncate file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_truncate_sum gauge
+ceph_libcephsqlite_vfs_opf_truncate_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_unlock_count Time average of Unlock file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_unlock_count counter
+ceph_libcephsqlite_vfs_opf_unlock_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_unlock_sum Time average of Unlock file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_unlock_sum gauge
+ceph_libcephsqlite_vfs_opf_unlock_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_libcephsqlite_vfs_opf_write_count Time average of Write file operations Count.
+# TYPE ceph_libcephsqlite_vfs_opf_write_count counter
+ceph_libcephsqlite_vfs_opf_write_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_libcephsqlite_vfs_opf_write_sum Time average of Write file operations Total.
+# TYPE ceph_libcephsqlite_vfs_opf_write_sum gauge
+ceph_libcephsqlite_vfs_opf_write_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_librbd_image_key_a_cmp Source-derived dynamic librbd ImageCtx metric: cmp.
+# TYPE ceph_librbd_librbd_image_key_a_cmp counter
+ceph_librbd_librbd_image_key_a_cmp{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_cmp_bytes Source-derived dynamic librbd ImageCtx metric: cmp_bytes.
+# TYPE ceph_librbd_librbd_image_key_a_cmp_bytes counter
+ceph_librbd_librbd_image_key_a_cmp_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_cmp_latency_count Source-derived dynamic librbd ImageCtx metric: cmp_latency_count.
+# TYPE ceph_librbd_librbd_image_key_a_cmp_latency_count counter
+ceph_librbd_librbd_image_key_a_cmp_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_cmp_latency_sum Source-derived dynamic librbd ImageCtx metric: cmp_latency_sum.
+# TYPE ceph_librbd_librbd_image_key_a_cmp_latency_sum gauge
+ceph_librbd_librbd_image_key_a_cmp_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_librbd_image_key_a_discard Source-derived dynamic librbd ImageCtx metric: discard.
+# TYPE ceph_librbd_librbd_image_key_a_discard counter
+ceph_librbd_librbd_image_key_a_discard{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_discard_bytes Source-derived dynamic librbd ImageCtx metric: discard_bytes.
+# TYPE ceph_librbd_librbd_image_key_a_discard_bytes counter
+ceph_librbd_librbd_image_key_a_discard_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_discard_latency_count Source-derived dynamic librbd ImageCtx metric: discard_latency_count.
+# TYPE ceph_librbd_librbd_image_key_a_discard_latency_count counter
+ceph_librbd_librbd_image_key_a_discard_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_discard_latency_sum Source-derived dynamic librbd ImageCtx metric: discard_latency_sum.
+# TYPE ceph_librbd_librbd_image_key_a_discard_latency_sum gauge
+ceph_librbd_librbd_image_key_a_discard_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_librbd_image_key_a_flush Source-derived dynamic librbd ImageCtx metric: flush.
+# TYPE ceph_librbd_librbd_image_key_a_flush counter
+ceph_librbd_librbd_image_key_a_flush{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_flush_latency_count Source-derived dynamic librbd ImageCtx metric: flush_latency_count.
+# TYPE ceph_librbd_librbd_image_key_a_flush_latency_count counter
+ceph_librbd_librbd_image_key_a_flush_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_flush_latency_sum Source-derived dynamic librbd ImageCtx metric: flush_latency_sum.
+# TYPE ceph_librbd_librbd_image_key_a_flush_latency_sum gauge
+ceph_librbd_librbd_image_key_a_flush_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_librbd_image_key_a_invalidate_cache Source-derived dynamic librbd ImageCtx metric: invalidate_cache.
+# TYPE ceph_librbd_librbd_image_key_a_invalidate_cache counter
+ceph_librbd_librbd_image_key_a_invalidate_cache{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_notify Source-derived dynamic librbd ImageCtx metric: notify.
+# TYPE ceph_librbd_librbd_image_key_a_notify counter
+ceph_librbd_librbd_image_key_a_notify{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_readahead Source-derived dynamic librbd ImageCtx metric: readahead.
+# TYPE ceph_librbd_librbd_image_key_a_readahead counter
+ceph_librbd_librbd_image_key_a_readahead{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_readahead_bytes Source-derived dynamic librbd ImageCtx metric: readahead_bytes.
+# TYPE ceph_librbd_librbd_image_key_a_readahead_bytes counter
+ceph_librbd_librbd_image_key_a_readahead_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_resize Source-derived dynamic librbd ImageCtx metric: resize.
+# TYPE ceph_librbd_librbd_image_key_a_resize counter
+ceph_librbd_librbd_image_key_a_resize{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_snap_create Source-derived dynamic librbd ImageCtx metric: snap_create.
+# TYPE ceph_librbd_librbd_image_key_a_snap_create counter
+ceph_librbd_librbd_image_key_a_snap_create{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_snap_remove Source-derived dynamic librbd ImageCtx metric: snap_remove.
+# TYPE ceph_librbd_librbd_image_key_a_snap_remove counter
+ceph_librbd_librbd_image_key_a_snap_remove{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_snap_rename Source-derived dynamic librbd ImageCtx metric: snap_rename.
+# TYPE ceph_librbd_librbd_image_key_a_snap_rename counter
+ceph_librbd_librbd_image_key_a_snap_rename{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_snap_rollback Source-derived dynamic librbd ImageCtx metric: snap_rollback.
+# TYPE ceph_librbd_librbd_image_key_a_snap_rollback counter
+ceph_librbd_librbd_image_key_a_snap_rollback{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_ws Source-derived dynamic librbd ImageCtx metric: ws.
+# TYPE ceph_librbd_librbd_image_key_a_ws counter
+ceph_librbd_librbd_image_key_a_ws{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_ws_bytes Source-derived dynamic librbd ImageCtx metric: ws_bytes.
+# TYPE ceph_librbd_librbd_image_key_a_ws_bytes counter
+ceph_librbd_librbd_image_key_a_ws_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_ws_latency_count Source-derived dynamic librbd ImageCtx metric: ws_latency_count.
+# TYPE ceph_librbd_librbd_image_key_a_ws_latency_count counter
+ceph_librbd_librbd_image_key_a_ws_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_librbd_image_key_a_ws_latency_sum Source-derived dynamic librbd ImageCtx metric: ws_latency_sum.
+# TYPE ceph_librbd_librbd_image_key_a_ws_latency_sum gauge
+ceph_librbd_librbd_image_key_a_ws_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_aio_flush Source-derived dynamic librbd PWL metric: aio_flush.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_aio_flush counter
+ceph_librbd_pwl_librbd_pwl_key_a_aio_flush{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_def Source-derived dynamic librbd PWL metric: aio_flush_def.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_def counter
+ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_def{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_lat_count Source-derived dynamic librbd PWL metric: aio_flush_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_lat_sum Source-derived dynamic librbd PWL metric: aio_flush_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_aio_flush_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_append_tx_lat_count Source-derived dynamic librbd PWL metric: append_tx_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_append_tx_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_append_tx_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_append_tx_lat_sum Source-derived dynamic librbd PWL metric: append_tx_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_append_tx_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_append_tx_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_count Source-derived dynamic librbd PWL metric: caller_wr_latency_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_nw_count Source-derived dynamic librbd PWL metric: caller_wr_latency_nw_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_nw_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_nw_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_nw_sum Source-derived dynamic librbd PWL metric: caller_wr_latency_nw_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_nw_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_nw_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_sum Source-derived dynamic librbd PWL metric: caller_wr_latency_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_caller_wr_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_cmp Source-derived dynamic librbd PWL metric: cmp.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_cmp counter
+ceph_librbd_pwl_librbd_pwl_key_a_cmp{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_cmp_bytes Source-derived dynamic librbd PWL metric: cmp_bytes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_cmp_bytes counter
+ceph_librbd_pwl_librbd_pwl_key_a_cmp_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_cmp_fails Source-derived dynamic librbd PWL metric: cmp_fails.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_cmp_fails counter
+ceph_librbd_pwl_librbd_pwl_key_a_cmp_fails{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_cmp_lat_count Source-derived dynamic librbd PWL metric: cmp_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_cmp_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_cmp_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_cmp_lat_sum Source-derived dynamic librbd PWL metric: cmp_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_cmp_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_cmp_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_discard Source-derived dynamic librbd PWL metric: discard.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_discard counter
+ceph_librbd_pwl_librbd_pwl_key_a_discard{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_discard_bytes Source-derived dynamic librbd PWL metric: discard_bytes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_discard_bytes counter
+ceph_librbd_pwl_librbd_pwl_key_a_discard_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_discard_lat_count Source-derived dynamic librbd PWL metric: discard_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_discard_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_discard_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_discard_lat_sum Source-derived dynamic librbd PWL metric: discard_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_discard_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_discard_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_hit_rd Source-derived dynamic librbd PWL metric: hit_rd.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_hit_rd counter
+ceph_librbd_pwl_librbd_pwl_key_a_hit_rd{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_hit_rd_latency_count Source-derived dynamic librbd PWL metric: hit_rd_latency_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_hit_rd_latency_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_hit_rd_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_hit_rd_latency_sum Source-derived dynamic librbd PWL metric: hit_rd_latency_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_hit_rd_latency_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_hit_rd_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_internal_flush Source-derived dynamic librbd PWL metric: internal_flush.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_internal_flush counter
+ceph_librbd_pwl_librbd_pwl_key_a_internal_flush{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_invalidate Source-derived dynamic librbd PWL metric: invalidate.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_invalidate counter
+ceph_librbd_pwl_librbd_pwl_key_a_invalidate{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_log_op_bytes_count Source-derived dynamic librbd PWL metric: log_op_bytes_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_log_op_bytes_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_log_op_bytes_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_log_op_bytes_sum Source-derived dynamic librbd PWL metric: log_op_bytes_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_log_op_bytes_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_log_op_bytes_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_log_ops Source-derived dynamic librbd PWL metric: log_ops.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_log_ops counter
+ceph_librbd_pwl_librbd_pwl_key_a_log_ops{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_alloc_t_count Source-derived dynamic librbd PWL metric: op_alloc_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_alloc_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_alloc_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_alloc_t_sum Source-derived dynamic librbd PWL metric: op_alloc_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_alloc_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_alloc_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_appc_t_count Source-derived dynamic librbd PWL metric: op_app_to_appc_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_appc_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_appc_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_appc_t_sum Source-derived dynamic librbd PWL metric: op_app_to_appc_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_appc_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_appc_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_cmp_t_count Source-derived dynamic librbd PWL metric: op_app_to_cmp_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_cmp_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_cmp_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_cmp_t_sum Source-derived dynamic librbd PWL metric: op_app_to_cmp_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_cmp_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_app_to_cmp_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_app_t_count Source-derived dynamic librbd PWL metric: op_buf_to_app_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_app_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_app_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_app_t_sum Source-derived dynamic librbd PWL metric: op_buf_to_app_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_app_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_app_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_bufc_t_count Source-derived dynamic librbd PWL metric: op_buf_to_bufc_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_bufc_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_bufc_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_bufc_t_sum Source-derived dynamic librbd PWL metric: op_buf_to_bufc_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_bufc_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_buf_to_bufc_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_app_t_count Source-derived dynamic librbd PWL metric: op_dis_to_app_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_app_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_app_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_app_t_sum Source-derived dynamic librbd PWL metric: op_dis_to_app_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_app_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_app_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_buf_t_count Source-derived dynamic librbd PWL metric: op_dis_to_buf_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_buf_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_buf_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_buf_t_sum Source-derived dynamic librbd PWL metric: op_dis_to_buf_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_buf_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_buf_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_cmp_t_count Source-derived dynamic librbd PWL metric: op_dis_to_cmp_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_cmp_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_cmp_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_cmp_t_sum Source-derived dynamic librbd PWL metric: op_dis_to_cmp_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_cmp_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_op_dis_to_cmp_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_part_hit_rd Source-derived dynamic librbd PWL metric: part_hit_rd.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_part_hit_rd counter
+ceph_librbd_pwl_librbd_pwl_key_a_part_hit_rd{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_rd Source-derived dynamic librbd PWL metric: rd.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_rd counter
+ceph_librbd_pwl_librbd_pwl_key_a_rd{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_rd_bytes Source-derived dynamic librbd PWL metric: rd_bytes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_rd_bytes counter
+ceph_librbd_pwl_librbd_pwl_key_a_rd_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_rd_hit_bytes Source-derived dynamic librbd PWL metric: rd_hit_bytes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_rd_hit_bytes counter
+ceph_librbd_pwl_librbd_pwl_key_a_rd_hit_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_rd_latency_count Source-derived dynamic librbd PWL metric: rd_latency_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_rd_latency_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_rd_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_rd_latency_sum Source-derived dynamic librbd PWL metric: rd_latency_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_rd_latency_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_rd_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_nw_t_count Source-derived dynamic librbd PWL metric: req_all_to_dis_nw_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_nw_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_nw_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_nw_t_sum Source-derived dynamic librbd PWL metric: req_all_to_dis_nw_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_nw_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_nw_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_t_count Source-derived dynamic librbd PWL metric: req_all_to_dis_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_t_sum Source-derived dynamic librbd PWL metric: req_all_to_dis_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_req_all_to_dis_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_nw_t_count Source-derived dynamic librbd PWL metric: req_arr_to_all_nw_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_nw_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_nw_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_nw_t_sum Source-derived dynamic librbd PWL metric: req_arr_to_all_nw_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_nw_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_nw_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_t_count Source-derived dynamic librbd PWL metric: req_arr_to_all_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_t_sum Source-derived dynamic librbd PWL metric: req_arr_to_all_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_all_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_nw_t_count Source-derived dynamic librbd PWL metric: req_arr_to_dis_nw_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_nw_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_nw_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_nw_t_sum Source-derived dynamic librbd PWL metric: req_arr_to_dis_nw_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_nw_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_nw_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_t_count Source-derived dynamic librbd PWL metric: req_arr_to_dis_t_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_t_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_t_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_t_sum Source-derived dynamic librbd PWL metric: req_arr_to_dis_t_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_t_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_req_arr_to_dis_t_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_retire_tx_lat_count Source-derived dynamic librbd PWL metric: retire_tx_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_retire_tx_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_retire_tx_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_retire_tx_lat_sum Source-derived dynamic librbd PWL metric: retire_tx_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_retire_tx_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_retire_tx_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr Source-derived dynamic librbd PWL metric: wr.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_bytes Source-derived dynamic librbd PWL metric: wr_bytes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_bytes counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_def Source-derived dynamic librbd PWL metric: wr_def.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_def counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_def{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_def_buf Source-derived dynamic librbd PWL metric: wr_def_buf.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_def_buf counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_def_buf{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_def_lanes Source-derived dynamic librbd PWL metric: wr_def_lanes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_def_lanes counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_def_lanes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_def_log Source-derived dynamic librbd PWL metric: wr_def_log.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_def_log counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_def_log{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_count Source-derived dynamic librbd PWL metric: wr_latency_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_nw_count Source-derived dynamic librbd PWL metric: wr_latency_nw_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_nw_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_nw_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_nw_sum Source-derived dynamic librbd PWL metric: wr_latency_nw_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_nw_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_nw_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_sum Source-derived dynamic librbd PWL metric: wr_latency_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_wr_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_overlap Source-derived dynamic librbd PWL metric: wr_overlap.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_overlap counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_overlap{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_wr_q_barrier Source-derived dynamic librbd PWL metric: wr_q_barrier.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_wr_q_barrier counter
+ceph_librbd_pwl_librbd_pwl_key_a_wr_q_barrier{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_writeback_lat_count Source-derived dynamic librbd PWL metric: writeback_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_writeback_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_writeback_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_writeback_lat_sum Source-derived dynamic librbd PWL metric: writeback_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_writeback_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_writeback_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_ws Source-derived dynamic librbd PWL metric: ws.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_ws counter
+ceph_librbd_pwl_librbd_pwl_key_a_ws{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_ws_bytes Source-derived dynamic librbd PWL metric: ws_bytes.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_ws_bytes counter
+ceph_librbd_pwl_librbd_pwl_key_a_ws_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_ws_lat_count Source-derived dynamic librbd PWL metric: ws_lat_count.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_ws_lat_count counter
+ceph_librbd_pwl_librbd_pwl_key_a_ws_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_librbd_pwl_librbd_pwl_key_a_ws_lat_sum Source-derived dynamic librbd PWL metric: ws_lat_sum.
+# TYPE ceph_librbd_pwl_librbd_pwl_key_a_ws_lat_sum gauge
+ceph_librbd_pwl_librbd_pwl_key_a_ws_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mclock_shard_queue_mclock_shard_a_mclock_all_type_queue_len Source-derived dynamic mClock shard metric: mclock_shard_queue_7_mclock_all_type_queue_len.
+# TYPE ceph_mclock_shard_queue_mclock_shard_a_mclock_all_type_queue_len counter
+ceph_mclock_shard_queue_mclock_shard_a_mclock_all_type_queue_len{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mclock_shard_queue_mclock_shard_a_mclock_best_effort_queue_len Source-derived dynamic mClock shard metric: mclock_shard_queue_7_mclock_best_effort_queue_len.
+# TYPE ceph_mclock_shard_queue_mclock_shard_a_mclock_best_effort_queue_len counter
+ceph_mclock_shard_queue_mclock_shard_a_mclock_best_effort_queue_len{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mclock_shard_queue_mclock_shard_a_mclock_client_queue_len Source-derived dynamic mClock shard metric: mclock_shard_queue_7_mclock_client_queue_len.
+# TYPE ceph_mclock_shard_queue_mclock_shard_a_mclock_client_queue_len counter
+ceph_mclock_shard_queue_mclock_shard_a_mclock_client_queue_len{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mclock_shard_queue_mclock_shard_a_mclock_immediate_queue_len Source-derived dynamic mClock shard metric: mclock_shard_queue_7_mclock_immediate_queue_len.
+# TYPE ceph_mclock_shard_queue_mclock_shard_a_mclock_immediate_queue_len counter
+ceph_mclock_shard_queue_mclock_shard_a_mclock_immediate_queue_len{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mclock_shard_queue_mclock_shard_a_mclock_recovery_queue_len Source-derived dynamic mClock shard metric: mclock_shard_queue_7_mclock_recovery_queue_len.
+# TYPE ceph_mclock_shard_queue_mclock_shard_a_mclock_recovery_queue_len counter
+ceph_mclock_shard_queue_mclock_shard_a_mclock_recovery_queue_len{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_cache_dir_handle_discover Directory replication discovery message handled.
+# TYPE ceph_mds_cache_dir_handle_discover counter
+ceph_mds_cache_dir_handle_discover{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_cache_dir_send_discover Directory replication discovery message sent.
+# TYPE ceph_mds_cache_dir_send_discover counter
+ceph_mds_cache_dir_send_discover{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_cache_dir_try_discover Directory replication attempt to discover.
+# TYPE ceph_mds_cache_dir_try_discover counter
+ceph_mds_cache_dir_try_discover{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_cache_dir_update Directory replication directives.
+# TYPE ceph_mds_cache_dir_update counter
+ceph_mds_cache_dir_update{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_cache_dir_update_receipt Directory replication directives received.
+# TYPE ceph_mds_cache_dir_update_receipt counter
+ceph_mds_cache_dir_update_receipt{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_exported Exports.
+# TYPE ceph_mds_exported counter
+ceph_mds_exported{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_imported Imports.
+# TYPE ceph_mds_imported counter
+ceph_mds_imported{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_inodes_bottom Inodes on bottom.
+# TYPE ceph_mds_inodes_bottom gauge
+ceph_mds_inodes_bottom{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_inodes_pin_tail Inodes on pin tail.
+# TYPE ceph_mds_inodes_pin_tail gauge
+ceph_mds_inodes_pin_tail{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_inodes_top Inodes on top.
+# TYPE ceph_mds_inodes_top gauge
+ceph_mds_inodes_top{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_log_expos Journaler xpire position.
+# TYPE ceph_mds_log_expos gauge
+ceph_mds_log_expos{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_log_rdpos Journaler  read position.
+# TYPE ceph_mds_log_rdpos gauge
+ceph_mds_log_rdpos{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_log_wrpos Journaler  write position.
+# TYPE ceph_mds_log_wrpos gauge
+ceph_mds_log_wrpos{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_openino_backtrace_fetch OpenIno backtrace fetchings.
+# TYPE ceph_mds_openino_backtrace_fetch counter
+ceph_mds_openino_backtrace_fetch{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_openino_peer_discover OpenIno peer inode discovers.
+# TYPE ceph_mds_openino_peer_discover counter
+ceph_mds_openino_peer_discover{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_q Dispatch queue length.
+# TYPE ceph_mds_q gauge
+ceph_mds_q{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_reply Replies.
+# TYPE ceph_mds_reply counter
+ceph_mds_reply{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_scrub_backtrace_fetch Scrub backtrace fetchings.
+# TYPE ceph_mds_scrub_backtrace_fetch gauge
+ceph_mds_scrub_backtrace_fetch{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_backtrace_repaired Scrub backtraces repaired.
+# TYPE ceph_mds_scrub_backtrace_repaired gauge
+ceph_mds_scrub_backtrace_repaired{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_dir_base_inodes Scrub directory base inodes.
+# TYPE ceph_mds_scrub_dir_base_inodes gauge
+ceph_mds_scrub_dir_base_inodes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_dir_inodes Scrub directory inodes.
+# TYPE ceph_mds_scrub_dir_inodes gauge
+ceph_mds_scrub_dir_inodes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_dirfrag_rstats Scrub dirfrags rstates.
+# TYPE ceph_mds_scrub_dirfrag_rstats gauge
+ceph_mds_scrub_dirfrag_rstats{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_file_inodes Scrub file inodes.
+# TYPE ceph_mds_scrub_file_inodes gauge
+ceph_mds_scrub_file_inodes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_inotable_repaired Scrub inotable repaired.
+# TYPE ceph_mds_scrub_inotable_repaired gauge
+ceph_mds_scrub_inotable_repaired{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_scrub_set_tag Scrub set tags.
+# TYPE ceph_mds_scrub_set_tag gauge
+ceph_mds_scrub_set_tag{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mds_server_dispatch_client_request Client requests dispatched.
+# TYPE ceph_mds_server_dispatch_client_request counter
+ceph_mds_server_dispatch_client_request{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_server_dispatch_server_request Server requests dispatched.
+# TYPE ceph_mds_server_dispatch_server_request counter
+ceph_mds_server_dispatch_server_request{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse Traverses.
+# TYPE ceph_mds_traverse counter
+ceph_mds_traverse{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse_dir_fetch Traverse incomplete directory content fetchings.
+# TYPE ceph_mds_traverse_dir_fetch counter
+ceph_mds_traverse_dir_fetch{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse_discover Traverse directory discovers.
+# TYPE ceph_mds_traverse_discover counter
+ceph_mds_traverse_discover{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse_forward Traverse forwards.
+# TYPE ceph_mds_traverse_forward counter
+ceph_mds_traverse_forward{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse_hit Traverse hits.
+# TYPE ceph_mds_traverse_hit counter
+ceph_mds_traverse_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse_lock Traverse locks.
+# TYPE ceph_mds_traverse_lock counter
+ceph_mds_traverse_lock{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mds_traverse_remote_ino Traverse remote dentries.
+# TYPE ceph_mds_traverse_remote_ino counter
+ceph_mds_traverse_remote_ino{ceph_daemon="osd.0"} 100
+
+# HELP ceph_mempool_bloom_filter_bytes Source-derived dynamic mempool metric: mempool_bloom_filter_bytes.
+# TYPE ceph_mempool_bloom_filter_bytes gauge
+ceph_mempool_bloom_filter_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bloom_filter_items Source-derived dynamic mempool metric: mempool_bloom_filter_items.
+# TYPE ceph_mempool_bloom_filter_items gauge
+ceph_mempool_bloom_filter_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluefs_bytes Source-derived dynamic mempool metric: mempool_bluefs_bytes.
+# TYPE ceph_mempool_bluefs_bytes gauge
+ceph_mempool_bluefs_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluefs_file_reader_bytes Source-derived dynamic mempool metric: mempool_bluefs_file_reader_bytes.
+# TYPE ceph_mempool_bluefs_file_reader_bytes gauge
+ceph_mempool_bluefs_file_reader_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluefs_file_reader_items Source-derived dynamic mempool metric: mempool_bluefs_file_reader_items.
+# TYPE ceph_mempool_bluefs_file_reader_items gauge
+ceph_mempool_bluefs_file_reader_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluefs_file_writer_bytes Source-derived dynamic mempool metric: mempool_bluefs_file_writer_bytes.
+# TYPE ceph_mempool_bluefs_file_writer_bytes gauge
+ceph_mempool_bluefs_file_writer_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluefs_file_writer_items Source-derived dynamic mempool metric: mempool_bluefs_file_writer_items.
+# TYPE ceph_mempool_bluefs_file_writer_items gauge
+ceph_mempool_bluefs_file_writer_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluefs_items Source-derived dynamic mempool metric: mempool_bluefs_items.
+# TYPE ceph_mempool_bluefs_items gauge
+ceph_mempool_bluefs_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_alloc_bytes Source-derived dynamic mempool metric: mempool_bluestore_alloc_bytes.
+# TYPE ceph_mempool_bluestore_alloc_bytes gauge
+ceph_mempool_bluestore_alloc_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_alloc_items Source-derived dynamic mempool metric: mempool_bluestore_alloc_items.
+# TYPE ceph_mempool_bluestore_alloc_items gauge
+ceph_mempool_bluestore_alloc_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_blob_bytes Source-derived dynamic mempool metric: mempool_bluestore_blob_bytes.
+# TYPE ceph_mempool_bluestore_blob_bytes gauge
+ceph_mempool_bluestore_blob_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_blob_items Source-derived dynamic mempool metric: mempool_bluestore_blob_items.
+# TYPE ceph_mempool_bluestore_blob_items gauge
+ceph_mempool_bluestore_blob_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_buffer_bytes Source-derived dynamic mempool metric: mempool_bluestore_cache_buffer_bytes.
+# TYPE ceph_mempool_bluestore_cache_buffer_bytes gauge
+ceph_mempool_bluestore_cache_buffer_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_buffer_items Source-derived dynamic mempool metric: mempool_bluestore_cache_buffer_items.
+# TYPE ceph_mempool_bluestore_cache_buffer_items gauge
+ceph_mempool_bluestore_cache_buffer_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_data_bytes Source-derived dynamic mempool metric: mempool_bluestore_cache_data_bytes.
+# TYPE ceph_mempool_bluestore_cache_data_bytes gauge
+ceph_mempool_bluestore_cache_data_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_data_items Source-derived dynamic mempool metric: mempool_bluestore_cache_data_items.
+# TYPE ceph_mempool_bluestore_cache_data_items gauge
+ceph_mempool_bluestore_cache_data_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_meta_bytes Source-derived dynamic mempool metric: mempool_bluestore_cache_meta_bytes.
+# TYPE ceph_mempool_bluestore_cache_meta_bytes gauge
+ceph_mempool_bluestore_cache_meta_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_meta_items Source-derived dynamic mempool metric: mempool_bluestore_cache_meta_items.
+# TYPE ceph_mempool_bluestore_cache_meta_items gauge
+ceph_mempool_bluestore_cache_meta_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_onode_bytes Source-derived dynamic mempool metric: mempool_bluestore_cache_onode_bytes.
+# TYPE ceph_mempool_bluestore_cache_onode_bytes gauge
+ceph_mempool_bluestore_cache_onode_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_onode_items Source-derived dynamic mempool metric: mempool_bluestore_cache_onode_items.
+# TYPE ceph_mempool_bluestore_cache_onode_items gauge
+ceph_mempool_bluestore_cache_onode_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_other_bytes Source-derived dynamic mempool metric: mempool_bluestore_cache_other_bytes.
+# TYPE ceph_mempool_bluestore_cache_other_bytes gauge
+ceph_mempool_bluestore_cache_other_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_cache_other_items Source-derived dynamic mempool metric: mempool_bluestore_cache_other_items.
+# TYPE ceph_mempool_bluestore_cache_other_items gauge
+ceph_mempool_bluestore_cache_other_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_extent_bytes Source-derived dynamic mempool metric: mempool_bluestore_extent_bytes.
+# TYPE ceph_mempool_bluestore_extent_bytes gauge
+ceph_mempool_bluestore_extent_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_extent_items Source-derived dynamic mempool metric: mempool_bluestore_extent_items.
+# TYPE ceph_mempool_bluestore_extent_items gauge
+ceph_mempool_bluestore_extent_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_fsck_bytes Source-derived dynamic mempool metric: mempool_bluestore_fsck_bytes.
+# TYPE ceph_mempool_bluestore_fsck_bytes gauge
+ceph_mempool_bluestore_fsck_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_fsck_items Source-derived dynamic mempool metric: mempool_bluestore_fsck_items.
+# TYPE ceph_mempool_bluestore_fsck_items gauge
+ceph_mempool_bluestore_fsck_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_inline_bl_bytes Source-derived dynamic mempool metric: mempool_bluestore_inline_bl_bytes.
+# TYPE ceph_mempool_bluestore_inline_bl_bytes gauge
+ceph_mempool_bluestore_inline_bl_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_inline_bl_items Source-derived dynamic mempool metric: mempool_bluestore_inline_bl_items.
+# TYPE ceph_mempool_bluestore_inline_bl_items gauge
+ceph_mempool_bluestore_inline_bl_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_shared_blob_bytes Source-derived dynamic mempool metric: mempool_bluestore_shared_blob_bytes.
+# TYPE ceph_mempool_bluestore_shared_blob_bytes gauge
+ceph_mempool_bluestore_shared_blob_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_shared_blob_items Source-derived dynamic mempool metric: mempool_bluestore_shared_blob_items.
+# TYPE ceph_mempool_bluestore_shared_blob_items gauge
+ceph_mempool_bluestore_shared_blob_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_txc_bytes Source-derived dynamic mempool metric: mempool_bluestore_txc_bytes.
+# TYPE ceph_mempool_bluestore_txc_bytes gauge
+ceph_mempool_bluestore_txc_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_txc_items Source-derived dynamic mempool metric: mempool_bluestore_txc_items.
+# TYPE ceph_mempool_bluestore_txc_items gauge
+ceph_mempool_bluestore_txc_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_writing_bytes Source-derived dynamic mempool metric: mempool_bluestore_writing_bytes.
+# TYPE ceph_mempool_bluestore_writing_bytes gauge
+ceph_mempool_bluestore_writing_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_writing_deferred_bytes Source-derived dynamic mempool metric: mempool_bluestore_writing_deferred_bytes.
+# TYPE ceph_mempool_bluestore_writing_deferred_bytes gauge
+ceph_mempool_bluestore_writing_deferred_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_writing_deferred_items Source-derived dynamic mempool metric: mempool_bluestore_writing_deferred_items.
+# TYPE ceph_mempool_bluestore_writing_deferred_items gauge
+ceph_mempool_bluestore_writing_deferred_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_bluestore_writing_items Source-derived dynamic mempool metric: mempool_bluestore_writing_items.
+# TYPE ceph_mempool_bluestore_writing_items gauge
+ceph_mempool_bluestore_writing_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_buffer_anon_bytes Source-derived dynamic mempool metric: mempool_buffer_anon_bytes.
+# TYPE ceph_mempool_buffer_anon_bytes gauge
+ceph_mempool_buffer_anon_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_buffer_anon_items Source-derived dynamic mempool metric: mempool_buffer_anon_items.
+# TYPE ceph_mempool_buffer_anon_items gauge
+ceph_mempool_buffer_anon_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_buffer_meta_bytes Source-derived dynamic mempool metric: mempool_buffer_meta_bytes.
+# TYPE ceph_mempool_buffer_meta_bytes gauge
+ceph_mempool_buffer_meta_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_buffer_meta_items Source-derived dynamic mempool metric: mempool_buffer_meta_items.
+# TYPE ceph_mempool_buffer_meta_items gauge
+ceph_mempool_buffer_meta_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_mds_co_bytes Source-derived dynamic mempool metric: mempool_mds_co_bytes.
+# TYPE ceph_mempool_mds_co_bytes gauge
+ceph_mempool_mds_co_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_mds_co_items Source-derived dynamic mempool metric: mempool_mds_co_items.
+# TYPE ceph_mempool_mds_co_items gauge
+ceph_mempool_mds_co_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osd_bytes Source-derived dynamic mempool metric: mempool_osd_bytes.
+# TYPE ceph_mempool_osd_bytes gauge
+ceph_mempool_osd_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osd_items Source-derived dynamic mempool metric: mempool_osd_items.
+# TYPE ceph_mempool_osd_items gauge
+ceph_mempool_osd_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osd_mapbl_bytes Source-derived dynamic mempool metric: mempool_osd_mapbl_bytes.
+# TYPE ceph_mempool_osd_mapbl_bytes gauge
+ceph_mempool_osd_mapbl_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osd_mapbl_items Source-derived dynamic mempool metric: mempool_osd_mapbl_items.
+# TYPE ceph_mempool_osd_mapbl_items gauge
+ceph_mempool_osd_mapbl_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osd_pglog_bytes Source-derived dynamic mempool metric: mempool_osd_pglog_bytes.
+# TYPE ceph_mempool_osd_pglog_bytes gauge
+ceph_mempool_osd_pglog_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osd_pglog_items Source-derived dynamic mempool metric: mempool_osd_pglog_items.
+# TYPE ceph_mempool_osd_pglog_items gauge
+ceph_mempool_osd_pglog_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osdmap_bytes Source-derived dynamic mempool metric: mempool_osdmap_bytes.
+# TYPE ceph_mempool_osdmap_bytes gauge
+ceph_mempool_osdmap_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osdmap_items Source-derived dynamic mempool metric: mempool_osdmap_items.
+# TYPE ceph_mempool_osdmap_items gauge
+ceph_mempool_osdmap_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osdmap_mapping_bytes Source-derived dynamic mempool metric: mempool_osdmap_mapping_bytes.
+# TYPE ceph_mempool_osdmap_mapping_bytes gauge
+ceph_mempool_osdmap_mapping_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_osdmap_mapping_items Source-derived dynamic mempool metric: mempool_osdmap_mapping_items.
+# TYPE ceph_mempool_osdmap_mapping_items gauge
+ceph_mempool_osdmap_mapping_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_pgmap_bytes Source-derived dynamic mempool metric: mempool_pgmap_bytes.
+# TYPE ceph_mempool_pgmap_bytes gauge
+ceph_mempool_pgmap_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_pgmap_items Source-derived dynamic mempool metric: mempool_pgmap_items.
+# TYPE ceph_mempool_pgmap_items gauge
+ceph_mempool_pgmap_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_unittest_1_bytes Source-derived dynamic mempool metric: mempool_unittest_1_bytes.
+# TYPE ceph_mempool_unittest_1_bytes gauge
+ceph_mempool_unittest_1_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_unittest_1_items Source-derived dynamic mempool metric: mempool_unittest_1_items.
+# TYPE ceph_mempool_unittest_1_items gauge
+ceph_mempool_unittest_1_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_unittest_2_bytes Source-derived dynamic mempool metric: mempool_unittest_2_bytes.
+# TYPE ceph_mempool_unittest_2_bytes gauge
+ceph_mempool_unittest_2_bytes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_mempool_unittest_2_items Source-derived dynamic mempool metric: mempool_unittest_2_items.
+# TYPE ceph_mempool_unittest_2_items gauge
+ceph_mempool_unittest_2_items{ceph_daemon="osd.0"} 1
+
+# HELP ceph_objectcacher_objectcacher_key_a_cache_bytes_hit Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_cache_bytes_hit.
+# TYPE ceph_objectcacher_objectcacher_key_a_cache_bytes_hit counter
+ceph_objectcacher_objectcacher_key_a_cache_bytes_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_cache_bytes_miss Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_cache_bytes_miss.
+# TYPE ceph_objectcacher_objectcacher_key_a_cache_bytes_miss counter
+ceph_objectcacher_objectcacher_key_a_cache_bytes_miss{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_cache_ops_hit Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_cache_ops_hit.
+# TYPE ceph_objectcacher_objectcacher_key_a_cache_ops_hit counter
+ceph_objectcacher_objectcacher_key_a_cache_ops_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_cache_ops_miss Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_cache_ops_miss.
+# TYPE ceph_objectcacher_objectcacher_key_a_cache_ops_miss counter
+ceph_objectcacher_objectcacher_key_a_cache_ops_miss{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_data_flushed Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_data_flushed.
+# TYPE ceph_objectcacher_objectcacher_key_a_data_flushed counter
+ceph_objectcacher_objectcacher_key_a_data_flushed{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_data_overwritten_while_flushing Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_data_overwritten_while_flushing.
+# TYPE ceph_objectcacher_objectcacher_key_a_data_overwritten_while_flushing counter
+ceph_objectcacher_objectcacher_key_a_data_overwritten_while_flushing{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_data_read Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_data_read.
+# TYPE ceph_objectcacher_objectcacher_key_a_data_read counter
+ceph_objectcacher_objectcacher_key_a_data_read{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_data_written Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_data_written.
+# TYPE ceph_objectcacher_objectcacher_key_a_data_written counter
+ceph_objectcacher_objectcacher_key_a_data_written{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_write_bytes_blocked Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_write_bytes_blocked.
+# TYPE ceph_objectcacher_objectcacher_key_a_write_bytes_blocked counter
+ceph_objectcacher_objectcacher_key_a_write_bytes_blocked{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_write_ops_blocked Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_write_ops_blocked.
+# TYPE ceph_objectcacher_objectcacher_key_a_write_ops_blocked counter
+ceph_objectcacher_objectcacher_key_a_write_ops_blocked{ceph_daemon="osd.0"} 100
+
+# HELP ceph_objectcacher_objectcacher_key_a_write_time_blocked Source-derived dynamic ObjectCacher metric: objectcacher_librbd_image_a_pool_a_image_a_write_time_blocked.
+# TYPE ceph_objectcacher_objectcacher_key_a_write_time_blocked gauge
+ceph_objectcacher_objectcacher_key_a_write_time_blocked{ceph_daemon="osd.0"} 1
+
+# HELP ceph_objecter_objecter_handle_a_command_active Active commands.
+# TYPE ceph_objecter_objecter_handle_a_command_active gauge
+ceph_objecter_objecter_handle_a_command_active{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_command_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_command_resend Resent commands.
+# TYPE ceph_objecter_objecter_handle_a_command_resend counter
+ceph_objecter_objecter_handle_a_command_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_command_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_command_send Sent commands.
+# TYPE ceph_objecter_objecter_handle_a_command_send counter
+ceph_objecter_objecter_handle_a_command_send{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_command_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_linger_active Active lingering operations.
+# TYPE ceph_objecter_objecter_handle_a_linger_active gauge
+ceph_objecter_objecter_handle_a_linger_active{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_linger_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_linger_ping Sent pings to lingering operations.
+# TYPE ceph_objecter_objecter_handle_a_linger_ping counter
+ceph_objecter_objecter_handle_a_linger_ping{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_linger_ping{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_linger_resend Resent lingering operations.
+# TYPE ceph_objecter_objecter_handle_a_linger_resend counter
+ceph_objecter_objecter_handle_a_linger_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_linger_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_linger_send Sent lingering operations.
+# TYPE ceph_objecter_objecter_handle_a_linger_send counter
+ceph_objecter_objecter_handle_a_linger_send{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_linger_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_map_epoch OSD map epoch.
+# TYPE ceph_objecter_objecter_handle_a_map_epoch gauge
+ceph_objecter_objecter_handle_a_map_epoch{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_map_epoch{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_map_full Full OSD maps received.
+# TYPE ceph_objecter_objecter_handle_a_map_full counter
+ceph_objecter_objecter_handle_a_map_full{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_map_full{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_map_inc Incremental OSD maps received.
+# TYPE ceph_objecter_objecter_handle_a_map_inc counter
+ceph_objecter_objecter_handle_a_map_inc{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_map_inc{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_omap_del OSD OMAP delete operations.
+# TYPE ceph_objecter_objecter_handle_a_omap_del counter
+ceph_objecter_objecter_handle_a_omap_del{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_omap_del{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_omap_rd OSD OMAP read operations.
+# TYPE ceph_objecter_objecter_handle_a_omap_rd counter
+ceph_objecter_objecter_handle_a_omap_rd{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_omap_rd{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_omap_wr OSD OMAP write operations.
+# TYPE ceph_objecter_objecter_handle_a_omap_wr counter
+ceph_objecter_objecter_handle_a_omap_wr{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_omap_wr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op Operations.
+# TYPE ceph_objecter_objecter_handle_a_op counter
+ceph_objecter_objecter_handle_a_op{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op_inflight Operations in flight.
+# TYPE ceph_objecter_objecter_handle_a_op_inflight gauge
+ceph_objecter_objecter_handle_a_op_inflight{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_op_inflight{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_op_laggy Laggy operations.
+# TYPE ceph_objecter_objecter_handle_a_op_laggy gauge
+ceph_objecter_objecter_handle_a_op_laggy{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_op_laggy{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_op_latency_count Operation latency Count.
+# TYPE ceph_objecter_objecter_handle_a_op_latency_count counter
+ceph_objecter_objecter_handle_a_op_latency_count{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op_latency_count{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op_latency_sum Operation latency Total.
+# TYPE ceph_objecter_objecter_handle_a_op_latency_sum gauge
+ceph_objecter_objecter_handle_a_op_latency_sum{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_op_latency_sum{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_op_pg PG operation.
+# TYPE ceph_objecter_objecter_handle_a_op_pg counter
+ceph_objecter_objecter_handle_a_op_pg{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op_pg{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op_reply Operation reply.
+# TYPE ceph_objecter_objecter_handle_a_op_reply counter
+ceph_objecter_objecter_handle_a_op_reply{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op_reply{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op_resend Resent operations.
+# TYPE ceph_objecter_objecter_handle_a_op_resend counter
+ceph_objecter_objecter_handle_a_op_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op_send Sent operations.
+# TYPE ceph_objecter_objecter_handle_a_op_send counter
+ceph_objecter_objecter_handle_a_op_send{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_op_send_bytes Sent data.
+# TYPE ceph_objecter_objecter_handle_a_op_send_bytes counter
+ceph_objecter_objecter_handle_a_op_send_bytes{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_op_send_bytes{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_oplen_avg_count Average length of operation vector Count.
+# TYPE ceph_objecter_objecter_handle_a_oplen_avg_count counter
+ceph_objecter_objecter_handle_a_oplen_avg_count{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_oplen_avg_count{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_oplen_avg_sum Average length of operation vector Total.
+# TYPE ceph_objecter_objecter_handle_a_oplen_avg_sum gauge
+ceph_objecter_objecter_handle_a_oplen_avg_sum{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_oplen_avg_sum{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_osd_laggy Laggy OSD sessions.
+# TYPE ceph_objecter_objecter_handle_a_osd_laggy gauge
+ceph_objecter_objecter_handle_a_osd_laggy{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_osd_laggy{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_osd_session_close Sessions closed.
+# TYPE ceph_objecter_objecter_handle_a_osd_session_close counter
+ceph_objecter_objecter_handle_a_osd_session_close{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osd_session_close{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osd_session_open Sessions opened.
+# TYPE ceph_objecter_objecter_handle_a_osd_session_open counter
+ceph_objecter_objecter_handle_a_osd_session_open{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osd_session_open{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osd_sessions Open sessions.
+# TYPE ceph_objecter_objecter_handle_a_osd_sessions gauge
+ceph_objecter_objecter_handle_a_osd_sessions{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_osd_sessions{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_osdop_append Append operation.
+# TYPE ceph_objecter_objecter_handle_a_osdop_append counter
+ceph_objecter_objecter_handle_a_osdop_append{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_append{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_call Call (execute) operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_call counter
+ceph_objecter_objecter_handle_a_osdop_call{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_call{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_clonerange Clone range operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_clonerange counter
+ceph_objecter_objecter_handle_a_osdop_clonerange{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_clonerange{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_cmpxattr Xattr comparison operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_cmpxattr counter
+ceph_objecter_objecter_handle_a_osdop_cmpxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_cmpxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_create Create object operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_create counter
+ceph_objecter_objecter_handle_a_osdop_create{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_create{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_delete Delete object operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_delete counter
+ceph_objecter_objecter_handle_a_osdop_delete{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_delete{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_getxattr Get xattr operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_getxattr counter
+ceph_objecter_objecter_handle_a_osdop_getxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_getxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_mapext Map extent operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_mapext counter
+ceph_objecter_objecter_handle_a_osdop_mapext{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_mapext{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_notify Notify about object operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_notify counter
+ceph_objecter_objecter_handle_a_osdop_notify{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_notify{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_other Other operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_other counter
+ceph_objecter_objecter_handle_a_osdop_other{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_other{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_pgls osdop_pgls.
+# TYPE ceph_objecter_objecter_handle_a_osdop_pgls counter
+ceph_objecter_objecter_handle_a_osdop_pgls{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_pgls{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_pgls_filter osdop_pgls_filter.
+# TYPE ceph_objecter_objecter_handle_a_osdop_pgls_filter counter
+ceph_objecter_objecter_handle_a_osdop_pgls_filter{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_pgls_filter{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_read Read operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_read counter
+ceph_objecter_objecter_handle_a_osdop_read{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_read{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_resetxattrs Reset xattr operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_resetxattrs counter
+ceph_objecter_objecter_handle_a_osdop_resetxattrs{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_resetxattrs{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_rmxattr Remove xattr operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_rmxattr counter
+ceph_objecter_objecter_handle_a_osdop_rmxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_rmxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_setxattr Set xattr operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_setxattr counter
+ceph_objecter_objecter_handle_a_osdop_setxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_setxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_sparse_read Sparse read operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_sparse_read counter
+ceph_objecter_objecter_handle_a_osdop_sparse_read{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_sparse_read{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_src_cmpxattr Extended attribute comparison in multi operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_src_cmpxattr counter
+ceph_objecter_objecter_handle_a_osdop_src_cmpxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_src_cmpxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_stat Stat operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_stat counter
+ceph_objecter_objecter_handle_a_osdop_stat{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_stat{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_truncate Truncate object operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_truncate counter
+ceph_objecter_objecter_handle_a_osdop_truncate{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_truncate{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_watch Watch by object operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_watch counter
+ceph_objecter_objecter_handle_a_osdop_watch{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_watch{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_write Write operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_write counter
+ceph_objecter_objecter_handle_a_osdop_write{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_write{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_writefull Write full object operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_writefull counter
+ceph_objecter_objecter_handle_a_osdop_writefull{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_writefull{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_writesame Write same operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_writesame counter
+ceph_objecter_objecter_handle_a_osdop_writesame{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_writesame{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_osdop_zero Set object to zero operations.
+# TYPE ceph_objecter_objecter_handle_a_osdop_zero counter
+ceph_objecter_objecter_handle_a_osdop_zero{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_osdop_zero{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_poolop_active Active pool operations.
+# TYPE ceph_objecter_objecter_handle_a_poolop_active gauge
+ceph_objecter_objecter_handle_a_poolop_active{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_poolop_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_poolop_resend Resent pool operations.
+# TYPE ceph_objecter_objecter_handle_a_poolop_resend counter
+ceph_objecter_objecter_handle_a_poolop_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_poolop_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_poolop_send Sent pool operations.
+# TYPE ceph_objecter_objecter_handle_a_poolop_send counter
+ceph_objecter_objecter_handle_a_poolop_send{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_poolop_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_poolstat_active Active get pool stat operations.
+# TYPE ceph_objecter_objecter_handle_a_poolstat_active gauge
+ceph_objecter_objecter_handle_a_poolstat_active{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_poolstat_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_poolstat_resend Resent pool stats.
+# TYPE ceph_objecter_objecter_handle_a_poolstat_resend counter
+ceph_objecter_objecter_handle_a_poolstat_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_poolstat_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_poolstat_send Pool stat operations sent.
+# TYPE ceph_objecter_objecter_handle_a_poolstat_send counter
+ceph_objecter_objecter_handle_a_poolstat_send{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_poolstat_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_statfs_active Statfs operations.
+# TYPE ceph_objecter_objecter_handle_a_statfs_active gauge
+ceph_objecter_objecter_handle_a_statfs_active{ceph_daemon="osd.0"} 1
+ceph_objecter_objecter_handle_a_statfs_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_objecter_handle_a_statfs_resend Resent FS stats.
+# TYPE ceph_objecter_objecter_handle_a_statfs_resend counter
+ceph_objecter_objecter_handle_a_statfs_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_statfs_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_objecter_handle_a_statfs_send Sent FS stats.
+# TYPE ceph_objecter_objecter_handle_a_statfs_send counter
+ceph_objecter_objecter_handle_a_statfs_send{ceph_daemon="osd.0"} 100
+ceph_objecter_objecter_handle_a_statfs_send{instance_id="rgw.a"} 101
+
+# HELP ceph_oft_omap_total_kv_pairs omap_total_kv_pairs.
+# TYPE ceph_oft_omap_total_kv_pairs gauge
+ceph_oft_omap_total_kv_pairs{ceph_daemon="osd.0"} 1
+
+# HELP ceph_oft_omap_total_objs omap_total_objs.
+# TYPE ceph_oft_omap_total_objs gauge
+ceph_oft_omap_total_objs{ceph_daemon="osd.0"} 1
+
+# HELP ceph_oft_omap_total_removes omap_total_removes.
+# TYPE ceph_oft_omap_total_removes gauge
+ceph_oft_omap_total_removes{ceph_daemon="osd.0"} 1
+
+# HELP ceph_oft_omap_total_updates omap_total_updates.
+# TYPE ceph_oft_omap_total_updates gauge
+ceph_oft_omap_total_updates{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_agent_evict Tiering agent evictions.
+# TYPE ceph_osd_agent_evict counter
+ceph_osd_agent_evict{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_agent_flush Tiering agent flushes.
+# TYPE ceph_osd_agent_flush counter
+ceph_osd_agent_flush{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_agent_skip Objects skipped by agent.
+# TYPE ceph_osd_agent_skip counter
+ceph_osd_agent_skip{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_agent_wake Tiering agent wake up.
+# TYPE ceph_osd_agent_wake counter
+ceph_osd_agent_wake{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_cached_crc Total number getting crc from crc_cache.
+# TYPE ceph_osd_cached_crc gauge
+ceph_osd_cached_crc{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_cached_crc_adjusted Total number getting crc from crc_cache with adjusting.
+# TYPE ceph_osd_cached_crc_adjusted gauge
+ceph_osd_cached_crc_adjusted{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_copyfrom Rados "copy-from" operations.
+# TYPE ceph_osd_copyfrom counter
+ceph_osd_copyfrom{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_heartbeat_to_peers Heartbeat (ping) peers we send to.
+# TYPE ceph_osd_heartbeat_to_peers gauge
+ceph_osd_heartbeat_to_peers{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_backfill_queue_latency_count MOSDPGBackfill queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_backfill_queue_latency_count counter
+ceph_osd_l_osd_recovery_backfill_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_backfill_queue_latency_sum MOSDPGBackfill queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_backfill_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_backfill_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_backfill_remove_queue_latency_count MOSDPGBackfillDelete queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_backfill_remove_queue_latency_count counter
+ceph_osd_l_osd_recovery_backfill_remove_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_backfill_remove_queue_latency_sum MOSDPGBackfillDelete queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_backfill_remove_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_backfill_remove_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_context_queue_latency_count PGRecoveryContext queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_context_queue_latency_count counter
+ceph_osd_l_osd_recovery_context_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_context_queue_latency_sum PGRecoveryContext queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_context_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_context_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_pull_queue_latency_count MOSDPGPull queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_pull_queue_latency_count counter
+ceph_osd_l_osd_recovery_pull_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_pull_queue_latency_sum MOSDPGPull queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_pull_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_pull_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_push_queue_latency_count MOSDPGPush queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_push_queue_latency_count counter
+ceph_osd_l_osd_recovery_push_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_push_queue_latency_sum MOSDPGPush queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_push_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_push_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_push_reply_queue_latency_count MOSDPGPushReply queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_push_reply_queue_latency_count counter
+ceph_osd_l_osd_recovery_push_reply_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_push_reply_queue_latency_sum MOSDPGPushReply queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_push_reply_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_push_reply_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_queue_latency_count PGRecovery queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_queue_latency_count counter
+ceph_osd_l_osd_recovery_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_queue_latency_sum PGRecovery queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_l_osd_recovery_scan_queue_latency_count MOSDPGScan queue latency Count.
+# TYPE ceph_osd_l_osd_recovery_scan_queue_latency_count counter
+ceph_osd_l_osd_recovery_scan_queue_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_l_osd_recovery_scan_queue_latency_sum MOSDPGScan queue latency Total.
+# TYPE ceph_osd_l_osd_recovery_scan_queue_latency_sum gauge
+ceph_osd_l_osd_recovery_scan_queue_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_loadavg CPU load.
+# TYPE ceph_osd_loadavg gauge
+ceph_osd_loadavg{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_map_message_epoch_dups OSD map duplicates.
+# TYPE ceph_osd_map_message_epoch_dups counter
+ceph_osd_map_message_epoch_dups{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_map_message_epochs OSD map epochs.
+# TYPE ceph_osd_map_message_epochs counter
+ceph_osd_map_message_epochs{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_map_messages OSD map messages.
+# TYPE ceph_osd_map_messages counter
+ceph_osd_map_messages{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_messages_delayed_for_map Operations waiting for OSD map.
+# TYPE ceph_osd_messages_delayed_for_map counter
+ceph_osd_messages_delayed_for_map{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_missed_crc Total number of crc cache misses.
+# TYPE ceph_osd_missed_crc gauge
+ceph_osd_missed_crc{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_numpg_primary Placement groups for which this osd is primary.
+# TYPE ceph_osd_numpg_primary gauge
+ceph_osd_numpg_primary{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_numpg_replica Placement groups for which this osd is replica.
+# TYPE ceph_osd_numpg_replica gauge
+ceph_osd_numpg_replica{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_numpg_stray Placement groups ready to be deleted from this osd.
+# TYPE ceph_osd_numpg_stray gauge
+ceph_osd_numpg_stray{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_object_ctx_cache_hit Object context cache hits.
+# TYPE ceph_osd_object_ctx_cache_hit counter
+ceph_osd_object_ctx_cache_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_object_ctx_cache_total Object context cache lookups.
+# TYPE ceph_osd_object_ctx_cache_total counter
+ceph_osd_object_ctx_cache_total{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_op_before_dequeue_op_lat_count Latency of IO before calling dequeue_op(already dequeued and get PG lock) Count.
+# TYPE ceph_osd_op_before_dequeue_op_lat_count counter
+ceph_osd_op_before_dequeue_op_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_op_before_dequeue_op_lat_sum Latency of IO before calling dequeue_op(already dequeued and get PG lock) Total.
+# TYPE ceph_osd_op_before_dequeue_op_lat_sum gauge
+ceph_osd_op_before_dequeue_op_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_op_cache_hit op_cache_hit.
+# TYPE ceph_osd_op_cache_hit counter
+ceph_osd_op_cache_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_bl_cache_hit OSDMap buffer cache hits.
+# TYPE ceph_osd_osd_map_bl_cache_hit counter
+ceph_osd_osd_map_bl_cache_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_bl_cache_miss OSDMap buffer cache misses.
+# TYPE ceph_osd_osd_map_bl_cache_miss counter
+ceph_osd_osd_map_bl_cache_miss{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_cache_hit osdmap cache hit.
+# TYPE ceph_osd_osd_map_cache_hit counter
+ceph_osd_osd_map_cache_hit{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_cache_miss osdmap cache miss.
+# TYPE ceph_osd_osd_map_cache_miss counter
+ceph_osd_osd_map_cache_miss{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_cache_miss_low osdmap cache miss below cache lower bound.
+# TYPE ceph_osd_osd_map_cache_miss_low counter
+ceph_osd_osd_map_cache_miss_low{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_cache_miss_low_avg_count osdmap cache miss, avg distance below cache lower bound Count.
+# TYPE ceph_osd_osd_map_cache_miss_low_avg_count counter
+ceph_osd_osd_map_cache_miss_low_avg_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_map_cache_miss_low_avg_sum osdmap cache miss, avg distance below cache lower bound Total.
+# TYPE ceph_osd_osd_map_cache_miss_low_avg_sum gauge
+ceph_osd_osd_map_cache_miss_low_avg_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_osd_pg_biginfo PG updated its biginfo attr.
+# TYPE ceph_osd_osd_pg_biginfo counter
+ceph_osd_osd_pg_biginfo{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_pg_fastinfo PG updated its info using fastinfo attr.
+# TYPE ceph_osd_osd_pg_fastinfo counter
+ceph_osd_osd_pg_fastinfo{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_pg_info PG updated its info (using any method).
+# TYPE ceph_osd_osd_pg_info counter
+ceph_osd_osd_pg_info{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_tier_flush_lat_count Object flush latency Count.
+# TYPE ceph_osd_osd_tier_flush_lat_count counter
+ceph_osd_osd_tier_flush_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_tier_flush_lat_sum Object flush latency Total.
+# TYPE ceph_osd_osd_tier_flush_lat_sum gauge
+ceph_osd_osd_tier_flush_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_osd_tier_promote_lat_count Object promote latency Count.
+# TYPE ceph_osd_osd_tier_promote_lat_count counter
+ceph_osd_osd_tier_promote_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_tier_promote_lat_sum Object promote latency Total.
+# TYPE ceph_osd_osd_tier_promote_lat_sum gauge
+ceph_osd_osd_tier_promote_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_osd_tier_r_lat_count Object proxy read latency Count.
+# TYPE ceph_osd_osd_tier_r_lat_count counter
+ceph_osd_osd_tier_r_lat_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_osd_tier_r_lat_sum Object proxy read latency Total.
+# TYPE ceph_osd_osd_tier_r_lat_sum gauge
+ceph_osd_osd_tier_r_lat_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_pull Pull requests sent.
+# TYPE ceph_osd_pull counter
+ceph_osd_pull{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_push Push messages sent.
+# TYPE ceph_osd_push counter
+ceph_osd_push{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_push_out_bytes Pushed size.
+# TYPE ceph_osd_push_out_bytes counter
+ceph_osd_push_out_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_stat_bytes_avail Available space.
+# TYPE ceph_osd_stat_bytes_avail gauge
+ceph_osd_stat_bytes_avail{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_subop Suboperations.
+# TYPE ceph_osd_subop counter
+ceph_osd_subop{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_in_bytes Suboperations total size.
+# TYPE ceph_osd_subop_in_bytes counter
+ceph_osd_subop_in_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_latency_count Suboperations latency Count.
+# TYPE ceph_osd_subop_latency_count counter
+ceph_osd_subop_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_latency_sum Suboperations latency Total.
+# TYPE ceph_osd_subop_latency_sum gauge
+ceph_osd_subop_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_subop_pull Suboperations pull requests.
+# TYPE ceph_osd_subop_pull counter
+ceph_osd_subop_pull{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_pull_latency_count Suboperations pull latency Count.
+# TYPE ceph_osd_subop_pull_latency_count counter
+ceph_osd_subop_pull_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_pull_latency_sum Suboperations pull latency Total.
+# TYPE ceph_osd_subop_pull_latency_sum gauge
+ceph_osd_subop_pull_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_subop_push Suboperations push messages.
+# TYPE ceph_osd_subop_push counter
+ceph_osd_subop_push{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_push_in_bytes Suboperations pushed size.
+# TYPE ceph_osd_subop_push_in_bytes counter
+ceph_osd_subop_push_in_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_push_latency_count Suboperations push latency Count.
+# TYPE ceph_osd_subop_push_latency_count counter
+ceph_osd_subop_push_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_push_latency_sum Suboperations push latency Total.
+# TYPE ceph_osd_subop_push_latency_sum gauge
+ceph_osd_subop_push_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_subop_w Replicated writes.
+# TYPE ceph_osd_subop_w counter
+ceph_osd_subop_w{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_w_in_bytes Replicated written data size.
+# TYPE ceph_osd_subop_w_in_bytes counter
+ceph_osd_subop_w_in_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_w_latency_count Replicated writes latency Count.
+# TYPE ceph_osd_subop_w_latency_count counter
+ceph_osd_subop_w_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_subop_w_latency_sum Replicated writes latency Total.
+# TYPE ceph_osd_subop_w_latency_sum gauge
+ceph_osd_subop_w_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_osd_tier_clean Dirty tier flag cleaned.
+# TYPE ceph_osd_tier_clean counter
+ceph_osd_tier_clean{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_delay Tier delays (agent waiting).
+# TYPE ceph_osd_tier_delay counter
+ceph_osd_tier_delay{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_dirty Dirty tier flag set.
+# TYPE ceph_osd_tier_dirty counter
+ceph_osd_tier_dirty{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_evict Tier evictions.
+# TYPE ceph_osd_tier_evict counter
+ceph_osd_tier_evict{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_flush Tier flushes.
+# TYPE ceph_osd_tier_flush counter
+ceph_osd_tier_flush{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_flush_fail Failed tier flushes.
+# TYPE ceph_osd_tier_flush_fail counter
+ceph_osd_tier_flush_fail{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_promote Tier promotions.
+# TYPE ceph_osd_tier_promote counter
+ceph_osd_tier_promote{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_proxy_read Tier proxy reads.
+# TYPE ceph_osd_tier_proxy_read counter
+ceph_osd_tier_proxy_read{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_proxy_write Tier proxy writes.
+# TYPE ceph_osd_tier_proxy_write counter
+ceph_osd_tier_proxy_write{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_try_flush Tier flush attempts.
+# TYPE ceph_osd_tier_try_flush counter
+ceph_osd_tier_try_flush{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_try_flush_fail Failed tier flush attempts.
+# TYPE ceph_osd_tier_try_flush_fail counter
+ceph_osd_tier_try_flush_fail{ceph_daemon="osd.0"} 100
+
+# HELP ceph_osd_tier_whiteout Tier whiteouts.
+# TYPE ceph_osd_tier_whiteout counter
+ceph_osd_tier_whiteout{ceph_daemon="osd.0"} 100
+
+# HELP ceph_portport0_dpdk_device_receive_badcrc_errors Source-derived dynamic DPDK port metric: port7_dpdk_device_receive_badcrc_errors.
+# TYPE ceph_portport0_dpdk_device_receive_badcrc_errors counter
+ceph_portport0_dpdk_device_receive_badcrc_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_portport0_dpdk_device_receive_dropped_errors Source-derived dynamic DPDK port metric: port7_dpdk_device_receive_dropped_errors.
+# TYPE ceph_portport0_dpdk_device_receive_dropped_errors counter
+ceph_portport0_dpdk_device_receive_dropped_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_portport0_dpdk_device_receive_multicast_packets Source-derived dynamic DPDK port metric: port7_dpdk_device_receive_multicast_packets.
+# TYPE ceph_portport0_dpdk_device_receive_multicast_packets counter
+ceph_portport0_dpdk_device_receive_multicast_packets{ceph_daemon="osd.0"} 100
+
+# HELP ceph_portport0_dpdk_device_receive_nombuf_errors Source-derived dynamic DPDK port metric: port7_dpdk_device_receive_nombuf_errors.
+# TYPE ceph_portport0_dpdk_device_receive_nombuf_errors counter
+ceph_portport0_dpdk_device_receive_nombuf_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_portport0_dpdk_device_receive_total_errors Source-derived dynamic DPDK port metric: port7_dpdk_device_receive_total_errors.
+# TYPE ceph_portport0_dpdk_device_receive_total_errors counter
+ceph_portport0_dpdk_device_receive_total_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_portport0_dpdk_device_send_total_errors Source-derived dynamic DPDK port metric: port7_dpdk_device_send_total_errors.
+# TYPE ceph_portport0_dpdk_device_send_total_errors counter
+ceph_portport0_dpdk_device_send_total_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_bad_checksum_errors Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_bad_checksum_errors.
+# TYPE ceph_queuequeue0_dpdk_receive_bad_checksum_errors counter
+ceph_queuequeue0_dpdk_receive_bad_checksum_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_bytes Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_bytes.
+# TYPE ceph_queuequeue0_dpdk_receive_bytes counter
+ceph_queuequeue0_dpdk_receive_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_copy_bytes Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_copy_bytes.
+# TYPE ceph_queuequeue0_dpdk_receive_copy_bytes counter
+ceph_queuequeue0_dpdk_receive_copy_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_copy_ops Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_copy_ops.
+# TYPE ceph_queuequeue0_dpdk_receive_copy_ops counter
+ceph_queuequeue0_dpdk_receive_copy_ops{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_fragments Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_fragments.
+# TYPE ceph_queuequeue0_dpdk_receive_fragments counter
+ceph_queuequeue0_dpdk_receive_fragments{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_last_bunch Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_last_bunch.
+# TYPE ceph_queuequeue0_dpdk_receive_last_bunch counter
+ceph_queuequeue0_dpdk_receive_last_bunch{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_linearize_ops Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_linearize_ops.
+# TYPE ceph_queuequeue0_dpdk_receive_linearize_ops counter
+ceph_queuequeue0_dpdk_receive_linearize_ops{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_no_memory_errors Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_no_memory_errors.
+# TYPE ceph_queuequeue0_dpdk_receive_no_memory_errors counter
+ceph_queuequeue0_dpdk_receive_no_memory_errors{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_receive_packets Source-derived dynamic DPDK queue metric: queue7_dpdk_receive_packets.
+# TYPE ceph_queuequeue0_dpdk_receive_packets counter
+ceph_queuequeue0_dpdk_receive_packets{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_bytes Source-derived dynamic DPDK queue metric: queue7_dpdk_send_bytes.
+# TYPE ceph_queuequeue0_dpdk_send_bytes counter
+ceph_queuequeue0_dpdk_send_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_copy_bytes Source-derived dynamic DPDK queue metric: queue7_dpdk_send_copy_bytes.
+# TYPE ceph_queuequeue0_dpdk_send_copy_bytes counter
+ceph_queuequeue0_dpdk_send_copy_bytes{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_copy_ops Source-derived dynamic DPDK queue metric: queue7_dpdk_send_copy_ops.
+# TYPE ceph_queuequeue0_dpdk_send_copy_ops counter
+ceph_queuequeue0_dpdk_send_copy_ops{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_fragments Source-derived dynamic DPDK queue metric: queue7_dpdk_send_fragments.
+# TYPE ceph_queuequeue0_dpdk_send_fragments counter
+ceph_queuequeue0_dpdk_send_fragments{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_last_bunch Source-derived dynamic DPDK queue metric: queue7_dpdk_send_last_bunch.
+# TYPE ceph_queuequeue0_dpdk_send_last_bunch counter
+ceph_queuequeue0_dpdk_send_last_bunch{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_linearize_ops Source-derived dynamic DPDK queue metric: queue7_dpdk_send_linearize_ops.
+# TYPE ceph_queuequeue0_dpdk_send_linearize_ops counter
+ceph_queuequeue0_dpdk_send_linearize_ops{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_packets Source-derived dynamic DPDK queue metric: queue7_dpdk_send_packets.
+# TYPE ceph_queuequeue0_dpdk_send_packets counter
+ceph_queuequeue0_dpdk_send_packets{ceph_daemon="osd.0"} 100
+
+# HELP ceph_queuequeue0_dpdk_send_queue_length Source-derived dynamic DPDK queue metric: queue7_dpdk_send_queue_length.
+# TYPE ceph_queuequeue0_dpdk_send_queue_length counter
+ceph_queuequeue0_dpdk_send_queue_length{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_activating_latency_count Activating recovery state latency Count.
+# TYPE ceph_recoverystate_perf_activating_latency_count counter
+ceph_recoverystate_perf_activating_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_activating_latency_sum Activating recovery state latency Total.
+# TYPE ceph_recoverystate_perf_activating_latency_sum gauge
+ceph_recoverystate_perf_activating_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_active_latency_count Active recovery state latency Count.
+# TYPE ceph_recoverystate_perf_active_latency_count counter
+ceph_recoverystate_perf_active_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_active_latency_sum Active recovery state latency Total.
+# TYPE ceph_recoverystate_perf_active_latency_sum gauge
+ceph_recoverystate_perf_active_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_backfilling_latency_count Backfilling recovery state latency Count.
+# TYPE ceph_recoverystate_perf_backfilling_latency_count counter
+ceph_recoverystate_perf_backfilling_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_backfilling_latency_sum Backfilling recovery state latency Total.
+# TYPE ceph_recoverystate_perf_backfilling_latency_sum gauge
+ceph_recoverystate_perf_backfilling_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_clean_latency_count Clean recovery state latency Count.
+# TYPE ceph_recoverystate_perf_clean_latency_count counter
+ceph_recoverystate_perf_clean_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_clean_latency_sum Clean recovery state latency Total.
+# TYPE ceph_recoverystate_perf_clean_latency_sum gauge
+ceph_recoverystate_perf_clean_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_down_latency_count Down recovery state latency Count.
+# TYPE ceph_recoverystate_perf_down_latency_count counter
+ceph_recoverystate_perf_down_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_down_latency_sum Down recovery state latency Total.
+# TYPE ceph_recoverystate_perf_down_latency_sum gauge
+ceph_recoverystate_perf_down_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_getinfo_latency_count Getinfo recovery state latency Count.
+# TYPE ceph_recoverystate_perf_getinfo_latency_count counter
+ceph_recoverystate_perf_getinfo_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_getinfo_latency_sum Getinfo recovery state latency Total.
+# TYPE ceph_recoverystate_perf_getinfo_latency_sum gauge
+ceph_recoverystate_perf_getinfo_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_getlog_latency_count Getlog recovery state latency Count.
+# TYPE ceph_recoverystate_perf_getlog_latency_count counter
+ceph_recoverystate_perf_getlog_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_getlog_latency_sum Getlog recovery state latency Total.
+# TYPE ceph_recoverystate_perf_getlog_latency_sum gauge
+ceph_recoverystate_perf_getlog_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_getmissing_latency_count Getmissing recovery state latency Count.
+# TYPE ceph_recoverystate_perf_getmissing_latency_count counter
+ceph_recoverystate_perf_getmissing_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_getmissing_latency_sum Getmissing recovery state latency Total.
+# TYPE ceph_recoverystate_perf_getmissing_latency_sum gauge
+ceph_recoverystate_perf_getmissing_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_incomplete_latency_count Incomplete recovery state latency Count.
+# TYPE ceph_recoverystate_perf_incomplete_latency_count counter
+ceph_recoverystate_perf_incomplete_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_incomplete_latency_sum Incomplete recovery state latency Total.
+# TYPE ceph_recoverystate_perf_incomplete_latency_sum gauge
+ceph_recoverystate_perf_incomplete_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_initial_latency_count Initial recovery state latency Count.
+# TYPE ceph_recoverystate_perf_initial_latency_count counter
+ceph_recoverystate_perf_initial_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_initial_latency_sum Initial recovery state latency Total.
+# TYPE ceph_recoverystate_perf_initial_latency_sum gauge
+ceph_recoverystate_perf_initial_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_notbackfilling_latency_count Notbackfilling recovery state latency Count.
+# TYPE ceph_recoverystate_perf_notbackfilling_latency_count counter
+ceph_recoverystate_perf_notbackfilling_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_notbackfilling_latency_sum Notbackfilling recovery state latency Total.
+# TYPE ceph_recoverystate_perf_notbackfilling_latency_sum gauge
+ceph_recoverystate_perf_notbackfilling_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_notrecovering_latency_count Notrecovering recovery state latency Count.
+# TYPE ceph_recoverystate_perf_notrecovering_latency_count counter
+ceph_recoverystate_perf_notrecovering_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_notrecovering_latency_sum Notrecovering recovery state latency Total.
+# TYPE ceph_recoverystate_perf_notrecovering_latency_sum gauge
+ceph_recoverystate_perf_notrecovering_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_peering_latency_count Peering recovery state latency Count.
+# TYPE ceph_recoverystate_perf_peering_latency_count counter
+ceph_recoverystate_perf_peering_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_peering_latency_sum Peering recovery state latency Total.
+# TYPE ceph_recoverystate_perf_peering_latency_sum gauge
+ceph_recoverystate_perf_peering_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_primary_latency_count Primary recovery state latency Count.
+# TYPE ceph_recoverystate_perf_primary_latency_count counter
+ceph_recoverystate_perf_primary_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_primary_latency_sum Primary recovery state latency Total.
+# TYPE ceph_recoverystate_perf_primary_latency_sum gauge
+ceph_recoverystate_perf_primary_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_recovered_latency_count Recovered recovery state latency Count.
+# TYPE ceph_recoverystate_perf_recovered_latency_count counter
+ceph_recoverystate_perf_recovered_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_recovered_latency_sum Recovered recovery state latency Total.
+# TYPE ceph_recoverystate_perf_recovered_latency_sum gauge
+ceph_recoverystate_perf_recovered_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_recovering_latency_count Recovering recovery state latency Count.
+# TYPE ceph_recoverystate_perf_recovering_latency_count counter
+ceph_recoverystate_perf_recovering_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_recovering_latency_sum Recovering recovery state latency Total.
+# TYPE ceph_recoverystate_perf_recovering_latency_sum gauge
+ceph_recoverystate_perf_recovering_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_replicaactive_latency_count Replicaactive recovery state latency Count.
+# TYPE ceph_recoverystate_perf_replicaactive_latency_count counter
+ceph_recoverystate_perf_replicaactive_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_replicaactive_latency_sum Replicaactive recovery state latency Total.
+# TYPE ceph_recoverystate_perf_replicaactive_latency_sum gauge
+ceph_recoverystate_perf_replicaactive_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_repnotrecovering_latency_count Repnotrecovering recovery state latency Count.
+# TYPE ceph_recoverystate_perf_repnotrecovering_latency_count counter
+ceph_recoverystate_perf_repnotrecovering_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_repnotrecovering_latency_sum Repnotrecovering recovery state latency Total.
+# TYPE ceph_recoverystate_perf_repnotrecovering_latency_sum gauge
+ceph_recoverystate_perf_repnotrecovering_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_reprecovering_latency_count RepRecovering recovery state latency Count.
+# TYPE ceph_recoverystate_perf_reprecovering_latency_count counter
+ceph_recoverystate_perf_reprecovering_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_reprecovering_latency_sum RepRecovering recovery state latency Total.
+# TYPE ceph_recoverystate_perf_reprecovering_latency_sum gauge
+ceph_recoverystate_perf_reprecovering_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_repwaitbackfillreserved_latency_count Rep wait backfill reserved recovery state latency Count.
+# TYPE ceph_recoverystate_perf_repwaitbackfillreserved_latency_count counter
+ceph_recoverystate_perf_repwaitbackfillreserved_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_repwaitbackfillreserved_latency_sum Rep wait backfill reserved recovery state latency Total.
+# TYPE ceph_recoverystate_perf_repwaitbackfillreserved_latency_sum gauge
+ceph_recoverystate_perf_repwaitbackfillreserved_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_repwaitrecoveryreserved_latency_count Rep wait recovery reserved recovery state latency Count.
+# TYPE ceph_recoverystate_perf_repwaitrecoveryreserved_latency_count counter
+ceph_recoverystate_perf_repwaitrecoveryreserved_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_repwaitrecoveryreserved_latency_sum Rep wait recovery reserved recovery state latency Total.
+# TYPE ceph_recoverystate_perf_repwaitrecoveryreserved_latency_sum gauge
+ceph_recoverystate_perf_repwaitrecoveryreserved_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_reset_latency_count Reset recovery state latency Count.
+# TYPE ceph_recoverystate_perf_reset_latency_count counter
+ceph_recoverystate_perf_reset_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_reset_latency_sum Reset recovery state latency Total.
+# TYPE ceph_recoverystate_perf_reset_latency_sum gauge
+ceph_recoverystate_perf_reset_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_start_latency_count Start recovery state latency Count.
+# TYPE ceph_recoverystate_perf_start_latency_count counter
+ceph_recoverystate_perf_start_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_start_latency_sum Start recovery state latency Total.
+# TYPE ceph_recoverystate_perf_start_latency_sum gauge
+ceph_recoverystate_perf_start_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_started_latency_count Started recovery state latency Count.
+# TYPE ceph_recoverystate_perf_started_latency_count counter
+ceph_recoverystate_perf_started_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_started_latency_sum Started recovery state latency Total.
+# TYPE ceph_recoverystate_perf_started_latency_sum gauge
+ceph_recoverystate_perf_started_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_stray_latency_count Stray recovery state latency Count.
+# TYPE ceph_recoverystate_perf_stray_latency_count counter
+ceph_recoverystate_perf_stray_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_stray_latency_sum Stray recovery state latency Total.
+# TYPE ceph_recoverystate_perf_stray_latency_sum gauge
+ceph_recoverystate_perf_stray_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_waitactingchange_latency_count Waitactingchange recovery state latency Count.
+# TYPE ceph_recoverystate_perf_waitactingchange_latency_count counter
+ceph_recoverystate_perf_waitactingchange_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_waitactingchange_latency_sum Waitactingchange recovery state latency Total.
+# TYPE ceph_recoverystate_perf_waitactingchange_latency_sum gauge
+ceph_recoverystate_perf_waitactingchange_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_waitlocalbackfillreserved_latency_count Wait local backfill reserved recovery state latency Count.
+# TYPE ceph_recoverystate_perf_waitlocalbackfillreserved_latency_count counter
+ceph_recoverystate_perf_waitlocalbackfillreserved_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_waitlocalbackfillreserved_latency_sum Wait local backfill reserved recovery state latency Total.
+# TYPE ceph_recoverystate_perf_waitlocalbackfillreserved_latency_sum gauge
+ceph_recoverystate_perf_waitlocalbackfillreserved_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_waitlocalrecoveryreserved_latency_count Wait local recovery reserved recovery state latency Count.
+# TYPE ceph_recoverystate_perf_waitlocalrecoveryreserved_latency_count counter
+ceph_recoverystate_perf_waitlocalrecoveryreserved_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_waitlocalrecoveryreserved_latency_sum Wait local recovery reserved recovery state latency Total.
+# TYPE ceph_recoverystate_perf_waitlocalrecoveryreserved_latency_sum gauge
+ceph_recoverystate_perf_waitlocalrecoveryreserved_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_waitremotebackfillreserved_latency_count Wait remote backfill reserved recovery state latency Count.
+# TYPE ceph_recoverystate_perf_waitremotebackfillreserved_latency_count counter
+ceph_recoverystate_perf_waitremotebackfillreserved_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_waitremotebackfillreserved_latency_sum Wait remote backfill reserved recovery state latency Total.
+# TYPE ceph_recoverystate_perf_waitremotebackfillreserved_latency_sum gauge
+ceph_recoverystate_perf_waitremotebackfillreserved_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_waitremoterecoveryreserved_latency_count Wait remote recovery reserved recovery state latency Count.
+# TYPE ceph_recoverystate_perf_waitremoterecoveryreserved_latency_count counter
+ceph_recoverystate_perf_waitremoterecoveryreserved_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_waitremoterecoveryreserved_latency_sum Wait remote recovery reserved recovery state latency Total.
+# TYPE ceph_recoverystate_perf_waitremoterecoveryreserved_latency_sum gauge
+ceph_recoverystate_perf_waitremoterecoveryreserved_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_recoverystate_perf_waitupthru_latency_count Waitupthru recovery state latency Count.
+# TYPE ceph_recoverystate_perf_waitupthru_latency_count counter
+ceph_recoverystate_perf_waitupthru_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_waitupthru_latency_sum Waitupthru recovery state latency Total.
+# TYPE ceph_recoverystate_perf_waitupthru_latency_sum gauge
+ceph_recoverystate_perf_waitupthru_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_compact Compactions.
+# TYPE ceph_rocksdb_compact counter
+ceph_rocksdb_compact{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_compact_completed Completed compactions.
+# TYPE ceph_rocksdb_compact_completed counter
+ceph_rocksdb_compact_completed{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_compact_lasted Last completed compaction duration.
+# TYPE ceph_rocksdb_compact_lasted gauge
+ceph_rocksdb_compact_lasted{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_compact_queue_len Length of compaction queue.
+# TYPE ceph_rocksdb_compact_queue_len gauge
+ceph_rocksdb_compact_queue_len{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_compact_queue_merge Mergings of ranges in compaction queue.
+# TYPE ceph_rocksdb_compact_queue_merge counter
+ceph_rocksdb_compact_queue_merge{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_compact_running Running compactions.
+# TYPE ceph_rocksdb_compact_running counter
+ceph_rocksdb_compact_running{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_get_latency_count Get latency Count.
+# TYPE ceph_rocksdb_get_latency_count counter
+ceph_rocksdb_get_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_get_latency_sum Get latency Total.
+# TYPE ceph_rocksdb_get_latency_sum gauge
+ceph_rocksdb_get_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_rocksdb_write_delay_time_count Rocksdb write delay time Count.
+# TYPE ceph_rocksdb_rocksdb_write_delay_time_count counter
+ceph_rocksdb_rocksdb_write_delay_time_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_rocksdb_write_delay_time_sum Rocksdb write delay time Total.
+# TYPE ceph_rocksdb_rocksdb_write_delay_time_sum gauge
+ceph_rocksdb_rocksdb_write_delay_time_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_rocksdb_write_memtable_time_count Rocksdb write memtable time Count.
+# TYPE ceph_rocksdb_rocksdb_write_memtable_time_count counter
+ceph_rocksdb_rocksdb_write_memtable_time_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_rocksdb_write_memtable_time_sum Rocksdb write memtable time Total.
+# TYPE ceph_rocksdb_rocksdb_write_memtable_time_sum gauge
+ceph_rocksdb_rocksdb_write_memtable_time_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_rocksdb_write_pre_and_post_time_count total time spent on writing a record, excluding write process Count.
+# TYPE ceph_rocksdb_rocksdb_write_pre_and_post_time_count counter
+ceph_rocksdb_rocksdb_write_pre_and_post_time_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_rocksdb_write_pre_and_post_time_sum total time spent on writing a record, excluding write process Total.
+# TYPE ceph_rocksdb_rocksdb_write_pre_and_post_time_sum gauge
+ceph_rocksdb_rocksdb_write_pre_and_post_time_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_rocksdb_write_wal_time_count Rocksdb write wal time Count.
+# TYPE ceph_rocksdb_rocksdb_write_wal_time_count counter
+ceph_rocksdb_rocksdb_write_wal_time_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_rocksdb_write_wal_time_sum Rocksdb write wal time Total.
+# TYPE ceph_rocksdb_rocksdb_write_wal_time_sum gauge
+ceph_rocksdb_rocksdb_write_wal_time_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_submit_latency_count Submit Latency Count.
+# TYPE ceph_rocksdb_submit_latency_count counter
+ceph_rocksdb_submit_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_submit_latency_sum Submit Latency Total.
+# TYPE ceph_rocksdb_submit_latency_sum gauge
+ceph_rocksdb_submit_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_rocksdb_submit_sync_latency_count Submit Sync Latency Count.
+# TYPE ceph_rocksdb_submit_sync_latency_count counter
+ceph_rocksdb_submit_sync_latency_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rocksdb_submit_sync_latency_sum Submit Sync Latency Total.
+# TYPE ceph_rocksdb_submit_sync_latency_sum gauge
+ceph_rocksdb_submit_sync_latency_sum{ceph_daemon="osd.0"} 1
+
+# HELP ceph_throttle_throttle_key_a_get Source-derived dynamic Throttle metric: throttle_fixture_a_get.
+# TYPE ceph_throttle_throttle_key_a_get counter
+ceph_throttle_throttle_key_a_get{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_get_or_fail_fail Source-derived dynamic Throttle metric: throttle_fixture_a_get_or_fail_fail.
+# TYPE ceph_throttle_throttle_key_a_get_or_fail_fail counter
+ceph_throttle_throttle_key_a_get_or_fail_fail{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_get_or_fail_success Source-derived dynamic Throttle metric: throttle_fixture_a_get_or_fail_success.
+# TYPE ceph_throttle_throttle_key_a_get_or_fail_success counter
+ceph_throttle_throttle_key_a_get_or_fail_success{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_get_started Source-derived dynamic Throttle metric: throttle_fixture_a_get_started.
+# TYPE ceph_throttle_throttle_key_a_get_started counter
+ceph_throttle_throttle_key_a_get_started{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_get_sum Source-derived dynamic Throttle metric: throttle_fixture_a_get_sum.
+# TYPE ceph_throttle_throttle_key_a_get_sum counter
+ceph_throttle_throttle_key_a_get_sum 100
+
+# HELP ceph_throttle_throttle_key_a_max Source-derived dynamic Throttle metric: throttle_fixture_a_max.
+# TYPE ceph_throttle_throttle_key_a_max gauge
+ceph_throttle_throttle_key_a_max{ceph_daemon="osd.0"} 1
+
+# HELP ceph_throttle_throttle_key_a_put Source-derived dynamic Throttle metric: throttle_fixture_a_put.
+# TYPE ceph_throttle_throttle_key_a_put counter
+ceph_throttle_throttle_key_a_put{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_put_sum Source-derived dynamic Throttle metric: throttle_fixture_a_put_sum.
+# TYPE ceph_throttle_throttle_key_a_put_sum counter
+ceph_throttle_throttle_key_a_put_sum 100
+
+# HELP ceph_throttle_throttle_key_a_take Source-derived dynamic Throttle metric: throttle_fixture_a_take.
+# TYPE ceph_throttle_throttle_key_a_take counter
+ceph_throttle_throttle_key_a_take{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_take_sum Source-derived dynamic Throttle metric: throttle_fixture_a_take_sum.
+# TYPE ceph_throttle_throttle_key_a_take_sum counter
+ceph_throttle_throttle_key_a_take_sum 100
+
+# HELP ceph_throttle_throttle_key_a_val Source-derived dynamic Throttle metric: throttle_fixture_a_val.
+# TYPE ceph_throttle_throttle_key_a_val gauge
+ceph_throttle_throttle_key_a_val{ceph_daemon="osd.0"} 1
+
+# HELP ceph_throttle_throttle_key_a_wait_count Source-derived dynamic Throttle metric: throttle_fixture_a_wait_count.
+# TYPE ceph_throttle_throttle_key_a_wait_count counter
+ceph_throttle_throttle_key_a_wait_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_throttle_throttle_key_a_wait_sum Source-derived dynamic Throttle metric: throttle_fixture_a_wait_sum.
+# TYPE ceph_throttle_throttle_key_a_wait_sum gauge
+ceph_throttle_throttle_key_a_wait_sum{ceph_daemon="osd.0"} 1
