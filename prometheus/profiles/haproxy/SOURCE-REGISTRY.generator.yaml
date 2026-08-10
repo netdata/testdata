@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: haproxy
+runner: netdata-prometheus-source-registry-v1
+upstreams:
+  haproxy:
+    repository: haproxy/haproxy
+    commit: e134140d282c006417945d78e7964cc8fa14586a
+    paths:
+      - addons/promex/service-prometheus.c
+      - src/resolvers.c
+      - src/stats-proxy.c
+      - src/stats.c
+      - src/stick_table.c

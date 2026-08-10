@@ -1,0 +1,7845 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v2
+profile: haproxy
+upstreams:
+  haproxy:
+    repository: haproxy/haproxy
+    commit: e134140d282c006417945d78e7964cc8fa14586a
+evidence:
+  process_population:
+    kind: population
+    upstream: haproxy
+    locations:
+    - src/stats.c:697-833
+    - addons/promex/service-prometheus.c:425-505
+    claim: Global PromEx samples describe the current HAProxy worker and values populated by stats_fill_info.
+  process_lifecycle:
+    kind: lifecycle
+    upstream: haproxy
+    locations:
+    - src/stats.c:95-168
+    - src/stats.c:697-833
+    - addons/promex/service-prometheus.c:392-423
+    claim: The process field declarations, value natures, and PromEx type overrides define current, cumulative, and constant
+      values.
+  process_unit:
+    kind: unit
+    upstream: haproxy
+    locations:
+    - src/stats.c:95-168
+    - src/stats.c:697-833
+    claim: Process field names, descriptions, and population expressions define counts, bytes, percentages, rates, durations,
+      and start timestamps.
+  process_labels:
+    kind: label
+    upstream: haproxy
+    locations:
+    - src/stats.c:95-168
+    - addons/promex/service-prometheus.c:425-505
+    claim: The build, node, and description metadata families expose one source-defined metadata label; other process families
+      are unlabeled.
+  percentage_display:
+    kind: display_convention
+    upstream: haproxy
+    locations:
+    - src/stats.c:95-168
+    - src/stats-proxy.c:50-165
+    claim: HAProxy exports percentage-valued process and server fields on a zero-to-one-hundred display scale.
+  proxy_population:
+    kind: population
+    upstream: haproxy
+    locations:
+    - src/stats-proxy.c:50-165
+    - addons/promex/service-prometheus.c:508-1427
+    claim: Proxy statistics are emitted at frontend, listener, backend, or server scope with the corresponding configuration
+      identity labels.
+  proxy_lifecycle:
+    kind: lifecycle
+    upstream: haproxy
+    locations:
+    - src/stats-proxy.c:50-165
+    - src/stats-proxy.c:310-1370
+    claim: Proxy field natures and fill paths distinguish cumulative counters from current, limit, maximum, age, state, and
+      code observations.
+  proxy_unit:
+    kind: unit
+    upstream: haproxy
+    locations:
+    - src/stats-proxy.c:50-165
+    - addons/promex/service-prometheus.c:508-1427
+    claim: Proxy field names, descriptions, and PromEx conversions define count, byte, percentage, and second quantities.
+  proxy_labels:
+    kind: label
+    upstream: haproxy
+    locations:
+    - addons/promex/service-prometheus.c:508-1427
+    claim: PromEx attaches configuration identities and closed state or HTTP response-code labels to proxy-scope samples.
+  proxy_state_encoding:
+    kind: state_encoding
+    upstream: haproxy
+    locations:
+    - addons/promex/service-prometheus.c:508-1427
+    claim: Frontend, listener, backend, server, health-check, and agent status families emit an exact one-hot value across
+      their state labels.
+  http_response_partition:
+    kind: relationship
+    upstream: haproxy
+    locations:
+    - src/stats-proxy.c:88-93
+    - addons/promex/service-prometheus.c:508-1427
+    claim: The six response-code classes are disjoint and exhaust the source HTTP response counter array.
+  aggregate_status_replacement:
+    kind: relationship
+    upstream: haproxy
+    locations:
+    - src/stats-proxy.c:157-158
+    claim: The deprecated aggregate server-check-status family and aggregate server-status replacement expose the same backend
+      state counts.
+  resolver_population:
+    kind: population
+    upstream: haproxy
+    locations:
+    - src/resolvers.c:94-180
+    - src/resolvers.c:3980-4040
+    claim: Resolver module samples describe one configured nameserver within one configured resolver section.
+  resolver_lifecycle:
+    kind: lifecycle
+    upstream: haproxy
+    locations:
+    - src/resolvers.c:94-180
+    claim: Resolver statistics read monotonically accumulated DNS counters even though the module exports them with Prometheus
+      gauge wire type.
+  resolver_unit:
+    kind: unit
+    upstream: haproxy
+    locations:
+    - src/resolvers.c:94-180
+    claim: Resolver values count sent queries and classified outcomes without scaling.
+  resolver_labels:
+    kind: label
+    upstream: haproxy
+    locations:
+    - src/resolvers.c:94-180
+    - src/resolvers.c:3980-4040
+    claim: Resolver samples carry the configured resolver and nameserver identities.
+  sticktable_population:
+    kind: population
+    upstream: haproxy
+    locations:
+    - src/stick_table.c:6157-6214
+    claim: Stick-table module samples describe one configured stick table.
+  sticktable_lifecycle:
+    kind: lifecycle
+    upstream: haproxy
+    locations:
+    - src/stick_table.c:6157-6214
+    claim: Stick-table size and used-entry values are current observations.
+  sticktable_unit:
+    kind: unit
+    upstream: haproxy
+    locations:
+    - src/stick_table.c:6157-6214
+    claim: Stick-table values count configured capacity and currently used entries.
+  sticktable_labels:
+    kind: label
+    upstream: haproxy
+    locations:
+    - src/stick_table.c:6157-6214
+    claim: Stick-table samples carry the configured table name and key type.
+environment:
+  axes: {}
+  policies: {}
+component_policies: {}
+label_policies:
+  frontend:
+    proxy:
+      meaning: HAProxy frontend name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+  listener:
+    proxy:
+      meaning: HAProxy frontend containing the listener.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+    listener:
+      meaning: HAProxy listener name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+  backend:
+    proxy:
+      meaning: HAProxy backend name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+  server:
+    proxy:
+      meaning: HAProxy backend containing the server.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+    server:
+      meaning: HAProxy server name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+  resolver:
+    resolver:
+      meaning: HAProxy resolver section name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - resolver_labels
+    nameserver:
+      meaning: HAProxy nameserver name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - resolver_labels
+  sticktable:
+    name:
+      meaning: HAProxy stick-table name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - sticktable_labels
+    type:
+      meaning: Configured stick-table key type.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - sticktable_labels
+  backend_aggregate_server_state:
+    proxy:
+      meaning: HAProxy backend name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+    state:
+      meaning: HAProxy server operational state.
+      presence: required
+      domain:
+        kind: closed
+        values:
+        - DOWN
+        - UP
+        - MAINT
+        - DRAIN
+        - NOLB
+      endpoint_cardinality:
+        kind: closed_domain
+      stability: stable
+      evidence:
+      - proxy_labels
+  server_check_state:
+    proxy:
+      meaning: HAProxy backend containing the server.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+    server:
+      meaning: HAProxy server name.
+      presence: required
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: bounded_configuration
+      stability: stable
+      evidence:
+      - proxy_labels
+    state:
+      meaning: HAProxy check result state.
+      presence: required
+      domain:
+        kind: closed
+        values:
+        - HANA
+        - SOCKERR
+        - L4OK
+        - L4TOUT
+        - L4CON
+        - L6OK
+        - L6TOUT
+        - L6RSP
+        - L7TOUT
+        - L7RSP
+        - L7OK
+        - L7OKC
+        - L7STS
+        - PROCERR
+        - PROCTOUT
+        - PROCOK
+      endpoint_cardinality:
+        kind: closed_domain
+      stability: stable
+      evidence:
+      - proxy_labels
+signals:
+  process_active_peers:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_active_peers
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: peers
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_build_info:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_build_info
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: constant
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels:
+      version:
+        meaning: HAProxy build version.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: singleton
+        stability: restart_stable
+        evidence:
+        - process_labels
+    functional_dependencies: {}
+  process_busy_polling_enabled:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_busy_polling_enabled
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_bytes_out_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_bytes_out_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: per_second
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_bytes_out_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_connected_peers:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_connected_peers
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: peers
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_connections_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_connections_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_backend_ssl_key_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_backend_ssl_key_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: keys
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_connection_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_connection_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_connections:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_connections
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_frontend_ssl_key_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_frontend_ssl_key_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: keys
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_run_queue:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_run_queue
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: tasks
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_session_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_ssl_connections:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_ssl_connections
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_ssl_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_ssl_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_tasks:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_tasks
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: tasks
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_current_zlib_memory:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_current_zlib_memory
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_description:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_description
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: constant
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels:
+      desc:
+        meaning: Configured HAProxy node description.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: singleton
+        stability: restart_stable
+        evidence:
+        - process_labels
+    functional_dependencies: {}
+  process_dropped_logs_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_dropped_logs_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: logs
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_failed_resolutions:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_failed_resolutions
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_frontend_ssl_reuse:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_frontend_ssl_reuse
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: ratio
+          base: percent
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_hard_max_connections:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_hard_max_connections
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_http_comp_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_http_comp_bytes_in_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: per_second
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_http_comp_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_http_comp_bytes_out_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: per_second
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_idle_time_percent:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_idle_time_percent
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: ratio
+          base: percent
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_jobs:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_jobs
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: jobs
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_limit_connection_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_limit_connection_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_limit_http_comp:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_limit_http_comp
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: per_second
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_limit_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_limit_session_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_limit_ssl_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_limit_ssl_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_listeners:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_listeners
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: listeners
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_backend_ssl_key_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_backend_ssl_key_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: keys
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_connection_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_connection_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_connections:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_connections
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_fds:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_fds
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: file_descriptors
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_frontend_ssl_key_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_frontend_ssl_key_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: keys
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_memory_bytes:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_memory_bytes
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_pipes:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_pipes
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: pipes
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_session_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_sockets:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_sockets
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sockets
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_ssl_connections:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_ssl_connections
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_ssl_rate:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_ssl_rate
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_max_zlib_memory:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_max_zlib_memory
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_nbproc:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_nbproc
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: processes
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_nbthread:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_nbthread
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: threads
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_node:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_node
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: constant
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels:
+      node:
+        meaning: Configured HAProxy node name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: singleton
+        stability: restart_stable
+        evidence:
+        - process_labels
+    functional_dependencies: {}
+  process_pipes_free_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_pipes_free_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: pipes
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_pipes_used_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_pipes_used_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: pipes
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_pool_allocated_bytes:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_pool_allocated_bytes
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_pool_failures_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_pool_failures_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: failures
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_pool_used_bytes:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_pool_used_bytes
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_recv_logs_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_recv_logs_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: logs
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_relative_process_id:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_relative_process_id
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: process_id
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_requests_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_requests_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_spliced_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_spliced_bytes_out_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_ssl_cache_lookups_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_ssl_cache_lookups_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: lookups
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_ssl_cache_misses_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_ssl_cache_misses_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_ssl_connections_total:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_ssl_connections_total
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_start_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_start_time_seconds
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: timestamp
+          base: unix_second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_stopping:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_stopping
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_total_warnings:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_total_warnings
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: warnings
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_unstoppable_jobs:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_unstoppable_jobs
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: jobs
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  process_uptime_seconds:
+    source:
+      generated:
+        registry_groups:
+        - process
+        scope:
+          registrations:
+          - process_uptime_seconds
+    population:
+      id: worker_process
+      meaning: The HAProxy worker process serving the PromEx endpoint.
+      evidence:
+      - process_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - process_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - process_unit
+    labels: {}
+    functional_dependencies: {}
+  frontend_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_bytes_in_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_bytes_out_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_connections_rate_max:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_connections_rate_max
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_connections_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_connections_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_current_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_current_session_rate
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_current_sessions:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_current_sessions
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_denied_connections_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_denied_connections_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_denied_sessions_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_denied_sessions_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_failed_header_rewriting_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_failed_header_rewriting_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_cache_hits_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_cache_hits_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: hits
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_cache_lookups_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_cache_lookups_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: lookups
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_comp_bytes_bypassed_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_comp_bytes_bypassed_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_comp_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_comp_bytes_in_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_comp_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_comp_bytes_out_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_comp_responses_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_comp_responses_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_requests_rate_max:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_requests_rate_max
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_requests_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_requests_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_http_responses_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_http_responses_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy frontend name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      code:
+        meaning: Closed HTTP response status-code class.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - 1xx
+          - 2xx
+          - 3xx
+          - 4xx
+          - 5xx
+          - other
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  frontend_intercepted_requests_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_intercepted_requests_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_internal_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_internal_errors_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_limit_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_limit_session_rate
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_limit_sessions:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_limit_sessions
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_max_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_max_session_rate
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_max_sessions:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_max_sessions
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_request_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_request_errors_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_requests_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_requests_denied_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_responses_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_responses_denied_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_sessions_total:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_sessions_total
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: frontend
+    functional_dependencies: {}
+  frontend_status:
+    source:
+      generated:
+        registry_groups:
+        - frontend
+        scope:
+          registrations:
+          - frontend_status
+    population:
+      id: frontend
+      meaning: One configured HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: status
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy frontend name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      state:
+        meaning: HAProxy source-defined status state.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - DOWN
+          - UP
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  listener_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_bytes_in_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: listeners
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_bytes_out_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: listeners
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_connections_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_connections_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_current_sessions:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_current_sessions
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_denied_connections_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_denied_connections_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_denied_sessions_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_denied_sessions_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_failed_header_rewriting_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_failed_header_rewriting_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_internal_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_internal_errors_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_limit_sessions:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_limit_sessions
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_max_sessions:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_max_sessions
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_request_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_request_errors_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_requests_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_requests_denied_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_responses_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_responses_denied_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_sessions_total:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_sessions_total
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: listener
+    functional_dependencies: {}
+  listener_status:
+    source:
+      generated:
+        registry_groups:
+        - listener
+        scope:
+          registrations:
+          - listener_status
+    population:
+      id: listener
+      meaning: One configured listener within an HAProxy frontend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: listeners
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy frontend containing the listener.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      listener:
+        meaning: HAProxy listener name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      state:
+        meaning: HAProxy source-defined status state.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - WAITING
+          - OPEN
+          - FULL
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  backend_active_servers:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_active_servers
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_agg_check_status:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_agg_check_status
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy backend name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      state:
+        meaning: HAProxy source-defined status state.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - HANA
+          - SOCKERR
+          - L4OK
+          - L4TOUT
+          - L4CON
+          - L6OK
+          - L6TOUT
+          - L6RSP
+          - L7TOUT
+          - L7RSP
+          - L7OK
+          - L7OKC
+          - L7STS
+          - PROCERR
+          - PROCTOUT
+          - PROCOK
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  backend_agg_server_check_status:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_agg_server_check_status
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend_aggregate_server_state
+    functional_dependencies: {}
+  backend_agg_server_status:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_agg_server_status
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend_aggregate_server_state
+    functional_dependencies: {}
+  backend_backup_servers:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_backup_servers
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_bytes_in_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_bytes_out_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_check_last_change_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_check_last_change_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_check_up_down_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_check_up_down_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: transitions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_client_aborts_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_client_aborts_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: aborts
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_connect_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_connect_time_average_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_connection_attempts_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_connection_attempts_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_connection_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_connection_errors_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_connection_reuses_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_connection_reuses_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_current_queue:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_current_queue
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_current_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_current_session_rate
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_current_sessions:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_current_sessions
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_downtime_seconds_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_downtime_seconds_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_failed_header_rewriting_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_failed_header_rewriting_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_cache_hits_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_cache_hits_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: hits
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_cache_lookups_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_cache_lookups_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: lookups
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_comp_bytes_bypassed_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_comp_bytes_bypassed_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_comp_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_comp_bytes_in_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_comp_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_comp_bytes_out_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_comp_responses_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_comp_responses_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_requests_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_requests_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_http_responses_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_http_responses_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy backend name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      code:
+        meaning: Closed HTTP response status-code class.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - 1xx
+          - 2xx
+          - 3xx
+          - 4xx
+          - 5xx
+          - other
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  backend_internal_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_internal_errors_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_last_session_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_last_session_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_limit_sessions:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_limit_sessions
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_loadbalanced_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_loadbalanced_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_connect_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_connect_time_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_queue:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_queue
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_queue_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_queue_time_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_response_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_response_time_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_session_rate
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_sessions:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_sessions
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_max_total_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_max_total_time_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_queue_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_queue_time_average_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_redispatch_warnings_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_redispatch_warnings_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: warnings
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_requests_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_requests_denied_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_response_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_response_errors_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_response_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_response_time_average_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_responses_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_responses_denied_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_retry_warnings_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_retry_warnings_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: warnings
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_server_aborts_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_server_aborts_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: aborts
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_sessions_total:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_sessions_total
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_status:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_status
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: status
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy backend name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      state:
+        meaning: HAProxy source-defined status state.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - DOWN
+          - UP
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  backend_total_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_total_time_average_seconds
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_uweight:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_uweight
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: weight
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  backend_weight:
+    source:
+      generated:
+        registry_groups:
+        - backend
+        scope:
+          registrations:
+          - backend_weight
+    population:
+      id: backend
+      meaning: One configured HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: weight
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: backend
+    functional_dependencies: {}
+  server_active:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_active
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_agent_code:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_agent_code
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: code
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_agent_duration_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_agent_duration_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_agent_status:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_agent_status
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: status
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server_check_state
+    functional_dependencies: {}
+  server_backup:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_backup
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: servers
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_bytes_in_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_bytes_in_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_bytes_out_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_bytes_out_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_check_code:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_check_code
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: code
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_check_duration_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_check_duration_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_check_failures_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_check_failures_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: failures
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_check_last_change_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_check_last_change_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_check_status:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_check_status
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: status
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server_check_state
+    functional_dependencies: {}
+  server_check_up_down_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_check_up_down_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: transitions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_client_aborts_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_client_aborts_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: aborts
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_connect_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_connect_time_average_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_connection_attempts_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_connection_attempts_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_connection_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_connection_errors_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_connection_reuses_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_connection_reuses_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_current_queue:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_current_queue
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_current_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_current_session_rate
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_current_sessions:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_current_sessions
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_current_throttle:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_current_throttle
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: ratio
+          base: percent
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_downtime_seconds_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_downtime_seconds_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_failed_header_rewriting_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_failed_header_rewriting_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_http_requests_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_http_requests_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_http_responses_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_http_responses_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy backend containing the server.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      server:
+        meaning: HAProxy server name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      code:
+        meaning: Closed HTTP response status-code class.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - 1xx
+          - 2xx
+          - 3xx
+          - 4xx
+          - 5xx
+          - other
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  server_idle_connections_current:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_idle_connections_current
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_idle_connections_limit:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_idle_connections_limit
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_internal_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_internal_errors_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_last_session_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_last_session_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_limit_sessions:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_limit_sessions
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_loadbalanced_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_loadbalanced_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_connect_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_connect_time_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_queue:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_queue
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_queue_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_queue_time_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_response_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_response_time_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_session_rate:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_session_rate
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: per_second
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_sessions:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_sessions
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_max_total_time_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_max_total_time_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_need_connections_current:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_need_connections_current
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_queue_limit:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_queue_limit
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_queue_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_queue_time_average_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: requests
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_redispatch_warnings_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_redispatch_warnings_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: warnings
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_response_errors_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_response_errors_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_response_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_response_time_average_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_responses_denied_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_responses_denied_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: responses
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_retry_warnings_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_retry_warnings_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: warnings
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_safe_idle_connections_current:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_safe_idle_connections_current
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_server_aborts_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_server_aborts_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: aborts
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_sessions_total:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_sessions_total
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: sessions
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_status:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_status
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: state
+          base: one
+          rate: none
+          object: status
+          aspect: value
+          evidence:
+          - proxy_unit
+    labels:
+      proxy:
+        meaning: HAProxy backend containing the server.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      server:
+        meaning: HAProxy server name.
+        presence: required
+        domain:
+          kind: open
+        endpoint_cardinality:
+          kind: bounded_configuration
+        stability: stable
+        evidence:
+        - proxy_labels
+      state:
+        meaning: HAProxy source-defined status state.
+        presence: required
+        domain:
+          kind: closed
+          values:
+          - DOWN
+          - UP
+          - MAINT
+          - DRAIN
+          - NOLB
+        endpoint_cardinality:
+          kind: closed_domain
+        stability: stable
+        evidence:
+        - proxy_labels
+    functional_dependencies: {}
+  server_total_time_average_seconds:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_total_time_average_seconds
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: events
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_unsafe_idle_connections_current:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_unsafe_idle_connections_current
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_used_connections_current:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_used_connections_current
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: connections
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_uweight:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_uweight
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: weight
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  server_weight:
+    source:
+      generated:
+        registry_groups:
+        - server
+        scope:
+          registrations:
+          - server_weight
+    population:
+      id: server
+      meaning: One configured server within an HAProxy backend.
+      evidence:
+      - proxy_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - proxy_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: weight
+          aspect: value
+          evidence:
+          - proxy_unit
+    label_policy: server
+    functional_dependencies: {}
+  resolver_any_err:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_any_err
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_cname:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_cname
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_cname_error:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_cname_error
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_invalid:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_invalid
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_nx:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_nx
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_other:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_other
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_outdated:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_outdated
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_refused:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_refused
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_send_error:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_send_error
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: errors
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_sent:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_sent
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_timeout:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_timeout
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_too_big:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_too_big
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_truncated:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_truncated
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_update:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_update
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  resolver_valid:
+    source:
+      generated:
+        registry_groups:
+        - resolver
+        scope:
+          registrations:
+          - resolver_valid
+    population:
+      id: nameserver
+      meaning: One configured nameserver within an HAProxy resolver section.
+      evidence:
+      - resolver_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - resolver_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: queries
+          aspect: value
+          evidence:
+          - resolver_unit
+    label_policy: resolver
+    functional_dependencies: {}
+  sticktable_size:
+    source:
+      generated:
+        registry_groups:
+        - sticktable
+        scope:
+          registrations:
+          - sticktable_size
+    population:
+      id: stick_table
+      meaning: One configured HAProxy stick table.
+      evidence:
+      - sticktable_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - sticktable_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: entries
+          aspect: value
+          evidence:
+          - sticktable_unit
+    label_policy: sticktable
+    functional_dependencies: {}
+  sticktable_used:
+    source:
+      generated:
+        registry_groups:
+        - sticktable
+        scope:
+          registrations:
+          - sticktable_used
+    population:
+      id: stick_table
+      meaning: One configured HAProxy stick table.
+      evidence:
+      - sticktable_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - sticktable_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: entries
+          aspect: value
+          evidence:
+          - sticktable_unit
+    label_policy: sticktable
+    functional_dependencies: {}
+relationships:
+  frontend_http_response_codes:
+    kind: partition
+    whole:
+      signal: frontend_http_responses_total
+      components:
+      - value
+    parts:
+    - signal: frontend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 1xx
+    - signal: frontend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 2xx
+    - signal: frontend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 3xx
+    - signal: frontend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 4xx
+    - signal: frontend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 5xx
+    - signal: frontend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: other
+    disjoint: true
+    exhaustive: true
+    evidence:
+    - http_response_partition
+  backend_http_response_codes:
+    kind: partition
+    whole:
+      signal: backend_http_responses_total
+      components:
+      - value
+    parts:
+    - signal: backend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 1xx
+    - signal: backend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 2xx
+    - signal: backend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 3xx
+    - signal: backend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 4xx
+    - signal: backend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 5xx
+    - signal: backend_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: other
+    disjoint: true
+    exhaustive: true
+    evidence:
+    - http_response_partition
+  server_http_response_codes:
+    kind: partition
+    whole:
+      signal: server_http_responses_total
+      components:
+      - value
+    parts:
+    - signal: server_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 1xx
+    - signal: server_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 2xx
+    - signal: server_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 3xx
+    - signal: server_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 4xx
+    - signal: server_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: 5xx
+    - signal: server_http_responses_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: code
+            op: eq
+            value: other
+    disjoint: true
+    exhaustive: true
+    evidence:
+    - http_response_partition
+  backend_aggregate_status_replacement:
+    kind: equivalent
+    left:
+      signal: backend_agg_server_check_status
+      components:
+      - value
+    right:
+      signal: backend_agg_server_status
+      components:
+      - value
+    group_by:
+    - proxy
+    - state
+    evidence:
+    - aggregate_status_replacement
+state_encodings:
+  backend_status:
+    signal: backend_status
+    component: value
+    label: state
+    states:
+    - DOWN
+    - UP
+    encoding: one_hot_exactly_one
+    evidence:
+    - proxy_state_encoding
+  frontend_status:
+    signal: frontend_status
+    component: value
+    label: state
+    states:
+    - DOWN
+    - UP
+    encoding: one_hot_exactly_one
+    evidence:
+    - proxy_state_encoding
+  listener_status:
+    signal: listener_status
+    component: value
+    label: state
+    states:
+    - WAITING
+    - OPEN
+    - FULL
+    encoding: one_hot_exactly_one
+    evidence:
+    - proxy_state_encoding
+  server_agent_status:
+    signal: server_agent_status
+    component: value
+    label: state
+    states:
+    - HANA
+    - SOCKERR
+    - L4OK
+    - L4TOUT
+    - L4CON
+    - L6OK
+    - L6TOUT
+    - L6RSP
+    - L7TOUT
+    - L7RSP
+    - L7OK
+    - L7OKC
+    - L7STS
+    - PROCERR
+    - PROCTOUT
+    - PROCOK
+    encoding: one_hot_exactly_one
+    evidence:
+    - proxy_state_encoding
+  server_check_status:
+    signal: server_check_status
+    component: value
+    label: state
+    states:
+    - HANA
+    - SOCKERR
+    - L4OK
+    - L4TOUT
+    - L4CON
+    - L6OK
+    - L6TOUT
+    - L6RSP
+    - L7TOUT
+    - L7RSP
+    - L7OK
+    - L7OKC
+    - L7STS
+    - PROCERR
+    - PROCTOUT
+    - PROCOK
+    encoding: one_hot_exactly_one
+    evidence:
+    - proxy_state_encoding
+  server_status:
+    signal: server_status
+    component: value
+    label: state
+    states:
+    - DOWN
+    - UP
+    - MAINT
+    - DRAIN
+    - NOLB
+    encoding: one_hot_exactly_one
+    evidence:
+    - proxy_state_encoding
+source_exclusions: {}

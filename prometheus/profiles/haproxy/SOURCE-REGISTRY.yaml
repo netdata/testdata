@@ -1,0 +1,3021 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: haproxy
+generated: true
+family_grammars: {}
+groups:
+  process:
+    registrations:
+      process_active_peers:
+        family: {exact: haproxy_process_active_peers}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 156
+          - upstream: haproxy
+            path: src/stats.c
+            line: 811
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_build_info:
+        family: {exact: haproxy_process_build_info}
+        prometheus: {type: gauge, shape: info}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 166
+          - upstream: haproxy
+            path: src/stats.c
+            line: 740
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_busy_polling_enabled:
+        family: {exact: haproxy_process_busy_polling_enabled}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 159
+          - upstream: haproxy
+            path: src/stats.c
+            line: 814
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_bytes_out_rate:
+        family: {exact: haproxy_process_bytes_out_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 163
+          - upstream: haproxy
+            path: src/stats.c
+            line: 818
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_bytes_out_total:
+        family: {exact: haproxy_process_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 161
+          - upstream: haproxy
+            path: src/stats.c
+            line: 816
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_connected_peers:
+        family: {exact: haproxy_process_connected_peers}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 157
+          - upstream: haproxy
+            path: src/stats.c
+            line: 812
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_connections_total:
+        family: {exact: haproxy_process_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 118
+          - upstream: haproxy
+            path: src/stats.c
+            line: 765
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_backend_ssl_key_rate:
+        family: {exact: haproxy_process_current_backend_ssl_key_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 138
+          - upstream: haproxy
+            path: src/stats.c
+            line: 789
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_connection_rate:
+        family: {exact: haproxy_process_current_connection_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 126
+          - upstream: haproxy
+            path: src/stats.c
+            line: 775
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_connections:
+        family: {exact: haproxy_process_current_connections}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 117
+          - upstream: haproxy
+            path: src/stats.c
+            line: 764
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_frontend_ssl_key_rate:
+        family: {exact: haproxy_process_current_frontend_ssl_key_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 135
+          - upstream: haproxy
+            path: src/stats.c
+            line: 786
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_run_queue:
+        family: {exact: haproxy_process_current_run_queue}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 148
+          - upstream: haproxy
+            path: src/stats.c
+            line: 802
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_session_rate:
+        family: {exact: haproxy_process_current_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 129
+          - upstream: haproxy
+            path: src/stats.c
+            line: 778
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_ssl_connections:
+        family: {exact: haproxy_process_current_ssl_connections}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 121
+          - upstream: haproxy
+            path: src/stats.c
+            line: 769
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_ssl_rate:
+        family: {exact: haproxy_process_current_ssl_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 132
+          - upstream: haproxy
+            path: src/stats.c
+            line: 783
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_tasks:
+        family: {exact: haproxy_process_current_tasks}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 147
+          - upstream: haproxy
+            path: src/stats.c
+            line: 801
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_current_zlib_memory:
+        family: {exact: haproxy_process_current_zlib_memory}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 145
+          - upstream: haproxy
+            path: src/stats.c
+            line: 798
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_description:
+        family: {exact: haproxy_process_description}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 151
+          - upstream: haproxy
+            path: src/stats.c
+            line: 806
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_dropped_logs_total:
+        family: {exact: haproxy_process_dropped_logs_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 158
+          - upstream: haproxy
+            path: src/stats.c
+            line: 813
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_failed_resolutions:
+        family: {exact: haproxy_process_failed_resolutions}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 160
+          - upstream: haproxy
+            path: src/stats.c
+            line: 815
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_frontend_ssl_reuse:
+        family: {exact: haproxy_process_frontend_ssl_reuse}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 137
+          - upstream: haproxy
+            path: src/stats.c
+            line: 788
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_hard_max_connections:
+        family: {exact: haproxy_process_hard_max_connections}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 116
+          - upstream: haproxy
+            path: src/stats.c
+            line: 763
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_http_comp_bytes_in_total:
+        family: {exact: haproxy_process_http_comp_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 142
+          - upstream: haproxy
+            path: src/stats.c
+            line: 794
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_http_comp_bytes_out_total:
+        family: {exact: haproxy_process_http_comp_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 143
+          - upstream: haproxy
+            path: src/stats.c
+            line: 795
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_idle_time_percent:
+        family: {exact: haproxy_process_idle_time_percent}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 149
+          - upstream: haproxy
+            path: src/stats.c
+            line: 803
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_jobs:
+        family: {exact: haproxy_process_jobs}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 153
+          - upstream: haproxy
+            path: src/stats.c
+            line: 808
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_limit_connection_rate:
+        family: {exact: haproxy_process_limit_connection_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 127
+          - upstream: haproxy
+            path: src/stats.c
+            line: 776
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_limit_http_comp:
+        family: {exact: haproxy_process_limit_http_comp}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 144
+          - upstream: haproxy
+            path: src/stats.c
+            line: 796
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_limit_session_rate:
+        family: {exact: haproxy_process_limit_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 130
+          - upstream: haproxy
+            path: src/stats.c
+            line: 779
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_limit_ssl_rate:
+        family: {exact: haproxy_process_limit_ssl_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 133
+          - upstream: haproxy
+            path: src/stats.c
+            line: 784
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_listeners:
+        family: {exact: haproxy_process_listeners}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 155
+          - upstream: haproxy
+            path: src/stats.c
+            line: 810
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_backend_ssl_key_rate:
+        family: {exact: haproxy_process_max_backend_ssl_key_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 139
+          - upstream: haproxy
+            path: src/stats.c
+            line: 790
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_connection_rate:
+        family: {exact: haproxy_process_max_connection_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 128
+          - upstream: haproxy
+            path: src/stats.c
+            line: 777
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_connections:
+        family: {exact: haproxy_process_max_connections}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 115
+          - upstream: haproxy
+            path: src/stats.c
+            line: 762
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_fds:
+        family: {exact: haproxy_process_max_fds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 113
+          - upstream: haproxy
+            path: src/stats.c
+            line: 760
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_frontend_ssl_key_rate:
+        family: {exact: haproxy_process_max_frontend_ssl_key_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 136
+          - upstream: haproxy
+            path: src/stats.c
+            line: 787
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_memory_bytes:
+        family: {exact: haproxy_process_max_memory_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 107
+          - upstream: haproxy
+            path: src/stats.c
+            line: 754
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_pipes:
+        family: {exact: haproxy_process_max_pipes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 123
+          - upstream: haproxy
+            path: src/stats.c
+            line: 772
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_session_rate:
+        family: {exact: haproxy_process_max_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 131
+          - upstream: haproxy
+            path: src/stats.c
+            line: 780
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_sockets:
+        family: {exact: haproxy_process_max_sockets}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 114
+          - upstream: haproxy
+            path: src/stats.c
+            line: 761
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_ssl_connections:
+        family: {exact: haproxy_process_max_ssl_connections}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 120
+          - upstream: haproxy
+            path: src/stats.c
+            line: 768
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_ssl_rate:
+        family: {exact: haproxy_process_max_ssl_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 134
+          - upstream: haproxy
+            path: src/stats.c
+            line: 785
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_max_zlib_memory:
+        family: {exact: haproxy_process_max_zlib_memory}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 146
+          - upstream: haproxy
+            path: src/stats.c
+            line: 799
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_nbproc:
+        family: {exact: haproxy_process_nbproc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 100
+          - upstream: haproxy
+            path: src/stats.c
+            line: 744
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_nbthread:
+        family: {exact: haproxy_process_nbthread}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 99
+          - upstream: haproxy
+            path: src/stats.c
+            line: 743
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_node:
+        family: {exact: haproxy_process_node}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 150
+          - upstream: haproxy
+            path: src/stats.c
+            line: 804
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_pipes_free_total:
+        family: {exact: haproxy_process_pipes_free_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 125
+          - upstream: haproxy
+            path: src/stats.c
+            line: 774
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_pipes_used_total:
+        family: {exact: haproxy_process_pipes_used_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 124
+          - upstream: haproxy
+            path: src/stats.c
+            line: 773
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_pool_allocated_bytes:
+        family: {exact: haproxy_process_pool_allocated_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 109
+          - upstream: haproxy
+            path: src/stats.c
+            line: 756
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_pool_failures_total:
+        family: {exact: haproxy_process_pool_failures_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 112
+          - upstream: haproxy
+            path: src/stats.c
+            line: 759
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_pool_used_bytes:
+        family: {exact: haproxy_process_pool_used_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 111
+          - upstream: haproxy
+            path: src/stats.c
+            line: 758
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_recv_logs_total:
+        family: {exact: haproxy_process_recv_logs_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 165
+          - upstream: haproxy
+            path: src/stats.c
+            line: 820
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_relative_process_id:
+        family: {exact: haproxy_process_relative_process_id}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 101
+          - upstream: haproxy
+            path: src/stats.c
+            line: 745
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_requests_total:
+        family: {exact: haproxy_process_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 119
+          - upstream: haproxy
+            path: src/stats.c
+            line: 766
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_spliced_bytes_out_total:
+        family: {exact: haproxy_process_spliced_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 162
+          - upstream: haproxy
+            path: src/stats.c
+            line: 817
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_ssl_cache_lookups_total:
+        family: {exact: haproxy_process_ssl_cache_lookups_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 140
+          - upstream: haproxy
+            path: src/stats.c
+            line: 791
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_ssl_cache_misses_total:
+        family: {exact: haproxy_process_ssl_cache_misses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 141
+          - upstream: haproxy
+            path: src/stats.c
+            line: 792
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_ssl_connections_total:
+        family: {exact: haproxy_process_ssl_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 122
+          - upstream: haproxy
+            path: src/stats.c
+            line: 770
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_start_time_seconds:
+        family: {exact: haproxy_process_start_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 105
+          - upstream: haproxy
+            path: src/stats.c
+            line: 752
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_stopping:
+        family: {exact: haproxy_process_stopping}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 152
+          - upstream: haproxy
+            path: src/stats.c
+            line: 807
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_total_warnings:
+        family: {exact: haproxy_process_total_warnings}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 168
+          - upstream: haproxy
+            path: src/stats.c
+            line: 824
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_unstoppable_jobs:
+        family: {exact: haproxy_process_unstoppable_jobs}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 154
+          - upstream: haproxy
+            path: src/stats.c
+            line: 809
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+      process_uptime_seconds:
+        family: {exact: haproxy_process_uptime_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats.c
+            line: 104
+          - upstream: haproxy
+            path: src/stats.c
+            line: 751
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 427
+  frontend:
+    registrations:
+      frontend_bytes_in_total:
+        family: {exact: haproxy_frontend_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 59
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_bytes_out_total:
+        family: {exact: haproxy_frontend_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 60
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_connections_rate_max:
+        family: {exact: haproxy_frontend_connections_rate_max}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 130
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_connections_total:
+        family: {exact: haproxy_frontend_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 131
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_current_session_rate:
+        family: {exact: haproxy_frontend_current_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 84
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_current_sessions:
+        family: {exact: haproxy_frontend_current_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 55
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_denied_connections_total:
+        family: {exact: haproxy_frontend_denied_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 133
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_denied_sessions_total:
+        family: {exact: haproxy_frontend_denied_sessions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 134
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_failed_header_rewriting_total:
+        family: {exact: haproxy_frontend_failed_header_rewriting_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 135
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_cache_hits_total:
+        family: {exact: haproxy_frontend_http_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 139
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_cache_lookups_total:
+        family: {exact: haproxy_frontend_http_cache_lookups_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 138
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_comp_bytes_bypassed_total:
+        family: {exact: haproxy_frontend_http_comp_bytes_bypassed_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 105
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_comp_bytes_in_total:
+        family: {exact: haproxy_frontend_http_comp_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 103
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_comp_bytes_out_total:
+        family: {exact: haproxy_frontend_http_comp_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 104
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_comp_responses_total:
+        family: {exact: haproxy_frontend_http_comp_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 106
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_requests_rate_max:
+        family: {exact: haproxy_frontend_http_requests_rate_max}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 98
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_requests_total:
+        family: {exact: haproxy_frontend_http_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 100
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_http_responses_total:
+        family: {exact: haproxy_frontend_http_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 90
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 91
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 92
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 93
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 94
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 95
+      frontend_intercepted_requests_total:
+        family: {exact: haproxy_frontend_intercepted_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 132
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_internal_errors_total:
+        family: {exact: haproxy_frontend_internal_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 146
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_limit_session_rate:
+        family: {exact: haproxy_frontend_limit_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 85
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_limit_sessions:
+        family: {exact: haproxy_frontend_limit_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 57
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_max_session_rate:
+        family: {exact: haproxy_frontend_max_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 86
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_max_sessions:
+        family: {exact: haproxy_frontend_max_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 56
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_request_errors_total:
+        family: {exact: haproxy_frontend_request_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 63
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_requests_denied_total:
+        family: {exact: haproxy_frontend_requests_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 61
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_responses_denied_total:
+        family: {exact: haproxy_frontend_responses_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 62
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_sessions_total:
+        family: {exact: haproxy_frontend_sessions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 58
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+      frontend_status:
+        family: {exact: haproxy_frontend_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 68
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 510
+  listener:
+    registrations:
+      listener_bytes_in_total:
+        family: {exact: haproxy_listener_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 59
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_bytes_out_total:
+        family: {exact: haproxy_listener_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 60
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_connections_total:
+        family: {exact: haproxy_listener_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 131
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_current_sessions:
+        family: {exact: haproxy_listener_current_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 55
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_denied_connections_total:
+        family: {exact: haproxy_listener_denied_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 133
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_denied_sessions_total:
+        family: {exact: haproxy_listener_denied_sessions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 134
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_failed_header_rewriting_total:
+        family: {exact: haproxy_listener_failed_header_rewriting_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 135
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_internal_errors_total:
+        family: {exact: haproxy_listener_internal_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 146
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_limit_sessions:
+        family: {exact: haproxy_listener_limit_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 57
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_max_sessions:
+        family: {exact: haproxy_listener_max_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 56
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_request_errors_total:
+        family: {exact: haproxy_listener_request_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 63
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_requests_denied_total:
+        family: {exact: haproxy_listener_requests_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 61
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_responses_denied_total:
+        family: {exact: haproxy_listener_responses_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 62
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_sessions_total:
+        family: {exact: haproxy_listener_sessions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 58
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+      listener_status:
+        family: {exact: haproxy_listener_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 68
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 713
+  backend:
+    registrations:
+      backend_active_servers:
+        family: {exact: haproxy_backend_active_servers}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 70
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_agg_check_status:
+        family: {exact: haproxy_backend_agg_check_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 154
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_agg_server_check_status:
+        family: {exact: haproxy_backend_agg_server_check_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 152
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_agg_server_status:
+        family: {exact: haproxy_backend_agg_server_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 153
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_backup_servers:
+        family: {exact: haproxy_backend_backup_servers}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 71
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_bytes_in_total:
+        family: {exact: haproxy_backend_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 59
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_bytes_out_total:
+        family: {exact: haproxy_backend_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 60
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_check_last_change_seconds:
+        family: {exact: haproxy_backend_check_last_change_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 74
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_check_up_down_total:
+        family: {exact: haproxy_backend_check_up_down_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 73
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_client_aborts_total:
+        family: {exact: haproxy_backend_client_aborts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 101
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_connect_time_average_seconds:
+        family: {exact: haproxy_backend_connect_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 111
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_connection_attempts_total:
+        family: {exact: haproxy_backend_connection_attempts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 136
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_connection_errors_total:
+        family: {exact: haproxy_backend_connection_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 64
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_connection_reuses_total:
+        family: {exact: haproxy_backend_connection_reuses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 137
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_current_queue:
+        family: {exact: haproxy_backend_current_queue}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 53
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_current_session_rate:
+        family: {exact: haproxy_backend_current_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 84
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_current_sessions:
+        family: {exact: haproxy_backend_current_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 55
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_downtime_seconds_total:
+        family: {exact: haproxy_backend_downtime_seconds_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 75
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_failed_header_rewriting_total:
+        family: {exact: haproxy_backend_failed_header_rewriting_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 135
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_cache_hits_total:
+        family: {exact: haproxy_backend_http_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 139
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_cache_lookups_total:
+        family: {exact: haproxy_backend_http_cache_lookups_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 138
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_comp_bytes_bypassed_total:
+        family: {exact: haproxy_backend_http_comp_bytes_bypassed_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 105
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_comp_bytes_in_total:
+        family: {exact: haproxy_backend_http_comp_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 103
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_comp_bytes_out_total:
+        family: {exact: haproxy_backend_http_comp_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 104
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_comp_responses_total:
+        family: {exact: haproxy_backend_http_comp_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 106
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_requests_total:
+        family: {exact: haproxy_backend_http_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 100
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_http_responses_total:
+        family: {exact: haproxy_backend_http_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 90
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 91
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 92
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 93
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 94
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 95
+      backend_internal_errors_total:
+        family: {exact: haproxy_backend_internal_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 146
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_last_session_seconds:
+        family: {exact: haproxy_backend_last_session_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 107
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_limit_sessions:
+        family: {exact: haproxy_backend_limit_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 57
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_loadbalanced_total:
+        family: {exact: haproxy_backend_loadbalanced_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 81
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_connect_time_seconds:
+        family: {exact: haproxy_backend_max_connect_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 143
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_queue:
+        family: {exact: haproxy_backend_max_queue}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 54
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_queue_time_seconds:
+        family: {exact: haproxy_backend_max_queue_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 142
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_response_time_seconds:
+        family: {exact: haproxy_backend_max_response_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 144
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_session_rate:
+        family: {exact: haproxy_backend_max_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 86
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_sessions:
+        family: {exact: haproxy_backend_max_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 56
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_max_total_time_seconds:
+        family: {exact: haproxy_backend_max_total_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 145
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_queue_time_average_seconds:
+        family: {exact: haproxy_backend_queue_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 110
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_redispatch_warnings_total:
+        family: {exact: haproxy_backend_redispatch_warnings_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 67
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_requests_denied_total:
+        family: {exact: haproxy_backend_requests_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 61
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_response_errors_total:
+        family: {exact: haproxy_backend_response_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 65
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_response_time_average_seconds:
+        family: {exact: haproxy_backend_response_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 112
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_responses_denied_total:
+        family: {exact: haproxy_backend_responses_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 62
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_retry_warnings_total:
+        family: {exact: haproxy_backend_retry_warnings_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 66
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_server_aborts_total:
+        family: {exact: haproxy_backend_server_aborts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 102
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_sessions_total:
+        family: {exact: haproxy_backend_sessions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 58
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_status:
+        family: {exact: haproxy_backend_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 68
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_total_time_average_seconds:
+        family: {exact: haproxy_backend_total_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 113
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_uweight:
+        family: {exact: haproxy_backend_uweight}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 151
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+      backend_weight:
+        family: {exact: haproxy_backend_weight}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 69
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 918
+  server:
+    registrations:
+      server_active:
+        family: {exact: haproxy_server_active}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 70
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_agent_code:
+        family: {exact: haproxy_server_agent_code}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 115
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_agent_duration_seconds:
+        family: {exact: haproxy_server_agent_duration_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 116
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_agent_status:
+        family: {exact: haproxy_server_agent_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 114
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_backup:
+        family: {exact: haproxy_server_backup}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 71
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_bytes_in_total:
+        family: {exact: haproxy_server_bytes_in_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 59
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_bytes_out_total:
+        family: {exact: haproxy_server_bytes_out_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 60
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_check_code:
+        family: {exact: haproxy_server_check_code}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 88
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_check_duration_seconds:
+        family: {exact: haproxy_server_check_duration_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 89
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_check_failures_total:
+        family: {exact: haproxy_server_check_failures_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 72
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_check_last_change_seconds:
+        family: {exact: haproxy_server_check_last_change_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 74
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_check_status:
+        family: {exact: haproxy_server_check_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 87
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_check_up_down_total:
+        family: {exact: haproxy_server_check_up_down_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 73
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_client_aborts_total:
+        family: {exact: haproxy_server_client_aborts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 101
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_connect_time_average_seconds:
+        family: {exact: haproxy_server_connect_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 111
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_connection_attempts_total:
+        family: {exact: haproxy_server_connection_attempts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 136
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_connection_errors_total:
+        family: {exact: haproxy_server_connection_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 64
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_connection_reuses_total:
+        family: {exact: haproxy_server_connection_reuses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 137
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_current_queue:
+        family: {exact: haproxy_server_current_queue}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 53
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_current_session_rate:
+        family: {exact: haproxy_server_current_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 84
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_current_sessions:
+        family: {exact: haproxy_server_current_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 55
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_current_throttle:
+        family: {exact: haproxy_server_current_throttle}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 80
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_downtime_seconds_total:
+        family: {exact: haproxy_server_downtime_seconds_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 75
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_failed_header_rewriting_total:
+        family: {exact: haproxy_server_failed_header_rewriting_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 135
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_http_requests_total:
+        family: {exact: haproxy_server_http_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 100
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_http_responses_total:
+        family: {exact: haproxy_server_http_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 90
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 91
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 92
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 93
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 94
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 95
+      server_idle_connections_current:
+        family: {exact: haproxy_server_idle_connections_current}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 140
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_idle_connections_limit:
+        family: {exact: haproxy_server_idle_connections_limit}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 141
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_internal_errors_total:
+        family: {exact: haproxy_server_internal_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 146
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_last_session_seconds:
+        family: {exact: haproxy_server_last_session_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 107
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_limit_sessions:
+        family: {exact: haproxy_server_limit_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 57
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_loadbalanced_total:
+        family: {exact: haproxy_server_loadbalanced_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 81
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_connect_time_seconds:
+        family: {exact: haproxy_server_max_connect_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 143
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_queue:
+        family: {exact: haproxy_server_max_queue}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 54
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_queue_time_seconds:
+        family: {exact: haproxy_server_max_queue_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 142
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_response_time_seconds:
+        family: {exact: haproxy_server_max_response_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 144
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_session_rate:
+        family: {exact: haproxy_server_max_session_rate}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 86
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_sessions:
+        family: {exact: haproxy_server_max_sessions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 56
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_max_total_time_seconds:
+        family: {exact: haproxy_server_max_total_time_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 145
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_need_connections_current:
+        family: {exact: haproxy_server_need_connections_current}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 150
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_queue_limit:
+        family: {exact: haproxy_server_queue_limit}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 76
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_queue_time_average_seconds:
+        family: {exact: haproxy_server_queue_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 110
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_redispatch_warnings_total:
+        family: {exact: haproxy_server_redispatch_warnings_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 67
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_response_errors_total:
+        family: {exact: haproxy_server_response_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 65
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_response_time_average_seconds:
+        family: {exact: haproxy_server_response_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 112
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_responses_denied_total:
+        family: {exact: haproxy_server_responses_denied_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 62
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_retry_warnings_total:
+        family: {exact: haproxy_server_retry_warnings_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 66
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_safe_idle_connections_current:
+        family: {exact: haproxy_server_safe_idle_connections_current}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 148
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_server_aborts_total:
+        family: {exact: haproxy_server_server_aborts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 102
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_sessions_total:
+        family: {exact: haproxy_server_sessions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 58
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_status:
+        family: {exact: haproxy_server_status}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 68
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_total_time_average_seconds:
+        family: {exact: haproxy_server_total_time_average_seconds}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 113
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_unsafe_idle_connections_current:
+        family: {exact: haproxy_server_unsafe_idle_connections_current}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 147
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_used_connections_current:
+        family: {exact: haproxy_server_used_connections_current}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 149
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_uweight:
+        family: {exact: haproxy_server_uweight}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 151
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+      server_weight:
+        family: {exact: haproxy_server_weight}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stats-proxy.c
+            line: 69
+          - upstream: haproxy
+            path: addons/promex/service-prometheus.c
+            line: 1203
+  resolver:
+    registrations:
+      resolver_any_err:
+        family: {exact: haproxy_resolver_any_err}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 111
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_cname:
+        family: {exact: haproxy_resolver_cname}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 109
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_cname_error:
+        family: {exact: haproxy_resolver_cname_error}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 110
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_invalid:
+        family: {exact: haproxy_resolver_invalid}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 116
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_nx:
+        family: {exact: haproxy_resolver_nx}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 112
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_other:
+        family: {exact: haproxy_resolver_other}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 115
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_outdated:
+        family: {exact: haproxy_resolver_outdated}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 119
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_refused:
+        family: {exact: haproxy_resolver_refused}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 114
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_send_error:
+        family: {exact: haproxy_resolver_send_error}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 106
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_sent:
+        family: {exact: haproxy_resolver_sent}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 105
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_timeout:
+        family: {exact: haproxy_resolver_timeout}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 113
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_too_big:
+        family: {exact: haproxy_resolver_too_big}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 117
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_truncated:
+        family: {exact: haproxy_resolver_truncated}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 118
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_update:
+        family: {exact: haproxy_resolver_update}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 108
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+      resolver_valid:
+        family: {exact: haproxy_resolver_valid}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 107
+          - upstream: haproxy
+            path: src/resolvers.c
+            line: 4024
+  sticktable:
+    registrations:
+      sticktable_size:
+        family: {exact: haproxy_sticktable_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stick_table.c
+            line: 6157
+      sticktable_used:
+        family: {exact: haproxy_sticktable_used}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: haproxy
+            path: src/stick_table.c
+            line: 6161
