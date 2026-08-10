@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: vllm
+runner: netdata-prometheus-source-registry-v1
+upstreams:
+  vllm:
+    repository: vllm-project/vllm
+    commit: dc818c198d3ff50a16f38eba567da006478239c8
+    paths:
+      - vllm/v1/metrics/loggers.py
+      - vllm/v1/metrics/perf.py
+      - vllm/v1/spec_decode/metrics.py
+      - vllm/v1/metrics/ray_wrappers.py
+      - vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+      - vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+      - vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+      - vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+      - vllm/entrypoints/speech_to_text/realtime/metrics.py
+      - vllm/parser/metrics.py
+      - vllm/v1/kv_offload/cpu/common.py
+      - vllm/v1/kv_offload/cpu/spec.py
+      - vllm/v1/kv_offload/tiering/base.py
+      - vllm/v1/kv_offload/tiering/spec.py
+  prometheus_client_python:
+    repository: prometheus/client_python
+    commit: f417f6ea8f058165a1934e368fed245e91aafc14
+    paths:
+      - prometheus_client/metrics.py
+  ray:
+    repository: ray-project/ray
+    commit: 03491225d59a1ffde99c3628969ccf456be13efd
+    paths:
+      - python/ray/_private/metrics_agent.py
+      - src/ray/stats/tag_defs.cc

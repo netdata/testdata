@@ -1,0 +1,2723 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: vllm
+generated: true
+family_grammars:
+  python_created_family:
+    forms:
+      generated:
+        canonical: {prefix: vllm:mm_cache_hits, suffix: _created}
+        embedded:
+          prefix: 'vllm:'
+          suffix: created
+          separator: _
+          identity_slot: {name: instrument, nonempty: true}
+groups:
+  native:
+    registrations:
+      native_vllm_cache_config_info:
+        family: {exact: vllm:cache_config_info}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1089, end: 1094}
+      native_vllm_corrupted_requests_total:
+        family: {exact: vllm:corrupted_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 572, end: 579}
+      native_vllm_diffusion_num_canvas_positions_total:
+        family: {exact: vllm:diffusion_num_canvas_positions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 218, end: 221}
+      native_vllm_diffusion_num_committed_tokens_total:
+        family: {exact: vllm:diffusion_num_committed_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 222, end: 225}
+      native_vllm_diffusion_num_denoising_steps_total:
+        family: {exact: vllm:diffusion_num_denoising_steps_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 217, end: 217}
+      native_vllm_e2e_request_latency_seconds:
+        family: {exact: vllm:e2e_request_latency_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 912, end: 917}
+      native_vllm_engine_sleep_state:
+        family: {exact: vllm:engine_sleep_state}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 535, end: 545}
+      native_vllm_estimated_flops_per_gpu_total:
+        family: {exact: vllm:estimated_flops_per_gpu_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1570, end: 1577}
+      native_vllm_estimated_read_bytes_per_gpu_total:
+        family: {exact: vllm:estimated_read_bytes_per_gpu_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1582, end: 1589}
+      native_vllm_estimated_write_bytes_per_gpu_total:
+        family: {exact: vllm:estimated_write_bytes_per_gpu_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1594, end: 1601}
+      native_vllm_external_prefix_cache_hits_total:
+        family: {exact: vllm:external_prefix_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 620, end: 627}
+      native_vllm_external_prefix_cache_queries_total:
+        family: {exact: vllm:external_prefix_cache_queries_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 608, end: 615}
+      native_vllm_generation_tokens_total:
+        family: {exact: vllm:generation_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 704, end: 708}
+      native_vllm_hf3fs_load_duration_seconds:
+        family: {exact: vllm:hf3fs_load_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1144, end: 1149}
+      native_vllm_hf3fs_num_failed_load_total:
+        family: {exact: vllm:hf3fs_num_failed_load_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1163, end: 1167}
+      native_vllm_hf3fs_num_failed_save_total:
+        family: {exact: vllm:hf3fs_num_failed_save_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1154, end: 1158}
+      native_vllm_hf3fs_save_duration_seconds:
+        family: {exact: vllm:hf3fs_save_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1134, end: 1139}
+      native_vllm_inter_token_latency_seconds:
+        family: {exact: vllm:inter_token_latency_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 829, end: 854}
+      native_vllm_iteration_tokens_total:
+        family: {exact: vllm:iteration_tokens_total}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 753, end: 758}
+      native_vllm_kv_block_idle_before_evict_seconds:
+        family: {exact: vllm:kv_block_idle_before_evict_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1016, end: 1024}
+      native_vllm_kv_block_lifetime_seconds:
+        family: {exact: vllm:kv_block_lifetime_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1003, end: 1011}
+      native_vllm_kv_block_reuse_gap_seconds:
+        family: {exact: vllm:kv_block_reuse_gap_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1029, end: 1039}
+      native_vllm_kv_cache_usage_perc:
+        family: {exact: vllm:kv_cache_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 561, end: 566}
+      native_vllm_kv_offload_allocation_failure_total:
+        family: {exact: vllm:kv_offload_allocation_failure_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 124, end: 128}
+      native_vllm_kv_offload_cpu_allocation_size:
+        family: {exact: vllm:kv_offload_cpu_allocation_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 57, end: 63}
+      native_vllm_kv_offload_cpu_cache_read_usage_perc:
+        family: {exact: vllm:kv_offload_cpu_cache_read_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 50, end: 56}
+      native_vllm_kv_offload_cpu_cache_usage_perc:
+        family: {exact: vllm:kv_offload_cpu_cache_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 35, end: 42}
+      native_vllm_kv_offload_cpu_cache_write_usage_perc:
+        family: {exact: vllm:kv_offload_cpu_cache_write_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 43, end: 49}
+      native_vllm_kv_offload_load_bytes_total:
+        family: {exact: vllm:kv_offload_load_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 65, end: 67}
+      native_vllm_kv_offload_load_size:
+        family: {exact: vllm:kv_offload_load_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 71, end: 74}
+      native_vllm_kv_offload_load_time_total:
+        family: {exact: vllm:kv_offload_load_time_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 68, end: 70}
+      native_vllm_kv_offload_lookup_async_delay_seconds:
+        family: {exact: vllm:kv_offload_lookup_async_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 104, end: 123}
+      native_vllm_kv_offload_lookup_sync_delay_seconds:
+        family: {exact: vllm:kv_offload_lookup_sync_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 85, end: 103}
+      native_vllm_kv_offload_size:
+        family: {exact: vllm:kv_offload_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 147, end: 150}
+      native_vllm_kv_offload_store_bytes_total:
+        family: {exact: vllm:kv_offload_store_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 75, end: 77}
+      native_vllm_kv_offload_store_size:
+        family: {exact: vllm:kv_offload_store_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 81, end: 84}
+      native_vllm_kv_offload_store_time_total:
+        family: {exact: vllm:kv_offload_store_time_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 78, end: 80}
+      native_vllm_kv_offload_stores_skipped_total:
+        family: {exact: vllm:kv_offload_stores_skipped_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 68, end: 73}
+      native_vllm_kv_offload_tiering_lookup_async_delay_seconds:
+        family: {exact: vllm:kv_offload_tiering_lookup_async_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/tiering/spec.py
+            range: {start: 109, end: 128}
+      native_vllm_kv_offload_tiering_lookup_sync_delay_seconds:
+        family: {exact: vllm:kv_offload_tiering_lookup_sync_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/tiering/spec.py
+            range: {start: 87, end: 106}
+      native_vllm_kv_offload_total_bytes_total:
+        family: {exact: vllm:kv_offload_total_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 141, end: 143}
+      native_vllm_kv_offload_total_time_total:
+        family: {exact: vllm:kv_offload_total_time_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 144, end: 146}
+      native_vllm_lora_requests_info:
+        family: {exact: vllm:lora_requests_info}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1065, end: 1074}
+      native_vllm_mm_cache_hits_total:
+        family: {exact: vllm:mm_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 647, end: 653}
+      native_vllm_mm_cache_queries_total:
+        family: {exact: vllm:mm_cache_queries_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 636, end: 642}
+      native_vllm_mooncake_store_operation_bytes_total:
+        family: {exact: vllm:mooncake_store_operation_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 147, end: 151}
+      native_vllm_mooncake_store_operation_failed_keys_total:
+        family: {exact: vllm:mooncake_store_operation_failed_keys_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 152, end: 156}
+      native_vllm_mooncake_store_operation_keys_total:
+        family: {exact: vllm:mooncake_store_operation_keys_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 142, end: 146}
+      native_vllm_mooncake_store_operation_time_seconds:
+        family: {exact: vllm:mooncake_store_operation_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 115, end: 136}
+      native_vllm_mooncake_store_operation_total:
+        family: {exact: vllm:mooncake_store_operation_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 137, end: 141}
+      native_vllm_nixl_bytes_transferred:
+        family: {exact: vllm:nixl_bytes_transferred}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 178, end: 183}
+      native_vllm_nixl_num_descriptors:
+        family: {exact: vllm:nixl_num_descriptors}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 203, end: 209}
+      native_vllm_nixl_num_failed_notifications_total:
+        family: {exact: vllm:nixl_num_failed_notifications_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 221, end: 225}
+      native_vllm_nixl_num_failed_transfers_total:
+        family: {exact: vllm:nixl_num_failed_transfers_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 213, end: 217}
+      native_vllm_nixl_num_kv_expired_reqs_total:
+        family: {exact: vllm:nixl_num_kv_expired_reqs_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 230, end: 235}
+      native_vllm_nixl_post_time_seconds:
+        family: {exact: vllm:nixl_post_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 166, end: 172}
+      native_vllm_nixl_xfer_time_seconds:
+        family: {exact: vllm:nixl_xfer_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 157, end: 162}
+      native_vllm_num_preemptions_total:
+        family: {exact: vllm:num_preemptions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 661, end: 665}
+      native_vllm_num_requests_running:
+        family: {exact: vllm:num_requests_running}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 493, end: 498}
+      native_vllm_num_requests_waiting:
+        family: {exact: vllm:num_requests_waiting}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 503, end: 508}
+      native_vllm_num_requests_waiting_by_reason:
+        family: {exact: vllm:num_requests_waiting_by_reason}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 513, end: 524}
+      native_vllm_prefix_cache_hits_total:
+        family: {exact: vllm:prefix_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 595, end: 599}
+      native_vllm_prefix_cache_queries_total:
+        family: {exact: vllm:prefix_cache_queries_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 584, end: 590}
+      native_vllm_prompt_tokens_by_source_total:
+        family: {exact: vllm:prompt_tokens_by_source_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 680, end: 684}
+      native_vllm_prompt_tokens_cached_total:
+        family: {exact: vllm:prompt_tokens_cached_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 695, end: 699}
+      native_vllm_prompt_tokens_total:
+        family: {exact: vllm:prompt_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 670, end: 674}
+      native_vllm_request_decode_time_seconds:
+        family: {exact: vllm:request_decode_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 952, end: 957}
+      native_vllm_request_generation_tokens:
+        family: {exact: vllm:request_generation_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 740, end: 745}
+      native_vllm_request_inference_time_seconds:
+        family: {exact: vllm:request_inference_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 932, end: 937}
+      native_vllm_request_max_num_generation_tokens:
+        family: {exact: vllm:request_max_num_generation_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 763, end: 768}
+      native_vllm_request_params_max_tokens:
+        family: {exact: vllm:request_params_max_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 783, end: 788}
+      native_vllm_request_params_n:
+        family: {exact: vllm:request_params_n}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 773, end: 778}
+      native_vllm_request_prefill_kv_computed_tokens:
+        family: {exact: vllm:request_prefill_kv_computed_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 962, end: 970}
+      native_vllm_request_prefill_time_seconds:
+        family: {exact: vllm:request_prefill_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 942, end: 947}
+      native_vllm_request_prompt_tokens:
+        family: {exact: vllm:request_prompt_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 730, end: 735}
+      native_vllm_request_queue_time_seconds:
+        family: {exact: vllm:request_queue_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 922, end: 927}
+      native_vllm_request_success_total:
+        family: {exact: vllm:request_success_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 714, end: 718}
+      native_vllm_request_time_per_output_token_seconds:
+        family: {exact: vllm:request_time_per_output_token_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 859, end: 884}
+      native_vllm_spec_decode_num_accepted_tokens_per_pos_total:
+        family: {exact: vllm:spec_decode_num_accepted_tokens_per_pos_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 254, end: 258}
+      native_vllm_spec_decode_num_accepted_tokens_total:
+        family: {exact: vllm:spec_decode_num_accepted_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 231, end: 231}
+      native_vllm_spec_decode_num_draft_tokens_total:
+        family: {exact: vllm:spec_decode_num_draft_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 230, end: 230}
+      native_vllm_spec_decode_num_drafts_total:
+        family: {exact: vllm:spec_decode_num_drafts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 229, end: 229}
+      native_vllm_time_to_first_token_seconds:
+        family: {exact: vllm:time_to_first_token_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 796, end: 824}
+      native_vllm_tool_call_parser_invocations_total:
+        family: {exact: vllm:tool_call_parser_invocations_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/parser/metrics.py
+            range: {start: 37, end: 45}
+      native_vllm_websocket_connection_duration_seconds:
+        family: {exact: vllm:websocket_connection_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/entrypoints/speech_to_text/realtime/metrics.py
+            range: {start: 33, end: 37}
+      native_vllm_websocket_connections_active:
+        family: {exact: vllm:websocket_connections_active}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/entrypoints/speech_to_text/realtime/metrics.py
+            range: {start: 22, end: 26}
+      native_vllm_websocket_connections_total:
+        family: {exact: vllm:websocket_connections_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/entrypoints/speech_to_text/realtime/metrics.py
+            range: {start: 28, end: 31}
+  ray_canonical:
+    registrations:
+      ray_ray_vllm_cache_config_info:
+        family: {exact: ray_vllm_cache_config_info}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1089, end: 1094}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_corrupted_requests_total:
+        family: {exact: ray_vllm_corrupted_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 572, end: 579}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_diffusion_num_canvas_positions_total:
+        family: {exact: ray_vllm_diffusion_num_canvas_positions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 218, end: 221}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_diffusion_num_committed_tokens_total:
+        family: {exact: ray_vllm_diffusion_num_committed_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 222, end: 225}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_diffusion_num_denoising_steps_total:
+        family: {exact: ray_vllm_diffusion_num_denoising_steps_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 217, end: 217}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_e2e_request_latency_seconds:
+        family: {exact: ray_vllm_e2e_request_latency_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 912, end: 917}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_engine_sleep_state:
+        family: {exact: ray_vllm_engine_sleep_state}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 535, end: 545}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_estimated_flops_per_gpu_total:
+        family: {exact: ray_vllm_estimated_flops_per_gpu_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1570, end: 1577}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_estimated_read_bytes_per_gpu_total:
+        family: {exact: ray_vllm_estimated_read_bytes_per_gpu_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1582, end: 1589}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_estimated_write_bytes_per_gpu_total:
+        family: {exact: ray_vllm_estimated_write_bytes_per_gpu_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1594, end: 1601}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_external_prefix_cache_hits_total:
+        family: {exact: ray_vllm_external_prefix_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 620, end: 627}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_external_prefix_cache_queries_total:
+        family: {exact: ray_vllm_external_prefix_cache_queries_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 608, end: 615}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_generation_tokens_total:
+        family: {exact: ray_vllm_generation_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 704, end: 708}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_hf3fs_load_duration_seconds:
+        family: {exact: ray_vllm_hf3fs_load_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1144, end: 1149}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_hf3fs_num_failed_load_total:
+        family: {exact: ray_vllm_hf3fs_num_failed_load_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1163, end: 1167}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_hf3fs_num_failed_save_total:
+        family: {exact: ray_vllm_hf3fs_num_failed_save_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1154, end: 1158}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_hf3fs_save_duration_seconds:
+        family: {exact: ray_vllm_hf3fs_save_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1134, end: 1139}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_inter_token_latency_seconds:
+        family: {exact: ray_vllm_inter_token_latency_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 829, end: 854}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_iteration_tokens_total:
+        family: {exact: ray_vllm_iteration_tokens_total}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 753, end: 758}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_block_idle_before_evict_seconds:
+        family: {exact: ray_vllm_kv_block_idle_before_evict_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1016, end: 1024}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_block_lifetime_seconds:
+        family: {exact: ray_vllm_kv_block_lifetime_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1003, end: 1011}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_block_reuse_gap_seconds:
+        family: {exact: ray_vllm_kv_block_reuse_gap_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1029, end: 1039}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_cache_usage_perc:
+        family: {exact: ray_vllm_kv_cache_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 561, end: 566}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_allocation_failure_total:
+        family: {exact: ray_vllm_kv_offload_allocation_failure_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 124, end: 128}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_cpu_allocation_size:
+        family: {exact: ray_vllm_kv_offload_cpu_allocation_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 57, end: 63}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_cpu_cache_read_usage_perc:
+        family: {exact: ray_vllm_kv_offload_cpu_cache_read_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 50, end: 56}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_cpu_cache_usage_perc:
+        family: {exact: ray_vllm_kv_offload_cpu_cache_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 35, end: 42}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_cpu_cache_write_usage_perc:
+        family: {exact: ray_vllm_kv_offload_cpu_cache_write_usage_perc}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 43, end: 49}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_load_bytes_total:
+        family: {exact: ray_vllm_kv_offload_load_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 65, end: 67}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_load_size:
+        family: {exact: ray_vllm_kv_offload_load_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 71, end: 74}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_load_time_total:
+        family: {exact: ray_vllm_kv_offload_load_time_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 68, end: 70}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_lookup_async_delay_seconds:
+        family: {exact: ray_vllm_kv_offload_lookup_async_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 104, end: 123}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_lookup_sync_delay_seconds:
+        family: {exact: ray_vllm_kv_offload_lookup_sync_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 85, end: 103}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_size:
+        family: {exact: ray_vllm_kv_offload_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 147, end: 150}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_store_bytes_total:
+        family: {exact: ray_vllm_kv_offload_store_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 75, end: 77}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_store_size:
+        family: {exact: ray_vllm_kv_offload_store_size}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 81, end: 84}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_store_time_total:
+        family: {exact: ray_vllm_kv_offload_store_time_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 78, end: 80}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_stores_skipped_total:
+        family: {exact: ray_vllm_kv_offload_stores_skipped_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 68, end: 73}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_tiering_lookup_async_delay_seconds:
+        family: {exact: ray_vllm_kv_offload_tiering_lookup_async_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/tiering/spec.py
+            range: {start: 109, end: 128}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_tiering_lookup_sync_delay_seconds:
+        family: {exact: ray_vllm_kv_offload_tiering_lookup_sync_delay_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/kv_offload/tiering/spec.py
+            range: {start: 87, end: 106}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_total_bytes_total:
+        family: {exact: ray_vllm_kv_offload_total_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 141, end: 143}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_kv_offload_total_time_total:
+        family: {exact: ray_vllm_kv_offload_total_time_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 144, end: 146}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_lora_requests_info:
+        family: {exact: ray_vllm_lora_requests_info}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1065, end: 1074}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mm_cache_hits_total:
+        family: {exact: ray_vllm_mm_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 647, end: 653}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mm_cache_queries_total:
+        family: {exact: ray_vllm_mm_cache_queries_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 636, end: 642}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mooncake_store_operation_bytes_total:
+        family: {exact: ray_vllm_mooncake_store_operation_bytes_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 147, end: 151}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mooncake_store_operation_failed_keys_total:
+        family: {exact: ray_vllm_mooncake_store_operation_failed_keys_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 152, end: 156}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mooncake_store_operation_keys_total:
+        family: {exact: ray_vllm_mooncake_store_operation_keys_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 142, end: 146}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mooncake_store_operation_time_seconds:
+        family: {exact: ray_vllm_mooncake_store_operation_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 115, end: 136}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_mooncake_store_operation_total:
+        family: {exact: ray_vllm_mooncake_store_operation_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 137, end: 141}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_bytes_transferred:
+        family: {exact: ray_vllm_nixl_bytes_transferred}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 178, end: 183}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_num_descriptors:
+        family: {exact: ray_vllm_nixl_num_descriptors}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 203, end: 209}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_num_failed_notifications_total:
+        family: {exact: ray_vllm_nixl_num_failed_notifications_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 221, end: 225}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_num_failed_transfers_total:
+        family: {exact: ray_vllm_nixl_num_failed_transfers_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 213, end: 217}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_num_kv_expired_reqs_total:
+        family: {exact: ray_vllm_nixl_num_kv_expired_reqs_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 230, end: 235}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_post_time_seconds:
+        family: {exact: ray_vllm_nixl_post_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 166, end: 172}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_nixl_xfer_time_seconds:
+        family: {exact: ray_vllm_nixl_xfer_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 157, end: 162}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_num_preemptions_total:
+        family: {exact: ray_vllm_num_preemptions_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 661, end: 665}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_num_requests_running:
+        family: {exact: ray_vllm_num_requests_running}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 493, end: 498}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_num_requests_waiting:
+        family: {exact: ray_vllm_num_requests_waiting}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 503, end: 508}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_num_requests_waiting_by_reason:
+        family: {exact: ray_vllm_num_requests_waiting_by_reason}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 513, end: 524}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_prefix_cache_hits_total:
+        family: {exact: ray_vllm_prefix_cache_hits_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 595, end: 599}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_prefix_cache_queries_total:
+        family: {exact: ray_vllm_prefix_cache_queries_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 584, end: 590}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_prompt_tokens_by_source_total:
+        family: {exact: ray_vllm_prompt_tokens_by_source_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 680, end: 684}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_prompt_tokens_cached_total:
+        family: {exact: ray_vllm_prompt_tokens_cached_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 695, end: 699}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_prompt_tokens_total:
+        family: {exact: ray_vllm_prompt_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 670, end: 674}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_decode_time_seconds:
+        family: {exact: ray_vllm_request_decode_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 952, end: 957}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_generation_tokens:
+        family: {exact: ray_vllm_request_generation_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 740, end: 745}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_inference_time_seconds:
+        family: {exact: ray_vllm_request_inference_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 932, end: 937}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_max_num_generation_tokens:
+        family: {exact: ray_vllm_request_max_num_generation_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 763, end: 768}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_params_max_tokens:
+        family: {exact: ray_vllm_request_params_max_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 783, end: 788}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_params_n:
+        family: {exact: ray_vllm_request_params_n}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 773, end: 778}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_prefill_kv_computed_tokens:
+        family: {exact: ray_vllm_request_prefill_kv_computed_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 962, end: 970}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_prefill_time_seconds:
+        family: {exact: ray_vllm_request_prefill_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 942, end: 947}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_prompt_tokens:
+        family: {exact: ray_vllm_request_prompt_tokens}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 730, end: 735}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_queue_time_seconds:
+        family: {exact: ray_vllm_request_queue_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 922, end: 927}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_success_total:
+        family: {exact: ray_vllm_request_success_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 714, end: 718}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_request_time_per_output_token_seconds:
+        family: {exact: ray_vllm_request_time_per_output_token_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 859, end: 884}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_spec_decode_num_accepted_tokens_per_pos_total:
+        family: {exact: ray_vllm_spec_decode_num_accepted_tokens_per_pos_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 254, end: 258}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_spec_decode_num_accepted_tokens_total:
+        family: {exact: ray_vllm_spec_decode_num_accepted_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 231, end: 231}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_spec_decode_num_draft_tokens_total:
+        family: {exact: ray_vllm_spec_decode_num_draft_tokens_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 230, end: 230}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_spec_decode_num_drafts_total:
+        family: {exact: ray_vllm_spec_decode_num_drafts_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 229, end: 229}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+      ray_ray_vllm_time_to_first_token_seconds:
+        family: {exact: ray_vllm_time_to_first_token_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 796, end: 824}
+          - upstream: vllm
+            path: vllm/v1/metrics/ray_wrappers.py
+            range: {start: 31, end: 216}
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 382, end: 491}
+  ray_compatibility_aliases:
+    registrations:
+      ray_alias_ray_vllm_corrupted_requests:
+        family: {exact: ray_vllm_corrupted_requests}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_diffusion_num_canvas_positions:
+        family: {exact: ray_vllm_diffusion_num_canvas_positions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_diffusion_num_committed_tokens:
+        family: {exact: ray_vllm_diffusion_num_committed_tokens}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_diffusion_num_denoising_steps:
+        family: {exact: ray_vllm_diffusion_num_denoising_steps}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_external_prefix_cache_hits:
+        family: {exact: ray_vllm_external_prefix_cache_hits}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_external_prefix_cache_queries:
+        family: {exact: ray_vllm_external_prefix_cache_queries}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_generation_tokens:
+        family: {exact: ray_vllm_generation_tokens}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_hf3fs_num_failed_load:
+        family: {exact: ray_vllm_hf3fs_num_failed_load}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_hf3fs_num_failed_save:
+        family: {exact: ray_vllm_hf3fs_num_failed_save}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_allocation_failure:
+        family: {exact: ray_vllm_kv_offload_allocation_failure}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_load_bytes:
+        family: {exact: ray_vllm_kv_offload_load_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_load_time:
+        family: {exact: ray_vllm_kv_offload_load_time}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_store_bytes:
+        family: {exact: ray_vllm_kv_offload_store_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_store_time:
+        family: {exact: ray_vllm_kv_offload_store_time}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_stores_skipped:
+        family: {exact: ray_vllm_kv_offload_stores_skipped}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_total_bytes:
+        family: {exact: ray_vllm_kv_offload_total_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_kv_offload_total_time:
+        family: {exact: ray_vllm_kv_offload_total_time}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_mm_cache_hits:
+        family: {exact: ray_vllm_mm_cache_hits}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_mm_cache_queries:
+        family: {exact: ray_vllm_mm_cache_queries}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_nixl_num_failed_notifications:
+        family: {exact: ray_vllm_nixl_num_failed_notifications}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_nixl_num_failed_transfers:
+        family: {exact: ray_vllm_nixl_num_failed_transfers}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_nixl_num_kv_expired_reqs:
+        family: {exact: ray_vllm_nixl_num_kv_expired_reqs}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_num_preemptions:
+        family: {exact: ray_vllm_num_preemptions}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_prefix_cache_hits:
+        family: {exact: ray_vllm_prefix_cache_hits}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_prefix_cache_queries:
+        family: {exact: ray_vllm_prefix_cache_queries}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_prompt_tokens_by_source:
+        family: {exact: ray_vllm_prompt_tokens_by_source}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_prompt_tokens_cached:
+        family: {exact: ray_vllm_prompt_tokens_cached}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_prompt_tokens:
+        family: {exact: ray_vllm_prompt_tokens}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_request_success:
+        family: {exact: ray_vllm_request_success}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_spec_decode_num_accepted_tokens_per_pos:
+        family: {exact: ray_vllm_spec_decode_num_accepted_tokens_per_pos}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_spec_decode_num_accepted_tokens:
+        family: {exact: ray_vllm_spec_decode_num_accepted_tokens}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_spec_decode_num_draft_tokens:
+        family: {exact: ray_vllm_spec_decode_num_draft_tokens}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+      ray_alias_ray_vllm_spec_decode_num_drafts:
+        family: {exact: ray_vllm_spec_decode_num_drafts}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ray
+            path: python/ray/_private/metrics_agent.py
+            range: {start: 403, end: 446}
+  generated_components:
+    registrations:
+      python_created_component:
+        family: {grammar: python_created_family, form: generated}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 572, end: 579}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 218, end: 221}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 222, end: 225}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 217, end: 217}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 912, end: 917}
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1570, end: 1577}
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1582, end: 1589}
+          - upstream: vllm
+            path: vllm/v1/metrics/perf.py
+            range: {start: 1594, end: 1601}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 620, end: 627}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 608, end: 615}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 704, end: 708}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1144, end: 1149}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1163, end: 1167}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1154, end: 1158}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py
+            range: {start: 1134, end: 1139}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 829, end: 854}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 753, end: 758}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1016, end: 1024}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1003, end: 1011}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 1029, end: 1039}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 124, end: 128}
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 57, end: 63}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 65, end: 67}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 71, end: 74}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 68, end: 70}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 104, end: 123}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 85, end: 103}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 147, end: 150}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 75, end: 77}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 81, end: 84}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 78, end: 80}
+          - upstream: vllm
+            path: vllm/v1/kv_offload/cpu/spec.py
+            range: {start: 68, end: 73}
+          - upstream: vllm
+            path: vllm/v1/kv_offload/tiering/spec.py
+            range: {start: 109, end: 128}
+          - upstream: vllm
+            path: vllm/v1/kv_offload/tiering/spec.py
+            range: {start: 87, end: 106}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 141, end: 143}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py
+            range: {start: 144, end: 146}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 647, end: 653}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 636, end: 642}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 147, end: 151}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 152, end: 156}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 142, end: 146}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 115, end: 136}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py
+            range: {start: 137, end: 141}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 178, end: 183}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 203, end: 209}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 221, end: 225}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 213, end: 217}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 230, end: 235}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 166, end: 172}
+          - upstream: vllm
+            path: vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py
+            range: {start: 157, end: 162}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 661, end: 665}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 595, end: 599}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 584, end: 590}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 680, end: 684}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 695, end: 699}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 670, end: 674}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 952, end: 957}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 740, end: 745}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 932, end: 937}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 763, end: 768}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 783, end: 788}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 773, end: 778}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 962, end: 970}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 942, end: 947}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 730, end: 735}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 922, end: 927}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 714, end: 718}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 859, end: 884}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 254, end: 258}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 231, end: 231}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 230, end: 230}
+          - upstream: vllm
+            path: vllm/v1/spec_decode/metrics.py
+            range: {start: 229, end: 229}
+          - upstream: vllm
+            path: vllm/v1/metrics/loggers.py
+            range: {start: 796, end: 824}
+          - upstream: vllm
+            path: vllm/parser/metrics.py
+            range: {start: 37, end: 45}
+          - upstream: vllm
+            path: vllm/entrypoints/speech_to_text/realtime/metrics.py
+            range: {start: 33, end: 37}
+          - upstream: vllm
+            path: vllm/entrypoints/speech_to_text/realtime/metrics.py
+            range: {start: 28, end: 31}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 360, end: 367}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 692, end: 703}
