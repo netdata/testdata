@@ -34,6 +34,16 @@ Gauge(name="vllm:requests_total", documentation="requests")
         with self.assertRaisesRegex(ValueError, "missing required classes"):
             GENERATOR.validate_ray_transport("", "", "")
 
+    def test_rejects_unclassified_registration_availability(self):
+        registration = GENERATOR.Registration(
+            declared_name="vllm:future",
+            family="vllm:future",
+            prometheus_type="gauge",
+            location=GENERATOR.SourceLocation("vllm/future/metrics.py", 1, 1),
+        )
+        with self.assertRaisesRegex(ValueError, "no mechanical availability classification"):
+            GENERATOR._registration_capability(registration)
+
 
 if __name__ == "__main__":
     unittest.main()

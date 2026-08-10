@@ -19,6 +19,10 @@ groups:
       native_vllm_cache_config_info:
         family: {exact: vllm:cache_config_info}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -28,6 +32,10 @@ groups:
       native_vllm_corrupted_requests_total:
         family: {exact: vllm:corrupted_requests_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37,6 +45,11 @@ groups:
       native_vllm_diffusion_num_canvas_positions_total:
         family: {exact: vllm:diffusion_num_canvas_positions_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -46,6 +59,11 @@ groups:
       native_vllm_diffusion_num_committed_tokens_total:
         family: {exact: vllm:diffusion_num_committed_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -55,6 +73,11 @@ groups:
       native_vllm_diffusion_num_denoising_steps_total:
         family: {exact: vllm:diffusion_num_denoising_steps_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -64,6 +87,10 @@ groups:
       native_vllm_e2e_request_latency_seconds:
         family: {exact: vllm:e2e_request_latency_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -75,6 +102,10 @@ groups:
       native_vllm_engine_sleep_state:
         family: {exact: vllm:engine_sleep_state}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -84,6 +115,10 @@ groups:
       native_vllm_estimated_flops_per_gpu_total:
         family: {exact: vllm:estimated_flops_per_gpu_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -93,6 +128,10 @@ groups:
       native_vllm_estimated_read_bytes_per_gpu_total:
         family: {exact: vllm:estimated_read_bytes_per_gpu_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -102,6 +141,10 @@ groups:
       native_vllm_estimated_write_bytes_per_gpu_total:
         family: {exact: vllm:estimated_write_bytes_per_gpu_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -111,6 +154,10 @@ groups:
       native_vllm_external_prefix_cache_hits_total:
         family: {exact: vllm:external_prefix_cache_hits_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -120,6 +167,10 @@ groups:
       native_vllm_external_prefix_cache_queries_total:
         family: {exact: vllm:external_prefix_cache_queries_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -129,6 +180,10 @@ groups:
       native_vllm_generation_tokens_total:
         family: {exact: vllm:generation_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -138,6 +193,11 @@ groups:
       native_vllm_hf3fs_load_duration_seconds:
         family: {exact: vllm:hf3fs_load_duration_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -149,6 +209,11 @@ groups:
       native_vllm_hf3fs_num_failed_load_total:
         family: {exact: vllm:hf3fs_num_failed_load_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -158,6 +223,11 @@ groups:
       native_vllm_hf3fs_num_failed_save_total:
         family: {exact: vllm:hf3fs_num_failed_save_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -167,6 +237,11 @@ groups:
       native_vllm_hf3fs_save_duration_seconds:
         family: {exact: vllm:hf3fs_save_duration_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -178,6 +253,10 @@ groups:
       native_vllm_inter_token_latency_seconds:
         family: {exact: vllm:inter_token_latency_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -189,6 +268,10 @@ groups:
       native_vllm_iteration_tokens_total:
         family: {exact: vllm:iteration_tokens_total}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -200,6 +283,11 @@ groups:
       native_vllm_kv_block_idle_before_evict_seconds:
         family: {exact: vllm:kv_block_idle_before_evict_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_residency}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -211,6 +299,11 @@ groups:
       native_vllm_kv_block_lifetime_seconds:
         family: {exact: vllm:kv_block_lifetime_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_residency}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -222,6 +315,11 @@ groups:
       native_vllm_kv_block_reuse_gap_seconds:
         family: {exact: vllm:kv_block_reuse_gap_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_residency}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -233,6 +331,10 @@ groups:
       native_vllm_kv_cache_usage_perc:
         family: {exact: vllm:kv_cache_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -242,6 +344,11 @@ groups:
       native_vllm_kv_offload_allocation_failure_total:
         family: {exact: vllm:kv_offload_allocation_failure_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -251,6 +358,11 @@ groups:
       native_vllm_kv_offload_cpu_allocation_size:
         family: {exact: vllm:kv_offload_cpu_allocation_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -262,6 +374,11 @@ groups:
       native_vllm_kv_offload_cpu_cache_read_usage_perc:
         family: {exact: vllm:kv_offload_cpu_cache_read_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -271,6 +388,11 @@ groups:
       native_vllm_kv_offload_cpu_cache_usage_perc:
         family: {exact: vllm:kv_offload_cpu_cache_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -280,6 +402,11 @@ groups:
       native_vllm_kv_offload_cpu_cache_write_usage_perc:
         family: {exact: vllm:kv_offload_cpu_cache_write_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -289,6 +416,11 @@ groups:
       native_vllm_kv_offload_load_bytes_total:
         family: {exact: vllm:kv_offload_load_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -298,6 +430,11 @@ groups:
       native_vllm_kv_offload_load_size:
         family: {exact: vllm:kv_offload_load_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -309,6 +446,11 @@ groups:
       native_vllm_kv_offload_load_time_total:
         family: {exact: vllm:kv_offload_load_time_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -318,6 +460,11 @@ groups:
       native_vllm_kv_offload_lookup_async_delay_seconds:
         family: {exact: vllm:kv_offload_lookup_async_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -329,6 +476,11 @@ groups:
       native_vllm_kv_offload_lookup_sync_delay_seconds:
         family: {exact: vllm:kv_offload_lookup_sync_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -340,6 +492,11 @@ groups:
       native_vllm_kv_offload_size:
         family: {exact: vllm:kv_offload_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -351,6 +508,11 @@ groups:
       native_vllm_kv_offload_store_bytes_total:
         family: {exact: vllm:kv_offload_store_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -360,6 +522,11 @@ groups:
       native_vllm_kv_offload_store_size:
         family: {exact: vllm:kv_offload_store_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -371,6 +538,11 @@ groups:
       native_vllm_kv_offload_store_time_total:
         family: {exact: vllm:kv_offload_store_time_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -380,6 +552,11 @@ groups:
       native_vllm_kv_offload_stores_skipped_total:
         family: {exact: vllm:kv_offload_stores_skipped_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -389,6 +566,11 @@ groups:
       native_vllm_kv_offload_tiering_lookup_async_delay_seconds:
         family: {exact: vllm:kv_offload_tiering_lookup_async_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -400,6 +582,11 @@ groups:
       native_vllm_kv_offload_tiering_lookup_sync_delay_seconds:
         family: {exact: vllm:kv_offload_tiering_lookup_sync_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -411,6 +598,11 @@ groups:
       native_vllm_kv_offload_total_bytes_total:
         family: {exact: vllm:kv_offload_total_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -420,6 +612,11 @@ groups:
       native_vllm_kv_offload_total_time_total:
         family: {exact: vllm:kv_offload_total_time_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -429,6 +626,10 @@ groups:
       native_vllm_lora_requests_info:
         family: {exact: vllm:lora_requests_info}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -438,6 +639,10 @@ groups:
       native_vllm_mm_cache_hits_total:
         family: {exact: vllm:mm_cache_hits_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -447,6 +652,10 @@ groups:
       native_vllm_mm_cache_queries_total:
         family: {exact: vllm:mm_cache_queries_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -456,6 +665,11 @@ groups:
       native_vllm_mooncake_store_operation_bytes_total:
         family: {exact: vllm:mooncake_store_operation_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -465,6 +679,11 @@ groups:
       native_vllm_mooncake_store_operation_failed_keys_total:
         family: {exact: vllm:mooncake_store_operation_failed_keys_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -474,6 +693,11 @@ groups:
       native_vllm_mooncake_store_operation_keys_total:
         family: {exact: vllm:mooncake_store_operation_keys_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -483,6 +707,11 @@ groups:
       native_vllm_mooncake_store_operation_time_seconds:
         family: {exact: vllm:mooncake_store_operation_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -494,6 +723,11 @@ groups:
       native_vllm_mooncake_store_operation_total:
         family: {exact: vllm:mooncake_store_operation_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -503,6 +737,11 @@ groups:
       native_vllm_nixl_bytes_transferred:
         family: {exact: vllm:nixl_bytes_transferred}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -514,6 +753,11 @@ groups:
       native_vllm_nixl_num_descriptors:
         family: {exact: vllm:nixl_num_descriptors}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -525,6 +769,11 @@ groups:
       native_vllm_nixl_num_failed_notifications_total:
         family: {exact: vllm:nixl_num_failed_notifications_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -534,6 +783,11 @@ groups:
       native_vllm_nixl_num_failed_transfers_total:
         family: {exact: vllm:nixl_num_failed_transfers_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -543,6 +797,11 @@ groups:
       native_vllm_nixl_num_kv_expired_reqs_total:
         family: {exact: vllm:nixl_num_kv_expired_reqs_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -552,6 +811,11 @@ groups:
       native_vllm_nixl_post_time_seconds:
         family: {exact: vllm:nixl_post_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -563,6 +827,11 @@ groups:
       native_vllm_nixl_xfer_time_seconds:
         family: {exact: vllm:nixl_xfer_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -574,6 +843,10 @@ groups:
       native_vllm_num_preemptions_total:
         family: {exact: vllm:num_preemptions_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -583,6 +856,10 @@ groups:
       native_vllm_num_requests_running:
         family: {exact: vllm:num_requests_running}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -592,6 +869,10 @@ groups:
       native_vllm_num_requests_waiting:
         family: {exact: vllm:num_requests_waiting}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -601,6 +882,10 @@ groups:
       native_vllm_num_requests_waiting_by_reason:
         family: {exact: vllm:num_requests_waiting_by_reason}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -610,6 +895,10 @@ groups:
       native_vllm_prefix_cache_hits_total:
         family: {exact: vllm:prefix_cache_hits_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -619,6 +908,10 @@ groups:
       native_vllm_prefix_cache_queries_total:
         family: {exact: vllm:prefix_cache_queries_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -628,6 +921,10 @@ groups:
       native_vllm_prompt_tokens_by_source_total:
         family: {exact: vllm:prompt_tokens_by_source_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -637,6 +934,10 @@ groups:
       native_vllm_prompt_tokens_cached_total:
         family: {exact: vllm:prompt_tokens_cached_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -646,6 +947,10 @@ groups:
       native_vllm_prompt_tokens_total:
         family: {exact: vllm:prompt_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -655,6 +960,10 @@ groups:
       native_vllm_request_decode_time_seconds:
         family: {exact: vllm:request_decode_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -666,6 +975,10 @@ groups:
       native_vllm_request_generation_tokens:
         family: {exact: vllm:request_generation_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -677,6 +990,10 @@ groups:
       native_vllm_request_inference_time_seconds:
         family: {exact: vllm:request_inference_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -688,6 +1005,10 @@ groups:
       native_vllm_request_max_num_generation_tokens:
         family: {exact: vllm:request_max_num_generation_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -699,6 +1020,10 @@ groups:
       native_vllm_request_params_max_tokens:
         family: {exact: vllm:request_params_max_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -710,6 +1035,10 @@ groups:
       native_vllm_request_params_n:
         family: {exact: vllm:request_params_n}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -721,6 +1050,10 @@ groups:
       native_vllm_request_prefill_kv_computed_tokens:
         family: {exact: vllm:request_prefill_kv_computed_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -732,6 +1065,10 @@ groups:
       native_vllm_request_prefill_time_seconds:
         family: {exact: vllm:request_prefill_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -743,6 +1080,10 @@ groups:
       native_vllm_request_prompt_tokens:
         family: {exact: vllm:request_prompt_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -754,6 +1095,10 @@ groups:
       native_vllm_request_queue_time_seconds:
         family: {exact: vllm:request_queue_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -765,6 +1110,10 @@ groups:
       native_vllm_request_success_total:
         family: {exact: vllm:request_success_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -774,6 +1123,10 @@ groups:
       native_vllm_request_time_per_output_token_seconds:
         family: {exact: vllm:request_time_per_output_token_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -785,6 +1138,11 @@ groups:
       native_vllm_spec_decode_num_accepted_tokens_per_pos_total:
         family: {exact: vllm:spec_decode_num_accepted_tokens_per_pos_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -794,6 +1152,11 @@ groups:
       native_vllm_spec_decode_num_accepted_tokens_total:
         family: {exact: vllm:spec_decode_num_accepted_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -803,6 +1166,11 @@ groups:
       native_vllm_spec_decode_num_draft_tokens_total:
         family: {exact: vllm:spec_decode_num_draft_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -812,6 +1180,11 @@ groups:
       native_vllm_spec_decode_num_drafts_total:
         family: {exact: vllm:spec_decode_num_drafts_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -821,6 +1194,10 @@ groups:
       native_vllm_time_to_first_token_seconds:
         family: {exact: vllm:time_to_first_token_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -832,6 +1209,11 @@ groups:
       native_vllm_tool_call_parser_invocations_total:
         family: {exact: vllm:tool_call_parser_invocations_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: tool_parser}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -841,6 +1223,11 @@ groups:
       native_vllm_websocket_connection_duration_seconds:
         family: {exact: vllm:websocket_connection_duration_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: realtime}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -852,6 +1239,11 @@ groups:
       native_vllm_websocket_connections_active:
         family: {exact: vllm:websocket_connections_active}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: realtime}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -861,6 +1253,11 @@ groups:
       native_vllm_websocket_connections_total:
         family: {exact: vllm:websocket_connections_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
+                - {axis: capabilities, op: contains, value: realtime}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -872,6 +1269,10 @@ groups:
       ray_ray_vllm_cache_config_info:
         family: {exact: ray_vllm_cache_config_info}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -887,6 +1288,10 @@ groups:
       ray_ray_vllm_corrupted_requests_total:
         family: {exact: ray_vllm_corrupted_requests_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -902,6 +1307,11 @@ groups:
       ray_ray_vllm_diffusion_num_canvas_positions_total:
         family: {exact: ray_vllm_diffusion_num_canvas_positions_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -917,6 +1327,11 @@ groups:
       ray_ray_vllm_diffusion_num_committed_tokens_total:
         family: {exact: ray_vllm_diffusion_num_committed_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -932,6 +1347,11 @@ groups:
       ray_ray_vllm_diffusion_num_denoising_steps_total:
         family: {exact: ray_vllm_diffusion_num_denoising_steps_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -947,6 +1367,10 @@ groups:
       ray_ray_vllm_e2e_request_latency_seconds:
         family: {exact: ray_vllm_e2e_request_latency_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -964,6 +1388,10 @@ groups:
       ray_ray_vllm_engine_sleep_state:
         family: {exact: ray_vllm_engine_sleep_state}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -979,6 +1407,10 @@ groups:
       ray_ray_vllm_estimated_flops_per_gpu_total:
         family: {exact: ray_vllm_estimated_flops_per_gpu_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -994,6 +1426,10 @@ groups:
       ray_ray_vllm_estimated_read_bytes_per_gpu_total:
         family: {exact: ray_vllm_estimated_read_bytes_per_gpu_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1009,6 +1445,10 @@ groups:
       ray_ray_vllm_estimated_write_bytes_per_gpu_total:
         family: {exact: ray_vllm_estimated_write_bytes_per_gpu_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1024,6 +1464,10 @@ groups:
       ray_ray_vllm_external_prefix_cache_hits_total:
         family: {exact: ray_vllm_external_prefix_cache_hits_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1039,6 +1483,10 @@ groups:
       ray_ray_vllm_external_prefix_cache_queries_total:
         family: {exact: ray_vllm_external_prefix_cache_queries_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1054,6 +1502,10 @@ groups:
       ray_ray_vllm_generation_tokens_total:
         family: {exact: ray_vllm_generation_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1069,6 +1521,11 @@ groups:
       ray_ray_vllm_hf3fs_load_duration_seconds:
         family: {exact: ray_vllm_hf3fs_load_duration_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1086,6 +1543,11 @@ groups:
       ray_ray_vllm_hf3fs_num_failed_load_total:
         family: {exact: ray_vllm_hf3fs_num_failed_load_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1101,6 +1563,11 @@ groups:
       ray_ray_vllm_hf3fs_num_failed_save_total:
         family: {exact: ray_vllm_hf3fs_num_failed_save_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1116,6 +1583,11 @@ groups:
       ray_ray_vllm_hf3fs_save_duration_seconds:
         family: {exact: ray_vllm_hf3fs_save_duration_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1133,6 +1605,10 @@ groups:
       ray_ray_vllm_inter_token_latency_seconds:
         family: {exact: ray_vllm_inter_token_latency_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1150,6 +1626,10 @@ groups:
       ray_ray_vllm_iteration_tokens_total:
         family: {exact: ray_vllm_iteration_tokens_total}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1167,6 +1647,11 @@ groups:
       ray_ray_vllm_kv_block_idle_before_evict_seconds:
         family: {exact: ray_vllm_kv_block_idle_before_evict_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_residency}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1184,6 +1669,11 @@ groups:
       ray_ray_vllm_kv_block_lifetime_seconds:
         family: {exact: ray_vllm_kv_block_lifetime_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_residency}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1201,6 +1691,11 @@ groups:
       ray_ray_vllm_kv_block_reuse_gap_seconds:
         family: {exact: ray_vllm_kv_block_reuse_gap_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_residency}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1218,6 +1713,10 @@ groups:
       ray_ray_vllm_kv_cache_usage_perc:
         family: {exact: ray_vllm_kv_cache_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1233,6 +1732,11 @@ groups:
       ray_ray_vllm_kv_offload_allocation_failure_total:
         family: {exact: ray_vllm_kv_offload_allocation_failure_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1248,6 +1752,11 @@ groups:
       ray_ray_vllm_kv_offload_cpu_allocation_size:
         family: {exact: ray_vllm_kv_offload_cpu_allocation_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1265,6 +1774,11 @@ groups:
       ray_ray_vllm_kv_offload_cpu_cache_read_usage_perc:
         family: {exact: ray_vllm_kv_offload_cpu_cache_read_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1280,6 +1794,11 @@ groups:
       ray_ray_vllm_kv_offload_cpu_cache_usage_perc:
         family: {exact: ray_vllm_kv_offload_cpu_cache_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1295,6 +1814,11 @@ groups:
       ray_ray_vllm_kv_offload_cpu_cache_write_usage_perc:
         family: {exact: ray_vllm_kv_offload_cpu_cache_write_usage_perc}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1310,6 +1834,11 @@ groups:
       ray_ray_vllm_kv_offload_load_bytes_total:
         family: {exact: ray_vllm_kv_offload_load_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1325,6 +1854,11 @@ groups:
       ray_ray_vllm_kv_offload_load_size:
         family: {exact: ray_vllm_kv_offload_load_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1342,6 +1876,11 @@ groups:
       ray_ray_vllm_kv_offload_load_time_total:
         family: {exact: ray_vllm_kv_offload_load_time_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1357,6 +1896,11 @@ groups:
       ray_ray_vllm_kv_offload_lookup_async_delay_seconds:
         family: {exact: ray_vllm_kv_offload_lookup_async_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1374,6 +1918,11 @@ groups:
       ray_ray_vllm_kv_offload_lookup_sync_delay_seconds:
         family: {exact: ray_vllm_kv_offload_lookup_sync_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1391,6 +1940,11 @@ groups:
       ray_ray_vllm_kv_offload_size:
         family: {exact: ray_vllm_kv_offload_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1408,6 +1962,11 @@ groups:
       ray_ray_vllm_kv_offload_store_bytes_total:
         family: {exact: ray_vllm_kv_offload_store_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1423,6 +1982,11 @@ groups:
       ray_ray_vllm_kv_offload_store_size:
         family: {exact: ray_vllm_kv_offload_store_size}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1440,6 +2004,11 @@ groups:
       ray_ray_vllm_kv_offload_store_time_total:
         family: {exact: ray_vllm_kv_offload_store_time_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1455,6 +2024,11 @@ groups:
       ray_ray_vllm_kv_offload_stores_skipped_total:
         family: {exact: ray_vllm_kv_offload_stores_skipped_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1470,6 +2044,11 @@ groups:
       ray_ray_vllm_kv_offload_tiering_lookup_async_delay_seconds:
         family: {exact: ray_vllm_kv_offload_tiering_lookup_async_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1487,6 +2066,11 @@ groups:
       ray_ray_vllm_kv_offload_tiering_lookup_sync_delay_seconds:
         family: {exact: ray_vllm_kv_offload_tiering_lookup_sync_delay_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1504,6 +2088,11 @@ groups:
       ray_ray_vllm_kv_offload_total_bytes_total:
         family: {exact: ray_vllm_kv_offload_total_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1519,6 +2108,11 @@ groups:
       ray_ray_vllm_kv_offload_total_time_total:
         family: {exact: ray_vllm_kv_offload_total_time_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1534,6 +2128,10 @@ groups:
       ray_ray_vllm_lora_requests_info:
         family: {exact: ray_vllm_lora_requests_info}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1549,6 +2147,10 @@ groups:
       ray_ray_vllm_mm_cache_hits_total:
         family: {exact: ray_vllm_mm_cache_hits_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1564,6 +2166,10 @@ groups:
       ray_ray_vllm_mm_cache_queries_total:
         family: {exact: ray_vllm_mm_cache_queries_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1579,6 +2185,11 @@ groups:
       ray_ray_vllm_mooncake_store_operation_bytes_total:
         family: {exact: ray_vllm_mooncake_store_operation_bytes_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1594,6 +2205,11 @@ groups:
       ray_ray_vllm_mooncake_store_operation_failed_keys_total:
         family: {exact: ray_vllm_mooncake_store_operation_failed_keys_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1609,6 +2225,11 @@ groups:
       ray_ray_vllm_mooncake_store_operation_keys_total:
         family: {exact: ray_vllm_mooncake_store_operation_keys_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1624,6 +2245,11 @@ groups:
       ray_ray_vllm_mooncake_store_operation_time_seconds:
         family: {exact: ray_vllm_mooncake_store_operation_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1641,6 +2267,11 @@ groups:
       ray_ray_vllm_mooncake_store_operation_total:
         family: {exact: ray_vllm_mooncake_store_operation_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: mooncake}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1656,6 +2287,11 @@ groups:
       ray_ray_vllm_nixl_bytes_transferred:
         family: {exact: ray_vllm_nixl_bytes_transferred}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1673,6 +2309,11 @@ groups:
       ray_ray_vllm_nixl_num_descriptors:
         family: {exact: ray_vllm_nixl_num_descriptors}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1690,6 +2331,11 @@ groups:
       ray_ray_vllm_nixl_num_failed_notifications_total:
         family: {exact: ray_vllm_nixl_num_failed_notifications_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1705,6 +2351,11 @@ groups:
       ray_ray_vllm_nixl_num_failed_transfers_total:
         family: {exact: ray_vllm_nixl_num_failed_transfers_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1720,6 +2371,11 @@ groups:
       ray_ray_vllm_nixl_num_kv_expired_reqs_total:
         family: {exact: ray_vllm_nixl_num_kv_expired_reqs_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1735,6 +2391,11 @@ groups:
       ray_ray_vllm_nixl_post_time_seconds:
         family: {exact: ray_vllm_nixl_post_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1752,6 +2413,11 @@ groups:
       ray_ray_vllm_nixl_xfer_time_seconds:
         family: {exact: ray_vllm_nixl_xfer_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1769,6 +2435,10 @@ groups:
       ray_ray_vllm_num_preemptions_total:
         family: {exact: ray_vllm_num_preemptions_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1784,6 +2454,10 @@ groups:
       ray_ray_vllm_num_requests_running:
         family: {exact: ray_vllm_num_requests_running}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1799,6 +2473,10 @@ groups:
       ray_ray_vllm_num_requests_waiting:
         family: {exact: ray_vllm_num_requests_waiting}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1814,6 +2492,10 @@ groups:
       ray_ray_vllm_num_requests_waiting_by_reason:
         family: {exact: ray_vllm_num_requests_waiting_by_reason}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1829,6 +2511,10 @@ groups:
       ray_ray_vllm_prefix_cache_hits_total:
         family: {exact: ray_vllm_prefix_cache_hits_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1844,6 +2530,10 @@ groups:
       ray_ray_vllm_prefix_cache_queries_total:
         family: {exact: ray_vllm_prefix_cache_queries_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1859,6 +2549,10 @@ groups:
       ray_ray_vllm_prompt_tokens_by_source_total:
         family: {exact: ray_vllm_prompt_tokens_by_source_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1874,6 +2568,10 @@ groups:
       ray_ray_vllm_prompt_tokens_cached_total:
         family: {exact: ray_vllm_prompt_tokens_cached_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1889,6 +2587,10 @@ groups:
       ray_ray_vllm_prompt_tokens_total:
         family: {exact: ray_vllm_prompt_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -1904,6 +2606,10 @@ groups:
       ray_ray_vllm_request_decode_time_seconds:
         family: {exact: ray_vllm_request_decode_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1921,6 +2627,10 @@ groups:
       ray_ray_vllm_request_generation_tokens:
         family: {exact: ray_vllm_request_generation_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1938,6 +2648,10 @@ groups:
       ray_ray_vllm_request_inference_time_seconds:
         family: {exact: ray_vllm_request_inference_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1955,6 +2669,10 @@ groups:
       ray_ray_vllm_request_max_num_generation_tokens:
         family: {exact: ray_vllm_request_max_num_generation_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1972,6 +2690,10 @@ groups:
       ray_ray_vllm_request_params_max_tokens:
         family: {exact: ray_vllm_request_params_max_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -1989,6 +2711,10 @@ groups:
       ray_ray_vllm_request_params_n:
         family: {exact: ray_vllm_request_params_n}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2006,6 +2732,10 @@ groups:
       ray_ray_vllm_request_prefill_kv_computed_tokens:
         family: {exact: ray_vllm_request_prefill_kv_computed_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2023,6 +2753,10 @@ groups:
       ray_ray_vllm_request_prefill_time_seconds:
         family: {exact: ray_vllm_request_prefill_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2040,6 +2774,10 @@ groups:
       ray_ray_vllm_request_prompt_tokens:
         family: {exact: ray_vllm_request_prompt_tokens}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2057,6 +2795,10 @@ groups:
       ray_ray_vllm_request_queue_time_seconds:
         family: {exact: ray_vllm_request_queue_time_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2074,6 +2816,10 @@ groups:
       ray_ray_vllm_request_success_total:
         family: {exact: ray_vllm_request_success_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2089,6 +2835,10 @@ groups:
       ray_ray_vllm_request_time_per_output_token_seconds:
         family: {exact: ray_vllm_request_time_per_output_token_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2106,6 +2856,11 @@ groups:
       ray_ray_vllm_spec_decode_num_accepted_tokens_per_pos_total:
         family: {exact: ray_vllm_spec_decode_num_accepted_tokens_per_pos_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2121,6 +2876,11 @@ groups:
       ray_ray_vllm_spec_decode_num_accepted_tokens_total:
         family: {exact: ray_vllm_spec_decode_num_accepted_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2136,6 +2896,11 @@ groups:
       ray_ray_vllm_spec_decode_num_draft_tokens_total:
         family: {exact: ray_vllm_spec_decode_num_draft_tokens_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2151,6 +2916,11 @@ groups:
       ray_ray_vllm_spec_decode_num_drafts_total:
         family: {exact: ray_vllm_spec_decode_num_drafts_total}
         prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2166,6 +2936,10 @@ groups:
       ray_ray_vllm_time_to_first_token_seconds:
         family: {exact: ray_vllm_time_to_first_token_seconds}
         prometheus: {type: histogram, shape: histogram}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           bucket: {wire_role: histogram_bucket}
           count: {wire_role: histogram_count}
@@ -2185,6 +2959,10 @@ groups:
       ray_alias_ray_vllm_corrupted_requests:
         family: {exact: ray_vllm_corrupted_requests}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2194,6 +2972,11 @@ groups:
       ray_alias_ray_vllm_diffusion_num_canvas_positions:
         family: {exact: ray_vllm_diffusion_num_canvas_positions}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2203,6 +2986,11 @@ groups:
       ray_alias_ray_vllm_diffusion_num_committed_tokens:
         family: {exact: ray_vllm_diffusion_num_committed_tokens}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2212,6 +3000,11 @@ groups:
       ray_alias_ray_vllm_diffusion_num_denoising_steps:
         family: {exact: ray_vllm_diffusion_num_denoising_steps}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2221,6 +3014,10 @@ groups:
       ray_alias_ray_vllm_external_prefix_cache_hits:
         family: {exact: ray_vllm_external_prefix_cache_hits}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2230,6 +3027,10 @@ groups:
       ray_alias_ray_vllm_external_prefix_cache_queries:
         family: {exact: ray_vllm_external_prefix_cache_queries}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2239,6 +3040,10 @@ groups:
       ray_alias_ray_vllm_generation_tokens:
         family: {exact: ray_vllm_generation_tokens}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2248,6 +3053,11 @@ groups:
       ray_alias_ray_vllm_hf3fs_num_failed_load:
         family: {exact: ray_vllm_hf3fs_num_failed_load}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2257,6 +3067,11 @@ groups:
       ray_alias_ray_vllm_hf3fs_num_failed_save:
         family: {exact: ray_vllm_hf3fs_num_failed_save}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: hf3fs}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2266,6 +3081,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_allocation_failure:
         family: {exact: ray_vllm_kv_offload_allocation_failure}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2275,6 +3095,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_load_bytes:
         family: {exact: ray_vllm_kv_offload_load_bytes}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2284,6 +3109,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_load_time:
         family: {exact: ray_vllm_kv_offload_load_time}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2293,6 +3123,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_store_bytes:
         family: {exact: ray_vllm_kv_offload_store_bytes}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2302,6 +3137,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_store_time:
         family: {exact: ray_vllm_kv_offload_store_time}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2311,6 +3151,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_stores_skipped:
         family: {exact: ray_vllm_kv_offload_stores_skipped}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2320,6 +3165,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_total_bytes:
         family: {exact: ray_vllm_kv_offload_total_bytes}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2329,6 +3179,11 @@ groups:
       ray_alias_ray_vllm_kv_offload_total_time:
         family: {exact: ray_vllm_kv_offload_total_time}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: kv_offload}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2338,6 +3193,10 @@ groups:
       ray_alias_ray_vllm_mm_cache_hits:
         family: {exact: ray_vllm_mm_cache_hits}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2347,6 +3206,10 @@ groups:
       ray_alias_ray_vllm_mm_cache_queries:
         family: {exact: ray_vllm_mm_cache_queries}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2356,6 +3219,11 @@ groups:
       ray_alias_ray_vllm_nixl_num_failed_notifications:
         family: {exact: ray_vllm_nixl_num_failed_notifications}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2365,6 +3233,11 @@ groups:
       ray_alias_ray_vllm_nixl_num_failed_transfers:
         family: {exact: ray_vllm_nixl_num_failed_transfers}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2374,6 +3247,11 @@ groups:
       ray_alias_ray_vllm_nixl_num_kv_expired_reqs:
         family: {exact: ray_vllm_nixl_num_kv_expired_reqs}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: nixl}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2383,6 +3261,10 @@ groups:
       ray_alias_ray_vllm_num_preemptions:
         family: {exact: ray_vllm_num_preemptions}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2392,6 +3274,10 @@ groups:
       ray_alias_ray_vllm_prefix_cache_hits:
         family: {exact: ray_vllm_prefix_cache_hits}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2401,6 +3287,10 @@ groups:
       ray_alias_ray_vllm_prefix_cache_queries:
         family: {exact: ray_vllm_prefix_cache_queries}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2410,6 +3300,10 @@ groups:
       ray_alias_ray_vllm_prompt_tokens_by_source:
         family: {exact: ray_vllm_prompt_tokens_by_source}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2419,6 +3313,10 @@ groups:
       ray_alias_ray_vllm_prompt_tokens_cached:
         family: {exact: ray_vllm_prompt_tokens_cached}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2428,6 +3326,10 @@ groups:
       ray_alias_ray_vllm_prompt_tokens:
         family: {exact: ray_vllm_prompt_tokens}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2437,6 +3339,10 @@ groups:
       ray_alias_ray_vllm_request_success:
         family: {exact: ray_vllm_request_success}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2446,6 +3352,11 @@ groups:
       ray_alias_ray_vllm_spec_decode_num_accepted_tokens_per_pos:
         family: {exact: ray_vllm_spec_decode_num_accepted_tokens_per_pos}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2455,6 +3366,11 @@ groups:
       ray_alias_ray_vllm_spec_decode_num_accepted_tokens:
         family: {exact: ray_vllm_spec_decode_num_accepted_tokens}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2464,6 +3380,11 @@ groups:
       ray_alias_ray_vllm_spec_decode_num_draft_tokens:
         family: {exact: ray_vllm_spec_decode_num_draft_tokens}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2473,6 +3394,11 @@ groups:
       ray_alias_ray_vllm_spec_decode_num_drafts:
         family: {exact: ray_vllm_spec_decode_num_drafts}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: ray}
+                - {axis: capabilities, op: contains, value: speculative_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2484,6 +3410,10 @@ groups:
       python_created_component:
         family: {grammar: python_created_family, form: generated}
         prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: transport, op: eq, value: native}
         components:
           value: {wire_role: scalar}
         source_locations:

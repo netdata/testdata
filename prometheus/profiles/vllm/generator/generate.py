@@ -36,6 +36,22 @@ RAY_UNSUPPORTED_PATH_PREFIXES = (
     "vllm/parser/",
 )
 
+CORE_REGISTRATION_PATHS = {
+    "vllm/v1/metrics/loggers.py",
+    "vllm/v1/metrics/perf.py",
+}
+
+CAPABILITY_BY_REGISTRATION_PATH = {
+    "vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py": "kv_offload",
+    "vllm/v1/kv_offload/cpu/spec.py": "kv_offload",
+    "vllm/v1/kv_offload/tiering/spec.py": "kv_offload",
+    "vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py": "nixl",
+    "vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py": "hf3fs",
+    "vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py": "mooncake",
+    "vllm/entrypoints/speech_to_text/realtime/metrics.py": "realtime",
+    "vllm/parser/metrics.py": "tool_parser",
+}
+
 COMPONENTS = {
     "counter": (("value", "scalar"),),
     "gauge": (("value", "scalar"),),
@@ -371,7 +387,15 @@ def generate_registry(
         "    registrations:",
     ]
     for registration in native:
-        lines.extend(_render_registration("native", registration.family, registration, [registration.location]))
+        lines.extend(
+            _render_registration(
+                "native",
+                registration.family,
+                registration,
+                [registration.location],
+                transport="native",
+            )
+        )
     lines.extend(["  ray_canonical:", "    registrations:"])
     for registration in ray_native:
         ray_family = "ray_" + registration.family.replace(":", "_")
@@ -385,6 +409,7 @@ def generate_registry(
                     SourceLocation(RAY_WRAPPER_PATH, 31, 216),
                     SourceLocation("python/ray/_private/metrics_agent.py", 382, 491),
                 ],
+                transport="ray",
             )
         )
     lines.extend(["  ray_compatibility_aliases:", "    registrations:"])
@@ -398,6 +423,7 @@ def generate_registry(
                 alias,
                 compatibility,
                 [SourceLocation("python/ray/_private/metrics_agent.py", 403, 446)],
+                transport="ray",
             )
         )
     lines.extend(_render_created_registration(created, created_emitters))
@@ -409,13 +435,16 @@ def _render_registration(
     family: str,
     registration: Registration,
     locations: list[SourceLocation],
+    *,
+    transport: str,
 ) -> list[str]:
     result = [
         f"      {id_prefix}_{_registration_id(family)}:",
         f"        family: {{exact: {family}}}",
         f"        prometheus: {{type: {registration.prometheus_type}, shape: {registration.shape}}}",
-        "        components:",
     ]
+    result.extend(_render_when(transport, _registration_capability(registration)))
+    result.append("        components:")
     for component, wire_role in registration.components:
         result.append(f"          {component}: {{wire_role: {wire_role}}}")
     result.append("        source_locations:")
@@ -431,6 +460,31 @@ def _render_registration(
     return result
 
 
+def _render_when(transport: str, capability: str | None) -> list[str]:
+    result = [
+        "        when:",
+        "          any:",
+        "            - all:",
+        f"                - {{axis: transport, op: eq, value: {transport}}}",
+    ]
+    if capability is not None:
+        result.append(f"                - {{axis: capabilities, op: contains, value: {capability}}}")
+    return result
+
+
+def _registration_capability(registration: Registration) -> str | None:
+    path = registration.location.path
+    if path in CAPABILITY_BY_REGISTRATION_PATH:
+        return CAPABILITY_BY_REGISTRATION_PATH[path]
+    if path == "vllm/v1/spec_decode/metrics.py":
+        return "diffusion_decoding" if registration.family.startswith("vllm:diffusion_") else "speculative_decoding"
+    if path == "vllm/v1/metrics/loggers.py" and registration.family.startswith("vllm:kv_block_"):
+        return "kv_residency"
+    if path in CORE_REGISTRATION_PATHS:
+        return None
+    raise ValueError(f"registration {registration.family!r} has no mechanical availability classification for {path}")
+
+
 def _render_created_registration(
     registrations: list[Registration],
     emitters: dict[str, tuple[int, int]],
@@ -441,6 +495,10 @@ def _render_created_registration(
         "      python_created_component:",
         "        family: {grammar: python_created_family, form: generated}",
         "        prometheus: {type: gauge, shape: scalar}",
+        "        when:",
+        "          any:",
+        "            - all:",
+        "                - {axis: transport, op: eq, value: native}",
         "        components:",
         "          value: {wire_role: scalar}",
         "        source_locations:",
