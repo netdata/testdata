@@ -1,0 +1,1396 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: litellm
+generated: true
+family_grammars:
+  python_created_family:
+    forms:
+      generated:
+        canonical: {prefix: litellm_auth_latency, suffix: _created}
+        embedded:
+          prefix: litellm_
+          suffix: created
+          separator: _
+          identity_slot: {name: instrument, nonempty: true}
+groups:
+  callback:
+    registrations:
+      litellm_active_users:
+        family: {exact: litellm_active_users}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 557, end: 561}
+      litellm_api_key_budget_remaining_hours_metric:
+        family: {exact: litellm_api_key_budget_remaining_hours_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 327, end: 331}
+      litellm_api_key_max_budget_metric:
+        family: {exact: litellm_api_key_max_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 321, end: 325}
+      litellm_cache_hits_metric_total:
+        family: {exact: litellm_cache_hits_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 519, end: 523}
+      litellm_cache_misses_metric_total:
+        family: {exact: litellm_cache_misses_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 525, end: 529}
+      litellm_cached_tokens_metric_total:
+        family: {exact: litellm_cached_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 531, end: 535}
+      litellm_callback_logging_failures_metric_total:
+        family: {exact: litellm_callback_logging_failures_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 500, end: 504}
+      litellm_check_batch_cost_errors_total:
+        family: {exact: litellm_check_batch_cost_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 627, end: 631}
+      litellm_check_batch_cost_jobs_polled:
+        family: {exact: litellm_check_batch_cost_jobs_polled}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 615, end: 619}
+      litellm_check_batch_cost_jobs_processed_total:
+        family: {exact: litellm_check_batch_cost_jobs_processed_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 621, end: 625}
+      litellm_check_batch_cost_last_run_timestamp:
+        family: {exact: litellm_check_batch_cost_last_run_timestamp}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 633, end: 637}
+      litellm_deployment_cooled_down_total:
+        family: {exact: litellm_deployment_cooled_down_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 456, end: 461}
+      litellm_deployment_failed_fallbacks_total:
+        family: {exact: litellm_deployment_failed_fallbacks_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 493, end: 497}
+      litellm_deployment_failure_responses_total:
+        family: {exact: litellm_deployment_failure_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 468, end: 472}
+      litellm_deployment_latency_per_output_token:
+        family: {exact: litellm_deployment_latency_per_output_token}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 481, end: 485}
+      litellm_deployment_rpm_limit:
+        family: {exact: litellm_deployment_rpm_limit}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 450, end: 454}
+      litellm_deployment_state:
+        family: {exact: litellm_deployment_state}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 438, end: 442}
+      litellm_deployment_success_responses_total:
+        family: {exact: litellm_deployment_success_responses_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 463, end: 467}
+      litellm_deployment_successful_fallbacks_total:
+        family: {exact: litellm_deployment_successful_fallbacks_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 487, end: 491}
+      litellm_deployment_total_requests_total:
+        family: {exact: litellm_deployment_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 474, end: 478}
+      litellm_deployment_tpm_limit:
+        family: {exact: litellm_deployment_tpm_limit}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 444, end: 448}
+      litellm_guardrail_errors_total:
+        family: {exact: litellm_guardrail_errors_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 419, end: 423}
+      litellm_guardrail_latency_seconds:
+        family: {exact: litellm_guardrail_latency_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 412, end: 417}
+      litellm_guardrail_requests_total:
+        family: {exact: litellm_guardrail_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 425, end: 429}
+      litellm_images_generated_metric_total:
+        family: {exact: litellm_images_generated_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 258, end: 262}
+      litellm_input_audio_tokens_metric_total:
+        family: {exact: litellm_input_audio_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 234, end: 238}
+      litellm_input_cache_creation_tokens_metric_total:
+        family: {exact: litellm_input_cache_creation_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 228, end: 232}
+      litellm_input_cached_tokens_metric_total:
+        family: {exact: litellm_input_cached_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 222, end: 226}
+      litellm_input_tokens_metric_total:
+        family: {exact: litellm_input_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 203, end: 207}
+      litellm_llm_api_failed_requests_metric_total:
+        family: {exact: litellm_llm_api_failed_requests_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 506, end: 510}
+      litellm_llm_api_latency_metric:
+        family: {exact: litellm_llm_api_latency_metric}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 168, end: 173}
+      litellm_llm_api_time_to_first_token_metric:
+        family: {exact: litellm_llm_api_time_to_first_token_metric}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 175, end: 187}
+      litellm_managed_batch_created_total:
+        family: {exact: litellm_managed_batch_created_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 572, end: 582}
+      litellm_managed_batch_duration_seconds:
+        family: {exact: litellm_managed_batch_duration_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 590, end: 595}
+      litellm_managed_file_created_total:
+        family: {exact: litellm_managed_file_created_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 597, end: 607}
+      litellm_managed_file_deleted_total:
+        family: {exact: litellm_managed_file_deleted_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 609, end: 613}
+      litellm_managed_file_size_bytes:
+        family: {exact: litellm_managed_file_size_bytes}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 584, end: 588}
+      litellm_mcp_tool_call_spend_metric_total:
+        family: {exact: litellm_mcp_tool_call_spend_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 648, end: 652}
+      litellm_mcp_tool_calls_total:
+        family: {exact: litellm_mcp_tool_calls_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 642, end: 646}
+      litellm_org_budget_remaining_hours_metric:
+        family: {exact: litellm_org_budget_remaining_hours_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 307, end: 311}
+      litellm_org_max_budget_metric:
+        family: {exact: litellm_org_max_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 300, end: 304}
+      litellm_output_audio_tokens_metric_total:
+        family: {exact: litellm_output_audio_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 246, end: 250}
+      litellm_output_reasoning_tokens_metric_total:
+        family: {exact: litellm_output_reasoning_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 240, end: 244}
+      litellm_output_tokens_metric_total:
+        family: {exact: litellm_output_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 209, end: 213}
+      litellm_overhead_latency_metric:
+        family: {exact: litellm_overhead_latency_metric}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 388, end: 393}
+      litellm_overhead_with_guardrails_latency_metric:
+        family: {exact: litellm_overhead_with_guardrails_latency_metric}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 395, end: 401}
+      litellm_provider_cache_creation_input_tokens_metric_total:
+        family: {exact: litellm_provider_cache_creation_input_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 544, end: 548}
+      litellm_provider_cache_read_input_tokens_metric_total:
+        family: {exact: litellm_provider_cache_read_input_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 538, end: 542}
+      litellm_provider_remaining_budget_metric:
+        family: {exact: litellm_provider_remaining_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 431, end: 435}
+      litellm_proxy_failed_requests_metric_total:
+        family: {exact: litellm_proxy_failed_requests_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 148, end: 152}
+      litellm_proxy_total_requests_metric_total:
+        family: {exact: litellm_proxy_total_requests_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 154, end: 158}
+      litellm_remaining_api_key_budget_metric:
+        family: {exact: litellm_remaining_api_key_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 314, end: 318}
+      litellm_remaining_api_key_requests_for_model:
+        family: {exact: litellm_remaining_api_key_requests_for_model}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 358, end: 362}
+      litellm_remaining_api_key_tokens_for_model:
+        family: {exact: litellm_remaining_api_key_tokens_for_model}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 365, end: 369}
+      litellm_remaining_org_budget_metric:
+        family: {exact: litellm_remaining_org_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 293, end: 297}
+      litellm_remaining_requests_metric:
+        family: {exact: litellm_remaining_requests_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 376, end: 380}
+      litellm_remaining_team_budget_metric:
+        family: {exact: litellm_remaining_team_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 265, end: 269}
+      litellm_remaining_tokens_metric:
+        family: {exact: litellm_remaining_tokens_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 382, end: 386}
+      litellm_remaining_user_budget_metric:
+        family: {exact: litellm_remaining_user_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 334, end: 338}
+      litellm_request_queue_time_seconds:
+        family: {exact: litellm_request_queue_time_seconds}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 404, end: 409}
+      litellm_request_total_latency_metric:
+        family: {exact: litellm_request_total_latency_metric}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 161, end: 166}
+      litellm_requests_metric_total:
+        family: {exact: litellm_requests_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 512, end: 516}
+      litellm_spend_metric_total:
+        family: {exact: litellm_spend_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 190, end: 194}
+      litellm_team_budget_remaining_hours_metric:
+        family: {exact: litellm_team_budget_remaining_hours_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 279, end: 283}
+      litellm_team_max_budget_metric:
+        family: {exact: litellm_team_max_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 272, end: 276}
+      litellm_team_members_metric:
+        family: {exact: litellm_team_members_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 286, end: 290}
+      litellm_teams_count:
+        family: {exact: litellm_teams_count}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 563, end: 567}
+      litellm_total_tokens_metric_total:
+        family: {exact: litellm_total_tokens_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 197, end: 201}
+      litellm_total_users:
+        family: {exact: litellm_total_users}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 551, end: 555}
+      litellm_user_budget_remaining_hours_metric:
+        family: {exact: litellm_user_budget_remaining_hours_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 347, end: 351}
+      litellm_user_max_budget_metric:
+        family: {exact: litellm_user_max_budget_metric}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 341, end: 345}
+      litellm_video_duration_seconds_metric_total:
+        family: {exact: litellm_video_duration_seconds_metric_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 252, end: 256}
+  service_metrics:
+    registrations:
+      litellm_auth_failed_requests_total:
+        family: {exact: litellm_auth_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 27, end: 27}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_auth_latency:
+        family: {exact: litellm_auth_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 27, end: 27}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_auth_total_requests_total:
+        family: {exact: litellm_auth_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 27, end: 27}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_batch_write_to_db_failed_requests_total:
+        family: {exact: litellm_batch_write_to_db_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 23, end: 23}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_batch_write_to_db_latency:
+        family: {exact: litellm_batch_write_to_db_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 23, end: 23}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_batch_write_to_db_total_requests_total:
+        family: {exact: litellm_batch_write_to_db_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 23, end: 23}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_in_memory_daily_spend_update_queue_size:
+        family: {exact: litellm_in_memory_daily_spend_update_queue_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 35, end: 35}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_in_memory_spend_update_queue_size:
+        family: {exact: litellm_in_memory_spend_update_queue_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 43, end: 43}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_pod_lock_manager_size:
+        family: {exact: litellm_pod_lock_manager_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 29, end: 29}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_postgres_failed_requests_total:
+        family: {exact: litellm_postgres_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 22, end: 22}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_postgres_latency:
+        family: {exact: litellm_postgres_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 22, end: 22}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_postgres_total_requests_total:
+        family: {exact: litellm_postgres_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 22, end: 22}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_proxy_pre_call_failed_requests_total:
+        family: {exact: litellm_proxy_pre_call_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 28, end: 28}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_proxy_pre_call_latency:
+        family: {exact: litellm_proxy_pre_call_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 28, end: 28}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_proxy_pre_call_total_requests_total:
+        family: {exact: litellm_proxy_pre_call_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 28, end: 28}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_daily_agent_spend_update_queue_size:
+        family: {exact: litellm_redis_daily_agent_spend_update_queue_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 40, end: 40}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_redis_daily_end_user_spend_update_queue_size:
+        family: {exact: litellm_redis_daily_end_user_spend_update_queue_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 37, end: 37}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_redis_daily_org_spend_update_queue_failed_requests_total:
+        family: {exact: litellm_redis_daily_org_spend_update_queue_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 38, end: 38}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_daily_org_spend_update_queue_latency:
+        family: {exact: litellm_redis_daily_org_spend_update_queue_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 38, end: 38}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_redis_daily_org_spend_update_queue_total_requests_total:
+        family: {exact: litellm_redis_daily_org_spend_update_queue_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 38, end: 38}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_daily_spend_update_queue_size:
+        family: {exact: litellm_redis_daily_spend_update_queue_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 36, end: 36}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_redis_daily_tag_spend_update_queue_failed_requests_total:
+        family: {exact: litellm_redis_daily_tag_spend_update_queue_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 41, end: 41}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_daily_tag_spend_update_queue_latency:
+        family: {exact: litellm_redis_daily_tag_spend_update_queue_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 41, end: 41}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_redis_daily_tag_spend_update_queue_total_requests_total:
+        family: {exact: litellm_redis_daily_tag_spend_update_queue_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 41, end: 41}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_daily_team_spend_update_queue_failed_requests_total:
+        family: {exact: litellm_redis_daily_team_spend_update_queue_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 39, end: 39}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_daily_team_spend_update_queue_latency:
+        family: {exact: litellm_redis_daily_team_spend_update_queue_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 39, end: 39}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_redis_daily_team_spend_update_queue_total_requests_total:
+        family: {exact: litellm_redis_daily_team_spend_update_queue_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 39, end: 39}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_failed_requests_total:
+        family: {exact: litellm_redis_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 21, end: 21}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_redis_latency:
+        family: {exact: litellm_redis_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 21, end: 21}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_redis_spend_update_queue_size:
+        family: {exact: litellm_redis_spend_update_queue_size}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 44, end: 44}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 130, end: 135}
+      litellm_redis_total_requests_total:
+        family: {exact: litellm_redis_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 21, end: 21}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_reset_budget_job_failed_requests_total:
+        family: {exact: litellm_reset_budget_job_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 24, end: 24}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_reset_budget_job_latency:
+        family: {exact: litellm_reset_budget_job_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 24, end: 24}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_reset_budget_job_total_requests_total:
+        family: {exact: litellm_reset_budget_job_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 24, end: 24}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_router_failed_requests_total:
+        family: {exact: litellm_router_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 26, end: 26}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_router_latency:
+        family: {exact: litellm_router_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 26, end: 26}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_router_total_requests_total:
+        family: {exact: litellm_router_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 26, end: 26}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_self_failed_requests_total:
+        family: {exact: litellm_self_failed_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 25, end: 25}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+      litellm_self_latency:
+        family: {exact: litellm_self_latency}
+        prometheus: {type: histogram, shape: histogram}
+        components:
+          bucket: {wire_role: histogram_bucket}
+          count: {wire_role: histogram_count}
+          sum: {wire_role: histogram_sum}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 25, end: 25}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+      litellm_self_total_requests_total:
+        family: {exact: litellm_self_total_requests_total}
+        prometheus: {type: counter, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 25, end: 25}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+  in_flight:
+    registrations:
+      litellm_in_flight_requests:
+        family: {exact: litellm_in_flight_requests}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/proxy/middleware/in_flight_requests_middleware.py
+            range: {start: 67, end: 71}
+          - upstream: litellm
+            path: litellm/proxy/middleware/in_flight_requests_middleware.py
+            range: {start: 73, end: 76}
+  generated_components:
+    registrations:
+      python_created_component:
+        family: {grammar: python_created_family, form: generated}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all: [{axis: mode, op: eq, value: single}]
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 148, end: 152}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 154, end: 158}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 161, end: 166}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 168, end: 173}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 175, end: 187}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 190, end: 194}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 197, end: 201}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 203, end: 207}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 209, end: 213}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 222, end: 226}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 228, end: 232}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 234, end: 238}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 240, end: 244}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 246, end: 250}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 252, end: 256}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 258, end: 262}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 388, end: 393}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 395, end: 401}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 404, end: 409}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 412, end: 417}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 419, end: 423}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 425, end: 429}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 456, end: 461}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 463, end: 467}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 468, end: 472}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 474, end: 478}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 481, end: 485}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 487, end: 491}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 493, end: 497}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 500, end: 504}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 506, end: 510}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 512, end: 516}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 519, end: 523}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 525, end: 529}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 531, end: 535}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 538, end: 542}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 544, end: 548}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 572, end: 582}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 590, end: 595}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 597, end: 607}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 609, end: 613}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 621, end: 625}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 627, end: 631}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 642, end: 646}
+          - upstream: litellm
+            path: litellm/integrations/prometheus.py
+            range: {start: 648, end: 652}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 118, end: 128}
+          - upstream: litellm
+            path: litellm/integrations/prometheus_services.py
+            range: {start: 137, end: 151}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 21, end: 21}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 22, end: 22}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 23, end: 23}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 24, end: 24}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 25, end: 25}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 26, end: 26}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 27, end: 27}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 28, end: 28}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 38, end: 38}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 39, end: 39}
+          - upstream: litellm
+            path: litellm/types/services.py
+            range: {start: 41, end: 41}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 360, end: 367}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 565, end: 572}
+          - upstream: prometheus_client_python
+            path: prometheus_client/metrics.py
+            range: {start: 692, end: 703}

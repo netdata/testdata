@@ -12,6 +12,10 @@ litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-b",api_provi
 litellm_proxy_failed_requests_metric_total{api_key_alias="",api_provider="",client_ip="192.0.2.12",end_user="",exception_class="RateLimitError",exception_status="429",hashed_api_key="",model_id="",org_alias="",org_id="",rate_limit_category="litellm_rate_limit",rate_limit_type="tokens",requested_model="",route="/v1/chat/completions",team="",team_alias="",user="",user_agent="synthetic-client/3",user_email=""} 2.0
 litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-c",api_provider="provider-a",client_ip="192.0.2.11",end_user="consumer-c",exception_class="AuthenticationError",exception_status="401",hashed_api_key="key-hash-c",model_id="model-id-a",org_alias="org-alias-c",org_id="org-c",rate_limit_category="",rate_limit_type="",requested_model="route-model-a",route="/v1/chat/completions",team="team-c",team_alias="team-alias-c",user="user-c",user_agent="synthetic-client/2",user_email="user-c@example.com"} 11.0
 litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-d",api_provider="provider-c",client_ip="192.0.2.13",end_user="consumer-d",exception_class="ConnectionError",exception_status="None",hashed_api_key="key-hash-d",model_id="model-id-c",org_alias="org-alias-d",org_id="org-d",rate_limit_category="",rate_limit_type="",requested_model="route-model-c",route="/v1/responses",team="team-d",team_alias="team-alias-d",user="user-d",user_agent="synthetic-client/4",user_email="user-d@example.com"} 13.0
+litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.20",end_user="consumer-a",exception_class="CoverageWitness",exception_status="101",hashed_api_key="key-hash-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",rate_limit_category="litellm_budget_exceeded",rate_limit_type="budget",requested_model="route-model-a",route="/coverage/1xx",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/coverage",user_email="user-a@example.com"} 0.0
+litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.21",end_user="consumer-a",exception_class="CoverageWitness",exception_status="201",hashed_api_key="key-hash-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",rate_limit_category="litellm_max_iterations",rate_limit_type="max_iterations",requested_model="route-model-a",route="/coverage/2xx",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/coverage",user_email="user-a@example.com"} 0.0
+litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.22",end_user="consumer-a",exception_class="CoverageWitness",exception_status="302",hashed_api_key="key-hash-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",rate_limit_category="vendor_rate_limit",rate_limit_type="concurrency",requested_model="route-model-a",route="/coverage/3xx",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/coverage",user_email="user-a@example.com"} 0.0
+litellm_proxy_failed_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.23",end_user="consumer-a",exception_class="CoverageWitness",exception_status="700",hashed_api_key="key-hash-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",rate_limit_category="",rate_limit_type="",requested_model="route-model-a",route="/coverage/unknown",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/coverage",user_email="user-a@example.com"} 0.0
 # HELP litellm_proxy_total_requests_metric_total Total number of requests made to the proxy server - track number of client side requests
 # TYPE litellm_proxy_total_requests_metric_total counter
 litellm_proxy_total_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",end_user="consumer-a",hashed_api_key="key-hash-a",metadata_project="project-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",requested_model="route-model-a",route="/v1/chat/completions",status_code="200",stream="True",tag_prod="true",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/1",user_email="user-a@example.com"} 3.0
@@ -21,6 +25,8 @@ litellm_proxy_total_requests_metric_total{api_key_alias="",api_provider="",clien
 litellm_proxy_total_requests_metric_total{api_key_alias="key-alias-d",api_provider="provider-a",client_ip="192.0.2.13",end_user="consumer-d",hashed_api_key="key-hash-d",metadata_project="project-a",model_id="model-id-a",org_alias="org-alias-d",org_id="org-d",requested_model="route-model-a",route="/v1/chat/completions",status_code="200",stream="",tag_prod="true",team="team-d",team_alias="team-alias-d",user="user-d",user_agent="synthetic-client/4",user_email="user-d@example.com"} 11.0
 litellm_proxy_total_requests_metric_total{api_key_alias="key-alias-e",api_provider="provider-a",client_ip="192.0.2.14",end_user="consumer-e",hashed_api_key="key-hash-e",metadata_project="project-a",model_id="model-id-a",org_alias="org-alias-e",org_id="org-e",requested_model="route-model-a",route="/redirect",status_code="302",stream="",tag_prod="true",team="team-e",team_alias="team-alias-e",user="user-e",user_agent="synthetic-client/5",user_email="user-e@example.com"} 17.0
 litellm_proxy_total_requests_metric_total{api_key_alias="key-alias-f",api_provider="provider-a",client_ip="192.0.2.15",end_user="consumer-f",hashed_api_key="key-hash-f",metadata_project="project-a",model_id="model-id-a",org_alias="org-alias-f",org_id="org-f",requested_model="route-model-a",route="/v1/chat/completions",status_code="401",stream="",tag_prod="true",team="team-f",team_alias="team-alias-f",user="user-f",user_agent="synthetic-client/6",user_email="user-f@example.com"} 19.0
+litellm_proxy_total_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.24",end_user="consumer-a",hashed_api_key="key-hash-a",metadata_project="project-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",requested_model="route-model-a",route="/coverage/1xx",status_code="101",stream="False",tag_prod="false",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/coverage",user_email="user-a@example.com"} 0.0
+litellm_proxy_total_requests_metric_total{api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.25",end_user="consumer-a",hashed_api_key="key-hash-a",metadata_project="project-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",requested_model="route-model-a",route="/coverage/unknown",status_code="700",stream="False",tag_prod="false",team="team-a",team_alias="team-alias-a",user="user-a",user_agent="synthetic-client/coverage",user_email="user-a@example.com"} 0.0
 # HELP litellm_request_total_latency_metric Total latency (seconds) for a request to LiteLLM
 # TYPE litellm_request_total_latency_metric histogram
 litellm_request_total_latency_metric_bucket{api_key_alias="key-alias-a",api_provider="provider-a",end_user="consumer-a",hashed_api_key="key-hash-a",le="0.005",model="provider-model-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",requested_model="route-model-a",service_tier="priority",team="team-a",team_alias="team-alias-a",user="user-a"} 0.0
@@ -444,14 +450,57 @@ litellm_guardrail_latency_seconds_bucket{error_type="GuardrailError",guardrail_n
 litellm_guardrail_latency_seconds_bucket{error_type="GuardrailError",guardrail_name="safety-a",hook_type="pre_call",le="+Inf",status="error"} 3.0
 litellm_guardrail_latency_seconds_count{error_type="GuardrailError",guardrail_name="safety-a",hook_type="pre_call",status="error"} 3.0
 litellm_guardrail_latency_seconds_sum{error_type="GuardrailError",guardrail_name="safety-a",hook_type="pre_call",status="error"} 2.4
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.005",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.01",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.025",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.05",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.1",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.25",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="0.5",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="1.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="2.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="5.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="10.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="30.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="60.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="120.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="300.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="420.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="600.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",le="+Inf",status="success"} 0.0
+litellm_guardrail_latency_seconds_count{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",status="success"} 0.0
+litellm_guardrail_latency_seconds_sum{error_type="coverage_witness",guardrail_name="safety-a",hook_type="pre_call",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.005",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.01",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.025",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.05",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.1",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.25",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="0.5",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="1.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="2.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="5.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="10.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="30.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="60.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="120.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="300.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="420.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="600.0",status="success"} 0.0
+litellm_guardrail_latency_seconds_bucket{error_type="none",guardrail_name="safety-c",hook_type="during_call",le="+Inf",status="success"} 0.0
+litellm_guardrail_latency_seconds_count{error_type="none",guardrail_name="safety-c",hook_type="during_call",status="success"} 0.0
+litellm_guardrail_latency_seconds_sum{error_type="none",guardrail_name="safety-c",hook_type="during_call",status="success"} 0.0
 # HELP litellm_guardrail_errors_total Total number of errors encountered during guardrail execution
 # TYPE litellm_guardrail_errors_total counter
 litellm_guardrail_errors_total{error_type="GuardrailError",guardrail_name="safety-a",hook_type="pre_call"} 3.0
+litellm_guardrail_errors_total{error_type="CoverageWitness",guardrail_name="safety-b",hook_type="post_call"} 0.0
+litellm_guardrail_errors_total{error_type="CoverageWitness",guardrail_name="safety-c",hook_type="during_call"} 0.0
 # HELP litellm_guardrail_requests_total Total number of guardrail invocations
 # TYPE litellm_guardrail_requests_total counter
-litellm_guardrail_requests_total{guardrail_name="safety-a",hook_type="pre_call",status="success"} 3.0
-litellm_guardrail_requests_total{guardrail_name="safety-b",hook_type="post_call",status="intervened"} 4.0
+litellm_guardrail_requests_total{guardrail_name="safety-a",hook_type="pre_call",status="success"} 2.0
+litellm_guardrail_requests_total{guardrail_name="safety-b",hook_type="post_call",status="intervened"} 2.0
 litellm_guardrail_requests_total{guardrail_name="safety-a",hook_type="pre_call",status="error"} 3.0
+litellm_guardrail_requests_total{guardrail_name="safety-c",hook_type="during_call",status="success"} 0.0
 # HELP litellm_provider_remaining_budget_metric Remaining budget for provider - used when you set provider budget limits
 # TYPE litellm_provider_remaining_budget_metric gauge
 litellm_provider_remaining_budget_metric{api_provider="provider-a",pid="1001"} 7.0
@@ -473,6 +522,11 @@ litellm_deployment_rpm_limit{api_base="https://provider.invalid/v1",api_provider
 litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="429",litellm_model_name="deployment-a",model_id="model-id-a"} 3.0
 litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-b",exception_status="500",litellm_model_name="deployment-b",model_id="model-id-b"} 4.0
 litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="503",litellm_model_name="deployment-a",model_id="model-id-a"} 11.0
+litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="101",litellm_model_name="deployment-a",model_id="model-id-a"} 0.0
+litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="201",litellm_model_name="deployment-a",model_id="model-id-a"} 0.0
+litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="302",litellm_model_name="deployment-a",model_id="model-id-a"} 0.0
+litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="None",litellm_model_name="deployment-a",model_id="model-id-a"} 0.0
+litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="700",litellm_model_name="deployment-a",model_id="model-id-a"} 0.0
 # HELP litellm_deployment_success_responses_total LLM Deployment Analytics - Total number of successful LLM API calls via litellm
 # TYPE litellm_deployment_success_responses_total counter
 litellm_deployment_success_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 3.0
@@ -482,10 +536,16 @@ litellm_deployment_success_responses_total{api_base="https://provider.invalid/v1
 litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",exception_class="RateLimitError",exception_status="429",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 3.0
 litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-b",api_provider="provider-b",client_ip="192.0.2.10",exception_class="ProviderError",exception_status="500",hashed_api_key="key-hash-b",litellm_model_name="deployment-b",model_id="model-id-b",requested_model="route-model-b",team="team-b",team_alias="team-alias-b",user_agent="synthetic-client/1"} 4.0
 litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-c",api_provider="provider-a",client_ip="192.0.2.11",exception_class="TimeoutError",exception_status="504",hashed_api_key="key-hash-c",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-c",team_alias="team-alias-c",user_agent="synthetic-client/2"} 11.0
+litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",exception_class="CoverageWitness",exception_status="101",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 0.0
+litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",exception_class="CoverageWitness",exception_status="201",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 0.0
+litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",exception_class="CoverageWitness",exception_status="302",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 0.0
+litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",exception_class="CoverageWitness",exception_status="None",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 0.0
+litellm_deployment_failure_responses_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",exception_class="CoverageWitness",exception_status="700",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 0.0
 # HELP litellm_deployment_total_requests_total LLM Deployment Analytics - Total number of LLM API calls via litellm - success + failure
 # TYPE litellm_deployment_total_requests_total counter
-litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 3.0
-litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-b",api_provider="provider-b",client_ip="192.0.2.10",hashed_api_key="key-hash-b",litellm_model_name="deployment-b",model_id="model-id-b",requested_model="route-model-b",team="team-b",team_alias="team-alias-b",user_agent="synthetic-client/1"} 4.0
+litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 6.0
+litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-b",api_provider="provider-b",client_ip="192.0.2.10",hashed_api_key="key-hash-b",litellm_model_name="deployment-b",model_id="model-id-b",requested_model="route-model-b",team="team-b",team_alias="team-alias-b",user_agent="synthetic-client/1"} 8.0
+litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-c",api_provider="provider-a",client_ip="192.0.2.11",hashed_api_key="key-hash-c",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-c",team_alias="team-alias-c",user_agent="synthetic-client/2"} 11.0
 # HELP litellm_deployment_latency_per_output_token LLM Deployment Analytics - Latency per output token
 # TYPE litellm_deployment_latency_per_output_token histogram
 litellm_deployment_latency_per_output_token_bucket{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",hashed_api_key="key-hash-a",le="0.005",litellm_model_name="deployment-a",model_id="model-id-a",org_alias="org-alias-a",org_id="org-a",team="team-a",team_alias="team-alias-a"} 0.0
@@ -630,7 +690,7 @@ litellm_redis_failed_requests_total{error_class="error_class-a",function_name="o
 litellm_redis_failed_requests_total{error_class="error_class-a",function_name="operation-b",redis="redis"} 4.0
 # HELP litellm_redis_total_requests_total Total total_requests for redis service
 # TYPE litellm_redis_total_requests_total counter
-litellm_redis_total_requests_total{redis="redis"} 3.0
+litellm_redis_total_requests_total{redis="redis"} 9.0
 # HELP litellm_postgres_latency Latency for postgres service
 # TYPE litellm_postgres_latency histogram
 litellm_postgres_latency_bucket{le="0.005",postgres="postgres"} 0.0
@@ -659,7 +719,7 @@ litellm_postgres_failed_requests_total{error_class="error_class-a",function_name
 litellm_postgres_failed_requests_total{error_class="error_class-a",function_name="operation-b",postgres="postgres"} 4.0
 # HELP litellm_postgres_total_requests_total Total total_requests for postgres service
 # TYPE litellm_postgres_total_requests_total counter
-litellm_postgres_total_requests_total{postgres="postgres"} 3.0
+litellm_postgres_total_requests_total{postgres="postgres"} 9.0
 # HELP litellm_batch_write_to_db_latency Latency for batch_write_to_db service
 # TYPE litellm_batch_write_to_db_latency histogram
 litellm_batch_write_to_db_latency_bucket{batch_write_to_db="batch_write_to_db",le="0.005"} 0.0
@@ -688,7 +748,7 @@ litellm_batch_write_to_db_failed_requests_total{batch_write_to_db="batch_write_t
 litellm_batch_write_to_db_failed_requests_total{batch_write_to_db="batch_write_to_db",error_class="error_class-a",function_name="operation-b"} 4.0
 # HELP litellm_batch_write_to_db_total_requests_total Total total_requests for batch_write_to_db service
 # TYPE litellm_batch_write_to_db_total_requests_total counter
-litellm_batch_write_to_db_total_requests_total{batch_write_to_db="batch_write_to_db"} 3.0
+litellm_batch_write_to_db_total_requests_total{batch_write_to_db="batch_write_to_db"} 9.0
 # HELP litellm_reset_budget_job_latency Latency for reset_budget_job service
 # TYPE litellm_reset_budget_job_latency histogram
 litellm_reset_budget_job_latency_bucket{le="0.005",reset_budget_job="reset_budget_job"} 0.0
@@ -717,7 +777,7 @@ litellm_reset_budget_job_failed_requests_total{error_class="error_class-a",funct
 litellm_reset_budget_job_failed_requests_total{error_class="error_class-a",function_name="operation-b",reset_budget_job="reset_budget_job"} 4.0
 # HELP litellm_reset_budget_job_total_requests_total Total total_requests for reset_budget_job service
 # TYPE litellm_reset_budget_job_total_requests_total counter
-litellm_reset_budget_job_total_requests_total{reset_budget_job="reset_budget_job"} 3.0
+litellm_reset_budget_job_total_requests_total{reset_budget_job="reset_budget_job"} 9.0
 # HELP litellm_self_latency Latency for self service
 # TYPE litellm_self_latency histogram
 litellm_self_latency_bucket{le="0.005",self="self"} 0.0
@@ -746,7 +806,7 @@ litellm_self_failed_requests_total{error_class="error_class-a",function_name="op
 litellm_self_failed_requests_total{error_class="error_class-a",function_name="operation-b",self="self"} 4.0
 # HELP litellm_self_total_requests_total Total total_requests for self service
 # TYPE litellm_self_total_requests_total counter
-litellm_self_total_requests_total{self="self"} 3.0
+litellm_self_total_requests_total{self="self"} 9.0
 # HELP litellm_router_latency Latency for router service
 # TYPE litellm_router_latency histogram
 litellm_router_latency_bucket{le="0.005",router="router"} 0.0
@@ -775,7 +835,7 @@ litellm_router_failed_requests_total{error_class="error_class-a",function_name="
 litellm_router_failed_requests_total{error_class="error_class-a",function_name="operation-b",router="router"} 4.0
 # HELP litellm_router_total_requests_total Total total_requests for router service
 # TYPE litellm_router_total_requests_total counter
-litellm_router_total_requests_total{router="router"} 3.0
+litellm_router_total_requests_total{router="router"} 9.0
 # HELP litellm_auth_latency Latency for auth service
 # TYPE litellm_auth_latency histogram
 litellm_auth_latency_bucket{auth="auth",le="0.005"} 0.0
@@ -804,7 +864,7 @@ litellm_auth_failed_requests_total{auth="auth",error_class="error_class-a",funct
 litellm_auth_failed_requests_total{auth="auth",error_class="error_class-a",function_name="operation-b"} 4.0
 # HELP litellm_auth_total_requests_total Total total_requests for auth service
 # TYPE litellm_auth_total_requests_total counter
-litellm_auth_total_requests_total{auth="auth"} 3.0
+litellm_auth_total_requests_total{auth="auth"} 9.0
 # HELP litellm_proxy_pre_call_latency Latency for proxy_pre_call service
 # TYPE litellm_proxy_pre_call_latency histogram
 litellm_proxy_pre_call_latency_bucket{le="0.005",proxy_pre_call="proxy_pre_call"} 0.0
@@ -833,7 +893,7 @@ litellm_proxy_pre_call_failed_requests_total{error_class="error_class-a",functio
 litellm_proxy_pre_call_failed_requests_total{error_class="error_class-a",function_name="operation-b",proxy_pre_call="proxy_pre_call"} 4.0
 # HELP litellm_proxy_pre_call_total_requests_total Total total_requests for proxy_pre_call service
 # TYPE litellm_proxy_pre_call_total_requests_total counter
-litellm_proxy_pre_call_total_requests_total{proxy_pre_call="proxy_pre_call"} 3.0
+litellm_proxy_pre_call_total_requests_total{proxy_pre_call="proxy_pre_call"} 9.0
 # HELP litellm_pod_lock_manager_size Gauge for pod_lock_manager service
 # TYPE litellm_pod_lock_manager_size gauge
 litellm_pod_lock_manager_size{pod_lock_manager="job-a:pod-a",pid="1001"} 1.0
@@ -880,7 +940,7 @@ litellm_redis_daily_org_spend_update_queue_failed_requests_total{error_class="er
 litellm_redis_daily_org_spend_update_queue_failed_requests_total{error_class="error_class-a",function_name="operation-b",redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 4.0
 # HELP litellm_redis_daily_org_spend_update_queue_total_requests_total Total total_requests for redis_daily_org_spend_update_queue service
 # TYPE litellm_redis_daily_org_spend_update_queue_total_requests_total counter
-litellm_redis_daily_org_spend_update_queue_total_requests_total{redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 3.0
+litellm_redis_daily_org_spend_update_queue_total_requests_total{redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 9.0
 # HELP litellm_redis_daily_team_spend_update_queue_latency Latency for redis_daily_team_spend_update_queue service
 # TYPE litellm_redis_daily_team_spend_update_queue_latency histogram
 litellm_redis_daily_team_spend_update_queue_latency_bucket{le="0.005",redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 0.0
@@ -909,7 +969,7 @@ litellm_redis_daily_team_spend_update_queue_failed_requests_total{error_class="e
 litellm_redis_daily_team_spend_update_queue_failed_requests_total{error_class="error_class-a",function_name="operation-b",redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 4.0
 # HELP litellm_redis_daily_team_spend_update_queue_total_requests_total Total total_requests for redis_daily_team_spend_update_queue service
 # TYPE litellm_redis_daily_team_spend_update_queue_total_requests_total counter
-litellm_redis_daily_team_spend_update_queue_total_requests_total{redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 3.0
+litellm_redis_daily_team_spend_update_queue_total_requests_total{redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 9.0
 # HELP litellm_redis_daily_agent_spend_update_queue_size Gauge for redis_daily_agent_spend_update_queue service
 # TYPE litellm_redis_daily_agent_spend_update_queue_size gauge
 litellm_redis_daily_agent_spend_update_queue_size{redis_daily_agent_spend_update_queue="redis_daily_agent_spend_update_queue-a",pid="1001"} 7.0
@@ -942,7 +1002,7 @@ litellm_redis_daily_tag_spend_update_queue_failed_requests_total{error_class="er
 litellm_redis_daily_tag_spend_update_queue_failed_requests_total{error_class="error_class-a",function_name="operation-b",redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 4.0
 # HELP litellm_redis_daily_tag_spend_update_queue_total_requests_total Total total_requests for redis_daily_tag_spend_update_queue service
 # TYPE litellm_redis_daily_tag_spend_update_queue_total_requests_total counter
-litellm_redis_daily_tag_spend_update_queue_total_requests_total{redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 3.0
+litellm_redis_daily_tag_spend_update_queue_total_requests_total{redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 9.0
 # HELP litellm_in_memory_spend_update_queue_size Gauge for in_memory_spend_update_queue service
 # TYPE litellm_in_memory_spend_update_queue_size gauge
 litellm_in_memory_spend_update_queue_size{in_memory_spend_update_queue="in_memory_spend_update_queue-a",pid="1001"} 7.0

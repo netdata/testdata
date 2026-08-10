@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version: v1
+profile: litellm
+runner: netdata-prometheus-source-registry-v1
+upstreams:
+  litellm:
+    repository: BerriAI/litellm
+    commit: 23de7a15d9d40006ee596e617475ba101d60c5e9
+    paths:
+      - litellm/integrations/prometheus.py
+      - litellm/integrations/prometheus_services.py
+      - litellm/proxy/middleware/in_flight_requests_middleware.py
+      - litellm/types/services.py
+  prometheus_client_python:
+    repository: prometheus/client_python
+    commit: f417f6ea8f058165a1934e368fed245e91aafc14
+    paths:
+      - prometheus_client/metrics.py

@@ -422,23 +422,26 @@ litellm_api_key_budget_remaining_hours_metric{api_key_alias="key-alias-a",hashed
 # HELP litellm_remaining_user_budget_metric Remaining budget for user
 # TYPE litellm_remaining_user_budget_metric gauge
 litellm_remaining_user_budget_metric{user="user-a",user_alias="user-alias-a",user_email="user-a@example.com"} 7.0
+litellm_remaining_user_budget_metric{user="user-a",user_alias="user-alias-witness",user_email="user-a-witness@example.invalid"} 6.0
 litellm_remaining_user_budget_metric{user="user-b",user_alias="user-alias-b",user_email="user-b@example.com"} 8.0
 # HELP litellm_user_max_budget_metric Maximum budget set for user
 # TYPE litellm_user_max_budget_metric gauge
 litellm_user_max_budget_metric{user="user-a",user_alias="user-alias-a",user_email="user-a@example.com"} 7.0
+litellm_user_max_budget_metric{user="user-a",user_alias="user-alias-witness",user_email="user-a-witness@example.invalid"} 6.0
 litellm_user_max_budget_metric{user="user-b",user_alias="user-alias-b",user_email="user-b@example.com"} 8.0
 # HELP litellm_user_budget_remaining_hours_metric Remaining hours for user budget to be reset
 # TYPE litellm_user_budget_remaining_hours_metric gauge
 litellm_user_budget_remaining_hours_metric{user="user-a",user_alias="user-alias-a",user_email="user-a@example.com"} 7.0
+litellm_user_budget_remaining_hours_metric{user="user-a",user_alias="user-alias-witness",user_email="user-a-witness@example.invalid"} 6.0
 litellm_user_budget_remaining_hours_metric{user="user-b",user_alias="user-alias-b",user_email="user-b@example.com"} 8.0
 # HELP litellm_remaining_api_key_requests_for_model Remaining Requests API Key can make for model (model based rpm limit on key)
 # TYPE litellm_remaining_api_key_requests_for_model gauge
 litellm_remaining_api_key_requests_for_model{api_key_alias="key-alias-a",hashed_api_key="key-hash-a",metadata_project="project-a",model="provider-model-a",model_id="model-id-a",tag_prod="false"} 7.0
-litellm_remaining_api_key_requests_for_model{api_key_alias="key-alias-a",hashed_api_key="key-hash-a",metadata_project="project-b",model="provider-model-a",model_id="model-id-a",tag_prod="false"} 7.0
+litellm_remaining_api_key_requests_for_model{api_key_alias="key-alias-a",hashed_api_key="key-hash-a",metadata_project="project-b",model="provider-model-a",model_id="model-id-a",tag_prod="false"} 6.0
 # HELP litellm_remaining_api_key_tokens_for_model Remaining Tokens API Key can make for model (model based tpm limit on key)
 # TYPE litellm_remaining_api_key_tokens_for_model gauge
 litellm_remaining_api_key_tokens_for_model{api_key_alias="key-alias-a",hashed_api_key="key-hash-a",metadata_project="project-a",model="provider-model-a",model_id="model-id-a",tag_prod="false"} 7.0
-litellm_remaining_api_key_tokens_for_model{api_key_alias="key-alias-a",hashed_api_key="key-hash-a",metadata_project="project-b",model="provider-model-a",model_id="model-id-a",tag_prod="false"} 7.0
+litellm_remaining_api_key_tokens_for_model{api_key_alias="key-alias-a",hashed_api_key="key-hash-a",metadata_project="project-b",model="provider-model-a",model_id="model-id-a",tag_prod="false"} 6.0
 # HELP litellm_remaining_requests_metric LLM Deployment Analytics - remaining requests for model, returned from LLM API Provider
 # TYPE litellm_remaining_requests_metric gauge
 litellm_remaining_requests_metric{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",metadata_project="project-a",model_group="model-group-a",model_id="model-id-a",tag_prod="true"} 7.0
@@ -660,8 +663,8 @@ litellm_guardrail_errors_total{error_type="GuardrailError",guardrail_name="safet
 litellm_guardrail_errors_created{error_type="GuardrailError",guardrail_name="safety-a",hook_type="pre_call"} 1700000000.0
 # HELP litellm_guardrail_requests_total Total number of guardrail invocations
 # TYPE litellm_guardrail_requests_total counter
-litellm_guardrail_requests_total{guardrail_name="safety-a",hook_type="pre_call",status="success"} 3.0
-litellm_guardrail_requests_total{guardrail_name="safety-b",hook_type="post_call",status="intervened"} 4.0
+litellm_guardrail_requests_total{guardrail_name="safety-a",hook_type="pre_call",status="success"} 2.0
+litellm_guardrail_requests_total{guardrail_name="safety-b",hook_type="post_call",status="intervened"} 2.0
 litellm_guardrail_requests_total{guardrail_name="safety-a",hook_type="pre_call",status="error"} 3.0
 # HELP litellm_guardrail_requests_created Total number of guardrail invocations
 # TYPE litellm_guardrail_requests_created gauge
@@ -674,12 +677,15 @@ litellm_provider_remaining_budget_metric{api_provider="provider-a"} 7.0
 # HELP litellm_deployment_state LLM Deployment Analytics - The state of the deployment: 0 = healthy, 1 = partial outage, 2 = complete outage
 # TYPE litellm_deployment_state gauge
 litellm_deployment_state{api_base="https://provider.invalid/v1",api_provider="provider-a",litellm_model_name="deployment-a",model_id="model-id-a"} 7.0
+litellm_deployment_state{api_base="https://provider-witness.invalid/v1",api_provider="provider-a",litellm_model_name="deployment-a",model_id="model-id-a"} 6.0
 # HELP litellm_deployment_tpm_limit Deployment TPM limit found in config
 # TYPE litellm_deployment_tpm_limit gauge
 litellm_deployment_tpm_limit{api_base="https://provider.invalid/v1",api_provider="provider-a",litellm_model_name="deployment-a",model_id="model-id-a"} 7.0
+litellm_deployment_tpm_limit{api_base="https://provider-witness.invalid/v1",api_provider="provider-a",litellm_model_name="deployment-a",model_id="model-id-a"} 6.0
 # HELP litellm_deployment_rpm_limit Deployment RPM limit found in config
 # TYPE litellm_deployment_rpm_limit gauge
 litellm_deployment_rpm_limit{api_base="https://provider.invalid/v1",api_provider="provider-a",litellm_model_name="deployment-a",model_id="model-id-a"} 7.0
+litellm_deployment_rpm_limit{api_base="https://provider-witness.invalid/v1",api_provider="provider-a",litellm_model_name="deployment-a",model_id="model-id-a"} 6.0
 # HELP litellm_deployment_cooled_down_total LLM Deployment Analytics - Number of times a deployment has been cooled down by LiteLLM load balancing logic. exception_status is the status of the exception that caused the deployment to be cooled down
 # TYPE litellm_deployment_cooled_down_total counter
 litellm_deployment_cooled_down_total{api_base="https://provider.invalid/v1",api_provider="provider-a",exception_status="429",litellm_model_name="deployment-a",model_id="model-id-a"} 3.0
@@ -714,9 +720,10 @@ litellm_deployment_failure_responses_created{api_base="https://provider.invalid/
 litellm_deployment_failure_responses_created{api_base="https://provider.invalid/v1",api_key_alias="key-alias-c",api_provider="provider-a",client_ip="192.0.2.11",exception_class="TimeoutError",exception_status="504",hashed_api_key="key-hash-c",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-c",team_alias="team-alias-c",user_agent="synthetic-client/2"} 1700000000.0
 # HELP litellm_deployment_total_requests_total LLM Deployment Analytics - Total number of LLM API calls via litellm - success + failure
 # TYPE litellm_deployment_total_requests_total counter
-litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 3.0
+litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 6.0
 litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="198.51.100.254",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 7.0
-litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-b",api_provider="provider-b",client_ip="192.0.2.10",hashed_api_key="key-hash-b",litellm_model_name="deployment-b",model_id="model-id-b",requested_model="route-model-b",team="team-b",team_alias="team-alias-b",user_agent="synthetic-client/1"} 4.0
+litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-b",api_provider="provider-b",client_ip="192.0.2.10",hashed_api_key="key-hash-b",litellm_model_name="deployment-b",model_id="model-id-b",requested_model="route-model-b",team="team-b",team_alias="team-alias-b",user_agent="synthetic-client/1"} 8.0
+litellm_deployment_total_requests_total{api_base="https://provider.invalid/v1",api_key_alias="key-alias-c",api_provider="provider-a",client_ip="192.0.2.11",hashed_api_key="key-hash-c",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-c",team_alias="team-alias-c",user_agent="synthetic-client/2"} 11.0
 # HELP litellm_deployment_total_requests_created LLM Deployment Analytics - Total number of LLM API calls via litellm - success + failure
 # TYPE litellm_deployment_total_requests_created gauge
 litellm_deployment_total_requests_created{api_base="https://provider.invalid/v1",api_key_alias="key-alias-a",api_provider="provider-a",client_ip="192.0.2.10",hashed_api_key="key-hash-a",litellm_model_name="deployment-a",model_id="model-id-a",requested_model="route-model-a",team="team-a",team_alias="team-alias-a",user_agent="synthetic-client/1"} 1700000000.0
@@ -965,7 +972,7 @@ litellm_redis_failed_requests_created{error_class="error_class-a",function_name=
 litellm_redis_failed_requests_created{error_class="error_class-a",function_name="operation-b",redis="redis"} 1700000000.0
 # HELP litellm_redis_total_requests_total Total total_requests for redis service
 # TYPE litellm_redis_total_requests_total counter
-litellm_redis_total_requests_total{redis="redis"} 3.0
+litellm_redis_total_requests_total{redis="redis"} 9.0
 # HELP litellm_redis_total_requests_created Total total_requests for redis service
 # TYPE litellm_redis_total_requests_created gauge
 litellm_redis_total_requests_created{redis="redis"} 1700000000.0
@@ -1004,7 +1011,7 @@ litellm_postgres_failed_requests_created{error_class="error_class-a",function_na
 litellm_postgres_failed_requests_created{error_class="error_class-a",function_name="operation-b",postgres="postgres"} 1700000000.0
 # HELP litellm_postgres_total_requests_total Total total_requests for postgres service
 # TYPE litellm_postgres_total_requests_total counter
-litellm_postgres_total_requests_total{postgres="postgres"} 3.0
+litellm_postgres_total_requests_total{postgres="postgres"} 9.0
 # HELP litellm_postgres_total_requests_created Total total_requests for postgres service
 # TYPE litellm_postgres_total_requests_created gauge
 litellm_postgres_total_requests_created{postgres="postgres"} 1700000000.0
@@ -1043,7 +1050,7 @@ litellm_batch_write_to_db_failed_requests_created{batch_write_to_db="batch_write
 litellm_batch_write_to_db_failed_requests_created{batch_write_to_db="batch_write_to_db",error_class="error_class-a",function_name="operation-b"} 1700000000.0
 # HELP litellm_batch_write_to_db_total_requests_total Total total_requests for batch_write_to_db service
 # TYPE litellm_batch_write_to_db_total_requests_total counter
-litellm_batch_write_to_db_total_requests_total{batch_write_to_db="batch_write_to_db"} 3.0
+litellm_batch_write_to_db_total_requests_total{batch_write_to_db="batch_write_to_db"} 9.0
 # HELP litellm_batch_write_to_db_total_requests_created Total total_requests for batch_write_to_db service
 # TYPE litellm_batch_write_to_db_total_requests_created gauge
 litellm_batch_write_to_db_total_requests_created{batch_write_to_db="batch_write_to_db"} 1700000000.0
@@ -1082,7 +1089,7 @@ litellm_reset_budget_job_failed_requests_created{error_class="error_class-a",fun
 litellm_reset_budget_job_failed_requests_created{error_class="error_class-a",function_name="operation-b",reset_budget_job="reset_budget_job"} 1700000000.0
 # HELP litellm_reset_budget_job_total_requests_total Total total_requests for reset_budget_job service
 # TYPE litellm_reset_budget_job_total_requests_total counter
-litellm_reset_budget_job_total_requests_total{reset_budget_job="reset_budget_job"} 3.0
+litellm_reset_budget_job_total_requests_total{reset_budget_job="reset_budget_job"} 9.0
 # HELP litellm_reset_budget_job_total_requests_created Total total_requests for reset_budget_job service
 # TYPE litellm_reset_budget_job_total_requests_created gauge
 litellm_reset_budget_job_total_requests_created{reset_budget_job="reset_budget_job"} 1700000000.0
@@ -1121,7 +1128,7 @@ litellm_self_failed_requests_created{error_class="error_class-a",function_name="
 litellm_self_failed_requests_created{error_class="error_class-a",function_name="operation-b",self="self"} 1700000000.0
 # HELP litellm_self_total_requests_total Total total_requests for self service
 # TYPE litellm_self_total_requests_total counter
-litellm_self_total_requests_total{self="self"} 3.0
+litellm_self_total_requests_total{self="self"} 9.0
 # HELP litellm_self_total_requests_created Total total_requests for self service
 # TYPE litellm_self_total_requests_created gauge
 litellm_self_total_requests_created{self="self"} 1700000000.0
@@ -1160,7 +1167,7 @@ litellm_router_failed_requests_created{error_class="error_class-a",function_name
 litellm_router_failed_requests_created{error_class="error_class-a",function_name="operation-b",router="router"} 1700000000.0
 # HELP litellm_router_total_requests_total Total total_requests for router service
 # TYPE litellm_router_total_requests_total counter
-litellm_router_total_requests_total{router="router"} 3.0
+litellm_router_total_requests_total{router="router"} 9.0
 # HELP litellm_router_total_requests_created Total total_requests for router service
 # TYPE litellm_router_total_requests_created gauge
 litellm_router_total_requests_created{router="router"} 1700000000.0
@@ -1199,7 +1206,7 @@ litellm_auth_failed_requests_created{auth="auth",error_class="error_class-a",fun
 litellm_auth_failed_requests_created{auth="auth",error_class="error_class-a",function_name="operation-b"} 1700000000.0
 # HELP litellm_auth_total_requests_total Total total_requests for auth service
 # TYPE litellm_auth_total_requests_total counter
-litellm_auth_total_requests_total{auth="auth"} 3.0
+litellm_auth_total_requests_total{auth="auth"} 9.0
 # HELP litellm_auth_total_requests_created Total total_requests for auth service
 # TYPE litellm_auth_total_requests_created gauge
 litellm_auth_total_requests_created{auth="auth"} 1700000000.0
@@ -1238,7 +1245,7 @@ litellm_proxy_pre_call_failed_requests_created{error_class="error_class-a",funct
 litellm_proxy_pre_call_failed_requests_created{error_class="error_class-a",function_name="operation-b",proxy_pre_call="proxy_pre_call"} 1700000000.0
 # HELP litellm_proxy_pre_call_total_requests_total Total total_requests for proxy_pre_call service
 # TYPE litellm_proxy_pre_call_total_requests_total counter
-litellm_proxy_pre_call_total_requests_total{proxy_pre_call="proxy_pre_call"} 3.0
+litellm_proxy_pre_call_total_requests_total{proxy_pre_call="proxy_pre_call"} 9.0
 # HELP litellm_proxy_pre_call_total_requests_created Total total_requests for proxy_pre_call service
 # TYPE litellm_proxy_pre_call_total_requests_created gauge
 litellm_proxy_pre_call_total_requests_created{proxy_pre_call="proxy_pre_call"} 1700000000.0
@@ -1290,7 +1297,7 @@ litellm_redis_daily_org_spend_update_queue_failed_requests_created{error_class="
 litellm_redis_daily_org_spend_update_queue_failed_requests_created{error_class="error_class-a",function_name="operation-b",redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 1700000000.0
 # HELP litellm_redis_daily_org_spend_update_queue_total_requests_total Total total_requests for redis_daily_org_spend_update_queue service
 # TYPE litellm_redis_daily_org_spend_update_queue_total_requests_total counter
-litellm_redis_daily_org_spend_update_queue_total_requests_total{redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 3.0
+litellm_redis_daily_org_spend_update_queue_total_requests_total{redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 9.0
 # HELP litellm_redis_daily_org_spend_update_queue_total_requests_created Total total_requests for redis_daily_org_spend_update_queue service
 # TYPE litellm_redis_daily_org_spend_update_queue_total_requests_created gauge
 litellm_redis_daily_org_spend_update_queue_total_requests_created{redis_daily_org_spend_update_queue="redis_daily_org_spend_update_queue"} 1700000000.0
@@ -1329,7 +1336,7 @@ litellm_redis_daily_team_spend_update_queue_failed_requests_created{error_class=
 litellm_redis_daily_team_spend_update_queue_failed_requests_created{error_class="error_class-a",function_name="operation-b",redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 1700000000.0
 # HELP litellm_redis_daily_team_spend_update_queue_total_requests_total Total total_requests for redis_daily_team_spend_update_queue service
 # TYPE litellm_redis_daily_team_spend_update_queue_total_requests_total counter
-litellm_redis_daily_team_spend_update_queue_total_requests_total{redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 3.0
+litellm_redis_daily_team_spend_update_queue_total_requests_total{redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 9.0
 # HELP litellm_redis_daily_team_spend_update_queue_total_requests_created Total total_requests for redis_daily_team_spend_update_queue service
 # TYPE litellm_redis_daily_team_spend_update_queue_total_requests_created gauge
 litellm_redis_daily_team_spend_update_queue_total_requests_created{redis_daily_team_spend_update_queue="redis_daily_team_spend_update_queue"} 1700000000.0
@@ -1371,7 +1378,7 @@ litellm_redis_daily_tag_spend_update_queue_failed_requests_created{error_class="
 litellm_redis_daily_tag_spend_update_queue_failed_requests_created{error_class="error_class-a",function_name="operation-b",redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 1700000000.0
 # HELP litellm_redis_daily_tag_spend_update_queue_total_requests_total Total total_requests for redis_daily_tag_spend_update_queue service
 # TYPE litellm_redis_daily_tag_spend_update_queue_total_requests_total counter
-litellm_redis_daily_tag_spend_update_queue_total_requests_total{redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 3.0
+litellm_redis_daily_tag_spend_update_queue_total_requests_total{redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 9.0
 # HELP litellm_redis_daily_tag_spend_update_queue_total_requests_created Total total_requests for redis_daily_tag_spend_update_queue service
 # TYPE litellm_redis_daily_tag_spend_update_queue_total_requests_created gauge
 litellm_redis_daily_tag_spend_update_queue_total_requests_created{redis_daily_tag_spend_update_queue="redis_daily_tag_spend_update_queue"} 1700000000.0
