@@ -8,6 +8,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from source_registry_client_python import parse_created_emitters as parse_client_created_emitters
+
 
 VLLM_ROOT = Path("upstreams/vllm")
 CLIENT_SOURCE = Path("upstreams/prometheus_client_python/prometheus_client/metrics.py")
@@ -300,33 +302,7 @@ def _deduplicate_registrations(registrations: list[Registration]) -> list[Regist
 
 
 def parse_created_emitters(source: str) -> dict[str, tuple[int, int]]:
-    tree = ast.parse(source)
-    result: dict[str, tuple[int, int]] = {}
-    for class_name in ("Counter", "Histogram"):
-        classes = [node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == class_name]
-        if len(classes) != 1:
-            raise ValueError(f"expected exactly one {class_name} class, found {len(classes)}")
-        methods = [
-            node
-            for node in classes[0].body
-            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "_child_samples"
-        ]
-        if len(methods) != 1:
-            raise ValueError(f"{class_name} must define exactly one _child_samples method")
-        method = methods[0]
-        created = [
-            node
-            for node in ast.walk(method)
-            if isinstance(node, ast.Call)
-            and _terminal_name(node.func) == "Sample"
-            and node.args
-            and isinstance(node.args[0], ast.Constant)
-            and node.args[0].value == "_created"
-        ]
-        if len(created) != 1 or not any(isinstance(node, ast.Name) and node.id == "_use_created" for node in ast.walk(method)):
-            raise ValueError(f"{class_name} does not have one gated _created sample")
-        result[class_name] = (method.lineno, method.end_lineno or method.lineno)
-    return result
+    return parse_client_created_emitters(source, ("Counter", "Histogram"))
 
 
 def validate_ray_transport(wrapper: str, agent: str, tags: str) -> None:

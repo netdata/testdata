@@ -20,6 +20,7 @@ MANIFEST_NAME = "SOURCE-REGISTRY.generator.yaml"
 REGISTRY_NAME = "SOURCE-REGISTRY.yaml"
 GENERATOR_DIRECTORY = "generator"
 GENERATOR_ENTRYPOINT = "generate.py"
+SHARED_GENERATOR_RUNTIME = "source_registry_client_python.py"
 ID_PATTERN = re.compile(r"[a-z][a-z0-9_]*\Z")
 REPOSITORY_PATTERN = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\Z")
 COMMIT_PATTERN = re.compile(r"[0-9a-f]{40}\Z")
@@ -146,6 +147,10 @@ def verify_profile(profile_directory: Path) -> None:
         target_generator.mkdir()
         for source in generator_files:
             shutil.copyfile(source, target_generator / source.name)
+        shutil.copyfile(
+            Path(__file__).with_name(SHARED_GENERATOR_RUNTIME),
+            target_generator / SHARED_GENERATOR_RUNTIME,
+        )
         _make_read_only(work)
 
         _run_isolated(
@@ -164,9 +169,18 @@ def verify_profile(profile_directory: Path) -> None:
             ],
             capture=False,
         )
+        generator_entrypoint = f"{GENERATOR_DIRECTORY}/{GENERATOR_ENTRYPOINT}"
         generated = _run_isolated(
             work,
-            [sys.executable, "-I", "-B", f"{GENERATOR_DIRECTORY}/{GENERATOR_ENTRYPOINT}"],
+            [
+                sys.executable,
+                "-I",
+                "-B",
+                "-c",
+                "import runpy,sys;"
+                f"sys.path.insert(0,{GENERATOR_DIRECTORY!r});"
+                f"runpy.run_path({generator_entrypoint!r},run_name='__main__')",
+            ],
             capture=True,
         )
         committed = registry_path.read_bytes()

@@ -25,9 +25,10 @@ Run all generated-registry checks from the repository root:
 python3 prometheus/tools/source_registry_runner.py
 ```
 
-The fixed runner fetches each declared full upstream commit, exposes only declared source files and the reviewed generator
-directory, runs conventionally discovered fail-closed tests with network and writes disabled, and compares generated stdout
-byte-for-byte with the committed registry. Generators use only the Python standard library.
+The fixed runner fetches each declared full upstream commit, exposes only declared source files, the reviewed generator
+directory, and its shared `prometheus_client` source parser, runs conventionally discovered fail-closed tests with network
+and writes disabled, and compares generated stdout byte-for-byte with the committed registry. Generators use only the
+Python standard library.
 
 ## Consumer contract
 

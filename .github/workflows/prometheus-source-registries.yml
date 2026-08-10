@@ -7,7 +7,7 @@ on:
       - 'prometheus/profiles/**/SOURCE-REGISTRY.generator.yaml'
       - 'prometheus/profiles/**/SOURCE-REGISTRY.yaml'
       - 'prometheus/profiles/**/generator/**'
-      - 'prometheus/tools/source_registry_runner.py'
+      - 'prometheus/tools/**'
   push:
     branches: [master]
     paths:
@@ -15,7 +15,7 @@ on:
       - 'prometheus/profiles/**/SOURCE-REGISTRY.generator.yaml'
       - 'prometheus/profiles/**/SOURCE-REGISTRY.yaml'
       - 'prometheus/profiles/**/generator/**'
-      - 'prometheus/tools/source_registry_runner.py'
+      - 'prometheus/tools/**'
 
 permissions:
   contents: read
@@ -26,5 +26,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - name: Test shared generator runtime
+        run: python3 -m unittest discover -s prometheus/tools -p 'test_*.py'
       - name: Reproduce generated registries
         run: python3 prometheus/tools/source_registry_runner.py

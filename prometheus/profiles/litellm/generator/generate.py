@@ -8,6 +8,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from source_registry_client_python import parse_created_emitters
+
 
 PROMETHEUS_SOURCE = Path("upstreams/litellm/litellm/integrations/prometheus.py")
 SERVICES_SOURCE = Path("upstreams/litellm/litellm/integrations/prometheus_services.py")
@@ -216,29 +218,6 @@ def parse_in_flight_metric(source: str) -> MetricRegistration:
         locations=locations,
         emits_created=False,
     )
-
-
-def parse_created_emitters(source: str) -> dict[str, tuple[int, int]]:
-    tree = ast.parse(source)
-    result: dict[str, tuple[int, int]] = {}
-    for class_name in ("Counter", "Summary", "Histogram"):
-        metric_class = _one_named(tree.body, ast.ClassDef, class_name)
-        method = _one_named(metric_class.body, (ast.FunctionDef, ast.AsyncFunctionDef), "_child_samples")
-        created_samples = [
-            node
-            for node in ast.walk(method)
-            if isinstance(node, ast.Call)
-            and isinstance(node.func, ast.Name)
-            and node.func.id == "Sample"
-            and node.args
-            and isinstance(node.args[0], ast.Constant)
-            and node.args[0].value == "_created"
-        ]
-        uses_gate = any(isinstance(node, ast.Name) and node.id == "_use_created" for node in ast.walk(method))
-        if len(created_samples) != 1 or not uses_gate:
-            raise ValueError(f"{class_name} does not have one gated _created sample")
-        result[class_name] = (method.lineno, method.end_lineno or method.lineno)
-    return result
 
 
 def generate_registry(
