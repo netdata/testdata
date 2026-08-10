@@ -2169,6 +2169,7 @@ groups:
     registrations:
       dpdk_port_dpdk_device_receive_badcrc_errors:
         family: {grammar: dpdk_port, form: dpdk_device_receive_badcrc_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2195,6 +2196,7 @@ groups:
             range: {start: 828, end: 828}
       dpdk_port_dpdk_device_receive_dropped_errors:
         family: {grammar: dpdk_port, form: dpdk_device_receive_dropped_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2221,6 +2223,7 @@ groups:
             range: {start: 832, end: 832}
       dpdk_port_dpdk_device_receive_multicast_packets:
         family: {grammar: dpdk_port, form: dpdk_device_receive_multicast_packets}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2247,6 +2250,7 @@ groups:
             range: {start: 827, end: 827}
       dpdk_port_dpdk_device_receive_nombuf_errors:
         family: {grammar: dpdk_port, form: dpdk_device_receive_nombuf_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2273,6 +2277,7 @@ groups:
             range: {start: 833, end: 833}
       dpdk_port_dpdk_device_receive_total_errors:
         family: {grammar: dpdk_port, form: dpdk_device_receive_total_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2299,6 +2304,7 @@ groups:
             range: {start: 830, end: 830}
       dpdk_port_dpdk_device_send_total_errors:
         family: {grammar: dpdk_port, form: dpdk_device_send_total_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2325,6 +2331,7 @@ groups:
             range: {start: 831, end: 831}
       dpdk_queue_dpdk_receive_bad_checksum_errors:
         family: {grammar: dpdk_queue, form: dpdk_receive_bad_checksum_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2351,6 +2358,7 @@ groups:
             range: {start: 652, end: 652}
       dpdk_queue_dpdk_receive_bytes:
         family: {grammar: dpdk_queue, form: dpdk_receive_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2377,6 +2385,7 @@ groups:
             range: {start: 654, end: 654}
       dpdk_queue_dpdk_receive_copy_bytes:
         family: {grammar: dpdk_queue, form: dpdk_receive_copy_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2403,6 +2412,7 @@ groups:
             range: {start: 662, end: 662}
       dpdk_queue_dpdk_receive_copy_ops:
         family: {grammar: dpdk_queue, form: dpdk_receive_copy_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2429,6 +2439,7 @@ groups:
             range: {start: 660, end: 660}
       dpdk_queue_dpdk_receive_fragments:
         family: {grammar: dpdk_queue, form: dpdk_receive_fragments}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2455,6 +2466,7 @@ groups:
             range: {start: 658, end: 658}
       dpdk_queue_dpdk_receive_last_bunch:
         family: {grammar: dpdk_queue, form: dpdk_receive_last_bunch}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2481,6 +2493,7 @@ groups:
             range: {start: 656, end: 656}
       dpdk_queue_dpdk_receive_linearize_ops:
         family: {grammar: dpdk_queue, form: dpdk_receive_linearize_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2507,6 +2520,7 @@ groups:
             range: {start: 664, end: 664}
       dpdk_queue_dpdk_receive_no_memory_errors:
         family: {grammar: dpdk_queue, form: dpdk_receive_no_memory_errors}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2533,6 +2547,7 @@ groups:
             range: {start: 653, end: 653}
       dpdk_queue_dpdk_receive_packets:
         family: {grammar: dpdk_queue, form: dpdk_receive_packets}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2559,6 +2574,7 @@ groups:
             range: {start: 650, end: 650}
       dpdk_queue_dpdk_send_bytes:
         family: {grammar: dpdk_queue, form: dpdk_send_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2585,6 +2601,7 @@ groups:
             range: {start: 655, end: 655}
       dpdk_queue_dpdk_send_copy_bytes:
         family: {grammar: dpdk_queue, form: dpdk_send_copy_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2611,6 +2628,7 @@ groups:
             range: {start: 663, end: 663}
       dpdk_queue_dpdk_send_copy_ops:
         family: {grammar: dpdk_queue, form: dpdk_send_copy_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2637,6 +2655,7 @@ groups:
             range: {start: 661, end: 661}
       dpdk_queue_dpdk_send_fragments:
         family: {grammar: dpdk_queue, form: dpdk_send_fragments}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2663,6 +2682,7 @@ groups:
             range: {start: 659, end: 659}
       dpdk_queue_dpdk_send_last_bunch:
         family: {grammar: dpdk_queue, form: dpdk_send_last_bunch}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2689,6 +2709,7 @@ groups:
             range: {start: 657, end: 657}
       dpdk_queue_dpdk_send_linearize_ops:
         family: {grammar: dpdk_queue, form: dpdk_send_linearize_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2715,6 +2736,7 @@ groups:
             range: {start: 665, end: 665}
       dpdk_queue_dpdk_send_packets:
         family: {grammar: dpdk_queue, form: dpdk_send_packets}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2741,6 +2763,7 @@ groups:
             range: {start: 651, end: 651}
       dpdk_queue_dpdk_send_queue_length:
         family: {grammar: dpdk_queue, form: dpdk_send_queue_length}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2767,6 +2790,7 @@ groups:
             range: {start: 666, end: 666}
       finisher_complete_latency_count:
         family: {grammar: finisher, form: complete_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2793,6 +2817,7 @@ groups:
             range: {start: 32, end: 32}
       finisher_queue_len:
         family: {grammar: finisher, form: queue_len}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -2819,6 +2844,7 @@ groups:
             range: {start: 31, end: 31}
       kernel_device_discard_op:
         family: {grammar: kernel_device, form: discard_op}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2845,6 +2871,7 @@ groups:
             range: {start: 106, end: 107}
       kernel_device_discard_threads:
         family: {grammar: kernel_device, form: discard_threads}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2871,6 +2898,7 @@ groups:
             range: {start: 108, end: 109}
       librbd_image_cmp:
         family: {grammar: librbd_image, form: cmp}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2897,6 +2925,7 @@ groups:
             range: {start: 283, end: 283}
       librbd_image_cmp_bytes:
         family: {grammar: librbd_image, form: cmp_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2923,6 +2952,7 @@ groups:
             range: {start: 284, end: 284}
       librbd_image_cmp_latency_count:
         family: {grammar: librbd_image, form: cmp_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2949,6 +2979,7 @@ groups:
             range: {start: 285, end: 285}
       librbd_image_discard:
         family: {grammar: librbd_image, form: discard}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -2975,6 +3006,7 @@ groups:
             range: {start: 275, end: 275}
       librbd_image_discard_bytes:
         family: {grammar: librbd_image, form: discard_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3001,6 +3033,7 @@ groups:
             range: {start: 276, end: 276}
       librbd_image_discard_latency_count:
         family: {grammar: librbd_image, form: discard_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3027,6 +3060,7 @@ groups:
             range: {start: 277, end: 277}
       librbd_image_flush:
         family: {grammar: librbd_image, form: flush}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3053,6 +3087,7 @@ groups:
             range: {start: 278, end: 278}
       librbd_image_flush_latency_count:
         family: {grammar: librbd_image, form: flush_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3079,6 +3114,7 @@ groups:
             range: {start: 279, end: 279}
       librbd_image_invalidate_cache:
         family: {grammar: librbd_image, form: invalidate_cache}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3105,6 +3141,7 @@ groups:
             range: {start: 294, end: 294}
       librbd_image_lock_acquired_time:
         family: {grammar: librbd_image, form: lock_acquired_time}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -3131,6 +3168,7 @@ groups:
             range: {start: 298, end: 299}
       librbd_image_notify:
         family: {grammar: librbd_image, form: notify}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3157,6 +3195,7 @@ groups:
             range: {start: 290, end: 290}
       librbd_image_opened_time:
         family: {grammar: librbd_image, form: opened_time}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -3183,6 +3222,7 @@ groups:
             range: {start: 296, end: 297}
       librbd_image_rd:
         family: {grammar: librbd_image, form: rd}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3209,6 +3249,7 @@ groups:
             range: {start: 265, end: 265}
       librbd_image_rd_bytes:
         family: {grammar: librbd_image, form: rd_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3235,6 +3276,7 @@ groups:
             range: {start: 266, end: 267}
       librbd_image_rd_latency_count:
         family: {grammar: librbd_image, form: rd_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3261,6 +3303,7 @@ groups:
             range: {start: 268, end: 269}
       librbd_image_readahead:
         family: {grammar: librbd_image, form: readahead}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3287,6 +3330,7 @@ groups:
             range: {start: 292, end: 292}
       librbd_image_readahead_bytes:
         family: {grammar: librbd_image, form: readahead_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3313,6 +3357,7 @@ groups:
             range: {start: 293, end: 293}
       librbd_image_resize:
         family: {grammar: librbd_image, form: resize}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3339,6 +3384,7 @@ groups:
             range: {start: 291, end: 291}
       librbd_image_snap_create:
         family: {grammar: librbd_image, form: snap_create}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3365,6 +3411,7 @@ groups:
             range: {start: 286, end: 286}
       librbd_image_snap_remove:
         family: {grammar: librbd_image, form: snap_remove}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3391,6 +3438,7 @@ groups:
             range: {start: 287, end: 287}
       librbd_image_snap_rename:
         family: {grammar: librbd_image, form: snap_rename}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3417,6 +3465,7 @@ groups:
             range: {start: 289, end: 289}
       librbd_image_snap_rollback:
         family: {grammar: librbd_image, form: snap_rollback}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3443,6 +3492,7 @@ groups:
             range: {start: 288, end: 288}
       librbd_image_wr:
         family: {grammar: librbd_image, form: wr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3469,6 +3519,7 @@ groups:
             range: {start: 270, end: 270}
       librbd_image_wr_bytes:
         family: {grammar: librbd_image, form: wr_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3495,6 +3546,7 @@ groups:
             range: {start: 271, end: 272}
       librbd_image_wr_latency_count:
         family: {grammar: librbd_image, form: wr_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3521,6 +3573,7 @@ groups:
             range: {start: 273, end: 274}
       librbd_image_ws:
         family: {grammar: librbd_image, form: ws}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3547,6 +3600,7 @@ groups:
             range: {start: 280, end: 280}
       librbd_image_ws_bytes:
         family: {grammar: librbd_image, form: ws_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3573,6 +3627,7 @@ groups:
             range: {start: 281, end: 281}
       librbd_image_ws_latency_count:
         family: {grammar: librbd_image, form: ws_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3599,6 +3654,7 @@ groups:
             range: {start: 282, end: 282}
       librbd_pwl_aio_flush:
         family: {grammar: librbd_pwl, form: aio_flush}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3625,6 +3681,7 @@ groups:
             range: {start: 256, end: 256}
       librbd_pwl_aio_flush_def:
         family: {grammar: librbd_pwl, form: aio_flush_def}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3651,6 +3708,7 @@ groups:
             range: {start: 257, end: 257}
       librbd_pwl_aio_flush_lat_count:
         family: {grammar: librbd_pwl, form: aio_flush_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3677,6 +3735,7 @@ groups:
             range: {start: 258, end: 258}
       librbd_pwl_append_tx_lat_count:
         family: {grammar: librbd_pwl, form: append_tx_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3703,6 +3762,7 @@ groups:
             range: {start: 274, end: 274}
       librbd_pwl_caller_wr_latency_count:
         family: {grammar: librbd_pwl, form: caller_wr_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3729,6 +3789,7 @@ groups:
             range: {start: 196, end: 198}
       librbd_pwl_caller_wr_latency_nw_count:
         family: {grammar: librbd_pwl, form: caller_wr_latency_nw_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3755,6 +3816,7 @@ groups:
             range: {start: 215, end: 217}
       librbd_pwl_cmp:
         family: {grammar: librbd_pwl, form: cmp}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3781,6 +3843,7 @@ groups:
             range: {start: 264, end: 264}
       librbd_pwl_cmp_bytes:
         family: {grammar: librbd_pwl, form: cmp_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3807,6 +3870,7 @@ groups:
             range: {start: 265, end: 265}
       librbd_pwl_cmp_fails:
         family: {grammar: librbd_pwl, form: cmp_fails}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3833,6 +3897,7 @@ groups:
             range: {start: 267, end: 267}
       librbd_pwl_cmp_lat_count:
         family: {grammar: librbd_pwl, form: cmp_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3859,6 +3924,7 @@ groups:
             range: {start: 266, end: 266}
       librbd_pwl_discard:
         family: {grammar: librbd_pwl, form: discard}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3894,6 +3960,7 @@ groups:
             range: {start: 272, end: 272}
       librbd_pwl_discard_bytes:
         family: {grammar: librbd_pwl, form: discard_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3920,6 +3987,7 @@ groups:
             range: {start: 253, end: 253}
       librbd_pwl_discard_lat_count:
         family: {grammar: librbd_pwl, form: discard_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3946,6 +4014,7 @@ groups:
             range: {start: 254, end: 254}
       librbd_pwl_hit_rd:
         family: {grammar: librbd_pwl, form: hit_rd}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3972,6 +4041,7 @@ groups:
             range: {start: 157, end: 157}
       librbd_pwl_hit_rd_latency_count:
         family: {grammar: librbd_pwl, form: hit_rd_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -3998,6 +4068,7 @@ groups:
             range: {start: 159, end: 159}
       librbd_pwl_internal_flush:
         family: {grammar: librbd_pwl, form: internal_flush}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4024,6 +4095,7 @@ groups:
             range: {start: 269, end: 269}
       librbd_pwl_invalidate:
         family: {grammar: librbd_pwl, form: invalidate}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4050,6 +4122,7 @@ groups:
             range: {start: 271, end: 271}
       librbd_pwl_log_op_bytes_count:
         family: {grammar: librbd_pwl, form: log_op_bytes_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4076,6 +4149,7 @@ groups:
             range: {start: 178, end: 178}
       librbd_pwl_log_ops:
         family: {grammar: librbd_pwl, form: log_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4102,6 +4176,7 @@ groups:
             range: {start: 177, end: 177}
       librbd_pwl_op_alloc_t_count:
         family: {grammar: librbd_pwl, form: op_alloc_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4128,6 +4203,7 @@ groups:
             range: {start: 218, end: 218}
       librbd_pwl_op_app_to_appc_t_count:
         family: {grammar: librbd_pwl, form: op_app_to_appc_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4154,6 +4230,7 @@ groups:
             range: {start: 244, end: 246}
       librbd_pwl_op_app_to_cmp_t_count:
         family: {grammar: librbd_pwl, form: op_app_to_cmp_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4180,6 +4257,7 @@ groups:
             range: {start: 241, end: 243}
       librbd_pwl_op_buf_to_app_t_count:
         family: {grammar: librbd_pwl, form: op_buf_to_app_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4206,6 +4284,7 @@ groups:
             range: {start: 231, end: 233}
       librbd_pwl_op_buf_to_bufc_t_count:
         family: {grammar: librbd_pwl, form: op_buf_to_bufc_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4232,6 +4311,7 @@ groups:
             range: {start: 234, end: 236}
       librbd_pwl_op_dis_to_app_t_count:
         family: {grammar: librbd_pwl, form: op_dis_to_app_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4258,6 +4338,7 @@ groups:
             range: {start: 224, end: 224}
       librbd_pwl_op_dis_to_buf_t_count:
         family: {grammar: librbd_pwl, form: op_dis_to_buf_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4284,6 +4365,7 @@ groups:
             range: {start: 223, end: 223}
       librbd_pwl_op_dis_to_cmp_t_count:
         family: {grammar: librbd_pwl, form: op_dis_to_cmp_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4310,6 +4392,7 @@ groups:
             range: {start: 225, end: 225}
       librbd_pwl_part_hit_rd:
         family: {grammar: librbd_pwl, form: part_hit_rd}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4336,6 +4419,7 @@ groups:
             range: {start: 161, end: 161}
       librbd_pwl_rd:
         family: {grammar: librbd_pwl, form: rd}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4362,6 +4446,7 @@ groups:
             range: {start: 153, end: 153}
       librbd_pwl_rd_bytes:
         family: {grammar: librbd_pwl, form: rd_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4388,6 +4473,7 @@ groups:
             range: {start: 154, end: 154}
       librbd_pwl_rd_hit_bytes:
         family: {grammar: librbd_pwl, form: rd_hit_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4414,6 +4500,7 @@ groups:
             range: {start: 158, end: 158}
       librbd_pwl_rd_latency_count:
         family: {grammar: librbd_pwl, form: rd_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4440,6 +4527,7 @@ groups:
             range: {start: 155, end: 155}
       librbd_pwl_req_all_to_dis_nw_t_count:
         family: {grammar: librbd_pwl, form: req_all_to_dis_nw_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4466,6 +4554,7 @@ groups:
             range: {start: 205, end: 207}
       librbd_pwl_req_all_to_dis_t_count:
         family: {grammar: librbd_pwl, form: req_all_to_dis_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4492,6 +4581,7 @@ groups:
             range: {start: 186, end: 188}
       librbd_pwl_req_arr_to_all_nw_t_count:
         family: {grammar: librbd_pwl, form: req_arr_to_all_nw_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4518,6 +4608,7 @@ groups:
             range: {start: 199, end: 201}
       librbd_pwl_req_arr_to_all_t_count:
         family: {grammar: librbd_pwl, form: req_arr_to_all_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4544,6 +4635,7 @@ groups:
             range: {start: 180, end: 182}
       librbd_pwl_req_arr_to_dis_nw_t_count:
         family: {grammar: librbd_pwl, form: req_arr_to_dis_nw_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4570,6 +4662,7 @@ groups:
             range: {start: 202, end: 204}
       librbd_pwl_req_arr_to_dis_t_count:
         family: {grammar: librbd_pwl, form: req_arr_to_dis_t_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4596,6 +4689,7 @@ groups:
             range: {start: 183, end: 185}
       librbd_pwl_retire_tx_lat_count:
         family: {grammar: librbd_pwl, form: retire_tx_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4622,6 +4716,7 @@ groups:
             range: {start: 279, end: 279}
       librbd_pwl_wr:
         family: {grammar: librbd_pwl, form: wr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4648,6 +4743,7 @@ groups:
             range: {start: 168, end: 168}
       librbd_pwl_wr_bytes:
         family: {grammar: librbd_pwl, form: wr_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4674,6 +4770,7 @@ groups:
             range: {start: 169, end: 169}
       librbd_pwl_wr_def:
         family: {grammar: librbd_pwl, form: wr_def}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4700,6 +4797,7 @@ groups:
             range: {start: 170, end: 170}
       librbd_pwl_wr_def_buf:
         family: {grammar: librbd_pwl, form: wr_def_buf}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4726,6 +4824,7 @@ groups:
             range: {start: 173, end: 173}
       librbd_pwl_wr_def_lanes:
         family: {grammar: librbd_pwl, form: wr_def_lanes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4752,6 +4851,7 @@ groups:
             range: {start: 171, end: 171}
       librbd_pwl_wr_def_log:
         family: {grammar: librbd_pwl, form: wr_def_log}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4778,6 +4878,7 @@ groups:
             range: {start: 172, end: 172}
       librbd_pwl_wr_latency_count:
         family: {grammar: librbd_pwl, form: wr_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4804,6 +4905,7 @@ groups:
             range: {start: 189, end: 191}
       librbd_pwl_wr_latency_nw_count:
         family: {grammar: librbd_pwl, form: wr_latency_nw_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4830,6 +4932,7 @@ groups:
             range: {start: 208, end: 210}
       librbd_pwl_wr_overlap:
         family: {grammar: librbd_pwl, form: wr_overlap}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4856,6 +4959,7 @@ groups:
             range: {start: 174, end: 174}
       librbd_pwl_wr_q_barrier:
         family: {grammar: librbd_pwl, form: wr_q_barrier}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4882,6 +4986,7 @@ groups:
             range: {start: 175, end: 175}
       librbd_pwl_writeback_lat_count:
         family: {grammar: librbd_pwl, form: writeback_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4908,6 +5013,7 @@ groups:
             range: {start: 270, end: 270}
       librbd_pwl_ws:
         family: {grammar: librbd_pwl, form: ws}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4934,6 +5040,7 @@ groups:
             range: {start: 260, end: 260}
       librbd_pwl_ws_bytes:
         family: {grammar: librbd_pwl, form: ws_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4960,6 +5067,7 @@ groups:
             range: {start: 261, end: 261}
       librbd_pwl_ws_lat_count:
         family: {grammar: librbd_pwl, form: ws_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -4986,6 +5094,7 @@ groups:
             range: {start: 262, end: 262}
       mclock_shard_mclock_all_type_queue_len:
         family: {grammar: mclock_shard, form: mclock_all_type_queue_len}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5012,6 +5121,7 @@ groups:
             range: {start: 111, end: 112}
       mclock_shard_mclock_best_effort_queue_len:
         family: {grammar: mclock_shard, form: mclock_best_effort_queue_len}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5038,6 +5148,7 @@ groups:
             range: {start: 109, end: 110}
       mclock_shard_mclock_client_queue_len:
         family: {grammar: mclock_shard, form: mclock_client_queue_len}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5064,6 +5175,7 @@ groups:
             range: {start: 105, end: 106}
       mclock_shard_mclock_immediate_queue_len:
         family: {grammar: mclock_shard, form: mclock_immediate_queue_len}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5090,6 +5202,7 @@ groups:
             range: {start: 103, end: 104}
       mclock_shard_mclock_recovery_queue_len:
         family: {grammar: mclock_shard, form: mclock_recovery_queue_len}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5116,6 +5229,7 @@ groups:
             range: {start: 107, end: 108}
       mds_client_avg_metadata_latency:
         family: {grammar: mds_client, form: avg_metadata_latency}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5142,6 +5256,7 @@ groups:
             range: {start: 176, end: 177}
       mds_client_avg_read_latency:
         family: {grammar: mds_client, form: avg_read_latency}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5168,6 +5283,7 @@ groups:
             range: {start: 172, end: 173}
       mds_client_avg_write_latency:
         family: {grammar: mds_client, form: avg_write_latency}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5194,6 +5310,7 @@ groups:
             range: {start: 174, end: 175}
       mds_client_cap_hits:
         family: {grammar: mds_client, form: cap_hits}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5220,6 +5337,7 @@ groups:
             range: {start: 168, end: 169}
       mds_client_cap_miss:
         family: {grammar: mds_client, form: cap_miss}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5246,6 +5364,7 @@ groups:
             range: {start: 170, end: 171}
       mds_client_dentry_lease_hits:
         family: {grammar: mds_client, form: dentry_lease_hits}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5272,6 +5391,7 @@ groups:
             range: {start: 178, end: 179}
       mds_client_dentry_lease_miss:
         family: {grammar: mds_client, form: dentry_lease_miss}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5298,6 +5418,7 @@ groups:
             range: {start: 180, end: 181}
       mds_client_opened_files:
         family: {grammar: mds_client, form: opened_files}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5324,6 +5445,7 @@ groups:
             range: {start: 182, end: 183}
       mds_client_opened_inodes:
         family: {grammar: mds_client, form: opened_inodes}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5350,6 +5472,7 @@ groups:
             range: {start: 184, end: 185}
       mds_client_pinned_icaps:
         family: {grammar: mds_client, form: pinned_icaps}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5376,6 +5499,7 @@ groups:
             range: {start: 186, end: 187}
       mds_client_total_inodes:
         family: {grammar: mds_client, form: total_inodes}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5402,6 +5526,7 @@ groups:
             range: {start: 188, end: 189}
       mds_client_total_read_ops:
         family: {grammar: mds_client, form: total_read_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5428,6 +5553,7 @@ groups:
             range: {start: 190, end: 191}
       mds_client_total_read_size:
         family: {grammar: mds_client, form: total_read_size}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5454,6 +5580,7 @@ groups:
             range: {start: 192, end: 193}
       mds_client_total_write_ops:
         family: {grammar: mds_client, form: total_write_ops}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5480,6 +5607,7 @@ groups:
             range: {start: 194, end: 195}
       mds_client_total_write_size:
         family: {grammar: mds_client, form: total_write_size}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5506,6 +5634,7 @@ groups:
             range: {start: 196, end: 197}
       messenger_worker_msgr_active_connections:
         family: {grammar: messenger_worker, form: msgr_active_connections}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5532,6 +5661,7 @@ groups:
             range: {start: 271, end: 271}
       messenger_worker_msgr_created_connections:
         family: {grammar: messenger_worker, form: msgr_created_connections}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5558,6 +5688,7 @@ groups:
             range: {start: 272, end: 272}
       messenger_worker_msgr_handle_ack_lat_count:
         family: {grammar: messenger_worker, form: msgr_handle_ack_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5584,6 +5715,7 @@ groups:
             range: {start: 280, end: 280}
       messenger_worker_msgr_recv_bytes:
         family: {grammar: messenger_worker, form: msgr_recv_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5610,6 +5742,7 @@ groups:
             range: {start: 269, end: 269}
       messenger_worker_msgr_recv_encrypted_bytes:
         family: {grammar: messenger_worker, form: msgr_recv_encrypted_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5636,6 +5769,7 @@ groups:
             range: {start: 282, end: 282}
       messenger_worker_msgr_recv_messages:
         family: {grammar: messenger_worker, form: msgr_recv_messages}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5662,6 +5796,7 @@ groups:
             range: {start: 267, end: 267}
       messenger_worker_msgr_running_fast_dispatch_time:
         family: {grammar: messenger_worker, form: msgr_running_fast_dispatch_time}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5688,6 +5823,7 @@ groups:
             range: {start: 277, end: 277}
       messenger_worker_msgr_running_recv_time:
         family: {grammar: messenger_worker, form: msgr_running_recv_time}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5714,6 +5850,7 @@ groups:
             range: {start: 276, end: 276}
       messenger_worker_msgr_running_send_time:
         family: {grammar: messenger_worker, form: msgr_running_send_time}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5740,6 +5877,7 @@ groups:
             range: {start: 275, end: 275}
       messenger_worker_msgr_running_total_time:
         family: {grammar: messenger_worker, form: msgr_running_total_time}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -5766,6 +5904,7 @@ groups:
             range: {start: 274, end: 274}
       messenger_worker_msgr_send_bytes:
         family: {grammar: messenger_worker, form: msgr_send_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5792,6 +5931,7 @@ groups:
             range: {start: 270, end: 270}
       messenger_worker_msgr_send_encrypted_bytes:
         family: {grammar: messenger_worker, form: msgr_send_encrypted_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5818,6 +5958,7 @@ groups:
             range: {start: 283, end: 283}
       messenger_worker_msgr_send_messages:
         family: {grammar: messenger_worker, form: msgr_send_messages}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5844,6 +5985,7 @@ groups:
             range: {start: 268, end: 268}
       messenger_worker_msgr_send_messages_queue_lat_count:
         family: {grammar: messenger_worker, form: msgr_send_messages_queue_lat_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5870,6 +6012,7 @@ groups:
             range: {start: 279, end: 279}
       objectcacher_cache_bytes_hit:
         family: {grammar: objectcacher, form: cache_bytes_hit}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5896,6 +6039,7 @@ groups:
             range: {start: 732, end: 733}
       objectcacher_cache_bytes_miss:
         family: {grammar: objectcacher, form: cache_bytes_miss}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5922,6 +6066,7 @@ groups:
             range: {start: 734, end: 735}
       objectcacher_cache_ops_hit:
         family: {grammar: objectcacher, form: cache_ops_hit}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5948,6 +6093,7 @@ groups:
             range: {start: 728, end: 729}
       objectcacher_cache_ops_miss:
         family: {grammar: objectcacher, form: cache_ops_miss}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -5974,6 +6120,7 @@ groups:
             range: {start: 730, end: 731}
       objectcacher_data_flushed:
         family: {grammar: objectcacher, form: data_flushed}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6000,6 +6147,7 @@ groups:
             range: {start: 740, end: 741}
       objectcacher_data_overwritten_while_flushing:
         family: {grammar: objectcacher, form: data_overwritten_while_flushing}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6026,6 +6174,7 @@ groups:
             range: {start: 742, end: 744}
       objectcacher_data_read:
         family: {grammar: objectcacher, form: data_read}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6052,6 +6201,7 @@ groups:
             range: {start: 736, end: 737}
       objectcacher_data_written:
         family: {grammar: objectcacher, form: data_written}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6078,6 +6228,7 @@ groups:
             range: {start: 738, end: 739}
       objectcacher_write_bytes_blocked:
         family: {grammar: objectcacher, form: write_bytes_blocked}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6104,6 +6255,7 @@ groups:
             range: {start: 747, end: 749}
       objectcacher_write_ops_blocked:
         family: {grammar: objectcacher, form: write_ops_blocked}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6130,6 +6282,7 @@ groups:
             range: {start: 745, end: 746}
       objectcacher_write_time_blocked:
         family: {grammar: objectcacher, form: write_time_blocked}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6156,6 +6309,7 @@ groups:
             range: {start: 750, end: 751}
       objecter_command_active:
         family: {grammar: objecter, form: command_active}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6191,6 +6345,7 @@ groups:
             range: {start: 367, end: 367}
       objecter_command_resend:
         family: {grammar: objecter, form: command_resend}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6226,6 +6381,7 @@ groups:
             range: {start: 370, end: 371}
       objecter_command_send:
         family: {grammar: objecter, form: command_send}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6261,6 +6417,7 @@ groups:
             range: {start: 368, end: 369}
       objecter_linger_active:
         family: {grammar: objecter, form: linger_active}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6296,6 +6453,7 @@ groups:
             range: {start: 339, end: 340}
       objecter_linger_ping:
         family: {grammar: objecter, form: linger_ping}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6331,6 +6489,7 @@ groups:
             range: {start: 345, end: 346}
       objecter_linger_resend:
         family: {grammar: objecter, form: linger_resend}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6366,6 +6525,7 @@ groups:
             range: {start: 343, end: 344}
       objecter_linger_send:
         family: {grammar: objecter, form: linger_send}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6401,6 +6561,7 @@ groups:
             range: {start: 341, end: 342}
       objecter_map_epoch:
         family: {grammar: objecter, form: map_epoch}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6436,6 +6597,7 @@ groups:
             range: {start: 373, end: 373}
       objecter_map_full:
         family: {grammar: objecter, form: map_full}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6471,6 +6633,7 @@ groups:
             range: {start: 374, end: 375}
       objecter_map_inc:
         family: {grammar: objecter, form: map_inc}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6506,6 +6669,7 @@ groups:
             range: {start: 376, end: 377}
       objecter_omap_del:
         family: {grammar: objecter, form: omap_del}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6541,6 +6705,7 @@ groups:
             range: {start: 391, end: 392}
       objecter_omap_rd:
         family: {grammar: objecter, form: omap_rd}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6576,6 +6741,7 @@ groups:
             range: {start: 389, end: 390}
       objecter_omap_wr:
         family: {grammar: objecter, form: omap_wr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6611,6 +6777,7 @@ groups:
             range: {start: 387, end: 388}
       objecter_op:
         family: {grammar: objecter, form: op}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6646,6 +6813,7 @@ groups:
             range: {start: 285, end: 285}
       objecter_op_active:
         family: {grammar: objecter, form: op_active}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6681,6 +6849,7 @@ groups:
             range: {start: 274, end: 275}
       objecter_op_inflight:
         family: {grammar: objecter, form: op_inflight}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6716,6 +6885,7 @@ groups:
             range: {start: 282, end: 282}
       objecter_op_laggy:
         family: {grammar: objecter, form: op_laggy}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6751,6 +6921,7 @@ groups:
             range: {start: 276, end: 276}
       objecter_op_latency_count:
         family: {grammar: objecter, form: op_latency_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6786,6 +6957,7 @@ groups:
             range: {start: 281, end: 281}
       objecter_op_pg:
         family: {grammar: objecter, form: op_pg}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6821,6 +6993,7 @@ groups:
             range: {start: 292, end: 292}
       objecter_op_r:
         family: {grammar: objecter, form: op_r}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6856,6 +7029,7 @@ groups:
             range: {start: 286, end: 287}
       objecter_op_reply:
         family: {grammar: objecter, form: op_reply}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6891,6 +7065,7 @@ groups:
             range: {start: 280, end: 280}
       objecter_op_resend:
         family: {grammar: objecter, form: op_resend}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6926,6 +7101,7 @@ groups:
             range: {start: 279, end: 279}
       objecter_op_rmw:
         family: {grammar: objecter, form: op_rmw}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6961,6 +7137,7 @@ groups:
             range: {start: 290, end: 291}
       objecter_op_send:
         family: {grammar: objecter, form: op_send}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6996,6 +7173,7 @@ groups:
             range: {start: 277, end: 277}
       objecter_op_send_bytes:
         family: {grammar: objecter, form: op_send_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7031,6 +7209,7 @@ groups:
             range: {start: 278, end: 278}
       objecter_op_w:
         family: {grammar: objecter, form: op_w}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7066,6 +7245,7 @@ groups:
             range: {start: 288, end: 289}
       objecter_oplen_avg_count:
         family: {grammar: objecter, form: oplen_avg_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7101,6 +7281,7 @@ groups:
             range: {start: 283, end: 283}
       objecter_osd_laggy:
         family: {grammar: objecter, form: osd_laggy}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -7136,6 +7317,7 @@ groups:
             range: {start: 385, end: 385}
       objecter_osd_session_close:
         family: {grammar: objecter, form: osd_session_close}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7171,6 +7353,7 @@ groups:
             range: {start: 383, end: 384}
       objecter_osd_session_open:
         family: {grammar: objecter, form: osd_session_open}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7206,6 +7389,7 @@ groups:
             range: {start: 381, end: 382}
       objecter_osd_sessions:
         family: {grammar: objecter, form: osd_sessions}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -7241,6 +7425,7 @@ groups:
             range: {start: 379, end: 380}
       objecter_osdop_append:
         family: {grammar: objecter, form: osdop_append}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7276,6 +7461,7 @@ groups:
             range: {start: 303, end: 304}
       objecter_osdop_call:
         family: {grammar: objecter, form: osdop_call}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7311,6 +7497,7 @@ groups:
             range: {start: 327, end: 328}
       objecter_osdop_clonerange:
         family: {grammar: objecter, form: osdop_clonerange}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7346,6 +7533,7 @@ groups:
             range: {start: 315, end: 316}
       objecter_osdop_cmpxattr:
         family: {grammar: objecter, form: osdop_cmpxattr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7381,6 +7569,7 @@ groups:
             range: {start: 321, end: 322}
       objecter_osdop_create:
         family: {grammar: objecter, form: osdop_create}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7416,6 +7605,7 @@ groups:
             range: {start: 295, end: 296}
       objecter_osdop_delete:
         family: {grammar: objecter, form: osdop_delete}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7451,6 +7641,7 @@ groups:
             range: {start: 309, end: 310}
       objecter_osdop_getxattr:
         family: {grammar: objecter, form: osdop_getxattr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7486,6 +7677,7 @@ groups:
             range: {start: 317, end: 318}
       objecter_osdop_mapext:
         family: {grammar: objecter, form: osdop_mapext}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7521,6 +7713,7 @@ groups:
             range: {start: 311, end: 312}
       objecter_osdop_notify:
         family: {grammar: objecter, form: osdop_notify}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7556,6 +7749,7 @@ groups:
             range: {start: 331, end: 332}
       objecter_osdop_other:
         family: {grammar: objecter, form: osdop_other}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7591,6 +7785,7 @@ groups:
             range: {start: 337, end: 337}
       objecter_osdop_pgls:
         family: {grammar: objecter, form: osdop_pgls}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7626,6 +7821,7 @@ groups:
             range: {start: 335, end: 335}
       objecter_osdop_pgls_filter:
         family: {grammar: objecter, form: osdop_pgls_filter}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7661,6 +7857,7 @@ groups:
             range: {start: 336, end: 336}
       objecter_osdop_read:
         family: {grammar: objecter, form: osdop_read}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7696,6 +7893,7 @@ groups:
             range: {start: 297, end: 297}
       objecter_osdop_resetxattrs:
         family: {grammar: objecter, form: osdop_resetxattrs}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7731,6 +7929,7 @@ groups:
             range: {start: 325, end: 326}
       objecter_osdop_rmxattr:
         family: {grammar: objecter, form: osdop_rmxattr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7766,6 +7965,7 @@ groups:
             range: {start: 323, end: 324}
       objecter_osdop_setxattr:
         family: {grammar: objecter, form: osdop_setxattr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7801,6 +8001,7 @@ groups:
             range: {start: 319, end: 320}
       objecter_osdop_sparse_read:
         family: {grammar: objecter, form: osdop_sparse_read}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7836,6 +8037,7 @@ groups:
             range: {start: 313, end: 314}
       objecter_osdop_src_cmpxattr:
         family: {grammar: objecter, form: osdop_src_cmpxattr}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7871,6 +8073,7 @@ groups:
             range: {start: 333, end: 334}
       objecter_osdop_stat:
         family: {grammar: objecter, form: osdop_stat}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7906,6 +8109,7 @@ groups:
             range: {start: 294, end: 294}
       objecter_osdop_truncate:
         family: {grammar: objecter, form: osdop_truncate}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7941,6 +8145,7 @@ groups:
             range: {start: 307, end: 308}
       objecter_osdop_watch:
         family: {grammar: objecter, form: osdop_watch}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7976,6 +8181,7 @@ groups:
             range: {start: 329, end: 330}
       objecter_osdop_write:
         family: {grammar: objecter, form: osdop_write}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8011,6 +8217,7 @@ groups:
             range: {start: 298, end: 298}
       objecter_osdop_writefull:
         family: {grammar: objecter, form: osdop_writefull}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8046,6 +8253,7 @@ groups:
             range: {start: 299, end: 300}
       objecter_osdop_writesame:
         family: {grammar: objecter, form: osdop_writesame}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8081,6 +8289,7 @@ groups:
             range: {start: 301, end: 302}
       objecter_osdop_zero:
         family: {grammar: objecter, form: osdop_zero}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8116,6 +8325,7 @@ groups:
             range: {start: 305, end: 306}
       objecter_poolop_active:
         family: {grammar: objecter, form: poolop_active}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8151,6 +8361,7 @@ groups:
             range: {start: 348, end: 349}
       objecter_poolop_resend:
         family: {grammar: objecter, form: poolop_resend}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8186,6 +8397,7 @@ groups:
             range: {start: 352, end: 353}
       objecter_poolop_send:
         family: {grammar: objecter, form: poolop_send}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8221,6 +8433,7 @@ groups:
             range: {start: 350, end: 351}
       objecter_poolstat_active:
         family: {grammar: objecter, form: poolstat_active}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8256,6 +8469,7 @@ groups:
             range: {start: 355, end: 356}
       objecter_poolstat_resend:
         family: {grammar: objecter, form: poolstat_resend}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8291,6 +8505,7 @@ groups:
             range: {start: 359, end: 360}
       objecter_poolstat_send:
         family: {grammar: objecter, form: poolstat_send}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8326,6 +8541,7 @@ groups:
             range: {start: 357, end: 358}
       objecter_replica_read_bounced:
         family: {grammar: objecter, form: replica_read_bounced}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8349,6 +8565,7 @@ groups:
             range: {start: 396, end: 397}
       objecter_replica_read_completed:
         family: {grammar: objecter, form: replica_read_completed}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8372,6 +8589,7 @@ groups:
             range: {start: 398, end: 399}
       objecter_replica_read_sent:
         family: {grammar: objecter, form: replica_read_sent}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8395,6 +8613,7 @@ groups:
             range: {start: 394, end: 395}
       objecter_statfs_active:
         family: {grammar: objecter, form: statfs_active}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8430,6 +8649,7 @@ groups:
             range: {start: 362, end: 362}
       objecter_statfs_resend:
         family: {grammar: objecter, form: statfs_resend}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8465,6 +8685,7 @@ groups:
             range: {start: 364, end: 365}
       objecter_statfs_send:
         family: {grammar: objecter, form: statfs_send}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8500,6 +8721,7 @@ groups:
             range: {start: 363, end: 363}
       rdma_worker_pending_sent_conns:
         family: {grammar: rdma_worker, form: pending_sent_conns}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8526,6 +8748,7 @@ groups:
             range: {start: 675, end: 675}
       rdma_worker_rx_bytes:
         family: {grammar: rdma_worker, form: rx_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8552,6 +8775,7 @@ groups:
             range: {start: 674, end: 674}
       rdma_worker_rx_chunks:
         family: {grammar: rdma_worker, form: rx_chunks}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8578,6 +8802,7 @@ groups:
             range: {start: 673, end: 673}
       rdma_worker_tx_bytes:
         family: {grammar: rdma_worker, form: tx_bytes}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8604,6 +8829,7 @@ groups:
             range: {start: 672, end: 672}
       rdma_worker_tx_chunks:
         family: {grammar: rdma_worker, form: tx_chunks}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8630,6 +8856,7 @@ groups:
             range: {start: 671, end: 671}
       rdma_worker_tx_failed_post:
         family: {grammar: rdma_worker, form: tx_failed_post}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8656,6 +8883,7 @@ groups:
             range: {start: 669, end: 669}
       rdma_worker_tx_no_mem:
         family: {grammar: rdma_worker, form: tx_no_mem}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8682,6 +8910,7 @@ groups:
             range: {start: 667, end: 667}
       rdma_worker_tx_parital_mem:
         family: {grammar: rdma_worker, form: tx_parital_mem}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8708,6 +8937,11 @@ groups:
             range: {start: 668, end: 668}
       rgw_sync_fetch_bytes_count:
         family: {grammar: rgw_sync, form: fetch_bytes_count}
+        raw_branches:
+          canonical:
+            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}
+          embedded:
+            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8752,6 +8986,11 @@ groups:
             range: {start: 17, end: 17}
       rgw_sync_fetch_errors:
         family: {grammar: rgw_sync, form: fetch_errors}
+        raw_branches:
+          canonical:
+            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}
+          embedded:
+            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8796,6 +9035,11 @@ groups:
             range: {start: 19, end: 19}
       rgw_sync_fetch_not_modified:
         family: {grammar: rgw_sync, form: fetch_not_modified}
+        raw_branches:
+          canonical:
+            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}
+          embedded:
+            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8840,6 +9084,11 @@ groups:
             range: {start: 18, end: 18}
       rgw_sync_lock_latency_count:
         family: {grammar: rgw_sync, form: lock_latency_count}
+        raw_branches:
+          canonical:
+            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}
+          embedded:
+            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8866,6 +9115,11 @@ groups:
             range: {start: 24, end: 24}
       rgw_sync_poll_errors:
         family: {grammar: rgw_sync, form: poll_errors}
+        raw_branches:
+          canonical:
+            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}
+          embedded:
+            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8910,6 +9164,11 @@ groups:
             range: {start: 22, end: 22}
       rgw_sync_poll_latency_count:
         family: {grammar: rgw_sync, form: poll_latency_count}
+        raw_branches:
+          canonical:
+            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}
+          embedded:
+            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8954,6 +9213,7 @@ groups:
             range: {start: 21, end: 21}
       rocksdb_cache_capacity:
         family: {grammar: rocksdb_cache, form: capacity}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8977,6 +9237,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_elems:
         family: {grammar: rocksdb_cache, form: elems}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9000,6 +9261,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_hits:
         family: {grammar: rocksdb_cache, form: hits}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9023,6 +9285,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_inserts:
         family: {grammar: rocksdb_cache, form: inserts}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9046,6 +9309,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_lookups:
         family: {grammar: rocksdb_cache, form: lookups}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9069,6 +9333,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_misses:
         family: {grammar: rocksdb_cache, form: misses}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9092,6 +9357,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_pinned:
         family: {grammar: rocksdb_cache, form: pinned}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9115,6 +9381,7 @@ groups:
             range: {start: 192, end: 201}
       rocksdb_cache_usage:
         family: {grammar: rocksdb_cache, form: usage}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9138,6 +9405,7 @@ groups:
             range: {start: 192, end: 201}
       service_unique_id_identity:
         family: {grammar: service_unique_id, form: identity}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9161,6 +9429,7 @@ groups:
             range: {start: 983, end: 984}
       throttle_get:
         family: {grammar: throttle, form: get}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9196,6 +9465,7 @@ groups:
             range: {start: 292, end: 292}
       throttle_get_or_fail_fail:
         family: {grammar: throttle, form: get_or_fail_fail}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9222,6 +9492,7 @@ groups:
             range: {start: 62, end: 62}
       throttle_get_or_fail_success:
         family: {grammar: throttle, form: get_or_fail_success}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9248,6 +9519,7 @@ groups:
             range: {start: 63, end: 63}
       throttle_get_started:
         family: {grammar: throttle, form: get_started}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9274,6 +9546,7 @@ groups:
             range: {start: 59, end: 59}
       throttle_get_sum:
         family: {grammar: throttle, form: get_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9309,6 +9582,7 @@ groups:
             range: {start: 293, end: 293}
       throttle_max:
         family: {grammar: throttle, form: max}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9344,6 +9618,7 @@ groups:
             range: {start: 291, end: 291}
       throttle_put:
         family: {grammar: throttle, form: put}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9379,6 +9654,7 @@ groups:
             range: {start: 296, end: 296}
       throttle_put_sum:
         family: {grammar: throttle, form: put_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9414,6 +9690,7 @@ groups:
             range: {start: 297, end: 297}
       throttle_take:
         family: {grammar: throttle, form: take}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9449,6 +9726,7 @@ groups:
             range: {start: 294, end: 294}
       throttle_take_sum:
         family: {grammar: throttle, form: take_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -9484,6 +9762,7 @@ groups:
             range: {start: 295, end: 295}
       throttle_val:
         family: {grammar: throttle, form: val}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -9519,6 +9798,7 @@ groups:
             range: {start: 290, end: 290}
       throttle_wait_count:
         family: {grammar: throttle, form: wait_count}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -37286,6 +37566,7 @@ groups:
     registrations:
       finisher_complete_latency_sum_exporter_perf:
         family: {grammar: finisher, form: complete_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37307,6 +37588,7 @@ groups:
             range: {start: 32, end: 32}
       librbd_image_cmp_latency_sum_exporter_perf:
         family: {grammar: librbd_image, form: cmp_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37328,6 +37610,7 @@ groups:
             range: {start: 285, end: 285}
       librbd_image_discard_latency_sum_exporter_perf:
         family: {grammar: librbd_image, form: discard_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37349,6 +37632,7 @@ groups:
             range: {start: 277, end: 277}
       librbd_image_flush_latency_sum_exporter_perf:
         family: {grammar: librbd_image, form: flush_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37370,6 +37654,7 @@ groups:
             range: {start: 279, end: 279}
       librbd_image_rd_latency_sum_exporter_perf:
         family: {grammar: librbd_image, form: rd_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37391,6 +37676,7 @@ groups:
             range: {start: 268, end: 269}
       librbd_image_wr_latency_sum_exporter_perf:
         family: {grammar: librbd_image, form: wr_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37412,6 +37698,7 @@ groups:
             range: {start: 273, end: 274}
       librbd_image_ws_latency_sum_exporter_perf:
         family: {grammar: librbd_image, form: ws_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37433,6 +37720,7 @@ groups:
             range: {start: 282, end: 282}
       librbd_pwl_aio_flush_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: aio_flush_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37454,6 +37742,7 @@ groups:
             range: {start: 258, end: 258}
       librbd_pwl_append_tx_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: append_tx_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37475,6 +37764,7 @@ groups:
             range: {start: 274, end: 274}
       librbd_pwl_caller_wr_latency_nw_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: caller_wr_latency_nw_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37496,6 +37786,7 @@ groups:
             range: {start: 215, end: 217}
       librbd_pwl_caller_wr_latency_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: caller_wr_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37517,6 +37808,7 @@ groups:
             range: {start: 196, end: 198}
       librbd_pwl_cmp_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: cmp_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37538,6 +37830,7 @@ groups:
             range: {start: 266, end: 266}
       librbd_pwl_discard_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: discard_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37559,6 +37852,7 @@ groups:
             range: {start: 254, end: 254}
       librbd_pwl_hit_rd_latency_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: hit_rd_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37580,6 +37874,7 @@ groups:
             range: {start: 159, end: 159}
       librbd_pwl_log_op_bytes_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: log_op_bytes_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37601,6 +37896,7 @@ groups:
             range: {start: 178, end: 178}
       librbd_pwl_op_alloc_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_alloc_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37622,6 +37918,7 @@ groups:
             range: {start: 218, end: 218}
       librbd_pwl_op_app_to_appc_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_app_to_appc_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37643,6 +37940,7 @@ groups:
             range: {start: 244, end: 246}
       librbd_pwl_op_app_to_cmp_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_app_to_cmp_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37664,6 +37962,7 @@ groups:
             range: {start: 241, end: 243}
       librbd_pwl_op_buf_to_app_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_buf_to_app_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37685,6 +37984,7 @@ groups:
             range: {start: 231, end: 233}
       librbd_pwl_op_buf_to_bufc_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_buf_to_bufc_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37706,6 +38006,7 @@ groups:
             range: {start: 234, end: 236}
       librbd_pwl_op_dis_to_app_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_dis_to_app_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37727,6 +38028,7 @@ groups:
             range: {start: 224, end: 224}
       librbd_pwl_op_dis_to_buf_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_dis_to_buf_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37748,6 +38050,7 @@ groups:
             range: {start: 223, end: 223}
       librbd_pwl_op_dis_to_cmp_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: op_dis_to_cmp_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37769,6 +38072,7 @@ groups:
             range: {start: 225, end: 225}
       librbd_pwl_rd_latency_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: rd_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37790,6 +38094,7 @@ groups:
             range: {start: 155, end: 155}
       librbd_pwl_req_all_to_dis_nw_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: req_all_to_dis_nw_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37811,6 +38116,7 @@ groups:
             range: {start: 205, end: 207}
       librbd_pwl_req_all_to_dis_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: req_all_to_dis_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37832,6 +38138,7 @@ groups:
             range: {start: 186, end: 188}
       librbd_pwl_req_arr_to_all_nw_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_all_nw_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37853,6 +38160,7 @@ groups:
             range: {start: 199, end: 201}
       librbd_pwl_req_arr_to_all_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_all_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37874,6 +38182,7 @@ groups:
             range: {start: 180, end: 182}
       librbd_pwl_req_arr_to_dis_nw_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_dis_nw_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37895,6 +38204,7 @@ groups:
             range: {start: 202, end: 204}
       librbd_pwl_req_arr_to_dis_t_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_dis_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37916,6 +38226,7 @@ groups:
             range: {start: 183, end: 185}
       librbd_pwl_retire_tx_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: retire_tx_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37937,6 +38248,7 @@ groups:
             range: {start: 279, end: 279}
       librbd_pwl_wr_latency_nw_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: wr_latency_nw_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37958,6 +38270,7 @@ groups:
             range: {start: 208, end: 210}
       librbd_pwl_wr_latency_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: wr_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -37979,6 +38292,7 @@ groups:
             range: {start: 189, end: 191}
       librbd_pwl_writeback_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: writeback_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38000,6 +38314,7 @@ groups:
             range: {start: 270, end: 270}
       librbd_pwl_ws_lat_sum_exporter_perf:
         family: {grammar: librbd_pwl, form: ws_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38021,6 +38336,7 @@ groups:
             range: {start: 262, end: 262}
       messenger_worker_msgr_handle_ack_lat_sum_exporter_perf:
         family: {grammar: messenger_worker, form: msgr_handle_ack_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38042,6 +38358,7 @@ groups:
             range: {start: 280, end: 280}
       messenger_worker_msgr_send_messages_queue_lat_sum_exporter_perf:
         family: {grammar: messenger_worker, form: msgr_send_messages_queue_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38063,6 +38380,7 @@ groups:
             range: {start: 279, end: 279}
       objecter_op_latency_sum_exporter_perf:
         family: {grammar: objecter, form: op_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38093,6 +38411,7 @@ groups:
             range: {start: 281, end: 281}
       objecter_oplen_avg_sum_exporter_perf:
         family: {grammar: objecter, form: oplen_avg_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38123,6 +38442,7 @@ groups:
             range: {start: 283, end: 283}
       rgw_sync_fetch_bytes_sum_exporter_perf:
         family: {grammar: rgw_sync, form: fetch_bytes_sum}
+        raw_branches: {canonical: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38162,6 +38482,7 @@ groups:
             range: {start: 17, end: 17}
       rgw_sync_lock_latency_sum_exporter_perf:
         family: {grammar: rgw_sync, form: lock_latency_sum}
+        raw_branches: {canonical: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38183,6 +38504,7 @@ groups:
             range: {start: 24, end: 24}
       rgw_sync_poll_latency_sum_exporter_perf:
         family: {grammar: rgw_sync, form: poll_latency_sum}
+        raw_branches: {canonical: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38222,6 +38544,7 @@ groups:
             range: {start: 21, end: 21}
       throttle_wait_sum_exporter_perf:
         family: {grammar: throttle, form: wait_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -43018,6 +43341,7 @@ groups:
     registrations:
       finisher_complete_latency_sum_mgr_perf:
         family: {grammar: finisher, form: complete_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43040,6 +43364,7 @@ groups:
             range: {start: 32, end: 32}
       librbd_image_cmp_latency_sum_mgr_perf:
         family: {grammar: librbd_image, form: cmp_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43062,6 +43387,7 @@ groups:
             range: {start: 285, end: 285}
       librbd_image_discard_latency_sum_mgr_perf:
         family: {grammar: librbd_image, form: discard_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43084,6 +43410,7 @@ groups:
             range: {start: 277, end: 277}
       librbd_image_flush_latency_sum_mgr_perf:
         family: {grammar: librbd_image, form: flush_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43106,6 +43433,7 @@ groups:
             range: {start: 279, end: 279}
       librbd_image_rd_latency_sum_mgr_perf:
         family: {grammar: librbd_image, form: rd_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43128,6 +43456,7 @@ groups:
             range: {start: 268, end: 269}
       librbd_image_wr_latency_sum_mgr_perf:
         family: {grammar: librbd_image, form: wr_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43150,6 +43479,7 @@ groups:
             range: {start: 273, end: 274}
       librbd_image_ws_latency_sum_mgr_perf:
         family: {grammar: librbd_image, form: ws_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43172,6 +43502,7 @@ groups:
             range: {start: 282, end: 282}
       librbd_pwl_aio_flush_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: aio_flush_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43194,6 +43525,7 @@ groups:
             range: {start: 258, end: 258}
       librbd_pwl_append_tx_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: append_tx_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43216,6 +43548,7 @@ groups:
             range: {start: 274, end: 274}
       librbd_pwl_caller_wr_latency_nw_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: caller_wr_latency_nw_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43238,6 +43571,7 @@ groups:
             range: {start: 215, end: 217}
       librbd_pwl_caller_wr_latency_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: caller_wr_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43260,6 +43594,7 @@ groups:
             range: {start: 196, end: 198}
       librbd_pwl_cmp_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: cmp_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43282,6 +43617,7 @@ groups:
             range: {start: 266, end: 266}
       librbd_pwl_discard_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: discard_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43304,6 +43640,7 @@ groups:
             range: {start: 254, end: 254}
       librbd_pwl_hit_rd_latency_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: hit_rd_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43326,6 +43663,7 @@ groups:
             range: {start: 159, end: 159}
       librbd_pwl_log_op_bytes_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: log_op_bytes_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43348,6 +43686,7 @@ groups:
             range: {start: 178, end: 178}
       librbd_pwl_op_alloc_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_alloc_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43370,6 +43709,7 @@ groups:
             range: {start: 218, end: 218}
       librbd_pwl_op_app_to_appc_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_app_to_appc_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43392,6 +43732,7 @@ groups:
             range: {start: 244, end: 246}
       librbd_pwl_op_app_to_cmp_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_app_to_cmp_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43414,6 +43755,7 @@ groups:
             range: {start: 241, end: 243}
       librbd_pwl_op_buf_to_app_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_buf_to_app_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43436,6 +43778,7 @@ groups:
             range: {start: 231, end: 233}
       librbd_pwl_op_buf_to_bufc_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_buf_to_bufc_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43458,6 +43801,7 @@ groups:
             range: {start: 234, end: 236}
       librbd_pwl_op_dis_to_app_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_dis_to_app_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43480,6 +43824,7 @@ groups:
             range: {start: 224, end: 224}
       librbd_pwl_op_dis_to_buf_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_dis_to_buf_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43502,6 +43847,7 @@ groups:
             range: {start: 223, end: 223}
       librbd_pwl_op_dis_to_cmp_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: op_dis_to_cmp_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43524,6 +43870,7 @@ groups:
             range: {start: 225, end: 225}
       librbd_pwl_rd_latency_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: rd_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43546,6 +43893,7 @@ groups:
             range: {start: 155, end: 155}
       librbd_pwl_req_all_to_dis_nw_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: req_all_to_dis_nw_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43568,6 +43916,7 @@ groups:
             range: {start: 205, end: 207}
       librbd_pwl_req_all_to_dis_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: req_all_to_dis_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43590,6 +43939,7 @@ groups:
             range: {start: 186, end: 188}
       librbd_pwl_req_arr_to_all_nw_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_all_nw_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43612,6 +43962,7 @@ groups:
             range: {start: 199, end: 201}
       librbd_pwl_req_arr_to_all_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_all_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43634,6 +43985,7 @@ groups:
             range: {start: 180, end: 182}
       librbd_pwl_req_arr_to_dis_nw_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_dis_nw_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43656,6 +44008,7 @@ groups:
             range: {start: 202, end: 204}
       librbd_pwl_req_arr_to_dis_t_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: req_arr_to_dis_t_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43678,6 +44031,7 @@ groups:
             range: {start: 183, end: 185}
       librbd_pwl_retire_tx_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: retire_tx_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43700,6 +44054,7 @@ groups:
             range: {start: 279, end: 279}
       librbd_pwl_wr_latency_nw_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: wr_latency_nw_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43722,6 +44077,7 @@ groups:
             range: {start: 208, end: 210}
       librbd_pwl_wr_latency_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: wr_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43744,6 +44100,7 @@ groups:
             range: {start: 189, end: 191}
       librbd_pwl_writeback_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: writeback_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43766,6 +44123,7 @@ groups:
             range: {start: 270, end: 270}
       librbd_pwl_ws_lat_sum_mgr_perf:
         family: {grammar: librbd_pwl, form: ws_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43788,6 +44146,7 @@ groups:
             range: {start: 262, end: 262}
       messenger_worker_msgr_handle_ack_lat_sum_mgr_perf:
         family: {grammar: messenger_worker, form: msgr_handle_ack_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43810,6 +44169,7 @@ groups:
             range: {start: 280, end: 280}
       messenger_worker_msgr_send_messages_queue_lat_sum_mgr_perf:
         family: {grammar: messenger_worker, form: msgr_send_messages_queue_lat_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43832,6 +44192,7 @@ groups:
             range: {start: 279, end: 279}
       objecter_op_latency_sum_mgr_perf:
         family: {grammar: objecter, form: op_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43863,6 +44224,7 @@ groups:
             range: {start: 281, end: 281}
       objecter_oplen_avg_sum_mgr_perf:
         family: {grammar: objecter, form: oplen_avg_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43894,6 +44256,7 @@ groups:
             range: {start: 283, end: 283}
       rgw_sync_fetch_bytes_sum_mgr_perf:
         family: {grammar: rgw_sync, form: fetch_bytes_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43934,6 +44297,7 @@ groups:
             range: {start: 17, end: 17}
       rgw_sync_lock_latency_sum_mgr_perf:
         family: {grammar: rgw_sync, form: lock_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43956,6 +44320,7 @@ groups:
             range: {start: 24, end: 24}
       rgw_sync_poll_latency_sum_mgr_perf:
         family: {grammar: rgw_sync, form: poll_latency_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -43996,6 +44361,7 @@ groups:
             range: {start: 21, end: 21}
       throttle_wait_sum_mgr_perf:
         family: {grammar: throttle, form: wait_sum}
+        raw_branches: {embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:

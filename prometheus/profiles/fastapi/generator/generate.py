@@ -206,6 +206,7 @@ def _render_created_registration(
     result = [
         "      python_created_component:",
         "        family: {grammar: python_created_family, form: generated}",
+        "        raw_branches: {canonical: {}, embedded: {}}",
         "        prometheus: {type: gauge, shape: scalar}",
         "        components:",
         "          value: {wire_role: scalar}",

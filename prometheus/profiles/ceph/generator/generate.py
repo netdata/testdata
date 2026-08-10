@@ -1529,6 +1529,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
                 lines.append(f"        family: {{exact: {_yaml(registration.exact_family)}}}")
             else:
                 lines.append(f"        family: {{grammar: {registration.grammar}, form: {registration.form}}}")
+                lines.extend(_render_raw_branches(registration))
             prometheus = f"type: {registration.prometheus_type}, shape: {registration.shape}"
             if registration.classification is not None:
                 prometheus += f", classification: {registration.classification}"
@@ -1550,6 +1551,26 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
                     f"            range: {{start: {line_start}, end: {line_end}}}",
                 ])
     return "\n".join(lines) + "\n"
+
+
+def _render_raw_branches(registration: MergedRegistration) -> list[str]:
+    if registration.grammar is None:
+        raise ValueError("raw branches require a grammar registration")
+    if registration.grammar != "rgw_sync":
+        return ["        raw_branches: {embedded: {}}"]
+    if registration.endpoint == "exporter_perf":
+        return ["        raw_branches: {canonical: {}}"]
+    if registration.endpoint == "mgr_perf":
+        return ["        raw_branches: {embedded: {}}"]
+    if registration.endpoint != "daemon_perf":
+        raise ValueError(f"RGW sync grammar has unsupported endpoint {registration.endpoint!r}")
+    return [
+        "        raw_branches:",
+        "          canonical:",
+        "            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}",
+        "          embedded:",
+        "            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}",
+    ]
 
 
 def _render_availability(registration: MergedRegistration) -> list[str]:

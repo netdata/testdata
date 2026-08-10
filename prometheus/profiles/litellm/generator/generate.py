@@ -316,6 +316,7 @@ def _render_created_group(
         "    registrations:",
         "      python_created_component:",
         "        family: {grammar: python_created_family, form: generated}",
+        "        raw_branches: {canonical: {}, embedded: {}}",
         "        prometheus: {type: gauge, shape: scalar}",
         "        when:",
         "          any:",

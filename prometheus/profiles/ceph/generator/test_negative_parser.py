@@ -73,6 +73,61 @@ class FailClosedParserTest(unittest.TestCase):
         self.assertIn("axis: perf_priority_limit, op: min, value: 6", availability)
         self.assertNotIn("axis: perf_priority, op: max", availability)
 
+    def test_dynamic_grammar_declares_embedded_raw_source_only(self):
+        registration = GENERATOR.MergedRegistration(
+            exact_family=None,
+            grammar="librbd_image",
+            form="rd",
+            prometheus_type="counter",
+            shape="scalar",
+            priority=0,
+            endpoint="daemon_perf",
+            classification=None,
+            source_variants=("reef",),
+            locations=(("ceph_reef", "metrics.cc", 1, 1),),
+        )
+        self.assertEqual(
+            GENERATOR._render_raw_branches(registration),
+            ["        raw_branches: {embedded: {}}"],
+        )
+
+    def test_rgw_sync_raw_source_branch_depends_on_producer(self):
+        base = dict(
+            exact_family=None,
+            grammar="rgw_sync",
+            form="fetch_errors",
+            prometheus_type="counter",
+            shape="scalar",
+            priority=0,
+            classification=None,
+            source_variants=("reef",),
+            locations=(("ceph_reef", "metrics.cc", 1, 1),),
+        )
+        self.assertEqual(
+            GENERATOR._render_raw_branches(
+                GENERATOR.MergedRegistration(endpoint="exporter_perf", **base)
+            ),
+            ["        raw_branches: {canonical: {}}"],
+        )
+        self.assertEqual(
+            GENERATOR._render_raw_branches(
+                GENERATOR.MergedRegistration(endpoint="mgr_perf", **base)
+            ),
+            ["        raw_branches: {embedded: {}}"],
+        )
+        self.assertEqual(
+            GENERATOR._render_raw_branches(
+                GENERATOR.MergedRegistration(endpoint="daemon_perf", **base)
+            ),
+            [
+                "        raw_branches:",
+                "          canonical:",
+                "            when: {any: [{all: [{axis: source, op: eq, value: ceph_exporter}]}]}",
+                "          embedded:",
+                "            when: {any: [{all: [{axis: source, op: eq, value: mgr}]}]}",
+            ],
+        )
+
     def test_rejects_new_cpp_metric_constructor(self):
         target = "src/client/Client.cc"
 
