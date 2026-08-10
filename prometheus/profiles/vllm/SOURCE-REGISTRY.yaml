@@ -2976,7 +2976,7 @@ groups:
           any:
             - all:
                 - {axis: transport, op: eq, value: ray}
-                - {axis: capabilities, op: contains, value: speculative_decoding}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -2990,7 +2990,7 @@ groups:
           any:
             - all:
                 - {axis: transport, op: eq, value: ray}
-                - {axis: capabilities, op: contains, value: speculative_decoding}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -3004,7 +3004,7 @@ groups:
           any:
             - all:
                 - {axis: transport, op: eq, value: ray}
-                - {axis: capabilities, op: contains, value: speculative_decoding}
+                - {axis: capabilities, op: contains, value: diffusion_decoding}
         components:
           value: {wire_role: scalar}
         source_locations:

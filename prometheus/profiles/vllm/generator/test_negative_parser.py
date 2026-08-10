@@ -53,6 +53,17 @@ Gauge(name="vllm:requests_total", documentation="requests")
         )
         self.assertEqual(registration.shape, "info")
 
+    def test_ray_compatibility_alias_keeps_canonical_capability(self):
+        canonical = GENERATOR.Registration(
+            declared_name="diffusion_num_canvas_positions",
+            family="vllm:diffusion_num_canvas_positions_total",
+            prometheus_type="counter",
+            location=GENERATOR.SourceLocation("vllm/v1/spec_decode/metrics.py", 1, 1),
+        )
+        compatibility = GENERATOR._ray_compatibility_registration(canonical)
+
+        self.assertEqual(GENERATOR._registration_capability(compatibility), "diffusion_decoding")
+
 
 if __name__ == "__main__":
     unittest.main()

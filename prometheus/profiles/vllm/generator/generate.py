@@ -418,7 +418,7 @@ def generate_registry(
     for registration in ray_counters:
         canonical = "ray_" + registration.family.replace(":", "_")
         alias = canonical[: -len("_total")]
-        compatibility = Registration(alias, alias, "gauge", registration.location)
+        compatibility = _ray_compatibility_registration(registration)
         lines.extend(
             _render_registration(
                 "ray_alias",
@@ -430,6 +430,15 @@ def generate_registry(
         )
     lines.extend(_render_created_registration(created, created_emitters))
     return "\n".join(lines) + "\n"
+
+
+def _ray_compatibility_registration(registration: Registration) -> Registration:
+    return Registration(
+        registration.declared_name,
+        registration.family,
+        "gauge",
+        registration.location,
+    )
 
 
 def _render_registration(
