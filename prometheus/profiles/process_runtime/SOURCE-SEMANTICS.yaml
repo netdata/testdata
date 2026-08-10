@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-version: v2
+version: v1
 profile: process_runtime
 upstreams:
   prometheus_client_python:
