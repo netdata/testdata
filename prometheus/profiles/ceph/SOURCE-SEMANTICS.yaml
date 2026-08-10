@@ -43192,11 +43192,11 @@ environment:
       - availability_reef
       - availability_squid
       - availability_tentacle
-    perf_priority:
+    perf_priority_limit:
       kind: integer
       min: 0
       max: 11
-      meaning: Maximum daemon performance-counter priority enabled by the producer.
+      meaning: Exclusive daemon performance-counter priority limit used by the producer.
       evidence:
       - availability_reef
       - availability_squid

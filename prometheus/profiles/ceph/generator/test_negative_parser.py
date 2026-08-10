@@ -56,6 +56,23 @@ class FailClosedParserTest(unittest.TestCase):
                 arguments.replace("service_unique_id.c_str()", "description.c_str()"),
             )
 
+    def test_perf_priority_uses_producer_exclusive_limit(self):
+        registration = GENERATOR.MergedRegistration(
+            exact_family="ceph_example_total",
+            grammar=None,
+            form="example_total",
+            prometheus_type="counter",
+            shape="scalar",
+            priority=5,
+            endpoint="daemon_perf",
+            classification=None,
+            source_variants=("reef",),
+            locations=(("ceph_reef", "metrics.cc", 1, 1),),
+        )
+        availability = "\n".join(GENERATOR._render_availability(registration))
+        self.assertIn("axis: perf_priority_limit, op: min, value: 6", availability)
+        self.assertNotIn("axis: perf_priority, op: max", availability)
+
     def test_rejects_new_cpp_metric_constructor(self):
         target = "src/client/Client.cc"
 

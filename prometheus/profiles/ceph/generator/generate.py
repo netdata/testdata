@@ -1592,14 +1592,14 @@ def _render_availability(registration: MergedRegistration) -> list[str]:
         "            - all:",
         "                - {axis: source, op: eq, value: ceph_exporter}",
         f"                - {release_predicate}",
-        f"                - {{axis: perf_priority, op: max, value: {registration.priority}}}",
+        f"                - {{axis: perf_priority_limit, op: min, value: {registration.priority + 1}}}",
     ]
     mgr_clause = [
         "            - all:",
         "                - {axis: source, op: eq, value: mgr}",
         f"                - {release_predicate}",
         "                - {axis: mgr_perf_counters, op: eq, value: enabled}",
-        f"                - {{axis: perf_priority, op: max, value: {registration.priority}}}",
+        f"                - {{axis: perf_priority_limit, op: min, value: {registration.priority + 1}}}",
     ]
     if registration.endpoint == "exporter_perf":
         return exporter_clause
