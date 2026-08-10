@@ -135,14 +135,18 @@ def verify_profile(profile_directory: Path) -> None:
         raise ValueError(f"{registry_path}: committed registry must be a regular file")
     generator_files = _generator_files(generator_directory)
 
-    with tempfile.TemporaryDirectory(prefix=f"netdata-{manifest.profile}-registry-") as temporary:
-        temporary_root = Path(temporary)
-        work = temporary_root / "work"
-        work.mkdir()
+    with (
+        tempfile.TemporaryDirectory(prefix=f"netdata-{manifest.profile}-registry-source-") as private_temporary,
+        tempfile.TemporaryDirectory(
+            prefix=f"netdata-{manifest.profile}-registry-sandbox-", dir="/tmp"
+        ) as sandbox_temporary,
+    ):
+        private_root = Path(private_temporary)
+        work = Path(sandbox_temporary)
         upstream_root = work / "upstreams"
         upstream_root.mkdir()
         for upstream_id, upstream in manifest.upstreams.items():
-            _materialize_upstream(temporary_root, upstream_root, upstream_id, upstream)
+            _materialize_upstream(private_root, upstream_root, upstream_id, upstream)
         target_generator = work / GENERATOR_DIRECTORY
         target_generator.mkdir()
         for source in generator_files:
