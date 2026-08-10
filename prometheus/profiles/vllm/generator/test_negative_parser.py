@@ -44,6 +44,15 @@ Gauge(name="vllm:requests_total", documentation="requests")
         with self.assertRaisesRegex(ValueError, "no mechanical availability classification"):
             GENERATOR._registration_capability(registration)
 
+    def test_classifies_terminal_info_gauge_as_writer_ineligible_shape(self):
+        registration = GENERATOR.Registration(
+            declared_name="vllm:build_info",
+            family="vllm:build_info",
+            prometheus_type="gauge",
+            location=GENERATOR.SourceLocation("vllm/v1/metrics/loggers.py", 1, 1),
+        )
+        self.assertEqual(registration.shape, "info")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -98,6 +98,8 @@ class Registration:
 
     @property
     def shape(self) -> str:
+        if self.prometheus_type == "gauge" and self.family.endswith("_info"):
+            return "info"
         return SHAPES[self.prometheus_type]
 
     @property

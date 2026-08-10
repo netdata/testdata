@@ -435,7 +435,7 @@ component_policies:
         base: one
         rate: none
         object: observations
-        aspect: observed
+        aspect: completed
         evidence:
         - source_units
     sum:
@@ -466,6 +466,52 @@ component_policies:
         base: byte
         rate: none
         object: data_per_gpu
+        aspect: accumulated
+        evidence:
+        - source_units
+  components_hf3fs_load_duration_seconds:
+    bucket:
+      wire_role: histogram_bucket
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: distributed
+        evidence:
+        - source_units
+    count:
+      wire_role: histogram_count
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: observed
+        evidence:
+        - source_units
+    sum:
+      wire_role: histogram_sum
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: duration
+        base: second
+        rate: none
+        object: request_time
         aspect: accumulated
         evidence:
         - source_units
@@ -577,6 +623,52 @@ component_policies:
         aspect: accumulated
         evidence:
         - source_units
+  components_kv_block_idle_before_evict_seconds:
+    bucket:
+      wire_role: histogram_bucket
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: distributed
+        evidence:
+        - source_units
+    count:
+      wire_role: histogram_count
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: evicted
+        evidence:
+        - source_units
+    sum:
+      wire_role: histogram_sum
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: duration
+        base: second
+        rate: none
+        object: duration
+        aspect: accumulated
+        evidence:
+        - source_units
   components_kv_cache_usage_perc:
     value:
       wire_role: scalar
@@ -607,6 +699,22 @@ component_policies:
         rate: none
         object: events
         aspect: accumulated
+        evidence:
+        - source_units
+  components_kv_offload_load_bytes_total:
+    value:
+      wire_role: scalar
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: data
+        base: byte
+        rate: none
+        object: data
+        aspect: transferred
         evidence:
         - source_units
   components_kv_offload_load_size:
@@ -652,7 +760,7 @@ component_policies:
         base: byte
         rate: none
         object: data
-        aspect: accumulated
+        aspect: transferred
         evidence:
         - source_units
   components_kv_offload_load_time_total:
@@ -719,7 +827,7 @@ component_policies:
         aspect: accumulated
         evidence:
         - source_units
-  components_num_requests_running:
+  components_num_requests_waiting:
     value:
       wire_role: scalar
       lifecycle:
@@ -732,7 +840,85 @@ component_policies:
         base: one
         rate: none
         object: requests
-        aspect: reported
+        aspect: current
+        evidence:
+        - source_units
+  components_prompt_tokens_by_source_total:
+    value:
+      wire_role: scalar
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: tokens
+        aspect: processed
+        evidence:
+        - source_units
+  components_request_generation_tokens:
+    bucket:
+      wire_role: histogram_bucket
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: distributed
+        evidence:
+        - source_units
+    count:
+      wire_role: histogram_count
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: observations
+        aspect: completed
+        evidence:
+        - source_units
+    sum:
+      wire_role: histogram_sum
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: tokens
+        aspect: accumulated
+        evidence:
+        - source_units
+  components_request_success_total:
+    value:
+      wire_role: scalar
+      lifecycle:
+        kind: cumulative
+        evidence:
+        - component_lifecycle
+        - ray_component_lifecycle
+      unit:
+        quantity: count
+        base: one
+        rate: none
+        object: requests
+        aspect: completed
         evidence:
         - source_units
   components_spec_decode_num_drafts_total:
@@ -1886,7 +2072,7 @@ signals:
           - native_vllm_e2e_request_latency_seconds
           - ray_ray_vllm_e2e_request_latency_seconds
     population:
-      id: e2e_request_latency_seconds
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -2153,7 +2339,7 @@ signals:
       - source_population
     functional_dependencies: {}
     availability: hf3fs
-    component_policy: components_e2e_request_latency_seconds
+    component_policy: components_hf3fs_load_duration_seconds
     label_policy: labels_corrupted_requests_total
   hf3fs_num_failed_load_total:
     source:
@@ -2210,7 +2396,7 @@ signals:
       - source_population
     functional_dependencies: {}
     availability: hf3fs
-    component_policy: components_e2e_request_latency_seconds
+    component_policy: components_hf3fs_load_duration_seconds
     label_policy: labels_corrupted_requests_total
   inter_token_latency_seconds:
     source:
@@ -2259,13 +2445,13 @@ signals:
           - native_vllm_kv_block_idle_before_evict_seconds
           - ray_ray_vllm_kv_block_idle_before_evict_seconds
     population:
-      id: kv_block_idle_before_evict_seconds
+      id: evicted_kv_blocks
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
     availability: kv_residency
-    component_policy: components_inter_token_latency_seconds
+    component_policy: components_kv_block_idle_before_evict_seconds
     label_policy: labels_corrupted_requests_total
   kv_block_lifetime_seconds:
     source:
@@ -2278,13 +2464,13 @@ signals:
           - native_vllm_kv_block_lifetime_seconds
           - ray_ray_vllm_kv_block_lifetime_seconds
     population:
-      id: kv_block_lifetime_seconds
+      id: evicted_kv_blocks
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
     availability: kv_residency
-    component_policy: components_inter_token_latency_seconds
+    component_policy: components_kv_block_idle_before_evict_seconds
     label_policy: labels_corrupted_requests_total
   kv_block_reuse_gap_seconds:
     source:
@@ -2474,13 +2660,13 @@ signals:
           - native_vllm_kv_offload_load_bytes_total
           - ray_ray_vllm_kv_offload_load_bytes_total
     population:
-      id: kv_offload_load_bytes_total
+      id: kv_offload_loads
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
     availability: kv_offload
-    component_policy: components_deprecated_offload_bytes_total
+    component_policy: components_kv_offload_load_bytes_total
     label_policy: labels_corrupted_requests_total
   kv_offload_load_size:
     source:
@@ -2493,7 +2679,7 @@ signals:
           - native_vllm_kv_offload_load_size
           - ray_ray_vllm_kv_offload_load_size
     population:
-      id: kv_offload_load_size
+      id: kv_offload_loads
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -2569,13 +2755,13 @@ signals:
           - native_vllm_kv_offload_store_bytes_total
           - ray_ray_vllm_kv_offload_store_bytes_total
     population:
-      id: kv_offload_store_bytes_total
+      id: kv_offload_stores
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
     availability: kv_offload
-    component_policy: components_deprecated_offload_bytes_total
+    component_policy: components_kv_offload_load_bytes_total
     label_policy: labels_corrupted_requests_total
   kv_offload_store_size:
     source:
@@ -2588,7 +2774,7 @@ signals:
           - native_vllm_kv_offload_store_size
           - ray_ray_vllm_kv_offload_store_size
     population:
-      id: kv_offload_store_size
+      id: kv_offload_stores
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -2877,7 +3063,7 @@ signals:
           - native_vllm_mooncake_store_operation_time_seconds
           - ray_ray_vllm_mooncake_store_operation_time_seconds
     population:
-      id: mooncake_store_operation_time_seconds
+      id: mooncake_operations
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -2896,7 +3082,7 @@ signals:
           - native_vllm_mooncake_store_operation_total
           - ray_ray_vllm_mooncake_store_operation_total
     population:
-      id: mooncake_store_operation_total
+      id: mooncake_operations
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
@@ -2913,7 +3099,7 @@ signals:
           base: one
           rate: none
           object: operations
-          aspect: accumulated
+          aspect: completed
           evidence:
           - source_units
     functional_dependencies: {}
@@ -2930,26 +3116,7 @@ signals:
           - native_vllm_nixl_bytes_transferred
           - ray_ray_vllm_nixl_bytes_transferred
     population:
-      id: nixl_bytes_transferred
-      meaning: One cumulative histogram observation for each source-recorded event described by this family.
-      evidence:
-      - source_population
-    functional_dependencies: {}
-    availability: nixl
-    component_policy: components_kv_offload_load_size
-    label_policy: labels_corrupted_requests_total
-  nixl_num_descriptors:
-    source:
-      generated:
-        registry_groups:
-        - native
-        - ray_canonical
-        scope:
-          registrations:
-          - native_vllm_nixl_num_descriptors
-          - ray_ray_vllm_nixl_num_descriptors
-    population:
-      id: nixl_num_descriptors
+      id: nixl_transfers
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -2981,7 +3148,71 @@ signals:
           base: one
           rate: none
           object: observations
-          aspect: observed
+          aspect: completed
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: data
+          base: byte
+          rate: none
+          object: data
+          aspect: accumulated
+          evidence:
+          - source_units
+    functional_dependencies: {}
+    availability: nixl
+    label_policy: labels_corrupted_requests_total
+  nixl_num_descriptors:
+    source:
+      generated:
+        registry_groups:
+        - native
+        - ray_canonical
+        scope:
+          registrations:
+          - native_vllm_nixl_num_descriptors
+          - ray_ray_vllm_nixl_num_descriptors
+    population:
+      id: nixl_transfers
+      meaning: One cumulative histogram observation for each source-recorded event described by this family.
+      evidence:
+      - source_population
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: completed
           evidence:
           - source_units
       sum:
@@ -3070,7 +3301,7 @@ signals:
           - native_vllm_nixl_post_time_seconds
           - ray_ray_vllm_nixl_post_time_seconds
     population:
-      id: nixl_post_time_seconds
+      id: nixl_transfers
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3089,7 +3320,7 @@ signals:
           - native_vllm_nixl_xfer_time_seconds
           - ray_ray_vllm_nixl_xfer_time_seconds
     population:
-      id: nixl_xfer_time_seconds
+      id: nixl_transfers
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3130,8 +3361,23 @@ signals:
       meaning: The current source value for the state or resource described by this family.
       evidence:
       - source_population
+    components:
+      value:
+        wire_role: scalar
+        lifecycle:
+          kind: current
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: reported
+          evidence:
+          - source_units
     functional_dependencies: {}
-    component_policy: components_num_requests_running
     label_policy: labels_corrupted_requests_total
   num_requests_waiting:
     source:
@@ -3144,12 +3390,12 @@ signals:
           - native_vllm_num_requests_waiting
           - ray_ray_vllm_num_requests_waiting
     population:
-      id: num_requests_waiting
+      id: waiting_requests
       meaning: The current source value for the state or resource described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_num_requests_running
+    component_policy: components_num_requests_waiting
     label_policy: labels_corrupted_requests_total
   num_requests_waiting_by_reason:
     source:
@@ -3162,7 +3408,7 @@ signals:
           - native_vllm_num_requests_waiting_by_reason
           - ray_ray_vllm_num_requests_waiting_by_reason
     population:
-      id: num_requests_waiting_by_reason
+      id: waiting_requests
       meaning: The current source value for the state or resource described by this family.
       evidence:
       - source_population
@@ -3254,7 +3500,7 @@ signals:
         evidence:
         - ray_labels
     functional_dependencies: {}
-    component_policy: components_num_requests_running
+    component_policy: components_num_requests_waiting
   prefix_cache_hits_total:
     source:
       generated:
@@ -3302,7 +3548,7 @@ signals:
           - native_vllm_prompt_tokens_by_source_total
           - ray_ray_vllm_prompt_tokens_by_source_total
     population:
-      id: prompt_tokens_by_source_total
+      id: prompt_tokens
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
@@ -3395,7 +3641,7 @@ signals:
         evidence:
         - ray_labels
     functional_dependencies: {}
-    component_policy: components_diffusion_num_committed_tokens_total
+    component_policy: components_prompt_tokens_by_source_total
   prompt_tokens_cached_total:
     source:
       generated:
@@ -3407,12 +3653,12 @@ signals:
           - native_vllm_prompt_tokens_cached_total
           - ray_ray_vllm_prompt_tokens_cached_total
     population:
-      id: prompt_tokens_cached_total
+      id: prompt_tokens
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_diffusion_num_committed_tokens_total
+    component_policy: components_prompt_tokens_by_source_total
     label_policy: labels_corrupted_requests_total
   prompt_tokens_total:
     source:
@@ -3425,12 +3671,12 @@ signals:
           - native_vllm_prompt_tokens_total
           - ray_ray_vllm_prompt_tokens_total
     population:
-      id: prompt_tokens_total
+      id: prompt_tokens
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_diffusion_num_committed_tokens_total
+    component_policy: components_prompt_tokens_by_source_total
     label_policy: labels_corrupted_requests_total
   request_decode_time_seconds:
     source:
@@ -3443,7 +3689,7 @@ signals:
           - native_vllm_request_decode_time_seconds
           - ray_ray_vllm_request_decode_time_seconds
     population:
-      id: request_decode_time_seconds
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3461,12 +3707,12 @@ signals:
           - native_vllm_request_generation_tokens
           - ray_ray_vllm_request_generation_tokens
     population:
-      id: request_generation_tokens
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_iteration_tokens_total
+    component_policy: components_request_generation_tokens
     label_policy: labels_corrupted_requests_total
   request_inference_time_seconds:
     source:
@@ -3479,7 +3725,7 @@ signals:
           - native_vllm_request_inference_time_seconds
           - ray_ray_vllm_request_inference_time_seconds
     population:
-      id: request_inference_time_seconds
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3497,43 +3743,7 @@ signals:
           - native_vllm_request_max_num_generation_tokens
           - ray_ray_vllm_request_max_num_generation_tokens
     population:
-      id: request_max_num_generation_tokens
-      meaning: One cumulative histogram observation for each source-recorded event described by this family.
-      evidence:
-      - source_population
-    functional_dependencies: {}
-    component_policy: components_iteration_tokens_total
-    label_policy: labels_corrupted_requests_total
-  request_params_max_tokens:
-    source:
-      generated:
-        registry_groups:
-        - native
-        - ray_canonical
-        scope:
-          registrations:
-          - native_vllm_request_params_max_tokens
-          - ray_ray_vllm_request_params_max_tokens
-    population:
-      id: request_params_max_tokens
-      meaning: One cumulative histogram observation for each source-recorded event described by this family.
-      evidence:
-      - source_population
-    functional_dependencies: {}
-    component_policy: components_iteration_tokens_total
-    label_policy: labels_corrupted_requests_total
-  request_params_n:
-    source:
-      generated:
-        registry_groups:
-        - native
-        - ray_canonical
-        scope:
-          registrations:
-          - native_vllm_request_params_n
-          - ray_ray_vllm_request_params_n
-    population:
-      id: request_params_n
+      id: parent_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3565,7 +3775,88 @@ signals:
           base: one
           rate: none
           object: observations
-          aspect: observed
+          aspect: requested
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: tokens
+          aspect: accumulated
+          evidence:
+          - source_units
+    functional_dependencies: {}
+    label_policy: labels_corrupted_requests_total
+  request_params_max_tokens:
+    source:
+      generated:
+        registry_groups:
+        - native
+        - ray_canonical
+        scope:
+          registrations:
+          - native_vllm_request_params_max_tokens
+          - ray_ray_vllm_request_params_max_tokens
+    population:
+      id: request_params_max_tokens
+      meaning: One cumulative histogram observation for each source-recorded event described by this family.
+      evidence:
+      - source_population
+    functional_dependencies: {}
+    component_policy: components_iteration_tokens_total
+    label_policy: labels_corrupted_requests_total
+  request_params_n:
+    source:
+      generated:
+        registry_groups:
+        - native
+        - ray_canonical
+        scope:
+          registrations:
+          - native_vllm_request_params_n
+          - ray_ray_vllm_request_params_n
+    population:
+      id: parent_requests
+      meaning: One cumulative histogram observation for each source-recorded event described by this family.
+      evidence:
+      - source_population
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: requested
           evidence:
           - source_units
       sum:
@@ -3596,12 +3887,12 @@ signals:
           - native_vllm_request_prefill_kv_computed_tokens
           - ray_ray_vllm_request_prefill_kv_computed_tokens
     population:
-      id: request_prefill_kv_computed_tokens
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_iteration_tokens_total
+    component_policy: components_request_generation_tokens
     label_policy: labels_corrupted_requests_total
   request_prefill_time_seconds:
     source:
@@ -3614,7 +3905,7 @@ signals:
           - native_vllm_request_prefill_time_seconds
           - ray_ray_vllm_request_prefill_time_seconds
     population:
-      id: request_prefill_time_seconds
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3632,12 +3923,12 @@ signals:
           - native_vllm_request_prompt_tokens
           - ray_ray_vllm_request_prompt_tokens
     population:
-      id: request_prompt_tokens
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_iteration_tokens_total
+    component_policy: components_request_generation_tokens
     label_policy: labels_corrupted_requests_total
   request_queue_time_seconds:
     source:
@@ -3650,7 +3941,7 @@ signals:
           - native_vllm_request_queue_time_seconds
           - ray_ray_vllm_request_queue_time_seconds
     population:
-      id: request_queue_time_seconds
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
@@ -3668,7 +3959,7 @@ signals:
           - native_vllm_request_success_total
           - ray_ray_vllm_request_success_total
     population:
-      id: request_success_total
+      id: completed_requests
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
@@ -3763,7 +4054,7 @@ signals:
         evidence:
         - ray_labels
     functional_dependencies: {}
-    component_policy: components_corrupted_requests_total
+    component_policy: components_request_success_total
   request_time_per_output_token_seconds:
     source:
       generated:
@@ -3775,12 +4066,57 @@ signals:
           - native_vllm_request_time_per_output_token_seconds
           - ray_ray_vllm_request_time_per_output_token_seconds
     population:
-      id: request_time_per_output_token_seconds
+      id: completed_requests
       meaning: One cumulative histogram observation for each source-recorded event described by this family.
       evidence:
       - source_population
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: completed
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: duration
+          aspect: accumulated
+          evidence:
+          - source_units
     functional_dependencies: {}
-    component_policy: components_inter_token_latency_seconds
     label_policy: labels_corrupted_requests_total
   spec_decode_num_accepted_tokens_per_pos_total:
     source:
@@ -3957,7 +4293,7 @@ signals:
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_e2e_request_latency_seconds
+    component_policy: components_hf3fs_load_duration_seconds
     label_policy: labels_corrupted_requests_total
   tool_call_parser_invocations_total:
     source:
@@ -4429,12 +4765,12 @@ signals:
           registrations:
           - ray_alias_ray_vllm_kv_offload_load_bytes
     population:
-      id: kv_offload_load_bytes_total
+      id: kv_offload_loads
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_deprecated_offload_bytes_total
+    component_policy: components_kv_offload_load_bytes_total
     label_policy: labels_ray_alias_corrupted_requests_total
   ray_alias_kv_offload_load_time_total:
     availability:
@@ -4479,12 +4815,12 @@ signals:
           registrations:
           - ray_alias_ray_vllm_kv_offload_store_bytes
     population:
-      id: kv_offload_store_bytes_total
+      id: kv_offload_stores
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_deprecated_offload_bytes_total
+    component_policy: components_kv_offload_load_bytes_total
     label_policy: labels_ray_alias_corrupted_requests_total
   ray_alias_kv_offload_store_time_total:
     availability:
@@ -4756,12 +5092,12 @@ signals:
           registrations:
           - ray_alias_ray_vllm_prompt_tokens
     population:
-      id: prompt_tokens_total
+      id: prompt_tokens
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_diffusion_num_committed_tokens_total
+    component_policy: components_prompt_tokens_by_source_total
     label_policy: labels_ray_alias_corrupted_requests_total
   ray_alias_prompt_tokens_by_source_total:
     availability: ray_transport
@@ -4773,7 +5109,7 @@ signals:
           registrations:
           - ray_alias_ray_vllm_prompt_tokens_by_source
     population:
-      id: prompt_tokens_by_source_total
+      id: prompt_tokens
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
@@ -4863,7 +5199,7 @@ signals:
         evidence:
         - ray_labels
     functional_dependencies: {}
-    component_policy: components_diffusion_num_committed_tokens_total
+    component_policy: components_prompt_tokens_by_source_total
   ray_alias_prompt_tokens_cached_total:
     availability: ray_transport
     source:
@@ -4874,12 +5210,12 @@ signals:
           registrations:
           - ray_alias_ray_vllm_prompt_tokens_cached
     population:
-      id: prompt_tokens_cached_total
+      id: prompt_tokens
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
     functional_dependencies: {}
-    component_policy: components_diffusion_num_committed_tokens_total
+    component_policy: components_prompt_tokens_by_source_total
     label_policy: labels_ray_alias_corrupted_requests_total
   ray_alias_request_success_total:
     availability: ray_transport
@@ -4891,7 +5227,7 @@ signals:
           registrations:
           - ray_alias_ray_vllm_request_success
     population:
-      id: request_success_total
+      id: completed_requests
       meaning: A cumulative source counter for the events or work described by this family.
       evidence:
       - source_population
@@ -4983,7 +5319,7 @@ signals:
         evidence:
         - ray_labels
     functional_dependencies: {}
-    component_policy: components_corrupted_requests_total
+    component_policy: components_request_success_total
   ray_alias_spec_decode_num_accepted_tokens_total:
     availability:
       any:
@@ -5164,7 +5500,279 @@ signals:
     functional_dependencies: {}
     component_policy: components_spec_decode_num_drafts_total
     label_policy: labels_ray_alias_corrupted_requests_total
-relationships: {}
+relationships:
+  e2e_request_count:
+    kind: equivalent
+    left:
+      signal: e2e_request_latency_seconds
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_queue_count:
+    kind: equivalent
+    left:
+      signal: request_queue_time_seconds
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_prefill_count:
+    kind: equivalent
+    left:
+      signal: request_prefill_time_seconds
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_inference_count:
+    kind: equivalent
+    left:
+      signal: request_inference_time_seconds
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_decode_count:
+    kind: equivalent
+    left:
+      signal: request_decode_time_seconds
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_prefill_kv_count:
+    kind: equivalent
+    left:
+      signal: request_prefill_kv_computed_tokens
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_prompt_count:
+    kind: equivalent
+    left:
+      signal: request_prompt_tokens
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_generation_count:
+    kind: equivalent
+    left:
+      signal: request_generation_tokens
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  request_output_token_time_count:
+    kind: equivalent
+    left:
+      signal: request_time_per_output_token_seconds
+      components:
+      - count
+    right:
+      signal: request_success_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  parent_request_count:
+    kind: equivalent
+    left:
+      signal: request_max_num_generation_tokens
+      components:
+      - count
+    right:
+      signal: request_params_n
+      components:
+      - count
+    evidence:
+    - source_relationships
+  kv_eviction_count:
+    kind: equivalent
+    left:
+      signal: kv_block_idle_before_evict_seconds
+      components:
+      - count
+    right:
+      signal: kv_block_lifetime_seconds
+      components:
+      - count
+    evidence:
+    - source_relationships
+  kv_load_bytes:
+    kind: equivalent
+    left:
+      signal: kv_offload_load_size
+      components:
+      - sum
+    right:
+      signal: kv_offload_load_bytes_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  kv_store_bytes:
+    kind: equivalent
+    left:
+      signal: kv_offload_store_size
+      components:
+      - sum
+    right:
+      signal: kv_offload_store_bytes_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  mooncake_operation_count:
+    kind: equivalent
+    left:
+      signal: mooncake_store_operation_time_seconds
+      components:
+      - count
+    right:
+      signal: mooncake_store_operation_total
+      components:
+      - value
+    evidence:
+    - source_relationships
+  nixl_transfer_bytes_count:
+    kind: equivalent
+    left:
+      signal: nixl_bytes_transferred
+      components:
+      - count
+    right:
+      signal: nixl_xfer_time_seconds
+      components:
+      - count
+    evidence:
+    - source_relationships
+  nixl_descriptor_count:
+    kind: equivalent
+    left:
+      signal: nixl_num_descriptors
+      components:
+      - count
+    right:
+      signal: nixl_xfer_time_seconds
+      components:
+      - count
+    evidence:
+    - source_relationships
+  nixl_post_count:
+    kind: equivalent
+    left:
+      signal: nixl_post_time_seconds
+      components:
+      - count
+    right:
+      signal: nixl_xfer_time_seconds
+      components:
+      - count
+    evidence:
+    - source_relationships
+  waiting_requests_by_reason:
+    kind: sum_projection
+    coarse:
+      signal: num_requests_waiting
+      components:
+      - value
+    fine:
+      signal: num_requests_waiting_by_reason
+      components:
+      - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
+    evidence:
+    - source_relationships
+  prompt_tokens_by_source:
+    kind: sum_projection
+    coarse:
+      signal: prompt_tokens_total
+      components:
+      - value
+    fine:
+      signal: prompt_tokens_by_source_total
+      components:
+      - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
+    evidence:
+    - source_relationships
+  cached_prompt_tokens_by_source:
+    kind: sum_projection
+    coarse:
+      signal: prompt_tokens_cached_total
+      components:
+      - value
+    fine:
+      signal: prompt_tokens_by_source_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: source
+            op: in
+            values:
+            - local_cache_hit
+            - external_kv_transfer
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
+    evidence:
+    - source_relationships
 state_encodings:
   engine_sleep_state:
     signal: engine_sleep_state

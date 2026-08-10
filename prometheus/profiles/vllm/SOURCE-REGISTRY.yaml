@@ -18,7 +18,7 @@ groups:
     registrations:
       native_vllm_cache_config_info:
         family: {exact: vllm:cache_config_info}
-        prometheus: {type: gauge, shape: scalar}
+        prometheus: {type: gauge, shape: info}
         when:
           any:
             - all:
@@ -625,7 +625,7 @@ groups:
             range: {start: 144, end: 146}
       native_vllm_lora_requests_info:
         family: {exact: vllm:lora_requests_info}
-        prometheus: {type: gauge, shape: scalar}
+        prometheus: {type: gauge, shape: info}
         when:
           any:
             - all:
@@ -1268,7 +1268,7 @@ groups:
     registrations:
       ray_ray_vllm_cache_config_info:
         family: {exact: ray_vllm_cache_config_info}
-        prometheus: {type: gauge, shape: scalar}
+        prometheus: {type: gauge, shape: info}
         when:
           any:
             - all:
@@ -2127,7 +2127,7 @@ groups:
             range: {start: 382, end: 491}
       ray_ray_vllm_lora_requests_info:
         family: {exact: ray_vllm_lora_requests_info}
-        prometheus: {type: gauge, shape: scalar}
+        prometheus: {type: gauge, shape: info}
         when:
           any:
             - all:
