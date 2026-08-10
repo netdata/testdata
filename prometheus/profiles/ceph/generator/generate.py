@@ -33,6 +33,7 @@ class Grammar:
     canonical_prefix: str
     embedded_prefix: str
     identity: str
+    excluded_prefixes: tuple[str, ...] = ()
     terminal_identity: bool = False
 
 
@@ -70,7 +71,12 @@ class MergedRegistration:
 
 
 GRAMMARS = {
-    "librbd_image": Grammar("ceph_rbd_librbd_image_", "ceph_librbd_", "librbd_image_key"),
+    "librbd_image": Grammar(
+        "ceph_rbd_librbd_image_",
+        "ceph_librbd_",
+        "librbd_image_key",
+        excluded_prefixes=("ceph_librbd_pwl_",),
+    ),
     "librbd_pwl": Grammar("ceph_rbd_librbd_pwl_", "ceph_librbd_pwl_", "librbd_pwl_key"),
     "throttle": Grammar("ceph_throttle_", "ceph_throttle_", "throttle_key"),
     "finisher": Grammar("ceph_finisher_", "ceph_finisher_", "finisher_key"),
@@ -1482,6 +1488,11 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
                 f"        canonical: {{prefix: {_yaml(grammar.canonical_prefix)}, suffix: {_yaml(suffix)}}}",
                 "        embedded:",
                 f"          prefix: {_yaml(grammar.embedded_prefix)}",
+            ])
+            if grammar.excluded_prefixes:
+                excluded = ", ".join(_yaml(prefix) for prefix in grammar.excluded_prefixes)
+                lines.append(f"          excluded_prefixes: [{excluded}]")
+            lines.extend([
                 f"          suffix: {_yaml(suffix)}",
                 f"          separator: {_yaml(separator)}",
                 f"          identity_slot: {{name: {grammar.identity}, nonempty: true}}",

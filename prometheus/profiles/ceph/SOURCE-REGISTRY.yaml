@@ -214,6 +214,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'cmp'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'cmp'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -221,6 +222,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'cmp_bytes'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'cmp_bytes'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -228,6 +230,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'cmp_latency_count'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'cmp_latency_count'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -235,6 +238,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'cmp_latency_sum'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'cmp_latency_sum'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -242,6 +246,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'discard'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'discard'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -249,6 +254,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'discard_bytes'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'discard_bytes'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -256,6 +262,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'discard_latency_count'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'discard_latency_count'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -263,6 +270,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'discard_latency_sum'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'discard_latency_sum'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -270,6 +278,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'flush'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'flush'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -277,6 +286,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'flush_latency_count'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'flush_latency_count'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -284,6 +294,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'flush_latency_sum'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'flush_latency_sum'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -291,6 +302,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'invalidate_cache'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'invalidate_cache'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -298,6 +310,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'lock_acquired_time'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'lock_acquired_time'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -305,6 +318,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'notify'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'notify'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -312,6 +326,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'opened_time'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'opened_time'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -319,6 +334,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'rd'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'rd'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -326,6 +342,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'rd_bytes'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'rd_bytes'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -333,6 +350,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'rd_latency_count'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'rd_latency_count'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -340,6 +358,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'rd_latency_sum'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'rd_latency_sum'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -347,6 +366,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'readahead'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'readahead'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -354,6 +374,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'readahead_bytes'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'readahead_bytes'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -361,6 +382,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'resize'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'resize'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -368,6 +390,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'snap_create'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'snap_create'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -375,6 +398,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'snap_remove'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'snap_remove'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -382,6 +406,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'snap_rename'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'snap_rename'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -389,6 +414,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'snap_rollback'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'snap_rollback'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -396,6 +422,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'wr'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'wr'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -403,6 +430,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'wr_bytes'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'wr_bytes'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -410,6 +438,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'wr_latency_count'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'wr_latency_count'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -417,6 +446,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'wr_latency_sum'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'wr_latency_sum'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -424,6 +454,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'ws'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'ws'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -431,6 +462,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'ws_bytes'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'ws_bytes'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -438,6 +470,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'ws_latency_count'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'ws_latency_count'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
@@ -445,6 +478,7 @@ family_grammars:
         canonical: {prefix: 'ceph_rbd_librbd_image_', suffix: 'ws_latency_sum'}
         embedded:
           prefix: 'ceph_librbd_'
+          excluded_prefixes: ['ceph_librbd_pwl_']
           suffix: 'ws_latency_sum'
           separator: '_'
           identity_slot: {name: librbd_image_key, nonempty: true}
