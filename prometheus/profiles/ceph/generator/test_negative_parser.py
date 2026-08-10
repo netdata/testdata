@@ -36,6 +36,26 @@ class FailClosedParserTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsupported MGR source expression"):
             GENERATOR._mgr_expression(expression, {})
 
+    def test_service_unique_id_is_terminal_identity(self):
+        builder = GENERATOR.Builder(0, "plb", '"service_unique_id"', "service_unique_id")
+        arguments = (
+            'l_service_unique_id, service_unique_id.c_str(), '
+            '"Unique ID for this service"'
+        )
+        self.assertEqual(
+            GENERATOR.terminal_identity_form(
+                "src/common/ceph_context.cc", builder, "u64", arguments
+            ),
+            "identity",
+        )
+        with self.assertRaisesRegex(ValueError, "service_unique_id construction changed"):
+            GENERATOR.terminal_identity_form(
+                "src/common/ceph_context.cc",
+                builder,
+                "u64",
+                arguments.replace("service_unique_id.c_str()", "description.c_str()"),
+            )
+
     def test_rejects_new_cpp_metric_constructor(self):
         target = "src/client/Client.cc"
 

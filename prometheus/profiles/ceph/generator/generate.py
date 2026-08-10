@@ -33,6 +33,7 @@ class Grammar:
     canonical_prefix: str
     embedded_prefix: str
     identity: str
+    terminal_identity: bool = False
 
 
 @dataclass(frozen=True)
@@ -88,6 +89,12 @@ GRAMMARS = {
     "rgw_sync": Grammar("ceph_data_sync_from_zone_", "ceph_data_sync_from_", "source_zone"),
     "osd_scrub": Grammar("ceph_osd_scrub_", "ceph_osd_scrub_", "scrub_phase"),
     "striper": Grammar("ceph_rados_striper_", "ceph_", "striper"),
+    "service_unique_id": Grammar(
+        "ceph_service_unique_id",
+        "ceph_service_unique_id_",
+        "service_unique_id",
+        terminal_identity=True,
+    ),
 }
 
 
@@ -866,6 +873,27 @@ def dynamic_builder(path: str, expression: str) -> str | None:
     return None
 
 
+def terminal_identity_form(
+    path: str,
+    builder: Builder,
+    method: str,
+    arguments: str,
+) -> str | None:
+    if path != "src/common/ceph_context.cc" or builder.static_group != "service_unique_id":
+        return None
+    parsed = split_cpp_arguments(arguments)
+    expected = (
+        method == "u64"
+        and len(parsed) == 3
+        and parsed[0].strip() == "l_service_unique_id"
+        and parsed[1].strip() == "service_unique_id.c_str()"
+        and string_literals(parsed[2]) == ["Unique ID for this service"]
+    )
+    if not expected:
+        raise ValueError(f"{path} service_unique_id construction changed")
+    return "identity"
+
+
 def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter[tuple[str, str]]]:
     validate_endpoint_contracts(root)
     registrations: list[Registration] = []
@@ -907,20 +935,25 @@ def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter
                 continue
             builder = max(candidates, key=lambda item: item.offset)
             grammar = None
-            groups = (builder.static_group,) if builder.static_group is not None else special_groups(root, relative, text, builder)
-            if groups is None:
-                group, grammar = resolve_key_created_group(text, builder)
-                groups = (group,) if group is not None else None
-            if groups is None:
-                grammar = dynamic_builder(relative, builder.expression)
-                if grammar is None:
-                    unclassified[(relative, builder.expression)] += 1
-                    continue
+            terminal_form = terminal_identity_form(relative, builder, method, arguments)
+            if terminal_form is not None:
+                grammar = "service_unique_id"
                 groups = (grammar,)
-            if relative == "src/osdc/Objecter.cc" and groups == ("objecter",):
-                grammar = "objecter"
-                groups = ("objecter",)
-            forms = [names[0]]
+            else:
+                groups = (builder.static_group,) if builder.static_group is not None else special_groups(root, relative, text, builder)
+                if groups is None:
+                    group, grammar = resolve_key_created_group(text, builder)
+                    groups = (group,) if group is not None else None
+                if groups is None:
+                    grammar = dynamic_builder(relative, builder.expression)
+                    if grammar is None:
+                        unclassified[(relative, builder.expression)] += 1
+                        continue
+                    groups = (grammar,)
+                if relative == "src/osdc/Objecter.cc" and groups == ("objecter",):
+                    grammar = "objecter"
+                    groups = ("objecter",)
+            forms = [terminal_form] if terminal_form is not None else [names[0]]
             if method in AVERAGE_METHODS:
                 forms = [names[0] + "_count", names[0] + "_sum"]
             registration_priority = priority(root, relative, text, builder, match.start(), arguments)
@@ -1442,13 +1475,15 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
             lines.append("    interpretation: longest_known_suffix")
         lines.append("    forms:")
         for form in sorted(used_grammars[grammar_id]):
+            suffix = "" if grammar.terminal_identity else form
+            separator = "" if grammar.terminal_identity else "_"
             lines.extend([
                 f"      {form}:",
-                f"        canonical: {{prefix: {_yaml(grammar.canonical_prefix)}, suffix: {_yaml(form)}}}",
+                f"        canonical: {{prefix: {_yaml(grammar.canonical_prefix)}, suffix: {_yaml(suffix)}}}",
                 "        embedded:",
                 f"          prefix: {_yaml(grammar.embedded_prefix)}",
-                f"          suffix: {_yaml(form)}",
-                "          separator: '_'",
+                f"          suffix: {_yaml(suffix)}",
+                f"          separator: {_yaml(separator)}",
                 f"          identity_slot: {{name: {grammar.identity}, nonempty: true}}",
             ])
     lines.append("groups:")

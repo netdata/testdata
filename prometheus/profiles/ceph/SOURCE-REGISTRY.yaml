@@ -2028,6 +2028,15 @@ family_grammars:
           suffix: 'usage'
           separator: '_'
           identity_slot: {name: rocksdb_cache_key, nonempty: true}
+  service_unique_id:
+    forms:
+      identity:
+        canonical: {prefix: 'ceph_service_unique_id', suffix: ''}
+        embedded:
+          prefix: 'ceph_service_unique_id_'
+          suffix: ''
+          separator: ''
+          identity_slot: {name: service_unique_id, nonempty: true}
   throttle:
     forms:
       get:
@@ -9093,6 +9102,29 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/kv/rocksdb_cache/BinnedLRUCache.h'
             range: {start: 192, end: 201}
+      service_unique_id_identity:
+        family: {grammar: service_unique_id, form: identity}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority, op: max, value: 0}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority, op: max, value: 0}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/common/ceph_context.cc'
+            range: {start: 976, end: 977}
+          - upstream: ceph_tentacle
+            path: 'src/common/ceph_context.cc'
+            range: {start: 983, end: 984}
       throttle_get:
         family: {grammar: throttle, form: get}
         prometheus: {type: counter, shape: scalar}
@@ -37193,29 +37225,6 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/kv/RocksDBStore.cc'
             range: {start: 1254, end: 1254}
-      ceph_service_unique_id_unique_id_for_this_service:
-        family: {exact: 'ceph_service_unique_id_Unique_ID_for_this_service'}
-        prometheus: {type: gauge, shape: scalar}
-        when:
-          any:
-            - all:
-                - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: in, values: [squid, tentacle]}
-                - {axis: perf_priority, op: max, value: 0}
-            - all:
-                - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: in, values: [squid, tentacle]}
-                - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority, op: max, value: 0}
-        components:
-          value: {wire_role: scalar}
-        source_locations:
-          - upstream: ceph_squid
-            path: 'src/common/ceph_context.cc'
-            range: {start: 976, end: 977}
-          - upstream: ceph_tentacle
-            path: 'src/common/ceph_context.cc'
-            range: {start: 983, end: 984}
       ceph_trackedop_slow_ops_count:
         family: {exact: 'ceph_trackedop_slow_ops_count'}
         prometheus: {type: counter, shape: scalar}
