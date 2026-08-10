@@ -1,6 +1,6 @@
 .gitattributes text eol=lf
 /prometheus/README.md text eol=lf
 /prometheus/ATTRIBUTION.md text eol=lf
-/prometheus/profiles/**/manifest.yaml text eol=lf
-/prometheus/profiles/**/SOURCE-INVENTORY.tsv text eol=lf linguist-generated=true
+/prometheus/profiles/** text eol=lf
+/prometheus/profiles/**/SOURCE-REGISTRY.yaml linguist-generated=true
 /prometheus/profiles/**/fixtures/*.prom text eol=lf linguist-generated=true
