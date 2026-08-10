@@ -52152,3 +52152,423 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/exporter/DaemonMetricCollector.cc'
             range: {start: 399, end: 400}
+  nvmeof:
+    registrations:
+      ceph_nvmeof_bdev_capacity_bytes:
+        family: {exact: 'ceph_nvmeof_bdev_capacity_bytes'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 353, end: 356}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_bdev_metadata:
+        family: {exact: 'ceph_nvmeof_bdev_metadata'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 349, end: 352}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_bdev_read_bytes_total:
+        family: {exact: 'ceph_nvmeof_bdev_read_bytes_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 396, end: 399}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_bdev_read_seconds_total:
+        family: {exact: 'ceph_nvmeof_bdev_read_seconds_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 404, end: 407}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_bdev_reads_completed_total:
+        family: {exact: 'ceph_nvmeof_bdev_reads_completed_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 388, end: 391}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_bdev_write_seconds_total:
+        family: {exact: 'ceph_nvmeof_bdev_write_seconds_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 408, end: 411}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_bdev_writes_completed_total:
+        family: {exact: 'ceph_nvmeof_bdev_writes_completed_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 392, end: 395}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_bdev_written_bytes_total:
+        family: {exact: 'ceph_nvmeof_bdev_written_bytes_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 400, end: 403}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_gateway_info:
+        family: {exact: 'ceph_nvmeof_gateway_info'}
+        prometheus: {type: gauge, shape: info}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 334, end: 346}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 338, end: 375}
+      ceph_nvmeof_host_connection_state:
+        family: {exact: 'ceph_nvmeof_host_connection_state'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 479, end: 482}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_host_keepalive_timeout:
+        family: {exact: 'ceph_nvmeof_host_keepalive_timeout'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 483, end: 486}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_reactor_seconds_total:
+        family: {exact: 'ceph_nvmeof_reactor_seconds_total'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 438, end: 441}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 106, end: 147}
+      ceph_nvmeof_rpc_method_seconds:
+        family: {exact: 'ceph_nvmeof_rpc_method_seconds'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 588, end: 591}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_host_count:
+        family: {exact: 'ceph_nvmeof_subsystem_host_count'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 463, end: 466}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_listener_count:
+        family: {exact: 'ceph_nvmeof_subsystem_listener_count'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 459, end: 462}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_listener_iface_info:
+        family: {exact: 'ceph_nvmeof_subsystem_listener_iface_info'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 545, end: 548}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_listener_iface_nqn_info:
+        family: {exact: 'ceph_nvmeof_subsystem_listener_iface_nqn_info'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 553, end: 556}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_listener_iface_speed_bytes:
+        family: {exact: 'ceph_nvmeof_subsystem_listener_iface_speed_bytes'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 549, end: 552}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_metadata:
+        family: {exact: 'ceph_nvmeof_subsystem_metadata'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 454, end: 458}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_namespace_count:
+        family: {exact: 'ceph_nvmeof_subsystem_namespace_count'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 471, end: 474}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_namespace_limit:
+        family: {exact: 'ceph_nvmeof_subsystem_namespace_limit'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 467, end: 470}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}
+      ceph_nvmeof_subsystem_namespace_metadata:
+        family: {exact: 'ceph_nvmeof_subsystem_namespace_metadata'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: nvmeof}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_nvmeof
+            path: 'control/prometheus.py'
+            range: {start: 475, end: 478}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/exposition.py'
+            range: {start: 233, end: 292}
+          - upstream: prometheus_client_python
+            path: 'prometheus_client/metrics_core.py'
+            range: {start: 150, end: 179}

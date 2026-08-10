@@ -12,7 +12,12 @@ from pathlib import Path
 
 
 RELEASES = ("reef", "squid", "tentacle")
-SOURCE_ROOTS = {release: Path("upstreams") / f"ceph_{release}" for release in RELEASES}
+SOURCE_VARIANTS = (*RELEASES, "nvmeof")
+SOURCE_ROOTS = {
+    **{release: Path("upstreams") / f"ceph_{release}" for release in RELEASES},
+    "nvmeof": Path("upstreams/ceph_nvmeof"),
+    "prometheus_client_python": Path("upstreams/prometheus_client_python"),
+}
 AVERAGE_METHODS = {"time_avg", "u64_avg"}
 IGNORED_METHODS = {"u64_counter_histogram"}
 SUPPORTED_METHODS = {"time", "time_avg", "u64", "u64_avg", "u64_counter"}
@@ -32,7 +37,7 @@ class Grammar:
 
 @dataclass(frozen=True)
 class Registration:
-    release: str
+    source_variant: str
     source_path: str
     line_start: int
     line_end: int
@@ -41,10 +46,12 @@ class Registration:
     form: str
     prometheus_type: str
     priority: int
+    shape: str = "scalar"
     endpoint: str = "daemon_perf"
     classification: str | None = None
     exact_family_override: str | None = None
     extra_locations: tuple[tuple[str, int, int], ...] = ()
+    dependency_locations: tuple[tuple[str, str, int, int], ...] = ()
 
 
 @dataclass(frozen=True)
@@ -53,10 +60,11 @@ class MergedRegistration:
     grammar: str | None
     form: str
     prometheus_type: str
+    shape: str
     priority: int
     endpoint: str
     classification: str | None
-    releases: tuple[str, ...]
+    source_variants: tuple[str, ...]
     locations: tuple[tuple[str, str, int, int], ...]
 
 
@@ -448,7 +456,7 @@ def parse_mgr_static_registrations(root: Path, release: str) -> list[Registratio
             if not isinstance(metric_type_value, str) or not isinstance(metric_name, str):
                 raise ValueError(f"non-string MGR metric identity at line {statement.value.lineno}")
             registrations.append(Registration(
-                release=release,
+                source_variant=release,
                 source_path=source_path,
                 line_start=statement.value.lineno,
                 line_end=statement.value.end_lineno or statement.value.lineno,
@@ -500,7 +508,7 @@ def parse_mgr_dynamic_registrations(module_class: ast.ClassDef, source_path: str
         )
         for form in forms:
             result.append(Registration(
-                release=release,
+                source_variant=release,
                 source_path=source_path,
                 line_start=value_node.lineno,
                 line_end=value_node.end_lineno or value_node.lineno,
@@ -527,7 +535,7 @@ def parse_mgr_dynamic_registrations(module_class: ast.ClassDef, source_path: str
         if not isinstance(name, str):
             raise ValueError(f"{source_path} has non-string collection counter at line {call.lineno}")
         result.append(Registration(
-            release=release,
+            source_variant=release,
             source_path=source_path,
             line_start=call.lineno,
             line_end=call.end_lineno or call.lineno,
@@ -927,7 +935,7 @@ def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter
                         variants = ((metric_type(method), "daemon_perf"),)
                     for output_type, endpoint in variants:
                         registrations.append(Registration(
-                            release=release,
+                            source_variant=release,
                             source_path=relative,
                             line_start=line_number(text, match.start()),
                             line_end=line_number(text, match.end()),
@@ -973,7 +981,7 @@ def parse_mempool_registrations(root: Path, release: str, source_path: str, text
         for form, call in zip(forms, calls):
             result.append(
                 Registration(
-                    release=release,
+                    source_variant=release,
                     source_path=source_path,
                     line_start=line_number(text, call.start()),
                     line_end=line_number(text, call.end()),
@@ -1014,7 +1022,7 @@ def parse_binned_cache_registrations(root: Path, release: str, source_path: str,
     call = generated[0]
     return [
         Registration(
-            release=release,
+            source_variant=release,
             source_path=source_path,
             line_start=line_number(text, call.start()),
             line_end=line_number(text, call.end()),
@@ -1043,7 +1051,7 @@ def parse_exporter_registrations(release: str, source_path: str, text: str) -> l
             continue
         result.append(
             Registration(
-                release=release,
+                source_variant=release,
                 source_path=source_path,
                 line_start=line_number(text, match.start()),
                 line_end=line_number(text, match.end()),
@@ -1058,6 +1066,250 @@ def parse_exporter_registrations(release: str, source_path: str, text: str) -> l
     return result
 
 
+def _one_class(tree: ast.Module, name: str, source_path: str) -> ast.ClassDef:
+    matches = [node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == name]
+    if len(matches) != 1:
+        raise ValueError(f"{source_path} must define exactly one {name} class")
+    return matches[0]
+
+
+def _one_method(owner: ast.ClassDef, name: str, source_path: str) -> ast.FunctionDef:
+    matches = [node for node in owner.body if isinstance(node, ast.FunctionDef) and node.name == name]
+    if len(matches) != 1:
+        raise ValueError(f"{source_path} {owner.name} must define exactly one {name} method")
+    return matches[0]
+
+
+def _nvmeof_metric_name(node: ast.AST, prefix: str) -> str:
+    if not isinstance(node, ast.JoinedStr):
+        raise ValueError(f"NVMe-oF metric name at line {node.lineno} must be a bounded prefix f-string")
+    parts: list[str] = []
+    for value in node.values:
+        if isinstance(value, ast.Constant) and isinstance(value.value, str):
+            parts.append(value.value)
+            continue
+        if (
+            isinstance(value, ast.FormattedValue)
+            and isinstance(value.value, ast.Attribute)
+            and isinstance(value.value.value, ast.Name)
+            and value.value.value.id == "self"
+            and value.value.attr == "metric_prefix"
+            and value.conversion == -1
+            and value.format_spec is None
+        ):
+            parts.append(prefix)
+            continue
+        raise ValueError(f"unsupported NVMe-oF metric-name expression at line {node.lineno}")
+    result = "".join(parts)
+    if not re.fullmatch(r"ceph_nvmeof_[a-z0-9_]+", result):
+        raise ValueError(f"invalid NVMe-oF metric name {result!r} at line {node.lineno}")
+    return result
+
+
+def _literal_label_names(node: ast.AST, field: str) -> tuple[str, ...]:
+    if not isinstance(node, (ast.List, ast.Tuple)):
+        raise ValueError(f"{field} must be a literal label-name list")
+    labels = []
+    for item in node.elts:
+        if not isinstance(item, ast.Constant) or not isinstance(item.value, str):
+            raise ValueError(f"{field} contains a non-literal label name")
+        if not re.fullmatch(r"[a-zA-Z_][a-zA-Z0-9_]*", item.value):
+            raise ValueError(f"{field} contains invalid label name {item.value!r}")
+        labels.append(item.value)
+    if len(labels) != len(set(labels)):
+        raise ValueError(f"{field} contains duplicate label names")
+    return tuple(labels)
+
+
+def _client_metric_family_locations(client_root: Path) -> dict[str, tuple[tuple[str, str, int, int], ...]]:
+    core_path = "prometheus_client/metrics_core.py"
+    exposition_path = "prometheus_client/exposition.py"
+    core_text = (client_root / core_path).read_text(encoding="utf-8")
+    exposition_text = (client_root / exposition_path).read_text(encoding="utf-8")
+    core_tree = ast.parse(core_text, filename=core_path)
+    exposition_tree = ast.parse(exposition_text, filename=exposition_path)
+
+    classes = {
+        name: _one_class(core_tree, name, core_path)
+        for name in ("CounterMetricFamily", "GaugeMetricFamily", "InfoMetricFamily")
+    }
+    class_text = {name: ast.get_source_segment(core_text, node) or "" for name, node in classes.items()}
+    required = {
+        "CounterMetricFamily": ("name.endswith('_total')", "name = name[:-6]", "self.name + '_total'"),
+        "GaugeMetricFamily": ("Metric.__init__(self, name, documentation, 'gauge', unit)", "Sample(self.name,"),
+        "InfoMetricFamily": ("Metric.__init__(self, name, documentation, 'info')", "self.name + '_info'"),
+    }
+    for name, snippets in required.items():
+        if not all(snippet in class_text[name] for snippet in snippets):
+            raise ValueError(f"{core_path} {name} wire contract changed")
+
+    generate_latest = next((
+        node for node in exposition_tree.body
+        if isinstance(node, ast.FunctionDef) and node.name == "generate_latest"
+    ), None)
+    if generate_latest is None:
+        raise ValueError(f"{exposition_path} has no generate_latest function")
+    exposition_contract = ast.get_source_segment(exposition_text, generate_latest) or ""
+    for snippet in (
+        "if mtype == 'counter':\n                mname = mname + '_total'",
+        "elif mtype == 'info':\n                mname = mname + '_info'\n                mtype = 'gauge'",
+    ):
+        if snippet not in exposition_contract:
+            raise ValueError(f"{exposition_path} Prometheus text-family contract changed")
+
+    exposition_location = (
+        "prometheus_client_python",
+        exposition_path,
+        generate_latest.lineno,
+        generate_latest.end_lineno or generate_latest.lineno,
+    )
+    return {
+        name: (
+            (
+                "prometheus_client_python",
+                core_path,
+                node.lineno,
+                node.end_lineno or node.lineno,
+            ),
+            exposition_location,
+        )
+        for name, node in classes.items()
+    }
+
+
+def parse_nvmeof_registrations(root: Path, client_root: Path) -> list[Registration]:
+    source_path = "control/prometheus.py"
+    project_path = "pyproject.toml"
+    source_text = (root / source_path).read_text(encoding="utf-8")
+    project_text = (root / project_path).read_text(encoding="utf-8")
+    if '"prometheus_client ~= 0.19.0"' not in project_text:
+        raise ValueError(f"{project_path} prometheus_client dependency contract changed")
+
+    tree = ast.parse(source_text, filename=source_path)
+    collector = _one_class(tree, "NVMeOFCollector", source_path)
+    initializer = _one_method(collector, "__init__", source_path)
+    collect = _one_method(collector, "collect", source_path)
+
+    prefix_assignments = [
+        node for node in ast.walk(initializer)
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Attribute)
+        and isinstance(node.targets[0].value, ast.Name)
+        and node.targets[0].value.id == "self"
+        and node.targets[0].attr == "metric_prefix"
+    ]
+    if len(prefix_assignments) != 1:
+        raise ValueError(f"{source_path} must assign self.metric_prefix exactly once")
+    try:
+        prefix = ast.literal_eval(prefix_assignments[0].value)
+    except (ValueError, TypeError) as error:
+        raise ValueError(f"{source_path} self.metric_prefix must be a literal string") from error
+    if prefix != "ceph_nvmeof":
+        raise ValueError(f"{source_path} metric prefix changed to {prefix!r}")
+
+    supported = {"GaugeMetricFamily", "CounterMetricFamily", "InfoMetricFamily"}
+    all_family_calls = [
+        node for node in ast.walk(tree)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id.endswith("MetricFamily")
+    ]
+    collect_family_calls = [
+        node for node in ast.walk(collect)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id.endswith("MetricFamily")
+    ]
+    if {id(node) for node in all_family_calls} != {id(node) for node in collect_family_calls}:
+        raise ValueError(f"{source_path} metric-family construction outside NVMeOFCollector.collect is unsupported")
+    unknown = sorted({node.func.id for node in collect_family_calls if node.func.id not in supported})
+    if unknown:
+        raise ValueError(f"{source_path} has unsupported metric-family constructors: {unknown}")
+    if not collect_family_calls:
+        raise ValueError(f"{source_path} NVMeOFCollector.collect registers no metric families")
+
+    family_call_ids = {id(call) for call in collect_family_calls}
+    assignments: dict[int, tuple[str, ast.Call, ast.Assign]] = {}
+    for node in collect.body:
+        if not (
+            isinstance(node, ast.Assign)
+            and len(node.targets) == 1
+            and isinstance(node.targets[0], ast.Name)
+            and isinstance(node.value, ast.Call)
+            and id(node.value) in family_call_ids
+        ):
+            continue
+        assignments[id(node.value)] = (node.targets[0].id, node.value, node)
+    if set(assignments) != family_call_ids:
+        raise ValueError(f"{source_path} metric families must use unconditional direct single-name assignments")
+
+    yielded = Counter(
+        node.value.value.id for node in collect.body
+        if isinstance(node, ast.Expr)
+        and isinstance(node.value, ast.Yield)
+        and isinstance(node.value.value, ast.Name)
+    )
+    client_locations = _client_metric_family_locations(client_root)
+    result = []
+    variables = set()
+    families = set()
+    for variable, call, assignment in sorted(assignments.values(), key=lambda item: item[1].lineno):
+        if variable in variables:
+            raise ValueError(f"{source_path} reuses metric-family variable {variable!r}")
+        variables.add(variable)
+        if yielded[variable] != 1:
+            raise ValueError(
+                f"{source_path} metric-family variable {variable!r} must be yielded unconditionally exactly once"
+            )
+        if len(call.args) != 2 or not isinstance(call.args[1], ast.Constant) or not isinstance(call.args[1].value, str):
+            raise ValueError(f"{source_path}:{call.lineno} metric family must have literal name and documentation arguments")
+        keywords = {item.arg: item.value for item in call.keywords if item.arg is not None}
+        if len(keywords) != len(call.keywords):
+            raise ValueError(f"{source_path}:{call.lineno} metric family uses keyword expansion")
+
+        constructor = call.func.id
+        raw_family = _nvmeof_metric_name(call.args[0], prefix)
+        if constructor == "InfoMetricFamily":
+            if set(keywords) != {"value"} or not isinstance(keywords["value"], ast.Dict):
+                raise ValueError(f"{source_path}:{call.lineno} InfoMetricFamily must have one literal value mapping")
+            for key in keywords["value"].keys:
+                if not isinstance(key, ast.Constant) or not isinstance(key.value, str):
+                    raise ValueError(f"{source_path}:{call.lineno} InfoMetricFamily has a dynamic label name")
+            family = raw_family + "_info"
+            prometheus_type = "gauge"
+            shape = "info"
+        else:
+            if set(keywords) not in (set(), {"labels"}):
+                raise ValueError(f"{source_path}:{call.lineno} {constructor} has unsupported keyword arguments")
+            if "labels" in keywords:
+                _literal_label_names(keywords["labels"], f"{source_path}:{call.lineno} labels")
+            family = raw_family
+            prometheus_type = "counter" if constructor == "CounterMetricFamily" else "gauge"
+            shape = "scalar"
+            if constructor == "CounterMetricFamily" and not family.endswith("_total"):
+                raise ValueError(f"{source_path}:{call.lineno} counter family must use its Prometheus _total name")
+        if family in families:
+            raise ValueError(f"{source_path} registers duplicate family {family!r}")
+        families.add(family)
+        result.append(Registration(
+            source_variant="nvmeof",
+            source_path=source_path,
+            line_start=assignment.lineno,
+            line_end=assignment.end_lineno or assignment.lineno,
+            group="nvmeof",
+            grammar=None,
+            form=family,
+            prometheus_type=prometheus_type,
+            priority=0,
+            shape=shape,
+            endpoint="nvmeof",
+            exact_family_override=family,
+            dependency_locations=client_locations[constructor],
+        ))
+    return result
+
+
 def exact_family(registration: Registration) -> str | None:
     if registration.exact_family_override is not None:
         return registration.exact_family_override
@@ -1068,53 +1320,84 @@ def exact_family(registration: Registration) -> str | None:
     return prometheus_name(registration.group + "_" + registration.form)
 
 
-def merge_registrations(by_release: dict[str, list[Registration]]) -> list[MergedRegistration]:
-    variants: dict[tuple[str | None, str | None, str, str, int, str, str | None], list[Registration]] = defaultdict(list)
-    seen_release: dict[tuple[str | None, str | None, str, str, str], tuple[int, str, str | None]] = {}
-    for release, registrations in by_release.items():
+def merge_registrations(by_variant: dict[str, list[Registration]]) -> list[MergedRegistration]:
+    variants: dict[tuple[str | None, str | None, str, str, str, int, str, str | None], list[Registration]] = defaultdict(list)
+    seen_variant: dict[tuple[str | None, str | None, str, str, str], tuple[int, str, str, str | None]] = {}
+    for source_variant, registrations in by_variant.items():
         for registration in registrations:
+            if registration.source_variant != source_variant:
+                raise ValueError(
+                    f"registration variant {registration.source_variant!r} is stored under {source_variant!r}"
+                )
             family = exact_family(registration)
-            selector = (family, registration.grammar, registration.form, registration.prometheus_type)
-            previous = seen_release.get((family, registration.grammar, registration.form, registration.endpoint, release))
-            current = (registration.priority, registration.prometheus_type, registration.classification)
+            previous = seen_variant.get((
+                family,
+                registration.grammar,
+                registration.form,
+                registration.endpoint,
+                source_variant,
+            ))
+            current = (
+                registration.priority,
+                registration.prometheus_type,
+                registration.shape,
+                registration.classification,
+            )
             if previous is not None and previous != current:
                 raise ValueError(
-                    f"{release} selector {(family, registration.grammar, registration.form)} "
+                    f"{source_variant} selector {(family, registration.grammar, registration.form)} "
                     f"has conflicting priority/type {previous} and {current}"
                 )
-            seen_release[(family, registration.grammar, registration.form, registration.endpoint, release)] = current
+            seen_variant[(
+                family,
+                registration.grammar,
+                registration.form,
+                registration.endpoint,
+                source_variant,
+            )] = current
             variants[(
                 family,
                 registration.grammar,
                 registration.form,
                 registration.prometheus_type,
+                registration.shape,
                 registration.priority,
                 registration.endpoint,
                 registration.classification,
             )].append(registration)
 
     result = []
-    for (family, grammar, form, prometheus_type, priority_value, endpoint, classification), registrations in sorted(
+    for (family, grammar, form, prometheus_type, shape, priority_value, endpoint, classification), registrations in sorted(
         variants.items(), key=lambda item: tuple("" if value is None else str(value) for value in item[0])
     ):
-        releases = tuple(sorted({item.release for item in registrations}, key=RELEASES.index))
-        locations = tuple(sorted({
-            (f"ceph_{item.release}", path, line_start, line_end)
+        source_variants = tuple(sorted({item.source_variant for item in registrations}, key=SOURCE_VARIANTS.index))
+        source_locations = {
+            (
+                f"ceph_{item.source_variant}",
+                path,
+                line_start,
+                line_end,
+            )
             for item in registrations
             for path, line_start, line_end in (
                 ((item.source_path, item.line_start, item.line_end),) + item.extra_locations
             )
-        }))
+        }
+        dependency_locations = {
+            location for item in registrations for location in item.dependency_locations
+        }
+        locations = tuple(sorted(source_locations | dependency_locations))
         result.append(
             MergedRegistration(
                 exact_family=family,
                 grammar=grammar,
                 form=form,
                 prometheus_type=prometheus_type,
+                shape=shape,
                 priority=priority_value,
                 endpoint=endpoint,
                 classification=classification,
-                releases=releases,
+                source_variants=source_variants,
                 locations=locations,
             )
         )
@@ -1122,7 +1405,7 @@ def merge_registrations(by_release: dict[str, list[Registration]]) -> list[Merge
 
 
 def generate_registry(source_roots: dict[str, Path]) -> str:
-    by_release: dict[str, list[Registration]] = {}
+    by_variant: dict[str, list[Registration]] = {}
     for release in RELEASES:
         if release not in source_roots:
             raise ValueError(f"missing source root for release {release}")
@@ -1130,8 +1413,15 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
         if unclassified:
             detail = ", ".join(f"{count}x {path}: {expr}" for (path, expr), count in sorted(unclassified.items()))
             raise ValueError(f"{release} has unclassified metric constructors: {detail}")
-        by_release[release] = registrations
-    merged = merge_registrations(by_release)
+        by_variant[release] = registrations
+    for source in ("nvmeof", "prometheus_client_python"):
+        if source not in source_roots:
+            raise ValueError(f"missing source root for {source}")
+    by_variant["nvmeof"] = parse_nvmeof_registrations(
+        source_roots["nvmeof"],
+        source_roots["prometheus_client_python"],
+    )
+    merged = merge_registrations(by_variant)
     used_grammars: dict[str, set[str]] = defaultdict(set)
     for registration in merged:
         if registration.grammar is not None:
@@ -1162,7 +1452,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
                 f"          identity_slot: {{name: {grammar.identity}, nonempty: true}}",
             ])
     lines.append("groups:")
-    used_ids: dict[str, tuple[str | None, str | None, str, str, int, str, str | None]] = {}
+    used_ids: dict[str, tuple[str | None, str | None, str, str, str, int, str, str | None]] = {}
     for endpoint in (
         "daemon_perf",
         "exporter_perf",
@@ -1170,6 +1460,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
         "mgr_synthetic",
         "mgr_rbd_stats",
         "exporter_self",
+        "nvmeof",
     ):
         registrations = [item for item in merged if item.endpoint == endpoint]
         if not registrations:
@@ -1181,6 +1472,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
                 registration.grammar,
                 registration.form,
                 registration.prometheus_type,
+                registration.shape,
                 registration.priority,
                 registration.endpoint,
                 registration.classification,
@@ -1191,7 +1483,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
                 lines.append(f"        family: {{exact: {_yaml(registration.exact_family)}}}")
             else:
                 lines.append(f"        family: {{grammar: {registration.grammar}, form: {registration.form}}}")
-            prometheus = f"type: {registration.prometheus_type}, shape: scalar"
+            prometheus = f"type: {registration.prometheus_type}, shape: {registration.shape}"
             if registration.classification is not None:
                 prometheus += f", classification: {registration.classification}"
             lines.append(f"        prometheus: {{{prometheus}}}")
@@ -1215,10 +1507,21 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
 
 
 def _render_availability(registration: MergedRegistration) -> list[str]:
+    if registration.endpoint == "nvmeof":
+        if registration.source_variants != ("nvmeof",):
+            raise ValueError(f"NVMe-oF registration has invalid source variants {registration.source_variants}")
+        return [
+            "            - all:",
+            "                - {axis: source, op: eq, value: nvmeof}",
+        ]
+    if not registration.source_variants or any(item not in RELEASES for item in registration.source_variants):
+        raise ValueError(
+            f"Ceph core registration has invalid source variants {registration.source_variants}"
+        )
     release_predicate = (
-        f"{{axis: release, op: eq, value: {registration.releases[0]}}}"
-        if len(registration.releases) == 1
-        else "{axis: release, op: in, values: [" + ", ".join(registration.releases) + "]}"
+        f"{{axis: release, op: eq, value: {registration.source_variants[0]}}}"
+        if len(registration.source_variants) == 1
+        else "{axis: release, op: in, values: [" + ", ".join(registration.source_variants) + "]}"
     )
     if registration.endpoint == "exporter_self":
         return [
@@ -1263,8 +1566,8 @@ def _render_availability(registration: MergedRegistration) -> list[str]:
 
 def _registration_id(
     registration: MergedRegistration,
-    used: dict[str, tuple[str | None, str | None, str, str, int, str, str | None]],
-    key: tuple[str | None, str | None, str, str, int, str, str | None],
+    used: dict[str, tuple[str | None, str | None, str, str, str, int, str, str | None]],
+    key: tuple[str | None, str | None, str, str, str, int, str, str | None],
 ) -> str:
     value = registration.exact_family or f"{registration.grammar}_{registration.form}"
     base = re.sub(r"[^a-z0-9_]+", "_", value.lower()).strip("_")
@@ -1279,7 +1582,7 @@ def _registration_id(
             qualifiers.append(registration.classification)
         candidate = "_".join((base, *qualifiers))
     if candidate in used and used[candidate] != key:
-        candidate += "_" + "_".join(registration.releases)
+        candidate += "_" + "_".join(registration.source_variants)
     if candidate in used and used[candidate] != key:
         raise ValueError(f"registration ID collision for {key}")
     used[candidate] = key

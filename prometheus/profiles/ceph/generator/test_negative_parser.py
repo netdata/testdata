@@ -64,6 +64,53 @@ class FailClosedParserTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "metric-name normalization changed"):
                 GENERATOR.validate_endpoint_contracts(GENERATOR.SOURCE_ROOTS["reef"])
 
+    def test_rejects_unknown_nvmeof_metric_family(self):
+        target = "control/prometheus.py"
+
+        def altered_read(path, *args, **kwargs):
+            source = ORIGINAL_READ_TEXT(path, *args, **kwargs)
+            if path.as_posix().endswith(target):
+                source = source.replace(
+                    "bdev_metadata = GaugeMetricFamily(",
+                    "bdev_metadata = FutureMetricFamily(",
+                    1,
+                )
+            return source
+
+        with mock.patch.object(pathlib.Path, "read_text", altered_read):
+            with self.assertRaisesRegex(ValueError, "unsupported metric-family constructors"):
+                GENERATOR.generate_registry(GENERATOR.SOURCE_ROOTS)
+
+    def test_rejects_dynamic_nvmeof_metric_name(self):
+        target = "control/prometheus.py"
+
+        def altered_read(path, *args, **kwargs):
+            source = ORIGINAL_READ_TEXT(path, *args, **kwargs)
+            if path.as_posix().endswith(target):
+                source = source.replace(
+                    'f"{self.metric_prefix}_gateway"',
+                    "dynamic_metric_name()",
+                    1,
+                )
+            return source
+
+        with mock.patch.object(pathlib.Path, "read_text", altered_read):
+            with self.assertRaisesRegex(ValueError, "bounded prefix f-string"):
+                GENERATOR.generate_registry(GENERATOR.SOURCE_ROOTS)
+
+    def test_rejects_nvmeof_client_wire_contract_drift(self):
+        target = "prometheus_client/metrics_core.py"
+
+        def altered_read(path, *args, **kwargs):
+            source = ORIGINAL_READ_TEXT(path, *args, **kwargs)
+            if path.as_posix().endswith(target):
+                source = source.replace("self.name + '_info'", "self.name + '_metadata'", 1)
+            return source
+
+        with mock.patch.object(pathlib.Path, "read_text", altered_read):
+            with self.assertRaisesRegex(ValueError, "InfoMetricFamily wire contract changed"):
+                GENERATOR.generate_registry(GENERATOR.SOURCE_ROOTS)
+
 
 if __name__ == "__main__":
     unittest.main()
