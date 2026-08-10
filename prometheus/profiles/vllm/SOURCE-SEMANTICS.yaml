@@ -486,7 +486,7 @@ component_policies:
         quantity: count
         base: one
         rate: none
-        object: observations
+        object: operations
         aspect: observed
         evidence:
         - source_units
@@ -548,7 +548,7 @@ component_policies:
         quantity: count
         base: one
         rate: none
-        object: observations
+        object: lookups
         aspect: observed
         evidence:
         - source_units
@@ -564,52 +564,6 @@ component_policies:
         base: second
         rate: none
         object: duration
-        aspect: accumulated
-        evidence:
-        - source_units
-  components_iteration_tokens_total:
-    bucket:
-      wire_role: histogram_bucket
-      lifecycle:
-        kind: cumulative
-        evidence:
-        - component_lifecycle
-        - ray_component_lifecycle
-      unit:
-        quantity: count
-        base: one
-        rate: none
-        object: observations
-        aspect: distributed
-        evidence:
-        - source_units
-    count:
-      wire_role: histogram_count
-      lifecycle:
-        kind: cumulative
-        evidence:
-        - component_lifecycle
-        - ray_component_lifecycle
-      unit:
-        quantity: count
-        base: one
-        rate: none
-        object: observations
-        aspect: observed
-        evidence:
-        - source_units
-    sum:
-      wire_role: histogram_sum
-      lifecycle:
-        kind: cumulative
-        evidence:
-        - component_lifecycle
-        - ray_component_lifecycle
-      unit:
-        quantity: count
-        base: one
-        rate: none
-        object: tokens
         aspect: accumulated
         evidence:
         - source_units
@@ -734,7 +688,7 @@ component_policies:
         quantity: count
         base: one
         rate: none
-        object: observations
+        object: operations
         aspect: observed
         evidence:
         - source_units
@@ -985,6 +939,7 @@ label_policies:
       stability: stable
       evidence:
       - source_labels
+      - ray_labels
     model_name:
       meaning: Served model identifier.
       presence: required
@@ -995,6 +950,7 @@ label_policies:
       stability: stable
       evidence:
       - source_labels
+      - ray_labels
     transfer_type:
       meaning: Source category for transfer type.
       presence: required
@@ -1008,6 +964,59 @@ label_policies:
       stability: stable
       evidence:
       - source_labels
+    Component:
+      meaning: Ray component metadata.
+      presence:
+        when: ray_transport
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: unknown
+      stability: stable
+      evidence:
+      - ray_labels
+    ReplicaId:
+      meaning: Ray Serve replica identifier when the metric is emitted by a replica.
+      presence: optional
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: unbounded
+      stability: stable
+      evidence:
+      - ray_labels
+    SessionName:
+      meaning: Ray session name metadata.
+      presence:
+        when: ray_transport
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: unknown
+      stability: stable
+      evidence:
+      - ray_labels
+    Version:
+      meaning: Ray runtime version metadata.
+      presence:
+        when: ray_transport
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: unknown
+      stability: stable
+      evidence:
+      - ray_labels
+    WorkerId:
+      meaning: Ray worker identifier when worker-level metric identity is exported.
+      presence: optional
+      domain:
+        kind: open
+      endpoint_cardinality:
+        kind: unbounded
+      stability: stable
+      evidence:
+      - ray_labels
   labels_corrupted_requests_total:
     engine:
       meaning: vLLM engine identifier.
@@ -1257,40 +1266,6 @@ label_policies:
       stability: stable
       evidence:
       - ray_labels
-  labels_ray_alias_deprecated_offload_bytes_total:
-    engine:
-      meaning: vLLM engine identifier.
-      presence: required
-      domain:
-        kind: open
-      endpoint_cardinality:
-        kind: unbounded
-      stability: stable
-      evidence:
-      - ray_labels
-    model_name:
-      meaning: Served model identifier.
-      presence: required
-      domain:
-        kind: open
-      endpoint_cardinality:
-        kind: unbounded
-      stability: stable
-      evidence:
-      - ray_labels
-    transfer_type:
-      meaning: Source category for transfer type.
-      presence: required
-      domain:
-        kind: closed
-        values:
-        - CPU_to_GPU
-        - GPU_to_CPU
-      endpoint_cardinality:
-        kind: closed_domain
-      stability: stable
-      evidence:
-      - ray_labels
 signals:
   registration_timestamps:
     availability: native_transport
@@ -1471,7 +1446,19 @@ signals:
       meaning: The same CPU-to-GPU and GPU-to-CPU transfer observations emitted by canonical directional metrics.
       evidence:
       - source_population
-    functional_dependencies: {}
+    functional_dependencies:
+      ray_metadata_by_source_identity:
+        determinants:
+        - model_name
+        - engine
+        - ReplicaId
+        - WorkerId
+        dependents:
+        - Component
+        - SessionName
+        - Version
+        evidence:
+        - ray_metadata_relationship
     availability: kv_offload
     component_policy: components_deprecated_offload_bytes_total
     label_policy: labels_deprecated_offload_bytes_total
@@ -1490,7 +1477,19 @@ signals:
       meaning: The same CPU-to-GPU and GPU-to-CPU transfer observations emitted by canonical directional metrics.
       evidence:
       - source_population
-    functional_dependencies: {}
+    functional_dependencies:
+      ray_metadata_by_source_identity:
+        determinants:
+        - model_name
+        - engine
+        - ReplicaId
+        - WorkerId
+        dependents:
+        - Component
+        - SessionName
+        - Version
+        evidence:
+        - ray_metadata_relationship
     availability: kv_offload
     component_policy: components_deprecated_offload_time_total
     label_policy: labels_deprecated_offload_bytes_total
@@ -2695,7 +2694,52 @@ signals:
         - Version
         evidence:
         - ray_metadata_relationship
-    component_policy: components_inter_token_latency_seconds
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: intervals
+          aspect: observed
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: duration
+          aspect: accumulated
+          evidence:
+          - source_units
     label_policy: labels_corrupted_requests_total
   iteration_tokens_total:
     source:
@@ -2725,7 +2769,52 @@ signals:
         - Version
         evidence:
         - ray_metadata_relationship
-    component_policy: components_iteration_tokens_total
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: steps
+          aspect: observed
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: tokens
+          aspect: accumulated
+          evidence:
+          - source_units
     label_policy: labels_corrupted_requests_total
   kv_block_idle_before_evict_seconds:
     source:
@@ -2968,7 +3057,7 @@ signals:
           quantity: count
           base: one
           rate: none
-          object: observations
+          object: allocations
           aspect: observed
           evidence:
           - source_units
@@ -4789,7 +4878,52 @@ signals:
         - Version
         evidence:
         - ray_metadata_relationship
-    component_policy: components_iteration_tokens_total
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: observed
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: tokens
+          aspect: accumulated
+          evidence:
+          - source_units
     label_policy: labels_corrupted_requests_total
   request_params_n:
     source:
@@ -5421,7 +5555,52 @@ signals:
         - Version
         evidence:
         - ray_metadata_relationship
-    component_policy: components_hf3fs_load_duration_seconds
+    components:
+      bucket:
+        wire_role: histogram_bucket
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: observations
+          aspect: distributed
+          evidence:
+          - source_units
+      count:
+        wire_role: histogram_count
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: observed
+          evidence:
+          - source_units
+      sum:
+        wire_role: histogram_sum
+        lifecycle:
+          kind: cumulative
+          evidence:
+          - component_lifecycle
+          - ray_component_lifecycle
+        unit:
+          quantity: duration
+          base: second
+          rate: none
+          object: request_time
+          aspect: accumulated
+          evidence:
+          - source_units
     label_policy: labels_corrupted_requests_total
   tool_call_parser_invocations_total:
     source:
@@ -6024,7 +6203,7 @@ signals:
       - source_population
     functional_dependencies: {}
     component_policy: components_deprecated_offload_bytes_total
-    label_policy: labels_ray_alias_deprecated_offload_bytes_total
+    label_policy: labels_deprecated_offload_bytes_total
   ray_alias_deprecated_offload_time_total:
     availability:
       any:
@@ -6049,7 +6228,7 @@ signals:
       - source_population
     functional_dependencies: {}
     component_policy: components_deprecated_offload_time_total
-    label_policy: labels_ray_alias_deprecated_offload_bytes_total
+    label_policy: labels_deprecated_offload_bytes_total
   ray_alias_mm_cache_hits_total:
     availability: ray_transport
     source:
@@ -6639,111 +6818,183 @@ signals:
     label_policy: labels_ray_alias_corrupted_requests_total
 relationships:
   e2e_request_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: e2e_request_latency_seconds
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_queue_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_queue_time_seconds
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_prefill_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_prefill_time_seconds
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_inference_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_inference_time_seconds
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_decode_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_decode_time_seconds
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_prefill_kv_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_prefill_kv_computed_tokens
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_prompt_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_prompt_tokens
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_generation_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_generation_tokens
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   request_output_token_time_count:
-    kind: equivalent
-    left:
+    kind: sum_projection
+    coarse:
       signal: request_time_per_output_token_seconds
       components:
       - count
-    right:
+    fine:
       signal: request_success_total
       components:
       - value
+    group_by:
+    - Component
+    - ReplicaId
+    - SessionName
+    - Version
+    - WorkerId
+    - engine
+    - model_name
     evidence:
     - source_relationships
   parent_request_count:

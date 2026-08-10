@@ -88,7 +88,7 @@ vllm:estimated_write_bytes_per_gpu_created{engine="0",model_name="example-model"
 vllm:num_requests_running{engine="0",model_name="example-model"} 1
 # HELP vllm:num_requests_waiting Number of requests waiting to be processed.
 # TYPE vllm:num_requests_waiting gauge
-vllm:num_requests_waiting{engine="0",model_name="example-model"} 1
+vllm:num_requests_waiting{engine="0",model_name="example-model"} 2
 # HELP vllm:num_requests_waiting_by_reason Number of waiting requests by reason. Reason labels: 'capacity' = waiting for scheduling capacity; 'deferred' = deferred by transient constraints (LoRA budget, KV transfer, blocked status). Sum of all reasons equals vllm:num_requests_waiting.
 # TYPE vllm:num_requests_waiting_by_reason gauge
 vllm:num_requests_waiting_by_reason{engine="0",model_name="example-model",reason="capacity"} 1
@@ -145,7 +145,7 @@ vllm:num_preemptions_total{engine="0",model_name="example-model"} 101
 vllm:num_preemptions_created{engine="0",model_name="example-model"} 1
 # HELP vllm:prompt_tokens_total Number of prefill tokens processed.
 # TYPE vllm:prompt_tokens_total counter
-vllm:prompt_tokens_total{engine="0",model_name="example-model"} 101
+vllm:prompt_tokens_total{engine="0",model_name="example-model"} 306
 # HELP vllm:prompt_tokens_created Number of prefill tokens processed.
 # TYPE vllm:prompt_tokens_created gauge
 vllm:prompt_tokens_created{engine="0",model_name="example-model"} 1
@@ -161,7 +161,7 @@ vllm:prompt_tokens_by_source_created{engine="0",model_name="example-model",sourc
 vllm:prompt_tokens_by_source_created{engine="0",model_name="example-model",source="external_kv_transfer"} 1
 # HELP vllm:prompt_tokens_cached_total Number of cached prompt tokens (local + external).
 # TYPE vllm:prompt_tokens_cached_total counter
-vllm:prompt_tokens_cached_total{engine="0",model_name="example-model"} 101
+vllm:prompt_tokens_cached_total{engine="0",model_name="example-model"} 205
 # HELP vllm:prompt_tokens_cached_created Number of cached prompt tokens (local + external).
 # TYPE vllm:prompt_tokens_cached_created gauge
 vllm:prompt_tokens_cached_created{engine="0",model_name="example-model"} 1
@@ -173,11 +173,11 @@ vllm:generation_tokens_total{engine="0",model_name="example-model"} 101
 vllm:generation_tokens_created{engine="0",model_name="example-model"} 1
 # HELP vllm:request_success_total Count of successfully processed requests.
 # TYPE vllm:request_success_total counter
-vllm:request_success_total{engine="0",finished_reason="stop",model_name="example-model"} 101
-vllm:request_success_total{engine="0",finished_reason="length",model_name="example-model"} 102
-vllm:request_success_total{engine="0",finished_reason="abort",model_name="example-model"} 103
-vllm:request_success_total{engine="0",finished_reason="error",model_name="example-model"} 104
-vllm:request_success_total{engine="0",finished_reason="repetition",model_name="example-model"} 105
+vllm:request_success_total{engine="0",finished_reason="stop",model_name="example-model"} 10
+vllm:request_success_total{engine="0",finished_reason="length",model_name="example-model"} 5
+vllm:request_success_total{engine="0",finished_reason="abort",model_name="example-model"} 3
+vllm:request_success_total{engine="0",finished_reason="error",model_name="example-model"} 2
+vllm:request_success_total{engine="0",finished_reason="repetition",model_name="example-model"} 2
 # HELP vllm:request_success_created Count of successfully processed requests.
 # TYPE vllm:request_success_created gauge
 vllm:request_success_created{engine="0",finished_reason="stop",model_name="example-model"} 1
@@ -205,8 +205,8 @@ vllm:request_prompt_tokens_bucket{engine="0",le="50000.0",model_name="example-mo
 vllm:request_prompt_tokens_bucket{engine="0",le="100000.0",model_name="example-model"} 16
 vllm:request_prompt_tokens_bucket{engine="0",le="200000.0",model_name="example-model"} 17
 vllm:request_prompt_tokens_bucket{engine="0",le="500000.0",model_name="example-model"} 18
-vllm:request_prompt_tokens_bucket{engine="0",le="+Inf",model_name="example-model"} 19
-vllm:request_prompt_tokens_count{engine="0",model_name="example-model"} 19
+vllm:request_prompt_tokens_bucket{engine="0",le="+Inf",model_name="example-model"} 22
+vllm:request_prompt_tokens_count{engine="0",model_name="example-model"} 22
 vllm:request_prompt_tokens_sum{engine="0",model_name="example-model"} 38
 # HELP vllm:request_prompt_tokens_created Number of prefill tokens processed.
 # TYPE vllm:request_prompt_tokens_created gauge
@@ -231,8 +231,8 @@ vllm:request_generation_tokens_bucket{engine="0",le="50000.0",model_name="exampl
 vllm:request_generation_tokens_bucket{engine="0",le="100000.0",model_name="example-model"} 16
 vllm:request_generation_tokens_bucket{engine="0",le="200000.0",model_name="example-model"} 17
 vllm:request_generation_tokens_bucket{engine="0",le="500000.0",model_name="example-model"} 18
-vllm:request_generation_tokens_bucket{engine="0",le="+Inf",model_name="example-model"} 19
-vllm:request_generation_tokens_count{engine="0",model_name="example-model"} 19
+vllm:request_generation_tokens_bucket{engine="0",le="+Inf",model_name="example-model"} 22
+vllm:request_generation_tokens_count{engine="0",model_name="example-model"} 22
 vllm:request_generation_tokens_sum{engine="0",model_name="example-model"} 38
 # HELP vllm:request_generation_tokens_created Number of generation tokens processed.
 # TYPE vllm:request_generation_tokens_created gauge
@@ -291,8 +291,8 @@ vllm:request_params_n_bucket{engine="0",le="2.0",model_name="example-model"} 2
 vllm:request_params_n_bucket{engine="0",le="5.0",model_name="example-model"} 3
 vllm:request_params_n_bucket{engine="0",le="10.0",model_name="example-model"} 4
 vllm:request_params_n_bucket{engine="0",le="20.0",model_name="example-model"} 5
-vllm:request_params_n_bucket{engine="0",le="+Inf",model_name="example-model"} 6
-vllm:request_params_n_count{engine="0",model_name="example-model"} 6
+vllm:request_params_n_bucket{engine="0",le="+Inf",model_name="example-model"} 19
+vllm:request_params_n_count{engine="0",model_name="example-model"} 19
 vllm:request_params_n_sum{engine="0",model_name="example-model"} 12
 # HELP vllm:request_params_n_created Histogram of the n request parameter.
 # TYPE vllm:request_params_n_created gauge
@@ -401,8 +401,8 @@ vllm:request_time_per_output_token_seconds_bucket{engine="0",le="10.0",model_nam
 vllm:request_time_per_output_token_seconds_bucket{engine="0",le="20.0",model_name="example-model"} 17
 vllm:request_time_per_output_token_seconds_bucket{engine="0",le="40.0",model_name="example-model"} 18
 vllm:request_time_per_output_token_seconds_bucket{engine="0",le="80.0",model_name="example-model"} 19
-vllm:request_time_per_output_token_seconds_bucket{engine="0",le="+Inf",model_name="example-model"} 20
-vllm:request_time_per_output_token_seconds_count{engine="0",model_name="example-model"} 20
+vllm:request_time_per_output_token_seconds_bucket{engine="0",le="+Inf",model_name="example-model"} 22
+vllm:request_time_per_output_token_seconds_count{engine="0",model_name="example-model"} 22
 vllm:request_time_per_output_token_seconds_sum{engine="0",model_name="example-model"} 40
 # HELP vllm:request_time_per_output_token_seconds_created Histogram of time_per_output_token_seconds per request.
 # TYPE vllm:request_time_per_output_token_seconds_created gauge
@@ -572,8 +572,8 @@ vllm:request_prefill_kv_computed_tokens_bucket{engine="0",le="50000.0",model_nam
 vllm:request_prefill_kv_computed_tokens_bucket{engine="0",le="100000.0",model_name="example-model"} 16
 vllm:request_prefill_kv_computed_tokens_bucket{engine="0",le="200000.0",model_name="example-model"} 17
 vllm:request_prefill_kv_computed_tokens_bucket{engine="0",le="500000.0",model_name="example-model"} 18
-vllm:request_prefill_kv_computed_tokens_bucket{engine="0",le="+Inf",model_name="example-model"} 19
-vllm:request_prefill_kv_computed_tokens_count{engine="0",model_name="example-model"} 19
+vllm:request_prefill_kv_computed_tokens_bucket{engine="0",le="+Inf",model_name="example-model"} 22
+vllm:request_prefill_kv_computed_tokens_count{engine="0",model_name="example-model"} 22
 vllm:request_prefill_kv_computed_tokens_sum{engine="0",model_name="example-model"} 38
 # HELP vllm:request_prefill_kv_computed_tokens_created Histogram of new KV tokens computed during prefill (excluding cached tokens).
 # TYPE vllm:request_prefill_kv_computed_tokens_created gauge
@@ -591,9 +591,9 @@ http_requests_created{handler="/v1/example",method="POST",status="2xx"} 1
 http_requests_created{handler="/health",method="GET",status="2xx"} 1
 # HELP http_request_size_bytes Content length of incoming requests by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
 # TYPE http_request_size_bytes summary
-http_request_size_bytes_count{handler="/v1/example"} 3
+http_request_size_bytes_count{handler="/v1/example"} 101
 http_request_size_bytes_sum{handler="/v1/example"} 6
-http_request_size_bytes_count{handler="/health"} 3
+http_request_size_bytes_count{handler="/health"} 102
 http_request_size_bytes_sum{handler="/health"} 6
 # HELP http_request_size_bytes_created Content length of incoming requests by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
 # TYPE http_request_size_bytes_created gauge
@@ -601,9 +601,9 @@ http_request_size_bytes_created{handler="/v1/example"} 1
 http_request_size_bytes_created{handler="/health"} 1
 # HELP http_response_size_bytes Content length of outgoing responses by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
 # TYPE http_response_size_bytes summary
-http_response_size_bytes_count{handler="/v1/example"} 3
+http_response_size_bytes_count{handler="/v1/example"} 101
 http_response_size_bytes_sum{handler="/v1/example"} 6
-http_response_size_bytes_count{handler="/health"} 3
+http_response_size_bytes_count{handler="/health"} 102
 http_response_size_bytes_sum{handler="/health"} 6
 # HELP http_response_size_bytes_created Content length of outgoing responses by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
 # TYPE http_response_size_bytes_created gauge
@@ -1046,7 +1046,7 @@ vllm:mooncake_store_operation_time_seconds_created{engine="0",model_name="exampl
 vllm:mooncake_store_operation_time_seconds_created{engine="0",model_name="example-model",operation="save_put",status="error"} 1.7e+09
 # HELP vllm:mooncake_store_operation_total Number of Mooncake store communication operations.
 # TYPE vllm:mooncake_store_operation_total counter
-vllm:mooncake_store_operation_total{engine="0",model_name="example-model",operation="load_get",status="ok"} 5.0
+vllm:mooncake_store_operation_total{engine="0",model_name="example-model",operation="load_get",status="ok"} 1.0
 vllm:mooncake_store_operation_total{engine="0",model_name="example-model",operation="load_get",status="error"} 1.0
 vllm:mooncake_store_operation_total{engine="0",model_name="example-model",operation="save_put",status="error"} 1.0
 # HELP vllm:mooncake_store_operation_created Number of Mooncake store communication operations.
@@ -1086,7 +1086,7 @@ vllm:mooncake_store_operation_failed_keys_created{engine="0",model_name="example
 vllm:mooncake_store_operation_failed_keys_created{engine="0",model_name="example-model",operation="save_put",status="error"} 1.7e+09
 # HELP vllm:kv_offload_load_bytes_total Total bytes loaded from offload storage to GPU.
 # TYPE vllm:kv_offload_load_bytes_total counter
-vllm:kv_offload_load_bytes_total{engine="0",model_name="example-model"} 4.194304e+06
+vllm:kv_offload_load_bytes_total{engine="0",model_name="example-model"} 6.291456e+06
 # HELP vllm:kv_offload_load_bytes_created Total bytes loaded from offload storage to GPU.
 # TYPE vllm:kv_offload_load_bytes_created gauge
 vllm:kv_offload_load_bytes_created{engine="0",model_name="example-model"} 1.7e+09
