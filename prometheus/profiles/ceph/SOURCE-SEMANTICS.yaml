@@ -702,6 +702,19 @@ evidence:
     - src/rgw/driver/rados/rgw_sync_counters.cc:20
     - src/rgw/driver/rados/rgw_sync_counters.cc:21
     claim: The generated rgw_sync family grammar encodes source_zone_fragment in the source metric name.
+  label_rgw_sync_source_zone:
+    kind: label
+    upstream: ceph_reef
+    locations:
+    - src/exporter/DaemonMetricCollector.cc:439-453
+    - src/pybind/mgr/prometheus/module.py:1569-1594
+    - src/rgw/driver/rados/rgw_sync_counters.cc:16
+    - src/rgw/driver/rados/rgw_sync_counters.cc:17
+    - src/rgw/driver/rados/rgw_sync_counters.cc:18
+    - src/rgw/driver/rados/rgw_sync_counters.cc:20
+    - src/rgw/driver/rados/rgw_sync_counters.cc:21
+    claim: The producer's embedded family residue and source_zone label form one stable, configuration-bounded sanitized source-zone
+      identity.
   normalization_rocksdb_cache_identity:
     kind: identity
     upstream: ceph_tentacle
@@ -27725,7 +27738,7 @@ evidence:
     upstream: ceph_reef
     locations:
     - src/osd/osd_perf_counters.cc:314-315
-    claim: The registered ceph_osd_osd_pg_info value has current source lifecycle.
+    claim: The registered ceph_osd_osd_pg_info value has cumulative source lifecycle.
   unit_osd_osd_pg_info:
     kind: unit
     upstream: ceph_reef
@@ -91168,15 +91181,15 @@ signals:
       value:
         wire_role: scalar
         lifecycle:
-          kind: current
+          kind: cumulative
           evidence:
           - lifecycle_osd_osd_pg_info
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: ceph_osd_osd_pg_info
-          aspect: reported
+          object: placement_group_updates
+          aspect: total
           evidence:
           - unit_osd_osd_pg_info
     labels:
@@ -119050,6 +119063,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119078,6 +119093,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119106,6 +119123,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119134,6 +119153,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119162,6 +119183,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119190,6 +119213,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119218,6 +119243,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119246,6 +119273,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
@@ -119274,6 +119303,8 @@ relationships:
         - all:
           - label: source_zone
             op: present
+    group_by:
+    - instance_id
     when:
       any:
       - all:
