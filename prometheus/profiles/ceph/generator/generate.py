@@ -92,7 +92,7 @@ GRAMMARS = {
     "objecter": Grammar("ceph_objecter_", "ceph_objecter_", "objecter_handle"),
     "priority_cache": Grammar("ceph_bluestore_priority_cache_", "ceph_bluestore_pricache:", "priority_cache"),
     "rgw_dmclock": Grammar("ceph_rgw_dmclock_", "ceph_dmclock_", "dmclock_queue"),
-    "rgw_sync": Grammar("ceph_data_sync_from_zone_", "ceph_data_sync_from_", "source_zone"),
+    "rgw_sync": Grammar("ceph_data_sync_from_zone_", "ceph_data_sync_from_", "source_zone_fragment"),
     "osd_scrub": Grammar("ceph_osd_scrub_", "ceph_osd_scrub_", "scrub_phase"),
     "striper": Grammar("ceph_rados_striper_", "ceph_", "striper"),
     "service_unique_id": Grammar(
@@ -1145,6 +1145,14 @@ def _nvmeof_metric_name(node: ast.AST, prefix: str) -> str:
     return result
 
 
+def metric_family_shape(family: str, prometheus_type: str, declared_shape: str) -> str:
+    if declared_shape == "info":
+        return declared_shape
+    if prometheus_type == "gauge" and family.endswith("_info"):
+        return "info"
+    return declared_shape
+
+
 def _literal_label_names(node: ast.AST, field: str) -> tuple[str, ...]:
     if not isinstance(node, (ast.List, ast.Tuple)):
         raise ValueError(f"{field} must be a literal label-name list")
@@ -1331,6 +1339,7 @@ def parse_nvmeof_registrations(root: Path, client_root: Path) -> list[Registrati
         if family in families:
             raise ValueError(f"{source_path} registers duplicate family {family!r}")
         families.add(family)
+        shape = metric_family_shape(family, prometheus_type, shape)
         result.append(Registration(
             source_variant="nvmeof",
             source_path=source_path,
@@ -1556,6 +1565,8 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
 def _render_raw_branches(registration: MergedRegistration) -> list[str]:
     if registration.grammar is None:
         raise ValueError("raw branches require a grammar registration")
+    if registration.grammar == "objecter":
+        return ["        raw_branches: {canonical: {}, embedded: {}}"]
     if registration.grammar != "rgw_sync":
         return ["        raw_branches: {embedded: {}}"]
     if registration.endpoint == "exporter_perf":

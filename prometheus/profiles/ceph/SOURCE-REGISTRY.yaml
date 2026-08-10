@@ -1947,63 +1947,63 @@ family_grammars:
           prefix: 'ceph_data_sync_from_'
           suffix: 'fetch_bytes_count'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       fetch_bytes_sum:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'fetch_bytes_sum'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'fetch_bytes_sum'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       fetch_errors:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'fetch_errors'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'fetch_errors'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       fetch_not_modified:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'fetch_not_modified'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'fetch_not_modified'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       lock_latency_count:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'lock_latency_count'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'lock_latency_count'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       lock_latency_sum:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'lock_latency_sum'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'lock_latency_sum'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       poll_errors:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'poll_errors'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'poll_errors'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       poll_latency_count:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'poll_latency_count'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'poll_latency_count'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
       poll_latency_sum:
         canonical: {prefix: 'ceph_data_sync_from_zone_', suffix: 'poll_latency_sum'}
         embedded:
           prefix: 'ceph_data_sync_from_'
           suffix: 'poll_latency_sum'
           separator: '_'
-          identity_slot: {name: source_zone, nonempty: true}
+          identity_slot: {name: source_zone_fragment, nonempty: true}
   rocksdb_cache:
     forms:
       capacity:
@@ -6309,7 +6309,7 @@ groups:
             range: {start: 750, end: 751}
       objecter_command_active:
         family: {grammar: objecter, form: command_active}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6345,7 +6345,7 @@ groups:
             range: {start: 367, end: 367}
       objecter_command_resend:
         family: {grammar: objecter, form: command_resend}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6381,7 +6381,7 @@ groups:
             range: {start: 370, end: 371}
       objecter_command_send:
         family: {grammar: objecter, form: command_send}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6417,7 +6417,7 @@ groups:
             range: {start: 368, end: 369}
       objecter_linger_active:
         family: {grammar: objecter, form: linger_active}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6453,7 +6453,7 @@ groups:
             range: {start: 339, end: 340}
       objecter_linger_ping:
         family: {grammar: objecter, form: linger_ping}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6489,7 +6489,7 @@ groups:
             range: {start: 345, end: 346}
       objecter_linger_resend:
         family: {grammar: objecter, form: linger_resend}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6525,7 +6525,7 @@ groups:
             range: {start: 343, end: 344}
       objecter_linger_send:
         family: {grammar: objecter, form: linger_send}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6561,7 +6561,7 @@ groups:
             range: {start: 341, end: 342}
       objecter_map_epoch:
         family: {grammar: objecter, form: map_epoch}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6597,7 +6597,7 @@ groups:
             range: {start: 373, end: 373}
       objecter_map_full:
         family: {grammar: objecter, form: map_full}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6633,7 +6633,7 @@ groups:
             range: {start: 374, end: 375}
       objecter_map_inc:
         family: {grammar: objecter, form: map_inc}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6669,7 +6669,7 @@ groups:
             range: {start: 376, end: 377}
       objecter_omap_del:
         family: {grammar: objecter, form: omap_del}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6705,7 +6705,7 @@ groups:
             range: {start: 391, end: 392}
       objecter_omap_rd:
         family: {grammar: objecter, form: omap_rd}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6741,7 +6741,7 @@ groups:
             range: {start: 389, end: 390}
       objecter_omap_wr:
         family: {grammar: objecter, form: omap_wr}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6777,7 +6777,7 @@ groups:
             range: {start: 387, end: 388}
       objecter_op:
         family: {grammar: objecter, form: op}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6813,7 +6813,7 @@ groups:
             range: {start: 285, end: 285}
       objecter_op_active:
         family: {grammar: objecter, form: op_active}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6849,7 +6849,7 @@ groups:
             range: {start: 274, end: 275}
       objecter_op_inflight:
         family: {grammar: objecter, form: op_inflight}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6885,7 +6885,7 @@ groups:
             range: {start: 282, end: 282}
       objecter_op_laggy:
         family: {grammar: objecter, form: op_laggy}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -6921,7 +6921,7 @@ groups:
             range: {start: 276, end: 276}
       objecter_op_latency_count:
         family: {grammar: objecter, form: op_latency_count}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6957,7 +6957,7 @@ groups:
             range: {start: 281, end: 281}
       objecter_op_pg:
         family: {grammar: objecter, form: op_pg}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -6993,7 +6993,7 @@ groups:
             range: {start: 292, end: 292}
       objecter_op_r:
         family: {grammar: objecter, form: op_r}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7029,7 +7029,7 @@ groups:
             range: {start: 286, end: 287}
       objecter_op_reply:
         family: {grammar: objecter, form: op_reply}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7065,7 +7065,7 @@ groups:
             range: {start: 280, end: 280}
       objecter_op_resend:
         family: {grammar: objecter, form: op_resend}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7101,7 +7101,7 @@ groups:
             range: {start: 279, end: 279}
       objecter_op_rmw:
         family: {grammar: objecter, form: op_rmw}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7137,7 +7137,7 @@ groups:
             range: {start: 290, end: 291}
       objecter_op_send:
         family: {grammar: objecter, form: op_send}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7173,7 +7173,7 @@ groups:
             range: {start: 277, end: 277}
       objecter_op_send_bytes:
         family: {grammar: objecter, form: op_send_bytes}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7209,7 +7209,7 @@ groups:
             range: {start: 278, end: 278}
       objecter_op_w:
         family: {grammar: objecter, form: op_w}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7245,7 +7245,7 @@ groups:
             range: {start: 288, end: 289}
       objecter_oplen_avg_count:
         family: {grammar: objecter, form: oplen_avg_count}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7281,7 +7281,7 @@ groups:
             range: {start: 283, end: 283}
       objecter_osd_laggy:
         family: {grammar: objecter, form: osd_laggy}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -7317,7 +7317,7 @@ groups:
             range: {start: 385, end: 385}
       objecter_osd_session_close:
         family: {grammar: objecter, form: osd_session_close}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7353,7 +7353,7 @@ groups:
             range: {start: 383, end: 384}
       objecter_osd_session_open:
         family: {grammar: objecter, form: osd_session_open}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7389,7 +7389,7 @@ groups:
             range: {start: 381, end: 382}
       objecter_osd_sessions:
         family: {grammar: objecter, form: osd_sessions}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -7425,7 +7425,7 @@ groups:
             range: {start: 379, end: 380}
       objecter_osdop_append:
         family: {grammar: objecter, form: osdop_append}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7461,7 +7461,7 @@ groups:
             range: {start: 303, end: 304}
       objecter_osdop_call:
         family: {grammar: objecter, form: osdop_call}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7497,7 +7497,7 @@ groups:
             range: {start: 327, end: 328}
       objecter_osdop_clonerange:
         family: {grammar: objecter, form: osdop_clonerange}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7533,7 +7533,7 @@ groups:
             range: {start: 315, end: 316}
       objecter_osdop_cmpxattr:
         family: {grammar: objecter, form: osdop_cmpxattr}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7569,7 +7569,7 @@ groups:
             range: {start: 321, end: 322}
       objecter_osdop_create:
         family: {grammar: objecter, form: osdop_create}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7605,7 +7605,7 @@ groups:
             range: {start: 295, end: 296}
       objecter_osdop_delete:
         family: {grammar: objecter, form: osdop_delete}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7641,7 +7641,7 @@ groups:
             range: {start: 309, end: 310}
       objecter_osdop_getxattr:
         family: {grammar: objecter, form: osdop_getxattr}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7677,7 +7677,7 @@ groups:
             range: {start: 317, end: 318}
       objecter_osdop_mapext:
         family: {grammar: objecter, form: osdop_mapext}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7713,7 +7713,7 @@ groups:
             range: {start: 311, end: 312}
       objecter_osdop_notify:
         family: {grammar: objecter, form: osdop_notify}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7749,7 +7749,7 @@ groups:
             range: {start: 331, end: 332}
       objecter_osdop_other:
         family: {grammar: objecter, form: osdop_other}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7785,7 +7785,7 @@ groups:
             range: {start: 337, end: 337}
       objecter_osdop_pgls:
         family: {grammar: objecter, form: osdop_pgls}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7821,7 +7821,7 @@ groups:
             range: {start: 335, end: 335}
       objecter_osdop_pgls_filter:
         family: {grammar: objecter, form: osdop_pgls_filter}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7857,7 +7857,7 @@ groups:
             range: {start: 336, end: 336}
       objecter_osdop_read:
         family: {grammar: objecter, form: osdop_read}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7893,7 +7893,7 @@ groups:
             range: {start: 297, end: 297}
       objecter_osdop_resetxattrs:
         family: {grammar: objecter, form: osdop_resetxattrs}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7929,7 +7929,7 @@ groups:
             range: {start: 325, end: 326}
       objecter_osdop_rmxattr:
         family: {grammar: objecter, form: osdop_rmxattr}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -7965,7 +7965,7 @@ groups:
             range: {start: 323, end: 324}
       objecter_osdop_setxattr:
         family: {grammar: objecter, form: osdop_setxattr}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8001,7 +8001,7 @@ groups:
             range: {start: 319, end: 320}
       objecter_osdop_sparse_read:
         family: {grammar: objecter, form: osdop_sparse_read}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8037,7 +8037,7 @@ groups:
             range: {start: 313, end: 314}
       objecter_osdop_src_cmpxattr:
         family: {grammar: objecter, form: osdop_src_cmpxattr}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8073,7 +8073,7 @@ groups:
             range: {start: 333, end: 334}
       objecter_osdop_stat:
         family: {grammar: objecter, form: osdop_stat}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8109,7 +8109,7 @@ groups:
             range: {start: 294, end: 294}
       objecter_osdop_truncate:
         family: {grammar: objecter, form: osdop_truncate}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8145,7 +8145,7 @@ groups:
             range: {start: 307, end: 308}
       objecter_osdop_watch:
         family: {grammar: objecter, form: osdop_watch}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8181,7 +8181,7 @@ groups:
             range: {start: 329, end: 330}
       objecter_osdop_write:
         family: {grammar: objecter, form: osdop_write}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8217,7 +8217,7 @@ groups:
             range: {start: 298, end: 298}
       objecter_osdop_writefull:
         family: {grammar: objecter, form: osdop_writefull}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8253,7 +8253,7 @@ groups:
             range: {start: 299, end: 300}
       objecter_osdop_writesame:
         family: {grammar: objecter, form: osdop_writesame}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8289,7 +8289,7 @@ groups:
             range: {start: 301, end: 302}
       objecter_osdop_zero:
         family: {grammar: objecter, form: osdop_zero}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8325,7 +8325,7 @@ groups:
             range: {start: 305, end: 306}
       objecter_poolop_active:
         family: {grammar: objecter, form: poolop_active}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8361,7 +8361,7 @@ groups:
             range: {start: 348, end: 349}
       objecter_poolop_resend:
         family: {grammar: objecter, form: poolop_resend}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8397,7 +8397,7 @@ groups:
             range: {start: 352, end: 353}
       objecter_poolop_send:
         family: {grammar: objecter, form: poolop_send}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8433,7 +8433,7 @@ groups:
             range: {start: 350, end: 351}
       objecter_poolstat_active:
         family: {grammar: objecter, form: poolstat_active}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8469,7 +8469,7 @@ groups:
             range: {start: 355, end: 356}
       objecter_poolstat_resend:
         family: {grammar: objecter, form: poolstat_resend}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8505,7 +8505,7 @@ groups:
             range: {start: 359, end: 360}
       objecter_poolstat_send:
         family: {grammar: objecter, form: poolstat_send}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8541,7 +8541,7 @@ groups:
             range: {start: 357, end: 358}
       objecter_replica_read_bounced:
         family: {grammar: objecter, form: replica_read_bounced}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8565,7 +8565,7 @@ groups:
             range: {start: 396, end: 397}
       objecter_replica_read_completed:
         family: {grammar: objecter, form: replica_read_completed}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8589,7 +8589,7 @@ groups:
             range: {start: 398, end: 399}
       objecter_replica_read_sent:
         family: {grammar: objecter, form: replica_read_sent}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8613,7 +8613,7 @@ groups:
             range: {start: 394, end: 395}
       objecter_statfs_active:
         family: {grammar: objecter, form: statfs_active}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -8649,7 +8649,7 @@ groups:
             range: {start: 362, end: 362}
       objecter_statfs_resend:
         family: {grammar: objecter, form: statfs_resend}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -8685,7 +8685,7 @@ groups:
             range: {start: 364, end: 365}
       objecter_statfs_send:
         family: {grammar: objecter, form: statfs_send}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -38380,7 +38380,7 @@ groups:
             range: {start: 279, end: 279}
       objecter_op_latency_sum_exporter_perf:
         family: {grammar: objecter, form: op_latency_sum}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -38411,7 +38411,7 @@ groups:
             range: {start: 281, end: 281}
       objecter_oplen_avg_sum_exporter_perf:
         family: {grammar: objecter, form: oplen_avg_sum}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: gauge, shape: scalar}
         when:
           any:
@@ -44192,7 +44192,7 @@ groups:
             range: {start: 279, end: 279}
       objecter_op_latency_sum_mgr_perf:
         family: {grammar: objecter, form: op_latency_sum}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -44224,7 +44224,7 @@ groups:
             range: {start: 281, end: 281}
       objecter_oplen_avg_sum_mgr_perf:
         family: {grammar: objecter, form: oplen_avg_sum}
-        raw_branches: {embedded: {}}
+        raw_branches: {canonical: {}, embedded: {}}
         prometheus: {type: counter, shape: scalar}
         when:
           any:
@@ -52850,7 +52850,7 @@ groups:
             range: {start: 150, end: 179}
       ceph_nvmeof_subsystem_listener_iface_info:
         family: {exact: 'ceph_nvmeof_subsystem_listener_iface_info'}
-        prometheus: {type: gauge, shape: scalar}
+        prometheus: {type: gauge, shape: info}
         when:
           any:
             - all:
@@ -52869,7 +52869,7 @@ groups:
             range: {start: 150, end: 179}
       ceph_nvmeof_subsystem_listener_iface_nqn_info:
         family: {exact: 'ceph_nvmeof_subsystem_listener_iface_nqn_info'}
-        prometheus: {type: gauge, shape: scalar}
+        prometheus: {type: gauge, shape: info}
         when:
           any:
             - all:

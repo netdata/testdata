@@ -128,6 +128,28 @@ class FailClosedParserTest(unittest.TestCase):
             ],
         )
 
+    def test_objecter_raw_source_branches_may_coexist(self):
+        registration = GENERATOR.MergedRegistration(
+            exact_family=None,
+            grammar="objecter",
+            form="op_r",
+            prometheus_type="counter",
+            shape="scalar",
+            priority=5,
+            endpoint="daemon_perf",
+            classification=None,
+            source_variants=("reef",),
+            locations=(("ceph_reef", "src/osdc/Objecter.cc", 1, 1),),
+        )
+        self.assertEqual(
+            GENERATOR._render_raw_branches(registration),
+            ["        raw_branches: {canonical: {}, embedded: {}}"],
+        )
+
+    def test_info_suffix_requires_gauge_type(self):
+        self.assertEqual(GENERATOR.metric_family_shape("example_info", "gauge", "scalar"), "info")
+        self.assertEqual(GENERATOR.metric_family_shape("example_info", "counter", "scalar"), "scalar")
+
     def test_rejects_new_cpp_metric_constructor(self):
         target = "src/client/Client.cc"
 

@@ -1424,38 +1424,31 @@ ceph_cluster_osd_epoch{ceph_daemon="osd.0"} 1
 
 # HELP ceph_data_sync_from_zone_fetch_bytes_count Number of object bytes replicated Count.
 # TYPE ceph_data_sync_from_zone_fetch_bytes_count counter
-ceph_data_sync_from_zone_fetch_bytes_count{instance_id="rgw.a"} 100
-ceph_data_sync_from_zone_fetch_bytes_count{instance_id="rgw.a",source_zone="zone_a"} 101
+ceph_data_sync_from_zone_fetch_bytes_count{instance_id="rgw.a",source_zone="zone_a"} 100
 
 # HELP ceph_data_sync_from_zone_fetch_bytes_sum Number of object bytes replicated Total.
 # TYPE ceph_data_sync_from_zone_fetch_bytes_sum gauge
-ceph_data_sync_from_zone_fetch_bytes_sum{instance_id="rgw.a"} 1
-ceph_data_sync_from_zone_fetch_bytes_sum{instance_id="rgw.a",source_zone="zone_a"} 2
+ceph_data_sync_from_zone_fetch_bytes_sum{instance_id="rgw.a",source_zone="zone_a"} 1
 
 # HELP ceph_data_sync_from_zone_fetch_errors Number of object replication errors.
 # TYPE ceph_data_sync_from_zone_fetch_errors counter
-ceph_data_sync_from_zone_fetch_errors{instance_id="rgw.a"} 100
-ceph_data_sync_from_zone_fetch_errors{instance_id="rgw.a",source_zone="zone_a"} 101
+ceph_data_sync_from_zone_fetch_errors{instance_id="rgw.a",source_zone="zone_a"} 100
 
 # HELP ceph_data_sync_from_zone_fetch_not_modified Number of objects already replicated.
 # TYPE ceph_data_sync_from_zone_fetch_not_modified counter
-ceph_data_sync_from_zone_fetch_not_modified{instance_id="rgw.a"} 100
-ceph_data_sync_from_zone_fetch_not_modified{instance_id="rgw.a",source_zone="zone_a"} 101
+ceph_data_sync_from_zone_fetch_not_modified{instance_id="rgw.a",source_zone="zone_a"} 100
 
 # HELP ceph_data_sync_from_zone_poll_errors Number of replication log request errors.
 # TYPE ceph_data_sync_from_zone_poll_errors counter
-ceph_data_sync_from_zone_poll_errors{instance_id="rgw.a"} 100
-ceph_data_sync_from_zone_poll_errors{instance_id="rgw.a",source_zone="zone_a"} 101
+ceph_data_sync_from_zone_poll_errors{instance_id="rgw.a",source_zone="zone_a"} 100
 
 # HELP ceph_data_sync_from_zone_poll_latency_count Average latency of replication log requests Count.
 # TYPE ceph_data_sync_from_zone_poll_latency_count counter
-ceph_data_sync_from_zone_poll_latency_count{instance_id="rgw.a"} 100
-ceph_data_sync_from_zone_poll_latency_count{instance_id="rgw.a",source_zone="zone_a"} 101
+ceph_data_sync_from_zone_poll_latency_count{instance_id="rgw.a",source_zone="zone_a"} 100
 
 # HELP ceph_data_sync_from_zone_poll_latency_sum Average latency of replication log requests Total.
 # TYPE ceph_data_sync_from_zone_poll_latency_sum gauge
-ceph_data_sync_from_zone_poll_latency_sum{instance_id="rgw.a"} 1
-ceph_data_sync_from_zone_poll_latency_sum{instance_id="rgw.a",source_zone="zone_a"} 2
+ceph_data_sync_from_zone_poll_latency_sum{instance_id="rgw.a",source_zone="zone_a"} 1
 
 # HELP ceph_dmclock_admin_cancel Cancels.
 # TYPE ceph_dmclock_admin_cancel counter
@@ -3519,340 +3512,1010 @@ ceph_objectcacher_objectcacher_key_a_write_ops_blocked{ceph_daemon="osd.0"} 100
 # TYPE ceph_objectcacher_objectcacher_key_a_write_time_blocked gauge
 ceph_objectcacher_objectcacher_key_a_write_time_blocked{ceph_daemon="osd.0"} 1
 
-# HELP ceph_objecter_objecter_handle_a_command_active Active commands.
-# TYPE ceph_objecter_objecter_handle_a_command_active gauge
-ceph_objecter_objecter_handle_a_command_active{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_command_active{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_command_resend Resent commands.
-# TYPE ceph_objecter_objecter_handle_a_command_resend counter
-ceph_objecter_objecter_handle_a_command_resend{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_command_resend{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_command_send Sent commands.
-# TYPE ceph_objecter_objecter_handle_a_command_send counter
-ceph_objecter_objecter_handle_a_command_send{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_command_send{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_linger_active Active lingering operations.
-# TYPE ceph_objecter_objecter_handle_a_linger_active gauge
-ceph_objecter_objecter_handle_a_linger_active{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_linger_active{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_linger_ping Sent pings to lingering operations.
-# TYPE ceph_objecter_objecter_handle_a_linger_ping counter
-ceph_objecter_objecter_handle_a_linger_ping{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_linger_ping{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_linger_resend Resent lingering operations.
-# TYPE ceph_objecter_objecter_handle_a_linger_resend counter
-ceph_objecter_objecter_handle_a_linger_resend{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_linger_resend{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_linger_send Sent lingering operations.
-# TYPE ceph_objecter_objecter_handle_a_linger_send counter
-ceph_objecter_objecter_handle_a_linger_send{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_linger_send{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_map_epoch OSD map epoch.
-# TYPE ceph_objecter_objecter_handle_a_map_epoch gauge
-ceph_objecter_objecter_handle_a_map_epoch{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_map_epoch{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_map_full Full OSD maps received.
-# TYPE ceph_objecter_objecter_handle_a_map_full counter
-ceph_objecter_objecter_handle_a_map_full{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_map_full{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_map_inc Incremental OSD maps received.
-# TYPE ceph_objecter_objecter_handle_a_map_inc counter
-ceph_objecter_objecter_handle_a_map_inc{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_map_inc{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_omap_del OSD OMAP delete operations.
-# TYPE ceph_objecter_objecter_handle_a_omap_del counter
-ceph_objecter_objecter_handle_a_omap_del{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_omap_del{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_omap_rd OSD OMAP read operations.
-# TYPE ceph_objecter_objecter_handle_a_omap_rd counter
-ceph_objecter_objecter_handle_a_omap_rd{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_omap_rd{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_omap_wr OSD OMAP write operations.
-# TYPE ceph_objecter_objecter_handle_a_omap_wr counter
-ceph_objecter_objecter_handle_a_omap_wr{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_omap_wr{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op Operations.
-# TYPE ceph_objecter_objecter_handle_a_op counter
-ceph_objecter_objecter_handle_a_op{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_active Operations active.
-# TYPE ceph_objecter_objecter_handle_a_op_active gauge
-ceph_objecter_objecter_handle_a_op_active{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_op_active{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_op_inflight Operations in flight.
-# TYPE ceph_objecter_objecter_handle_a_op_inflight gauge
-ceph_objecter_objecter_handle_a_op_inflight{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_op_inflight{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_op_laggy Laggy operations.
-# TYPE ceph_objecter_objecter_handle_a_op_laggy gauge
-ceph_objecter_objecter_handle_a_op_laggy{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_op_laggy{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_op_latency_count Operation latency Count.
-# TYPE ceph_objecter_objecter_handle_a_op_latency_count counter
-ceph_objecter_objecter_handle_a_op_latency_count{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_latency_count{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_latency_sum Operation latency Total.
-# TYPE ceph_objecter_objecter_handle_a_op_latency_sum gauge
-ceph_objecter_objecter_handle_a_op_latency_sum{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_op_latency_sum{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_op_pg PG operation.
-# TYPE ceph_objecter_objecter_handle_a_op_pg counter
-ceph_objecter_objecter_handle_a_op_pg{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_pg{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_r Read operations.
-# TYPE ceph_objecter_objecter_handle_a_op_r counter
-ceph_objecter_objecter_handle_a_op_r{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_r{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_reply Operation reply.
-# TYPE ceph_objecter_objecter_handle_a_op_reply counter
-ceph_objecter_objecter_handle_a_op_reply{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_reply{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_resend Resent operations.
-# TYPE ceph_objecter_objecter_handle_a_op_resend counter
-ceph_objecter_objecter_handle_a_op_resend{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_resend{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_rmw Read-modify-write operations.
-# TYPE ceph_objecter_objecter_handle_a_op_rmw counter
-ceph_objecter_objecter_handle_a_op_rmw{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_rmw{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_send Sent operations.
-# TYPE ceph_objecter_objecter_handle_a_op_send counter
-ceph_objecter_objecter_handle_a_op_send{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_send{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_send_bytes Sent data.
-# TYPE ceph_objecter_objecter_handle_a_op_send_bytes counter
-ceph_objecter_objecter_handle_a_op_send_bytes{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_send_bytes{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_op_w Write operations.
-# TYPE ceph_objecter_objecter_handle_a_op_w counter
-ceph_objecter_objecter_handle_a_op_w{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_op_w{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_oplen_avg_count Average length of operation vector Count.
-# TYPE ceph_objecter_objecter_handle_a_oplen_avg_count counter
-ceph_objecter_objecter_handle_a_oplen_avg_count{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_oplen_avg_count{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_oplen_avg_sum Average length of operation vector Total.
-# TYPE ceph_objecter_objecter_handle_a_oplen_avg_sum gauge
-ceph_objecter_objecter_handle_a_oplen_avg_sum{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_oplen_avg_sum{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_osd_laggy Laggy OSD sessions.
-# TYPE ceph_objecter_objecter_handle_a_osd_laggy gauge
-ceph_objecter_objecter_handle_a_osd_laggy{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_osd_laggy{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_osd_session_close Sessions closed.
-# TYPE ceph_objecter_objecter_handle_a_osd_session_close counter
-ceph_objecter_objecter_handle_a_osd_session_close{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osd_session_close{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osd_session_open Sessions opened.
-# TYPE ceph_objecter_objecter_handle_a_osd_session_open counter
-ceph_objecter_objecter_handle_a_osd_session_open{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osd_session_open{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osd_sessions Open sessions.
-# TYPE ceph_objecter_objecter_handle_a_osd_sessions gauge
-ceph_objecter_objecter_handle_a_osd_sessions{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_osd_sessions{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_osdop_append Append operation.
-# TYPE ceph_objecter_objecter_handle_a_osdop_append counter
-ceph_objecter_objecter_handle_a_osdop_append{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_append{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_call Call (execute) operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_call counter
-ceph_objecter_objecter_handle_a_osdop_call{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_call{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_clonerange Clone range operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_clonerange counter
-ceph_objecter_objecter_handle_a_osdop_clonerange{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_clonerange{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_cmpxattr Xattr comparison operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_cmpxattr counter
-ceph_objecter_objecter_handle_a_osdop_cmpxattr{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_cmpxattr{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_create Create object operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_create counter
-ceph_objecter_objecter_handle_a_osdop_create{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_create{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_delete Delete object operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_delete counter
-ceph_objecter_objecter_handle_a_osdop_delete{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_delete{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_getxattr Get xattr operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_getxattr counter
-ceph_objecter_objecter_handle_a_osdop_getxattr{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_getxattr{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_mapext Map extent operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_mapext counter
-ceph_objecter_objecter_handle_a_osdop_mapext{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_mapext{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_notify Notify about object operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_notify counter
-ceph_objecter_objecter_handle_a_osdop_notify{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_notify{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_other Other operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_other counter
-ceph_objecter_objecter_handle_a_osdop_other{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_other{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_pgls osdop_pgls.
-# TYPE ceph_objecter_objecter_handle_a_osdop_pgls counter
-ceph_objecter_objecter_handle_a_osdop_pgls{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_pgls{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_pgls_filter osdop_pgls_filter.
-# TYPE ceph_objecter_objecter_handle_a_osdop_pgls_filter counter
-ceph_objecter_objecter_handle_a_osdop_pgls_filter{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_pgls_filter{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_read Read operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_read counter
-ceph_objecter_objecter_handle_a_osdop_read{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_read{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_resetxattrs Reset xattr operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_resetxattrs counter
-ceph_objecter_objecter_handle_a_osdop_resetxattrs{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_resetxattrs{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_rmxattr Remove xattr operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_rmxattr counter
-ceph_objecter_objecter_handle_a_osdop_rmxattr{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_rmxattr{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_setxattr Set xattr operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_setxattr counter
-ceph_objecter_objecter_handle_a_osdop_setxattr{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_setxattr{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_sparse_read Sparse read operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_sparse_read counter
-ceph_objecter_objecter_handle_a_osdop_sparse_read{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_sparse_read{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_src_cmpxattr Extended attribute comparison in multi operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_src_cmpxattr counter
-ceph_objecter_objecter_handle_a_osdop_src_cmpxattr{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_src_cmpxattr{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_stat Stat operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_stat counter
-ceph_objecter_objecter_handle_a_osdop_stat{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_stat{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_truncate Truncate object operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_truncate counter
-ceph_objecter_objecter_handle_a_osdop_truncate{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_truncate{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_watch Watch by object operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_watch counter
-ceph_objecter_objecter_handle_a_osdop_watch{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_watch{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_write Write operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_write counter
-ceph_objecter_objecter_handle_a_osdop_write{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_write{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_writefull Write full object operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_writefull counter
-ceph_objecter_objecter_handle_a_osdop_writefull{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_writefull{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_writesame Write same operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_writesame counter
-ceph_objecter_objecter_handle_a_osdop_writesame{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_writesame{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_osdop_zero Set object to zero operations.
-# TYPE ceph_objecter_objecter_handle_a_osdop_zero counter
-ceph_objecter_objecter_handle_a_osdop_zero{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_osdop_zero{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_poolop_active Active pool operations.
-# TYPE ceph_objecter_objecter_handle_a_poolop_active gauge
-ceph_objecter_objecter_handle_a_poolop_active{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_poolop_active{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_poolop_resend Resent pool operations.
-# TYPE ceph_objecter_objecter_handle_a_poolop_resend counter
-ceph_objecter_objecter_handle_a_poolop_resend{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_poolop_resend{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_poolop_send Sent pool operations.
-# TYPE ceph_objecter_objecter_handle_a_poolop_send counter
-ceph_objecter_objecter_handle_a_poolop_send{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_poolop_send{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_poolstat_active Active get pool stat operations.
-# TYPE ceph_objecter_objecter_handle_a_poolstat_active gauge
-ceph_objecter_objecter_handle_a_poolstat_active{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_poolstat_active{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_poolstat_resend Resent pool stats.
-# TYPE ceph_objecter_objecter_handle_a_poolstat_resend counter
-ceph_objecter_objecter_handle_a_poolstat_resend{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_poolstat_resend{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_poolstat_send Pool stat operations sent.
-# TYPE ceph_objecter_objecter_handle_a_poolstat_send counter
-ceph_objecter_objecter_handle_a_poolstat_send{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_poolstat_send{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_statfs_active Statfs operations.
-# TYPE ceph_objecter_objecter_handle_a_statfs_active gauge
-ceph_objecter_objecter_handle_a_statfs_active{ceph_daemon="osd.0"} 1
-ceph_objecter_objecter_handle_a_statfs_active{instance_id="rgw.a"} 2
-
-# HELP ceph_objecter_objecter_handle_a_statfs_resend Resent FS stats.
-# TYPE ceph_objecter_objecter_handle_a_statfs_resend counter
-ceph_objecter_objecter_handle_a_statfs_resend{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_statfs_resend{instance_id="rgw.a"} 101
-
-# HELP ceph_objecter_objecter_handle_a_statfs_send Sent FS stats.
-# TYPE ceph_objecter_objecter_handle_a_statfs_send counter
-ceph_objecter_objecter_handle_a_statfs_send{ceph_daemon="osd.0"} 100
-ceph_objecter_objecter_handle_a_statfs_send{instance_id="rgw.a"} 101
+# HELP ceph_objecter_0x1_command_active Active commands.
+# TYPE ceph_objecter_0x1_command_active gauge
+ceph_objecter_0x1_command_active{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_command_active{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_command_resend Resent commands.
+# TYPE ceph_objecter_0x1_command_resend counter
+ceph_objecter_0x1_command_resend{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_command_resend{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_command_send Sent commands.
+# TYPE ceph_objecter_0x1_command_send counter
+ceph_objecter_0x1_command_send{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_command_send{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_linger_active Active lingering operations.
+# TYPE ceph_objecter_0x1_linger_active gauge
+ceph_objecter_0x1_linger_active{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_linger_active{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_linger_ping Sent pings to lingering operations.
+# TYPE ceph_objecter_0x1_linger_ping counter
+ceph_objecter_0x1_linger_ping{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_linger_ping{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_linger_resend Resent lingering operations.
+# TYPE ceph_objecter_0x1_linger_resend counter
+ceph_objecter_0x1_linger_resend{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_linger_resend{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_linger_send Sent lingering operations.
+# TYPE ceph_objecter_0x1_linger_send counter
+ceph_objecter_0x1_linger_send{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_linger_send{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_map_epoch OSD map epoch.
+# TYPE ceph_objecter_0x1_map_epoch gauge
+ceph_objecter_0x1_map_epoch{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_map_epoch{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_map_full Full OSD maps received.
+# TYPE ceph_objecter_0x1_map_full counter
+ceph_objecter_0x1_map_full{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_map_full{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_map_inc Incremental OSD maps received.
+# TYPE ceph_objecter_0x1_map_inc counter
+ceph_objecter_0x1_map_inc{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_map_inc{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_omap_del OSD OMAP delete operations.
+# TYPE ceph_objecter_0x1_omap_del counter
+ceph_objecter_0x1_omap_del{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_omap_del{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_omap_rd OSD OMAP read operations.
+# TYPE ceph_objecter_0x1_omap_rd counter
+ceph_objecter_0x1_omap_rd{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_omap_rd{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_omap_wr OSD OMAP write operations.
+# TYPE ceph_objecter_0x1_omap_wr counter
+ceph_objecter_0x1_omap_wr{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_omap_wr{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op Operations.
+# TYPE ceph_objecter_0x1_op counter
+ceph_objecter_0x1_op{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_active Operations active.
+# TYPE ceph_objecter_0x1_op_active gauge
+ceph_objecter_0x1_op_active{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_op_active{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_op_inflight Operations in flight.
+# TYPE ceph_objecter_0x1_op_inflight gauge
+ceph_objecter_0x1_op_inflight{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_op_inflight{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_op_laggy Laggy operations.
+# TYPE ceph_objecter_0x1_op_laggy gauge
+ceph_objecter_0x1_op_laggy{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_op_laggy{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_op_latency_count Operation latency Count.
+# TYPE ceph_objecter_0x1_op_latency_count counter
+ceph_objecter_0x1_op_latency_count{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_latency_count{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_latency_sum Operation latency Total.
+# TYPE ceph_objecter_0x1_op_latency_sum gauge
+ceph_objecter_0x1_op_latency_sum{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_op_latency_sum{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_op_pg PG operation.
+# TYPE ceph_objecter_0x1_op_pg counter
+ceph_objecter_0x1_op_pg{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_pg{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_r Read operations.
+# TYPE ceph_objecter_0x1_op_r counter
+ceph_objecter_0x1_op_r{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_r{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_reply Operation reply.
+# TYPE ceph_objecter_0x1_op_reply counter
+ceph_objecter_0x1_op_reply{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_reply{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_resend Resent operations.
+# TYPE ceph_objecter_0x1_op_resend counter
+ceph_objecter_0x1_op_resend{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_resend{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_rmw Read-modify-write operations.
+# TYPE ceph_objecter_0x1_op_rmw counter
+ceph_objecter_0x1_op_rmw{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_rmw{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_send Sent operations.
+# TYPE ceph_objecter_0x1_op_send counter
+ceph_objecter_0x1_op_send{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_send{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_send_bytes Sent data.
+# TYPE ceph_objecter_0x1_op_send_bytes counter
+ceph_objecter_0x1_op_send_bytes{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_send_bytes{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_op_w Write operations.
+# TYPE ceph_objecter_0x1_op_w counter
+ceph_objecter_0x1_op_w{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_op_w{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_oplen_avg_count Average length of operation vector Count.
+# TYPE ceph_objecter_0x1_oplen_avg_count counter
+ceph_objecter_0x1_oplen_avg_count{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_oplen_avg_count{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_oplen_avg_sum Average length of operation vector Total.
+# TYPE ceph_objecter_0x1_oplen_avg_sum gauge
+ceph_objecter_0x1_oplen_avg_sum{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_oplen_avg_sum{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_osd_laggy Laggy OSD sessions.
+# TYPE ceph_objecter_0x1_osd_laggy gauge
+ceph_objecter_0x1_osd_laggy{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_osd_laggy{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_osd_session_close Sessions closed.
+# TYPE ceph_objecter_0x1_osd_session_close counter
+ceph_objecter_0x1_osd_session_close{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osd_session_close{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osd_session_open Sessions opened.
+# TYPE ceph_objecter_0x1_osd_session_open counter
+ceph_objecter_0x1_osd_session_open{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osd_session_open{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osd_sessions Open sessions.
+# TYPE ceph_objecter_0x1_osd_sessions gauge
+ceph_objecter_0x1_osd_sessions{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_osd_sessions{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_osdop_append Append operation.
+# TYPE ceph_objecter_0x1_osdop_append counter
+ceph_objecter_0x1_osdop_append{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_append{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_call Call (execute) operations.
+# TYPE ceph_objecter_0x1_osdop_call counter
+ceph_objecter_0x1_osdop_call{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_call{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_clonerange Clone range operations.
+# TYPE ceph_objecter_0x1_osdop_clonerange counter
+ceph_objecter_0x1_osdop_clonerange{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_clonerange{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_cmpxattr Xattr comparison operations.
+# TYPE ceph_objecter_0x1_osdop_cmpxattr counter
+ceph_objecter_0x1_osdop_cmpxattr{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_cmpxattr{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_create Create object operations.
+# TYPE ceph_objecter_0x1_osdop_create counter
+ceph_objecter_0x1_osdop_create{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_create{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_delete Delete object operations.
+# TYPE ceph_objecter_0x1_osdop_delete counter
+ceph_objecter_0x1_osdop_delete{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_delete{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_getxattr Get xattr operations.
+# TYPE ceph_objecter_0x1_osdop_getxattr counter
+ceph_objecter_0x1_osdop_getxattr{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_getxattr{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_mapext Map extent operations.
+# TYPE ceph_objecter_0x1_osdop_mapext counter
+ceph_objecter_0x1_osdop_mapext{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_mapext{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_notify Notify about object operations.
+# TYPE ceph_objecter_0x1_osdop_notify counter
+ceph_objecter_0x1_osdop_notify{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_notify{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_other Other operations.
+# TYPE ceph_objecter_0x1_osdop_other counter
+ceph_objecter_0x1_osdop_other{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_other{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_pgls osdop_pgls.
+# TYPE ceph_objecter_0x1_osdop_pgls counter
+ceph_objecter_0x1_osdop_pgls{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_pgls{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_pgls_filter osdop_pgls_filter.
+# TYPE ceph_objecter_0x1_osdop_pgls_filter counter
+ceph_objecter_0x1_osdop_pgls_filter{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_pgls_filter{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_read Read operations.
+# TYPE ceph_objecter_0x1_osdop_read counter
+ceph_objecter_0x1_osdop_read{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_read{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_resetxattrs Reset xattr operations.
+# TYPE ceph_objecter_0x1_osdop_resetxattrs counter
+ceph_objecter_0x1_osdop_resetxattrs{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_resetxattrs{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_rmxattr Remove xattr operations.
+# TYPE ceph_objecter_0x1_osdop_rmxattr counter
+ceph_objecter_0x1_osdop_rmxattr{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_rmxattr{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_setxattr Set xattr operations.
+# TYPE ceph_objecter_0x1_osdop_setxattr counter
+ceph_objecter_0x1_osdop_setxattr{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_setxattr{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_sparse_read Sparse read operations.
+# TYPE ceph_objecter_0x1_osdop_sparse_read counter
+ceph_objecter_0x1_osdop_sparse_read{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_sparse_read{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_src_cmpxattr Extended attribute comparison in multi operations.
+# TYPE ceph_objecter_0x1_osdop_src_cmpxattr counter
+ceph_objecter_0x1_osdop_src_cmpxattr{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_src_cmpxattr{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_stat Stat operations.
+# TYPE ceph_objecter_0x1_osdop_stat counter
+ceph_objecter_0x1_osdop_stat{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_stat{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_truncate Truncate object operations.
+# TYPE ceph_objecter_0x1_osdop_truncate counter
+ceph_objecter_0x1_osdop_truncate{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_truncate{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_watch Watch by object operations.
+# TYPE ceph_objecter_0x1_osdop_watch counter
+ceph_objecter_0x1_osdop_watch{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_watch{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_write Write operations.
+# TYPE ceph_objecter_0x1_osdop_write counter
+ceph_objecter_0x1_osdop_write{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_write{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_writefull Write full object operations.
+# TYPE ceph_objecter_0x1_osdop_writefull counter
+ceph_objecter_0x1_osdop_writefull{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_writefull{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_writesame Write same operations.
+# TYPE ceph_objecter_0x1_osdop_writesame counter
+ceph_objecter_0x1_osdop_writesame{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_writesame{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_osdop_zero Set object to zero operations.
+# TYPE ceph_objecter_0x1_osdop_zero counter
+ceph_objecter_0x1_osdop_zero{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_osdop_zero{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_poolop_active Active pool operations.
+# TYPE ceph_objecter_0x1_poolop_active gauge
+ceph_objecter_0x1_poolop_active{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_poolop_active{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_poolop_resend Resent pool operations.
+# TYPE ceph_objecter_0x1_poolop_resend counter
+ceph_objecter_0x1_poolop_resend{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_poolop_resend{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_poolop_send Sent pool operations.
+# TYPE ceph_objecter_0x1_poolop_send counter
+ceph_objecter_0x1_poolop_send{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_poolop_send{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_poolstat_active Active get pool stat operations.
+# TYPE ceph_objecter_0x1_poolstat_active gauge
+ceph_objecter_0x1_poolstat_active{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_poolstat_active{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_poolstat_resend Resent pool stats.
+# TYPE ceph_objecter_0x1_poolstat_resend counter
+ceph_objecter_0x1_poolstat_resend{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_poolstat_resend{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_poolstat_send Pool stat operations sent.
+# TYPE ceph_objecter_0x1_poolstat_send counter
+ceph_objecter_0x1_poolstat_send{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_poolstat_send{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_statfs_active Statfs operations.
+# TYPE ceph_objecter_0x1_statfs_active gauge
+ceph_objecter_0x1_statfs_active{ceph_daemon="osd.0"} 2
+ceph_objecter_0x1_statfs_active{instance_id="rgw.a"} 3
+
+# HELP ceph_objecter_0x1_statfs_resend Resent FS stats.
+# TYPE ceph_objecter_0x1_statfs_resend counter
+ceph_objecter_0x1_statfs_resend{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_statfs_resend{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x1_statfs_send Sent FS stats.
+# TYPE ceph_objecter_0x1_statfs_send counter
+ceph_objecter_0x1_statfs_send{ceph_daemon="osd.0"} 101
+ceph_objecter_0x1_statfs_send{instance_id="rgw.a"} 102
+
+# HELP ceph_objecter_0x2_command_active Active commands.
+# TYPE ceph_objecter_0x2_command_active gauge
+ceph_objecter_0x2_command_active{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_command_active{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_command_resend Resent commands.
+# TYPE ceph_objecter_0x2_command_resend counter
+ceph_objecter_0x2_command_resend{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_command_resend{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_command_send Sent commands.
+# TYPE ceph_objecter_0x2_command_send counter
+ceph_objecter_0x2_command_send{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_command_send{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_linger_active Active lingering operations.
+# TYPE ceph_objecter_0x2_linger_active gauge
+ceph_objecter_0x2_linger_active{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_linger_active{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_linger_ping Sent pings to lingering operations.
+# TYPE ceph_objecter_0x2_linger_ping counter
+ceph_objecter_0x2_linger_ping{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_linger_ping{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_linger_resend Resent lingering operations.
+# TYPE ceph_objecter_0x2_linger_resend counter
+ceph_objecter_0x2_linger_resend{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_linger_resend{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_linger_send Sent lingering operations.
+# TYPE ceph_objecter_0x2_linger_send counter
+ceph_objecter_0x2_linger_send{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_linger_send{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_map_epoch OSD map epoch.
+# TYPE ceph_objecter_0x2_map_epoch gauge
+ceph_objecter_0x2_map_epoch{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_map_epoch{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_map_full Full OSD maps received.
+# TYPE ceph_objecter_0x2_map_full counter
+ceph_objecter_0x2_map_full{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_map_full{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_map_inc Incremental OSD maps received.
+# TYPE ceph_objecter_0x2_map_inc counter
+ceph_objecter_0x2_map_inc{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_map_inc{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_omap_del OSD OMAP delete operations.
+# TYPE ceph_objecter_0x2_omap_del counter
+ceph_objecter_0x2_omap_del{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_omap_del{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_omap_rd OSD OMAP read operations.
+# TYPE ceph_objecter_0x2_omap_rd counter
+ceph_objecter_0x2_omap_rd{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_omap_rd{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_omap_wr OSD OMAP write operations.
+# TYPE ceph_objecter_0x2_omap_wr counter
+ceph_objecter_0x2_omap_wr{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_omap_wr{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op Operations.
+# TYPE ceph_objecter_0x2_op counter
+ceph_objecter_0x2_op{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_active Operations active.
+# TYPE ceph_objecter_0x2_op_active gauge
+ceph_objecter_0x2_op_active{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_op_active{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_op_inflight Operations in flight.
+# TYPE ceph_objecter_0x2_op_inflight gauge
+ceph_objecter_0x2_op_inflight{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_op_inflight{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_op_laggy Laggy operations.
+# TYPE ceph_objecter_0x2_op_laggy gauge
+ceph_objecter_0x2_op_laggy{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_op_laggy{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_op_latency_count Operation latency Count.
+# TYPE ceph_objecter_0x2_op_latency_count counter
+ceph_objecter_0x2_op_latency_count{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_latency_count{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_latency_sum Operation latency Total.
+# TYPE ceph_objecter_0x2_op_latency_sum gauge
+ceph_objecter_0x2_op_latency_sum{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_op_latency_sum{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_op_pg PG operation.
+# TYPE ceph_objecter_0x2_op_pg counter
+ceph_objecter_0x2_op_pg{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_pg{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_r Read operations.
+# TYPE ceph_objecter_0x2_op_r counter
+ceph_objecter_0x2_op_r{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_r{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_reply Operation reply.
+# TYPE ceph_objecter_0x2_op_reply counter
+ceph_objecter_0x2_op_reply{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_reply{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_resend Resent operations.
+# TYPE ceph_objecter_0x2_op_resend counter
+ceph_objecter_0x2_op_resend{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_resend{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_rmw Read-modify-write operations.
+# TYPE ceph_objecter_0x2_op_rmw counter
+ceph_objecter_0x2_op_rmw{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_rmw{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_send Sent operations.
+# TYPE ceph_objecter_0x2_op_send counter
+ceph_objecter_0x2_op_send{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_send{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_send_bytes Sent data.
+# TYPE ceph_objecter_0x2_op_send_bytes counter
+ceph_objecter_0x2_op_send_bytes{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_send_bytes{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_op_w Write operations.
+# TYPE ceph_objecter_0x2_op_w counter
+ceph_objecter_0x2_op_w{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_op_w{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_oplen_avg_count Average length of operation vector Count.
+# TYPE ceph_objecter_0x2_oplen_avg_count counter
+ceph_objecter_0x2_oplen_avg_count{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_oplen_avg_count{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_oplen_avg_sum Average length of operation vector Total.
+# TYPE ceph_objecter_0x2_oplen_avg_sum gauge
+ceph_objecter_0x2_oplen_avg_sum{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_oplen_avg_sum{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_osd_laggy Laggy OSD sessions.
+# TYPE ceph_objecter_0x2_osd_laggy gauge
+ceph_objecter_0x2_osd_laggy{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_osd_laggy{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_osd_session_close Sessions closed.
+# TYPE ceph_objecter_0x2_osd_session_close counter
+ceph_objecter_0x2_osd_session_close{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osd_session_close{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osd_session_open Sessions opened.
+# TYPE ceph_objecter_0x2_osd_session_open counter
+ceph_objecter_0x2_osd_session_open{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osd_session_open{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osd_sessions Open sessions.
+# TYPE ceph_objecter_0x2_osd_sessions gauge
+ceph_objecter_0x2_osd_sessions{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_osd_sessions{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_osdop_append Append operation.
+# TYPE ceph_objecter_0x2_osdop_append counter
+ceph_objecter_0x2_osdop_append{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_append{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_call Call (execute) operations.
+# TYPE ceph_objecter_0x2_osdop_call counter
+ceph_objecter_0x2_osdop_call{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_call{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_clonerange Clone range operations.
+# TYPE ceph_objecter_0x2_osdop_clonerange counter
+ceph_objecter_0x2_osdop_clonerange{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_clonerange{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_cmpxattr Xattr comparison operations.
+# TYPE ceph_objecter_0x2_osdop_cmpxattr counter
+ceph_objecter_0x2_osdop_cmpxattr{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_cmpxattr{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_create Create object operations.
+# TYPE ceph_objecter_0x2_osdop_create counter
+ceph_objecter_0x2_osdop_create{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_create{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_delete Delete object operations.
+# TYPE ceph_objecter_0x2_osdop_delete counter
+ceph_objecter_0x2_osdop_delete{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_delete{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_getxattr Get xattr operations.
+# TYPE ceph_objecter_0x2_osdop_getxattr counter
+ceph_objecter_0x2_osdop_getxattr{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_getxattr{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_mapext Map extent operations.
+# TYPE ceph_objecter_0x2_osdop_mapext counter
+ceph_objecter_0x2_osdop_mapext{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_mapext{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_notify Notify about object operations.
+# TYPE ceph_objecter_0x2_osdop_notify counter
+ceph_objecter_0x2_osdop_notify{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_notify{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_other Other operations.
+# TYPE ceph_objecter_0x2_osdop_other counter
+ceph_objecter_0x2_osdop_other{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_other{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_pgls osdop_pgls.
+# TYPE ceph_objecter_0x2_osdop_pgls counter
+ceph_objecter_0x2_osdop_pgls{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_pgls{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_pgls_filter osdop_pgls_filter.
+# TYPE ceph_objecter_0x2_osdop_pgls_filter counter
+ceph_objecter_0x2_osdop_pgls_filter{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_pgls_filter{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_read Read operations.
+# TYPE ceph_objecter_0x2_osdop_read counter
+ceph_objecter_0x2_osdop_read{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_read{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_resetxattrs Reset xattr operations.
+# TYPE ceph_objecter_0x2_osdop_resetxattrs counter
+ceph_objecter_0x2_osdop_resetxattrs{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_resetxattrs{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_rmxattr Remove xattr operations.
+# TYPE ceph_objecter_0x2_osdop_rmxattr counter
+ceph_objecter_0x2_osdop_rmxattr{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_rmxattr{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_setxattr Set xattr operations.
+# TYPE ceph_objecter_0x2_osdop_setxattr counter
+ceph_objecter_0x2_osdop_setxattr{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_setxattr{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_sparse_read Sparse read operations.
+# TYPE ceph_objecter_0x2_osdop_sparse_read counter
+ceph_objecter_0x2_osdop_sparse_read{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_sparse_read{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_src_cmpxattr Extended attribute comparison in multi operations.
+# TYPE ceph_objecter_0x2_osdop_src_cmpxattr counter
+ceph_objecter_0x2_osdop_src_cmpxattr{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_src_cmpxattr{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_stat Stat operations.
+# TYPE ceph_objecter_0x2_osdop_stat counter
+ceph_objecter_0x2_osdop_stat{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_stat{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_truncate Truncate object operations.
+# TYPE ceph_objecter_0x2_osdop_truncate counter
+ceph_objecter_0x2_osdop_truncate{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_truncate{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_watch Watch by object operations.
+# TYPE ceph_objecter_0x2_osdop_watch counter
+ceph_objecter_0x2_osdop_watch{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_watch{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_write Write operations.
+# TYPE ceph_objecter_0x2_osdop_write counter
+ceph_objecter_0x2_osdop_write{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_write{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_writefull Write full object operations.
+# TYPE ceph_objecter_0x2_osdop_writefull counter
+ceph_objecter_0x2_osdop_writefull{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_writefull{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_writesame Write same operations.
+# TYPE ceph_objecter_0x2_osdop_writesame counter
+ceph_objecter_0x2_osdop_writesame{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_writesame{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_osdop_zero Set object to zero operations.
+# TYPE ceph_objecter_0x2_osdop_zero counter
+ceph_objecter_0x2_osdop_zero{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_osdop_zero{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_poolop_active Active pool operations.
+# TYPE ceph_objecter_0x2_poolop_active gauge
+ceph_objecter_0x2_poolop_active{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_poolop_active{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_poolop_resend Resent pool operations.
+# TYPE ceph_objecter_0x2_poolop_resend counter
+ceph_objecter_0x2_poolop_resend{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_poolop_resend{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_poolop_send Sent pool operations.
+# TYPE ceph_objecter_0x2_poolop_send counter
+ceph_objecter_0x2_poolop_send{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_poolop_send{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_poolstat_active Active get pool stat operations.
+# TYPE ceph_objecter_0x2_poolstat_active gauge
+ceph_objecter_0x2_poolstat_active{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_poolstat_active{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_poolstat_resend Resent pool stats.
+# TYPE ceph_objecter_0x2_poolstat_resend counter
+ceph_objecter_0x2_poolstat_resend{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_poolstat_resend{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_poolstat_send Pool stat operations sent.
+# TYPE ceph_objecter_0x2_poolstat_send counter
+ceph_objecter_0x2_poolstat_send{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_poolstat_send{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_statfs_active Statfs operations.
+# TYPE ceph_objecter_0x2_statfs_active gauge
+ceph_objecter_0x2_statfs_active{ceph_daemon="osd.0"} 3
+ceph_objecter_0x2_statfs_active{instance_id="rgw.a"} 4
+
+# HELP ceph_objecter_0x2_statfs_resend Resent FS stats.
+# TYPE ceph_objecter_0x2_statfs_resend counter
+ceph_objecter_0x2_statfs_resend{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_statfs_resend{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_0x2_statfs_send Sent FS stats.
+# TYPE ceph_objecter_0x2_statfs_send counter
+ceph_objecter_0x2_statfs_send{ceph_daemon="osd.0"} 102
+ceph_objecter_0x2_statfs_send{instance_id="rgw.a"} 103
+
+# HELP ceph_objecter_command_active Active commands.
+# TYPE ceph_objecter_command_active gauge
+ceph_objecter_command_active{ceph_daemon="osd.0"} 1
+ceph_objecter_command_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_command_resend Resent commands.
+# TYPE ceph_objecter_command_resend counter
+ceph_objecter_command_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_command_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_command_send Sent commands.
+# TYPE ceph_objecter_command_send counter
+ceph_objecter_command_send{ceph_daemon="osd.0"} 100
+ceph_objecter_command_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_linger_active Active lingering operations.
+# TYPE ceph_objecter_linger_active gauge
+ceph_objecter_linger_active{ceph_daemon="osd.0"} 1
+ceph_objecter_linger_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_linger_ping Sent pings to lingering operations.
+# TYPE ceph_objecter_linger_ping counter
+ceph_objecter_linger_ping{ceph_daemon="osd.0"} 100
+ceph_objecter_linger_ping{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_linger_resend Resent lingering operations.
+# TYPE ceph_objecter_linger_resend counter
+ceph_objecter_linger_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_linger_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_linger_send Sent lingering operations.
+# TYPE ceph_objecter_linger_send counter
+ceph_objecter_linger_send{ceph_daemon="osd.0"} 100
+ceph_objecter_linger_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_map_epoch OSD map epoch.
+# TYPE ceph_objecter_map_epoch gauge
+ceph_objecter_map_epoch{ceph_daemon="osd.0"} 1
+ceph_objecter_map_epoch{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_map_full Full OSD maps received.
+# TYPE ceph_objecter_map_full counter
+ceph_objecter_map_full{ceph_daemon="osd.0"} 100
+ceph_objecter_map_full{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_map_inc Incremental OSD maps received.
+# TYPE ceph_objecter_map_inc counter
+ceph_objecter_map_inc{ceph_daemon="osd.0"} 100
+ceph_objecter_map_inc{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_omap_del OSD OMAP delete operations.
+# TYPE ceph_objecter_omap_del counter
+ceph_objecter_omap_del{ceph_daemon="osd.0"} 100
+ceph_objecter_omap_del{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_omap_rd OSD OMAP read operations.
+# TYPE ceph_objecter_omap_rd counter
+ceph_objecter_omap_rd{ceph_daemon="osd.0"} 100
+ceph_objecter_omap_rd{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_omap_wr OSD OMAP write operations.
+# TYPE ceph_objecter_omap_wr counter
+ceph_objecter_omap_wr{ceph_daemon="osd.0"} 100
+ceph_objecter_omap_wr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op Operations.
+# TYPE ceph_objecter_op counter
+ceph_objecter_op{ceph_daemon="osd.0"} 100
+ceph_objecter_op{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_active Operations active.
+# TYPE ceph_objecter_op_active gauge
+ceph_objecter_op_active{ceph_daemon="osd.0"} 1
+ceph_objecter_op_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_op_inflight Operations in flight.
+# TYPE ceph_objecter_op_inflight gauge
+ceph_objecter_op_inflight{ceph_daemon="osd.0"} 1
+ceph_objecter_op_inflight{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_op_laggy Laggy operations.
+# TYPE ceph_objecter_op_laggy gauge
+ceph_objecter_op_laggy{ceph_daemon="osd.0"} 1
+ceph_objecter_op_laggy{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_op_latency_count Operation latency Count.
+# TYPE ceph_objecter_op_latency_count counter
+ceph_objecter_op_latency_count{ceph_daemon="osd.0"} 100
+ceph_objecter_op_latency_count{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_latency_sum Operation latency Total.
+# TYPE ceph_objecter_op_latency_sum gauge
+ceph_objecter_op_latency_sum{ceph_daemon="osd.0"} 1
+ceph_objecter_op_latency_sum{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_op_pg PG operation.
+# TYPE ceph_objecter_op_pg counter
+ceph_objecter_op_pg{ceph_daemon="osd.0"} 100
+ceph_objecter_op_pg{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_r Read operations.
+# TYPE ceph_objecter_op_r counter
+ceph_objecter_op_r{ceph_daemon="osd.0"} 100
+ceph_objecter_op_r{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_reply Operation reply.
+# TYPE ceph_objecter_op_reply counter
+ceph_objecter_op_reply{ceph_daemon="osd.0"} 100
+ceph_objecter_op_reply{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_resend Resent operations.
+# TYPE ceph_objecter_op_resend counter
+ceph_objecter_op_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_op_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_rmw Read-modify-write operations.
+# TYPE ceph_objecter_op_rmw counter
+ceph_objecter_op_rmw{ceph_daemon="osd.0"} 100
+ceph_objecter_op_rmw{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_send Sent operations.
+# TYPE ceph_objecter_op_send counter
+ceph_objecter_op_send{ceph_daemon="osd.0"} 100
+ceph_objecter_op_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_send_bytes Sent data.
+# TYPE ceph_objecter_op_send_bytes counter
+ceph_objecter_op_send_bytes{ceph_daemon="osd.0"} 100
+ceph_objecter_op_send_bytes{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_op_w Write operations.
+# TYPE ceph_objecter_op_w counter
+ceph_objecter_op_w{ceph_daemon="osd.0"} 100
+ceph_objecter_op_w{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_oplen_avg_count Average length of operation vector Count.
+# TYPE ceph_objecter_oplen_avg_count counter
+ceph_objecter_oplen_avg_count{ceph_daemon="osd.0"} 100
+ceph_objecter_oplen_avg_count{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_oplen_avg_sum Average length of operation vector Total.
+# TYPE ceph_objecter_oplen_avg_sum gauge
+ceph_objecter_oplen_avg_sum{ceph_daemon="osd.0"} 1
+ceph_objecter_oplen_avg_sum{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_osd_laggy Laggy OSD sessions.
+# TYPE ceph_objecter_osd_laggy gauge
+ceph_objecter_osd_laggy{ceph_daemon="osd.0"} 1
+ceph_objecter_osd_laggy{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_osd_session_close Sessions closed.
+# TYPE ceph_objecter_osd_session_close counter
+ceph_objecter_osd_session_close{ceph_daemon="osd.0"} 100
+ceph_objecter_osd_session_close{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osd_session_open Sessions opened.
+# TYPE ceph_objecter_osd_session_open counter
+ceph_objecter_osd_session_open{ceph_daemon="osd.0"} 100
+ceph_objecter_osd_session_open{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osd_sessions Open sessions.
+# TYPE ceph_objecter_osd_sessions gauge
+ceph_objecter_osd_sessions{ceph_daemon="osd.0"} 1
+ceph_objecter_osd_sessions{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_osdop_append Append operation.
+# TYPE ceph_objecter_osdop_append counter
+ceph_objecter_osdop_append{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_append{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_call Call (execute) operations.
+# TYPE ceph_objecter_osdop_call counter
+ceph_objecter_osdop_call{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_call{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_clonerange Clone range operations.
+# TYPE ceph_objecter_osdop_clonerange counter
+ceph_objecter_osdop_clonerange{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_clonerange{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_cmpxattr Xattr comparison operations.
+# TYPE ceph_objecter_osdop_cmpxattr counter
+ceph_objecter_osdop_cmpxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_cmpxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_create Create object operations.
+# TYPE ceph_objecter_osdop_create counter
+ceph_objecter_osdop_create{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_create{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_delete Delete object operations.
+# TYPE ceph_objecter_osdop_delete counter
+ceph_objecter_osdop_delete{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_delete{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_getxattr Get xattr operations.
+# TYPE ceph_objecter_osdop_getxattr counter
+ceph_objecter_osdop_getxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_getxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_mapext Map extent operations.
+# TYPE ceph_objecter_osdop_mapext counter
+ceph_objecter_osdop_mapext{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_mapext{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_notify Notify about object operations.
+# TYPE ceph_objecter_osdop_notify counter
+ceph_objecter_osdop_notify{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_notify{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_other Other operations.
+# TYPE ceph_objecter_osdop_other counter
+ceph_objecter_osdop_other{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_other{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_pgls osdop_pgls.
+# TYPE ceph_objecter_osdop_pgls counter
+ceph_objecter_osdop_pgls{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_pgls{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_pgls_filter osdop_pgls_filter.
+# TYPE ceph_objecter_osdop_pgls_filter counter
+ceph_objecter_osdop_pgls_filter{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_pgls_filter{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_read Read operations.
+# TYPE ceph_objecter_osdop_read counter
+ceph_objecter_osdop_read{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_read{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_resetxattrs Reset xattr operations.
+# TYPE ceph_objecter_osdop_resetxattrs counter
+ceph_objecter_osdop_resetxattrs{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_resetxattrs{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_rmxattr Remove xattr operations.
+# TYPE ceph_objecter_osdop_rmxattr counter
+ceph_objecter_osdop_rmxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_rmxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_setxattr Set xattr operations.
+# TYPE ceph_objecter_osdop_setxattr counter
+ceph_objecter_osdop_setxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_setxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_sparse_read Sparse read operations.
+# TYPE ceph_objecter_osdop_sparse_read counter
+ceph_objecter_osdop_sparse_read{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_sparse_read{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_src_cmpxattr Extended attribute comparison in multi operations.
+# TYPE ceph_objecter_osdop_src_cmpxattr counter
+ceph_objecter_osdop_src_cmpxattr{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_src_cmpxattr{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_stat Stat operations.
+# TYPE ceph_objecter_osdop_stat counter
+ceph_objecter_osdop_stat{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_stat{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_truncate Truncate object operations.
+# TYPE ceph_objecter_osdop_truncate counter
+ceph_objecter_osdop_truncate{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_truncate{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_watch Watch by object operations.
+# TYPE ceph_objecter_osdop_watch counter
+ceph_objecter_osdop_watch{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_watch{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_write Write operations.
+# TYPE ceph_objecter_osdop_write counter
+ceph_objecter_osdop_write{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_write{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_writefull Write full object operations.
+# TYPE ceph_objecter_osdop_writefull counter
+ceph_objecter_osdop_writefull{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_writefull{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_writesame Write same operations.
+# TYPE ceph_objecter_osdop_writesame counter
+ceph_objecter_osdop_writesame{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_writesame{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_osdop_zero Set object to zero operations.
+# TYPE ceph_objecter_osdop_zero counter
+ceph_objecter_osdop_zero{ceph_daemon="osd.0"} 100
+ceph_objecter_osdop_zero{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_poolop_active Active pool operations.
+# TYPE ceph_objecter_poolop_active gauge
+ceph_objecter_poolop_active{ceph_daemon="osd.0"} 1
+ceph_objecter_poolop_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_poolop_resend Resent pool operations.
+# TYPE ceph_objecter_poolop_resend counter
+ceph_objecter_poolop_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_poolop_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_poolop_send Sent pool operations.
+# TYPE ceph_objecter_poolop_send counter
+ceph_objecter_poolop_send{ceph_daemon="osd.0"} 100
+ceph_objecter_poolop_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_poolstat_active Active get pool stat operations.
+# TYPE ceph_objecter_poolstat_active gauge
+ceph_objecter_poolstat_active{ceph_daemon="osd.0"} 1
+ceph_objecter_poolstat_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_poolstat_resend Resent pool stats.
+# TYPE ceph_objecter_poolstat_resend counter
+ceph_objecter_poolstat_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_poolstat_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_poolstat_send Pool stat operations sent.
+# TYPE ceph_objecter_poolstat_send counter
+ceph_objecter_poolstat_send{ceph_daemon="osd.0"} 100
+ceph_objecter_poolstat_send{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_statfs_active Statfs operations.
+# TYPE ceph_objecter_statfs_active gauge
+ceph_objecter_statfs_active{ceph_daemon="osd.0"} 1
+ceph_objecter_statfs_active{instance_id="rgw.a"} 2
+
+# HELP ceph_objecter_statfs_resend Resent FS stats.
+# TYPE ceph_objecter_statfs_resend counter
+ceph_objecter_statfs_resend{ceph_daemon="osd.0"} 100
+ceph_objecter_statfs_resend{instance_id="rgw.a"} 101
+
+# HELP ceph_objecter_statfs_send Sent FS stats.
+# TYPE ceph_objecter_statfs_send counter
+ceph_objecter_statfs_send{ceph_daemon="osd.0"} 100
+ceph_objecter_statfs_send{instance_id="rgw.a"} 101
 
 # HELP ceph_oft_omap_total_kv_pairs omap_total_kv_pairs.
 # TYPE ceph_oft_omap_total_kv_pairs gauge
