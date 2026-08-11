@@ -9,6 +9,7 @@ upstreams:
     commit: 2f841527277a21ac9ea622a9f923a5f9078234c4
     paths:
       - src/prometheus_fastapi_instrumentator/metrics.py
+      - src/prometheus_fastapi_instrumentator/middleware.py
   prometheus_client_python:
     repository: prometheus/client_python
     commit: f417f6ea8f058165a1934e368fed245e91aafc14

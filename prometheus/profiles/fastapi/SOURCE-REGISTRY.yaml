@@ -98,3 +98,18 @@ groups:
           - upstream: prometheus_client_python
             path: prometheus_client/metrics.py
             range: {start: 692, end: 703}
+  middleware_http:
+    registrations:
+      http_requests_inprogress:
+        family: {exact: http_requests_inprogress}
+        when:
+          any:
+            - all:
+                - {axis: inprogress, op: in, values: [unlabeled, labeled]}
+        prometheus: {type: gauge, shape: scalar}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: fastapi_instrumentator
+            path: src/prometheus_fastapi_instrumentator/middleware.py
+            range: {start: 117, end: 122}

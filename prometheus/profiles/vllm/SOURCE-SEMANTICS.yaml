@@ -174,7 +174,7 @@ evidence:
     - vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py:21-150
     - vllm/entrypoints/speech_to_text/realtime/metrics.py:21-78
     - vllm/parser/metrics.py:15-108
-    claim: The registered metric meanings support the profile's exact percentage, concurrency, and per-GPU display conversions.
+    claim: The registered metric meanings support the profile's exact percentage and per-GPU display conversions.
 environment:
   axes:
     transport:

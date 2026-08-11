@@ -30,6 +30,12 @@ directory, and its shared `prometheus_client` source parser, runs conventionally
 and writes disabled, and compares generated stdout byte-for-byte with the committed registry. Generators use only the
 Python standard library.
 
+FastAPI, LiteLLM, and vLLM extraction fingerprints the normalized AST of each complete Python module whose executable shape
+is an input, including imports and other global bindings. Formatting and comments do not affect the fingerprint; any
+executable source-shape change fails closed until the pinned upgrade is reviewed and the expected fingerprint is replaced.
+The shared `prometheus_client` fingerprint also closes every consumer over the `_created` emitter implementation and its
+positive feature gate. Other generators use source-language-specific closed grammars and negative tests instead.
+
 ## Consumer contract
 
 Prometheus profile validation uses the latest `netdata/testdata` `master`. Each profile has one stable directory; proof

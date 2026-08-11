@@ -8,7 +8,10 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from source_registry_client_python import parse_created_emitters as parse_client_created_emitters
+from source_registry_client_python import (
+    parse_created_emitters as parse_client_created_emitters,
+    require_ast_fingerprints,
+)
 
 
 VLLM_ROOT = Path("upstreams/vllm")
@@ -16,6 +19,7 @@ CLIENT_SOURCE = Path("upstreams/prometheus_client_python/prometheus_client/metri
 RAY_AGENT_SOURCE = Path("upstreams/ray/python/ray/_private/metrics_agent.py")
 RAY_TAG_SOURCE = Path("upstreams/ray/src/ray/stats/tag_defs.cc")
 RAY_WRAPPER_PATH = "vllm/v1/metrics/ray_wrappers.py"
+RAY_AGENT_PATH = "python/ray/_private/metrics_agent.py"
 
 REGISTRATION_PATHS = (
     "vllm/v1/metrics/loggers.py",
@@ -32,6 +36,27 @@ REGISTRATION_PATHS = (
     "vllm/v1/kv_offload/tiering/base.py",
     "vllm/v1/kv_offload/tiering/spec.py",
 )
+
+VLLM_SOURCE_AST_FINGERPRINTS = {
+    "vllm/v1/metrics/loggers.py": "1afc2c7c922a796299543eaffd4bbc12d8ae9786347fa569f45298fc83d90dbe",
+    "vllm/v1/metrics/perf.py": "24874c09180752512468c75c56c74d3328f8e62ff518abbcaca6e1f3c77f36cd",
+    "vllm/v1/spec_decode/metrics.py": "c71b1957ebac328e59f1a1f5301c1e2d38552b3bfa22489fb88baa9f99ca459f",
+    "vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats.py": "37e5c2a90d5457b658197813587226971ad051e9dc0d17f584859104b8915c84",
+    "vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_connector.py": "7ede827f0b0d3f43403558427f2858eeaa31ac5a844ac8fe62a078bc54f3181e",
+    "vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics.py": "c641a72ccb8c74745c5e68e8ce260e62b4cdf55bb3b1e62d3f74b386e27b559d",
+    "vllm/distributed/kv_transfer/kv_connector/v1/offloading/metrics.py": "04ba764211864e688175a12a655ec099852d4892e4478779683eeef95226fe00",
+    "vllm/entrypoints/speech_to_text/realtime/metrics.py": "b510a4c0362b321d48d940df2c4f5e981f5e45e718e9c885b1b1881dc95b01a5",
+    "vllm/parser/metrics.py": "66fea8e6880458bf72d14f31359bc2b620aca527034d9420187d6cdc14f50deb",
+    "vllm/v1/kv_offload/cpu/common.py": "8f5da827569e2fcd2df08101ba0b483328f7ed8bbf466f5255cefbff1086fc9e",
+    "vllm/v1/kv_offload/cpu/spec.py": "47de1b3683f4e84a60f3e5e44249c537eebfbdcc2b618b1d7b24ebad042e6e7c",
+    "vllm/v1/kv_offload/tiering/base.py": "ed96667431d44f0eb3b05e7caf2b674b54e3bc023db092fc3ec1fdaefe58b3f6",
+    "vllm/v1/kv_offload/tiering/spec.py": "9a88971a1371354aa1674f86b60887f7338ae5f9b9cdacd2fb26153de65aaa82",
+}
+
+VLLM_TRANSPORT_AST_FINGERPRINTS = {
+    RAY_WRAPPER_PATH: "8288a3dad228d3bbdc65d3170395af3ffad6706f27338788dabadc208991acf2",
+    RAY_AGENT_PATH: "424c3c13c63a2953aead5c83ca42048a799adda4eca70da80364c03582635a68",
+}
 
 RAY_UNSUPPORTED_PATH_PREFIXES = (
     "vllm/entrypoints/speech_to_text/realtime/",
@@ -329,6 +354,16 @@ def generate_registry(
     ray_agent: str,
     ray_tags: str,
 ) -> str:
+    require_ast_fingerprints(
+        sources,
+        VLLM_SOURCE_AST_FINGERPRINTS,
+        "vLLM registration modules",
+    )
+    require_ast_fingerprints(
+        {RAY_WRAPPER_PATH: ray_wrapper, RAY_AGENT_PATH: ray_agent},
+        VLLM_TRANSPORT_AST_FINGERPRINTS,
+        "vLLM Ray transport modules",
+    )
     native = parse_registrations(sources)
     created_emitters = parse_created_emitters(client_source)
     validate_ray_transport(ray_wrapper, ray_agent, ray_tags)

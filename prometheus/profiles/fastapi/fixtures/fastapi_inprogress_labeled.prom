@@ -1,0 +1,89 @@
+# Synthetic FastAPI HTTP instrumentation Prometheus structural fixture; this is not a captured scrape.
+# Labels and values are non-production placeholders derived from public exporter source.
+# HELP http_requests_total Total number of requests by method, status and handler.
+# TYPE http_requests_total counter
+http_requests_total{handler="/v1/example",method="POST",status="2xx"} 3
+http_requests_total{handler="/v1/example",method="POST",status="1xx"} 1
+http_requests_total{handler="/v1/example",method="POST",status="3xx"} 1
+http_requests_total{handler="/v1/example",method="POST",status="4xx"} 1
+http_requests_total{handler="/v1/example",method="POST",status="5xx"} 1
+http_requests_total{handler="/health",method="GET",status="2xx"} 3
+# HELP http_requests_created Total number of requests by method, status and handler.
+# TYPE http_requests_created gauge
+http_requests_created{handler="/v1/example",method="POST",status="2xx"} 1
+http_requests_created{handler="/v1/example",method="POST",status="1xx"} 1
+http_requests_created{handler="/v1/example",method="POST",status="3xx"} 1
+http_requests_created{handler="/v1/example",method="POST",status="4xx"} 1
+http_requests_created{handler="/v1/example",method="POST",status="5xx"} 1
+http_requests_created{handler="/health",method="GET",status="2xx"} 1
+# HELP http_request_size_bytes Content length of incoming requests by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
+# TYPE http_request_size_bytes summary
+http_request_size_bytes_count{handler="/v1/example"} 7
+http_request_size_bytes_sum{handler="/v1/example"} 6
+http_request_size_bytes_count{handler="/health"} 3
+http_request_size_bytes_sum{handler="/health"} 6
+# HELP http_request_size_bytes_created Content length of incoming requests by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
+# TYPE http_request_size_bytes_created gauge
+http_request_size_bytes_created{handler="/v1/example"} 1
+http_request_size_bytes_created{handler="/health"} 1
+# HELP http_response_size_bytes Content length of outgoing responses by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
+# TYPE http_response_size_bytes summary
+http_response_size_bytes_count{handler="/v1/example"} 7
+http_response_size_bytes_sum{handler="/v1/example"} 6
+http_response_size_bytes_count{handler="/health"} 3
+http_response_size_bytes_sum{handler="/health"} 6
+# HELP http_response_size_bytes_created Content length of outgoing responses by handler. Only value of header is respected. Otherwise ignored. No percentile calculated.
+# TYPE http_response_size_bytes_created gauge
+http_response_size_bytes_created{handler="/v1/example"} 1
+http_response_size_bytes_created{handler="/health"} 1
+# HELP http_request_duration_highr_seconds Latency with many buckets but no API specific labels. Made for more accurate percentile calculations.
+# TYPE http_request_duration_highr_seconds histogram
+http_request_duration_highr_seconds_bucket{le="0.01"} 0
+http_request_duration_highr_seconds_bucket{le="0.025"} 0
+http_request_duration_highr_seconds_bucket{le="0.05"} 1
+http_request_duration_highr_seconds_bucket{le="0.075"} 1
+http_request_duration_highr_seconds_bucket{le="0.1"} 2
+http_request_duration_highr_seconds_bucket{le="0.25"} 3
+http_request_duration_highr_seconds_bucket{le="0.5"} 4
+http_request_duration_highr_seconds_bucket{le="0.75"} 5
+http_request_duration_highr_seconds_bucket{le="1.0"} 6
+http_request_duration_highr_seconds_bucket{le="1.5"} 7
+http_request_duration_highr_seconds_bucket{le="2.0"} 8
+http_request_duration_highr_seconds_bucket{le="2.5"} 8
+http_request_duration_highr_seconds_bucket{le="3.0"} 9
+http_request_duration_highr_seconds_bucket{le="3.5"} 9
+http_request_duration_highr_seconds_bucket{le="4.0"} 9
+http_request_duration_highr_seconds_bucket{le="4.5"} 9
+http_request_duration_highr_seconds_bucket{le="5.0"} 9
+http_request_duration_highr_seconds_bucket{le="7.5"} 10
+http_request_duration_highr_seconds_bucket{le="10.0"} 10
+http_request_duration_highr_seconds_bucket{le="30.0"} 10
+http_request_duration_highr_seconds_bucket{le="60.0"} 10
+http_request_duration_highr_seconds_bucket{le="+Inf"} 10
+http_request_duration_highr_seconds_count 10
+http_request_duration_highr_seconds_sum 9
+# HELP http_request_duration_highr_seconds_created Latency with many buckets but no API specific labels. Made for more accurate percentile calculations.
+# TYPE http_request_duration_highr_seconds_created gauge
+http_request_duration_highr_seconds_created 1
+# HELP http_request_duration_seconds Latency with only few buckets by handler. Made to be only used if aggregation by handler is important.
+# TYPE http_request_duration_seconds histogram
+http_request_duration_seconds_bucket{handler="/v1/example",le="0.1",method="POST"} 1
+http_request_duration_seconds_bucket{handler="/v1/example",le="0.5",method="POST"} 3
+http_request_duration_seconds_bucket{handler="/v1/example",le="1.0",method="POST"} 7
+http_request_duration_seconds_bucket{handler="/v1/example",le="+Inf",method="POST"} 7
+http_request_duration_seconds_count{handler="/v1/example",method="POST"} 7
+http_request_duration_seconds_sum{handler="/v1/example",method="POST"} 5
+http_request_duration_seconds_bucket{handler="/health",le="0.1",method="GET"} 1
+http_request_duration_seconds_bucket{handler="/health",le="0.5",method="GET"} 2
+http_request_duration_seconds_bucket{handler="/health",le="1.0",method="GET"} 3
+http_request_duration_seconds_bucket{handler="/health",le="+Inf",method="GET"} 3
+http_request_duration_seconds_count{handler="/health",method="GET"} 3
+http_request_duration_seconds_sum{handler="/health",method="GET"} 4
+# HELP http_request_duration_seconds_created Latency with only few buckets by handler. Made to be only used if aggregation by handler is important.
+# TYPE http_request_duration_seconds_created gauge
+http_request_duration_seconds_created{handler="/v1/example",method="POST"} 1
+http_request_duration_seconds_created{handler="/health",method="GET"} 1
+# HELP http_requests_inprogress Number of HTTP requests in progress.
+# TYPE http_requests_inprogress gauge
+http_requests_inprogress{handler="/v1/example",method="POST"} 2
+http_requests_inprogress{handler="/health",method="GET"} 1

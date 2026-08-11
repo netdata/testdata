@@ -5,6 +5,8 @@ import pathlib
 import sys
 import unittest
 
+from source_registry_client_python import ast_fingerprint
+
 
 MODULE_PATH = pathlib.Path(__file__).with_name("generate.py")
 SPEC = importlib.util.spec_from_file_location("litellm_registry_generator", MODULE_PATH)
@@ -15,6 +17,10 @@ SPEC.loader.exec_module(GENERATOR)
 
 
 class FailClosedParserTest(unittest.TestCase):
+    def test_rejects_unreviewed_registration_source_shapes(self):
+        with self.assertRaisesRegex(ValueError, "source shape fingerprint"):
+            GENERATOR.generate_registry("", "", "", "", "")
+
     def test_rejects_dynamic_callback_metric_name(self):
         source = """
 class PrometheusLogger:
@@ -53,7 +59,10 @@ class Histogram:
         return ()
 """
         with self.assertRaisesRegex(ValueError, "gated _created sample"):
-            GENERATOR.parse_created_emitters(source)
+            GENERATOR.parse_created_emitters(
+                source,
+                expected_ast_fingerprint=ast_fingerprint(source),
+            )
 
 
 if __name__ == "__main__":

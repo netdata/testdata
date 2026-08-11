@@ -13,8 +13,10 @@ evidence:
   request_population:
     kind: population
     upstream: fastapi_instrumentator
-    locations: [src/prometheus_fastapi_instrumentator/metrics.py:779-820]
-    claim: One instrumentation call records one request outcome, both size observations, and both enabled duration observations.
+    locations:
+      - src/prometheus_fastapi_instrumentator/middleware.py:173-220
+      - src/prometheus_fastapi_instrumentator/metrics.py:779-820
+    claim: After one request completes, one instrumentation call records its outcome, both size observations, the endpoint duration, and the configured service-wide duration population.
   component_lifecycle:
     kind: lifecycle
     upstream: prometheus_client_python
@@ -49,25 +51,153 @@ evidence:
     kind: label
     upstream: fastapi_instrumentator
     locations: [src/prometheus_fastapi_instrumentator/metrics.py:706-777, src/prometheus_fastapi_instrumentator/metrics.py:786-820]
-    claim: Default request outcomes use method, status, and handler; size summaries use handler; endpoint duration uses method and handler; service duration is global.
+    claim: Request outcomes use method, configured status representation, and handler; size summaries use handler; endpoint duration uses method and handler; service duration is global.
   status_domain:
     kind: label
     upstream: fastapi_instrumentator
     locations: [src/prometheus_fastapi_instrumentator/middleware.py:23-24, src/prometheus_fastapi_instrumentator/middleware.py:178-214]
-    claim: Default middleware replaces the exact HTTP response code with its one-digit status class.
+    claim: Middleware emits one-digit response classes by default and exact HTTP response codes when status grouping is disabled.
+  status_grouping_mode:
+    kind: availability
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:23-24, src/prometheus_fastapi_instrumentator/middleware.py:202-204]
+    claim: should_group_status_codes selects grouped one-digit classes or exact response codes without changing the metric family.
+  highr_population_mode:
+    kind: availability
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:616-620, src/prometheus_fastapi_instrumentator/metrics.py:811-815]
+    claim: should_only_respect_2xx_for_highr selects all handled requests or only successful responses for the same service-wide histogram family.
+  streaming_duration_mode:
+    kind: availability
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:616-620, src/prometheus_fastapi_instrumentator/metrics.py:779-784]
+    claim: should_exclude_streaming_duration selects full request duration or duration with response-body streaming time removed for both duration histograms.
+  custom_labels_mode:
+    kind: availability
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:616-646, src/prometheus_fastapi_instrumentator/metrics.py:706-820]
+    claim: The default metric factory accepts arbitrary additional constant label keys; this finite proof contract is limited to its default empty custom_labels mapping.
+  metric_naming_mode:
+    kind: availability
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/metrics.py:613-614, src/prometheus_fastapi_instrumentator/metrics.py:706-777]
+    claim: The default metric factory accepts namespace and subsystem prefixes; this stock contract covers the default empty values that preserve the exact http_* families.
+  inprogress_naming_mode:
+    kind: availability
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:28-35, src/prometheus_fastapi_instrumentator/middleware.py:79-80, src/prometheus_fastapi_instrumentator/middleware.py:107-122]
+    claim: The middleware accepts an arbitrary in-progress Gauge name; this stock contract covers its default http_requests_inprogress family.
   count_projection:
     kind: relationship
     upstream: fastapi_instrumentator
     locations: [src/prometheus_fastapi_instrumentator/metrics.py:786-809]
     claim: Each handled request increments the outcome counter once and observes each size summary once, so each handler-level summary count equals outcomes summed over method and status.
-  request_concurrency_display:
-    kind: display_convention
+  inprogress_availability:
+    kind: availability
     upstream: fastapi_instrumentator
-    locations: [src/prometheus_fastapi_instrumentator/metrics.py:779-820]
-    claim: Summing request duration and taking its per-second increase yields the average number of requests in flight during the interval.
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:28-35, src/prometheus_fastapi_instrumentator/middleware.py:107-122]
+    claim: In-progress instrumentation defaults to disabled; when enabled it registers the default http_requests_inprogress Gauge with either no labels or method and handler labels.
+  inprogress_population:
+    kind: population
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:137-142, src/prometheus_fastapi_instrumentator/middleware.py:173-194]
+    claim: The Gauge counts non-excluded HTTP requests after entry and removes each request in the completion path.
+  inprogress_lifecycle:
+    kind: lifecycle
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:137-142, src/prometheus_fastapi_instrumentator/middleware.py:173-194]
+    claim: The Gauge is a current value incremented before awaiting the application and decremented in the request completion path.
+  inprogress_unit:
+    kind: unit
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:117-122]
+    claim: The Gauge documentation defines its value as the number of HTTP requests in progress.
+  inprogress_labels:
+    kind: label
+    upstream: fastapi_instrumentator
+    locations: [src/prometheus_fastapi_instrumentator/middleware.py:107-122, src/prometheus_fastapi_instrumentator/middleware.py:137-142]
+    claim: The optional labeled mode identifies each current population by request method and normalized handler; unlabeled mode exposes a service-wide value.
 environment:
-  axes: {}
-  policies: {}
+  axes:
+    inprogress:
+      kind: enum
+      values: [disabled, unlabeled, labeled]
+      meaning: Availability and label shape of the optional in-progress request Gauge using its default metric name.
+      evidence: [inprogress_availability]
+    status_grouping:
+      kind: enum
+      values: [grouped, exact]
+      meaning: Response status label representation for the default request counter.
+      evidence: [status_grouping_mode]
+    highr_population:
+      kind: enum
+      values: [all, 2xx_only]
+      meaning: Request population admitted to the service-wide high-resolution duration histogram.
+      evidence: [highr_population_mode]
+    streaming_duration:
+      kind: enum
+      values: [included, excluded]
+      meaning: Whether response-body streaming time contributes to recorded request durations.
+      evidence: [streaming_duration_mode]
+    custom_labels:
+      kind: enum
+      values: [none]
+      meaning: Finite proof scope for the default empty custom_labels mapping; arbitrary configured label keys are not claimed by this contract.
+      evidence: [custom_labels_mode]
+    metric_naming:
+      kind: enum
+      values: [default]
+      meaning: Finite stock-profile scope for empty metric_namespace and metric_subsystem values that preserve exact http_* families.
+      evidence: [metric_naming_mode]
+    inprogress_naming:
+      kind: enum
+      values: [default]
+      meaning: Finite stock-profile scope for the default http_requests_inprogress Gauge name.
+      evidence: [inprogress_naming_mode]
+  policies:
+    inprogress_enabled:
+      when:
+        any:
+          - all:
+              - {axis: inprogress, op: in, values: [unlabeled, labeled]}
+              - {axis: inprogress_naming, op: eq, value: default}
+      evidence: [inprogress_availability, inprogress_naming_mode]
+    inprogress_labeled:
+      when:
+        any:
+          - all: [{axis: inprogress, op: eq, value: labeled}]
+      evidence: [inprogress_availability]
+    request_outcomes_supported:
+      when:
+        any:
+          - all:
+              - {axis: status_grouping, op: in, values: [grouped, exact]}
+              - {axis: custom_labels, op: eq, value: none}
+              - {axis: metric_naming, op: eq, value: default}
+      evidence: [status_grouping_mode, custom_labels_mode, metric_naming_mode]
+    default_labeled_metrics_supported:
+      when:
+        any:
+          - all:
+              - {axis: custom_labels, op: eq, value: none}
+              - {axis: metric_naming, op: eq, value: default}
+      evidence: [custom_labels_mode, metric_naming_mode]
+    endpoint_duration_supported:
+      when:
+        any:
+          - all:
+              - {axis: streaming_duration, op: in, values: [included, excluded]}
+              - {axis: custom_labels, op: eq, value: none}
+              - {axis: metric_naming, op: eq, value: default}
+      evidence: [streaming_duration_mode, custom_labels_mode, metric_naming_mode]
+    service_duration_supported:
+      when:
+        any:
+          - all:
+              - {axis: highr_population, op: in, values: [all, 2xx_only]}
+              - {axis: streaming_duration, op: in, values: [included, excluded]}
+              - {axis: metric_naming, op: eq, value: default}
+      evidence: [highr_population_mode, streaming_duration_mode, metric_naming_mode]
 component_policies:
   duration_histogram:
     bucket:
@@ -103,6 +233,7 @@ component_policies:
 label_policies: {}
 signals:
   request_outcomes:
+    availability: request_outcomes_supported
     source:
       generated:
         registry_groups: [default_http]
@@ -138,14 +269,15 @@ signals:
         stability: stable
         evidence: [request_labels]
       status:
-        meaning: One-digit HTTP response status class.
+        meaning: Producer-configured HTTP response status class or exact status code.
         presence: required
-        domain: {kind: closed, values: [1xx, 2xx, 3xx, 4xx, 5xx]}
-        endpoint_cardinality: {kind: closed_domain}
+        domain: {kind: open}
+        endpoint_cardinality: {kind: bounded_configuration}
         stability: stable
         evidence: [request_labels, status_domain]
     functional_dependencies: {}
   request_size:
+    availability: default_labeled_metrics_supported
     source:
       generated:
         registry_groups: [default_http]
@@ -185,6 +317,7 @@ signals:
         evidence: [request_labels]
     functional_dependencies: {}
   response_size:
+    availability: default_labeled_metrics_supported
     source:
       generated:
         registry_groups: [default_http]
@@ -224,13 +357,14 @@ signals:
         evidence: [request_labels]
     functional_dependencies: {}
   endpoint_duration:
+    availability: endpoint_duration_supported
     source:
       generated:
         registry_groups: [default_http]
         scope: {registrations: [http_request_duration_seconds]}
     population:
       id: handled_requests
-      meaning: Requests handled by the instrumented FastAPI application.
+      meaning: Requests handled by the instrumented FastAPI application using the producer-configured streaming-duration basis.
       evidence: [request_population]
     component_policy: duration_histogram
     labels:
@@ -250,18 +384,57 @@ signals:
         evidence: [request_labels]
     functional_dependencies: {}
   service_duration:
+    availability: service_duration_supported
     source:
       generated:
         registry_groups: [default_http]
         scope: {registrations: [http_request_duration_highr_seconds]}
     population:
-      id: handled_requests
-      meaning: Requests handled by the instrumented FastAPI application.
+      id: configured_high_resolution_requests
+      meaning: Producer-configured service-wide population and streaming-duration basis.
       evidence: [request_population]
     component_policy: duration_histogram
     labels: {}
     functional_dependencies: {}
+  requests_in_progress:
+    availability: inprogress_enabled
+    source:
+      generated:
+        registry_groups: [middleware_http]
+        scope: {registrations: [http_requests_inprogress]}
+    population:
+      id: active_http_requests
+      meaning: Non-excluded HTTP requests currently executing in the instrumented FastAPI application.
+      evidence: [inprogress_population]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [inprogress_lifecycle]}
+        unit:
+          quantity: count
+          base: one
+          rate: none
+          object: requests
+          aspect: in_progress
+          evidence: [inprogress_unit]
+    labels:
+      handler:
+        meaning: Normalized FastAPI route handler when in-progress labels are enabled.
+        presence: {when: inprogress_labeled}
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [inprogress_labels]
+      method:
+        meaning: HTTP request method when in-progress labels are enabled.
+        presence: {when: inprogress_labeled}
+        domain: {kind: open}
+        endpoint_cardinality: {kind: operational_population}
+        stability: stable
+        evidence: [inprogress_labels]
+    functional_dependencies: {}
   registration_timestamps:
+    availability: default_labeled_metrics_supported
     source:
       generated:
         registry_groups: [default_http]
@@ -297,10 +470,10 @@ signals:
         stability: stable
         evidence: [request_labels]
       status:
-        meaning: HTTP response status class when the registered instrument has outcome identity.
+        meaning: Producer-configured HTTP response status class or exact status code when the registered instrument has outcome identity.
         presence: optional
-        domain: {kind: closed, values: [1xx, 2xx, 3xx, 4xx, 5xx]}
-        endpoint_cardinality: {kind: closed_domain}
+        domain: {kind: open}
+        endpoint_cardinality: {kind: bounded_configuration}
         stability: stable
         evidence: [request_labels, status_domain]
     functional_dependencies: {}

@@ -8,7 +8,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from source_registry_client_python import parse_created_emitters
+from source_registry_client_python import parse_created_emitters, require_ast_fingerprints
 
 
 PROMETHEUS_SOURCE = Path("upstreams/litellm/litellm/integrations/prometheus.py")
@@ -16,6 +16,13 @@ SERVICES_SOURCE = Path("upstreams/litellm/litellm/integrations/prometheus_servic
 SERVICE_TYPES_SOURCE = Path("upstreams/litellm/litellm/types/services.py")
 IN_FLIGHT_SOURCE = Path("upstreams/litellm/litellm/proxy/middleware/in_flight_requests_middleware.py")
 CLIENT_SOURCE = Path("upstreams/prometheus_client_python/prometheus_client/metrics.py")
+
+LITELLM_SOURCE_AST_FINGERPRINTS = {
+    "litellm/integrations/prometheus.py": "c034f316adbd27b4dfc1c73e2459ca79d901833158ba91052fb9e70471b70c58",
+    "litellm/integrations/prometheus_services.py": "ef7d3491fcb384fe48eee32b284a9648bfc8db726c47826bc714db361ccc0154",
+    "litellm/proxy/middleware/in_flight_requests_middleware.py": "80971bf4705e7add3a425b4a1067d23d1d9c79cb54f6168019136354ac09e5e2",
+    "litellm/types/services.py": "7ead64cb0fce85cf98d5a8bedf5223f8f9d935ab9f12aad7f523b626e4f67789",
+}
 
 
 @dataclass(frozen=True)
@@ -227,6 +234,16 @@ def generate_registry(
     in_flight_source: str,
     client_source: str,
 ) -> str:
+    require_ast_fingerprints(
+        {
+            "litellm/integrations/prometheus.py": prometheus_source,
+            "litellm/integrations/prometheus_services.py": services_source,
+            "litellm/proxy/middleware/in_flight_requests_middleware.py": in_flight_source,
+            "litellm/types/services.py": service_types_source,
+        },
+        LITELLM_SOURCE_AST_FINGERPRINTS,
+        "LiteLLM registration modules",
+    )
     callback = parse_callback_metrics(prometheus_source)
     services = parse_service_metrics(services_source, service_types_source)
     in_flight = parse_in_flight_metric(in_flight_source)

@@ -15,6 +15,11 @@ SPEC.loader.exec_module(GENERATOR)
 
 
 class FailClosedParserTest(unittest.TestCase):
+    def test_rejects_unreviewed_registration_source_shapes(self):
+        sources = {path: "" for path in GENERATOR.REGISTRATION_PATHS}
+        with self.assertRaisesRegex(ValueError, "source shape fingerprint"):
+            GENERATOR.generate_registry(sources, "", "", "", "")
+
     def test_rejects_untyped_metric_declaration(self):
         sources = {"metrics.py": 'MISSING = "vllm:missing"\n'}
         with self.assertRaisesRegex(ValueError, "no typed registration"):
