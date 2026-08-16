@@ -1500,7 +1500,7 @@ ceph_cluster_total_used_raw_bytes 1
 
 # HELP ceph_daemon_health_metrics Health metrics for Ceph daemons.
 # TYPE ceph_daemon_health_metrics gauge
-ceph_daemon_health_metrics{ceph_daemon="osd.0",type="type_a"} 1
+ceph_daemon_health_metrics{ceph_daemon="osd.0",type="SLOW_OPS"} 1
 
 # HELP ceph_data_sync_from_source_zone_fragment_a_fetch_bytes_count Number of object bytes replicated Count.
 # TYPE ceph_data_sync_from_source_zone_fragment_a_fetch_bytes_count counter
@@ -1795,7 +1795,11 @@ ceph_fs_metadata{data_pools="data_pools_a",fs_id="fs_id_a",metadata_pool="metada
 
 # HELP ceph_health_detail healthcheck status by type (0=inactive, 1=active).
 # TYPE ceph_health_detail gauge
-ceph_health_detail{name="name_a",severity="severity_a"} 1
+ceph_health_detail{name="RECENT_CRASH",severity="severity_a"} 1
+ceph_health_detail{name="RECENT_MGR_MODULE_CRASH",severity="severity_a"} 1
+ceph_health_detail{name="CEPHADM_FAILED_DAEMON",severity="severity_a"} 1
+ceph_health_detail{name="CEPHADM_PAUSED",severity="severity_a"} 1
+ceph_health_detail{name="UPGRADE_EXCEPTION",severity="severity_a"} 1
 
 # HELP ceph_health_status Cluster health status.
 # TYPE ceph_health_status untyped
