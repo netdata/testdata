@@ -15,7 +15,7 @@ upstreams:
     commit: 2dcd17efd0ce2f0a1ad15cb3c150ffcdc42ced65
   ceph_tentacle:
     repository: ceph/ceph
-    commit: 0fcffee29411e3a38036764817b6e1afc59741cc
+    commit: 06c2f9c35b67055a8a6fb99d1be236b3c4832ace
 evidence:
   availability_reef:
     kind: availability
@@ -39,7 +39,7 @@ evidence:
     locations:
     - src/common/options/ceph-exporter.yaml.in:28-35
     - src/exporter/DaemonMetricCollector.cc:88-124
-    - src/pybind/mgr/prometheus/module.py:711-752
+    - src/pybind/mgr/prometheus/module.py:749-790
     claim: Tentacle exposes Ceph exporter and MGR metric producers with finite priority and MGR feature controls.
   availability_nvmeof:
     kind: availability
@@ -8845,26 +8845,26 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:910-915
+    - src/pybind/mgr/prometheus/module.py:948-953
     claim: The registered ceph_cephadm_daemon_status source family observes Status of cephadm daemons (0=stopped, 1=running,
       2=errored)
   lifecycle_cephadm_daemon_status:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:910-915
+    - src/pybind/mgr/prometheus/module.py:948-953
     claim: The registered ceph_cephadm_daemon_status value has current source lifecycle.
   unit_cephadm_daemon_status:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:910-915
+    - src/pybind/mgr/prometheus/module.py:948-953
     claim: The registered ceph_cephadm_daemon_status value uses the declared source unit algebra.
   labels_cephadm_daemon_status:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:910-915
+    - src/pybind/mgr/prometheus/module.py:948-953
     claim: The ceph_cephadm_daemon_status source family exposes the declared source label set.
   population_cephfs_mirror_mirror_enable_failures:
     kind: population
@@ -10499,7 +10499,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The registered ceph_data_sync_from_zone_lock_latency_count source family observes Average latency of sync lock
       operations Count
@@ -10508,7 +10508,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The registered ceph_data_sync_from_zone_lock_latency_count value has cumulative source lifecycle.
   unit_data_sync_from_zone_lock_latency_count:
@@ -10516,7 +10516,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The registered ceph_data_sync_from_zone_lock_latency_count value uses the declared source unit algebra.
   labels_data_sync_from_zone_lock_latency_count:
@@ -10524,7 +10524,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The ceph_data_sync_from_zone_lock_latency_count source family exposes the declared source label set.
   population_data_sync_from_zone_lock_latency_sum:
@@ -10532,7 +10532,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The registered ceph_data_sync_from_zone_lock_latency_sum source family observes Average latency of sync lock operations
       Total
@@ -10541,7 +10541,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The registered ceph_data_sync_from_zone_lock_latency_sum value has cumulative source lifecycle.
   unit_data_sync_from_zone_lock_latency_sum:
@@ -10549,7 +10549,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The registered ceph_data_sync_from_zone_lock_latency_sum value uses the declared source unit algebra.
   labels_data_sync_from_zone_lock_latency_sum:
@@ -10557,7 +10557,7 @@ evidence:
     upstream: ceph_tentacle
     locations:
     - src/exporter/DaemonMetricCollector.cc:462-476
-    - src/pybind/mgr/prometheus/module.py:1769-1794
+    - src/pybind/mgr/prometheus/module.py:1850-1875
     - src/rgw/driver/rados/rgw_sync_counters.cc:24
     claim: The ceph_data_sync_from_zone_lock_latency_sum source family exposes the declared source label set.
   population_data_sync_from_zone_poll_errors:
@@ -15368,74 +15368,74 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13828-13829
+    - src/mds/MDCache.cc:13831-13832
     claim: The registered ceph_mds_cache_uninline_started source family observes Internal Counter type uninline started
   lifecycle_mds_cache_uninline_started:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13828-13829
+    - src/mds/MDCache.cc:13831-13832
     claim: The registered ceph_mds_cache_uninline_started value has cumulative source lifecycle.
   unit_mds_cache_uninline_started:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13828-13829
+    - src/mds/MDCache.cc:13831-13832
     claim: The registered ceph_mds_cache_uninline_started value uses the declared source unit algebra.
   labels_mds_cache_uninline_started:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13828-13829
+    - src/mds/MDCache.cc:13831-13832
     claim: The ceph_mds_cache_uninline_started source family exposes the declared source label set.
   population_mds_cache_uninline_succeeded:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13830-13831
+    - src/mds/MDCache.cc:13833-13834
     claim: The registered ceph_mds_cache_uninline_succeeded source family observes Internal Counter type uninline succeeded
   lifecycle_mds_cache_uninline_succeeded:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13830-13831
+    - src/mds/MDCache.cc:13833-13834
     claim: The registered ceph_mds_cache_uninline_succeeded value has cumulative source lifecycle.
   unit_mds_cache_uninline_succeeded:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13830-13831
+    - src/mds/MDCache.cc:13833-13834
     claim: The registered ceph_mds_cache_uninline_succeeded value uses the declared source unit algebra.
   labels_mds_cache_uninline_succeeded:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13830-13831
+    - src/mds/MDCache.cc:13833-13834
     claim: The ceph_mds_cache_uninline_succeeded source family exposes the declared source label set.
   population_mds_cache_uninline_write_failed:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13832-13833
+    - src/mds/MDCache.cc:13835-13836
     claim: The registered ceph_mds_cache_uninline_write_failed source family observes Internal Counter type uninline write
       failed
   lifecycle_mds_cache_uninline_write_failed:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13832-13833
+    - src/mds/MDCache.cc:13835-13836
     claim: The registered ceph_mds_cache_uninline_write_failed value has cumulative source lifecycle.
   unit_mds_cache_uninline_write_failed:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13832-13833
+    - src/mds/MDCache.cc:13835-13836
     claim: The registered ceph_mds_cache_uninline_write_failed value uses the declared source unit algebra.
   labels_mds_cache_uninline_write_failed:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/mds/MDCache.cc:13832-13833
+    - src/mds/MDCache.cc:13835-13836
     claim: The ceph_mds_cache_uninline_write_failed source family exposes the declared source label set.
   population_mds_caps:
     kind: population
@@ -25558,19 +25558,19 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:823-828
+    - src/pybind/mgr/prometheus/module.py:861-866
     claim: The registered ceph_osd_full_ratio source family observes OSD cluster-wide full ratio
   lifecycle_osd_full_ratio:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:823-828
+    - src/pybind/mgr/prometheus/module.py:861-866
     claim: The registered ceph_osd_full_ratio value has current source lifecycle.
   unit_osd_full_ratio:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:823-828
+    - src/pybind/mgr/prometheus/module.py:861-866
     claim: The registered ceph_osd_full_ratio value uses the declared source unit algebra.
   population_osd_heartbeat_to_peers:
     kind: population
@@ -26193,19 +26193,19 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:817-822
+    - src/pybind/mgr/prometheus/module.py:855-860
     claim: The registered ceph_osd_nearfull_ratio source family observes OSD cluster-wide nearfull ratio
   lifecycle_osd_nearfull_ratio:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:817-822
+    - src/pybind/mgr/prometheus/module.py:855-860
     claim: The registered ceph_osd_nearfull_ratio value has current source lifecycle.
   unit_osd_nearfull_ratio:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:817-822
+    - src/pybind/mgr/prometheus/module.py:855-860
     claim: The registered ceph_osd_nearfull_ratio value uses the declared source unit algebra.
   population_osd_num_scrubs_past_reservation_ec:
     kind: population
@@ -36740,25 +36740,25 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:869-874
+    - src/pybind/mgr/prometheus/module.py:907-912
     claim: The registered ceph_rbd_image_metadata source family observes RBD Image Metadata
   lifecycle_rbd_image_metadata:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:869-874
+    - src/pybind/mgr/prometheus/module.py:907-912
     claim: The registered ceph_rbd_image_metadata value has current source lifecycle.
   unit_rbd_image_metadata:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:869-874
+    - src/pybind/mgr/prometheus/module.py:907-912
     claim: The registered ceph_rbd_image_metadata value uses the declared source unit algebra.
   labels_rbd_image_metadata:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:869-874
+    - src/pybind/mgr/prometheus/module.py:907-912
     claim: The ceph_rbd_image_metadata source family exposes the declared source label set.
   population_rbd_librbd_image_cmp:
     kind: population
@@ -41537,26 +41537,26 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/osd/osd_perf_counters.cc:533
+    - src/osd/osd_perf_counters.cc:542
     claim: The registered ceph_recoverystate_perf_stats_invalidated source family observes Number of times pg stats received
       invalidations
   lifecycle_recoverystate_perf_stats_invalidated:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/osd/osd_perf_counters.cc:533
+    - src/osd/osd_perf_counters.cc:542
     claim: The registered ceph_recoverystate_perf_stats_invalidated value has cumulative source lifecycle.
   unit_recoverystate_perf_stats_invalidated:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/osd/osd_perf_counters.cc:533
+    - src/osd/osd_perf_counters.cc:542
     claim: The registered ceph_recoverystate_perf_stats_invalidated value uses the declared source unit algebra.
   labels_recoverystate_perf_stats_invalidated:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/osd/osd_perf_counters.cc:533
+    - src/osd/osd_perf_counters.cc:542
     claim: The ceph_recoverystate_perf_stats_invalidated source family exposes the declared source label set.
   population_recoverystate_perf_stray_latency_count:
     kind: population
@@ -43524,25 +43524,25 @@ evidence:
     kind: population
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:904-909
+    - src/pybind/mgr/prometheus/module.py:942-947
     claim: The registered ceph_smb_metadata source family observes SMB Metadata
   lifecycle_smb_metadata:
     kind: lifecycle
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:904-909
+    - src/pybind/mgr/prometheus/module.py:942-947
     claim: The registered ceph_smb_metadata value has current source lifecycle.
   unit_smb_metadata:
     kind: unit
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:904-909
+    - src/pybind/mgr/prometheus/module.py:942-947
     claim: The registered ceph_smb_metadata value uses the declared source unit algebra.
   labels_smb_metadata:
     kind: label
     upstream: ceph_tentacle
     locations:
-    - src/pybind/mgr/prometheus/module.py:904-909
+    - src/pybind/mgr/prometheus/module.py:942-947
     claim: The ceph_smb_metadata source family exposes the declared source label set.
   population_throttle_get:
     kind: population
@@ -43900,6 +43900,154 @@ evidence:
     locations:
     - src/common/TrackedOp.h:83-84
     claim: The ceph_trackedop_slow_ops_count source family exposes the declared source label set.
+  population_hardware_metrics:
+    kind: population
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1039-1080
+    claim: Tentacle registers the declared hardware metric families for the node-proxy hardware population.
+  lifecycle_hardware_metrics:
+    kind: lifecycle
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:2166-2190
+    claim: Tentacle clears the hardware metric families on every MGR collection and repopulates current observations from node-proxy.
+  unit_hardware_capacity_bytes:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1039-1058
+    claim: Tentacle labels storage and memory capacity hardware values as bytes.
+  unit_hardware_cpu_cores:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1046-1051
+    claim: Tentacle labels hardware CPU values as total cores.
+  unit_hardware_fan_revolutions_per_minute:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:168-179
+    - src/pybind/mgr/prometheus/module.py:1067-1073
+    claim: Tentacle reports hardware fan speed as rotations per minute without converting the raw value to hertz.
+  unit_hardware_firmware_info:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1075-1080
+    claim: Tentacle's hardware firmware information metric is the constant value one with its version carried by labels.
+  unit_hardware_health:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1060-1065
+    - src/pybind/mgr/prometheus/module.py:2041-2073
+    claim: Tentacle maps hardware health to the current ordinal state 0=OK, 1=Warning, 2=Error.
+  unit_hardware_temperature_celsius:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:168-179
+    - src/pybind/mgr/prometheus/module.py:1067-1073
+    claim: Tentacle labels hardware temperature readings as Celsius.
+  labels_hardware_storage:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-156
+    - src/pybind/mgr/prometheus/module.py:2098-2112
+    claim: Tentacle storage capacity values carry hostname, device, model, protocol, firmware version, slot, and serial-number identity.
+  labels_hardware_cpu:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-156
+    - src/pybind/mgr/prometheus/module.py:2114-2126
+    claim: Tentacle CPU-core values carry hostname, CPU, manufacturer, model, and total-thread identity.
+  labels_hardware_memory:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-156
+    - src/pybind/mgr/prometheus/module.py:2128-2139
+    claim: Tentacle memory-capacity values carry hostname, DIMM, and memory-type identity.
+  labels_hardware_health:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-156
+    - src/pybind/mgr/prometheus/module.py:2062-2073
+    claim: Tentacle hardware-health values carry hostname, component, and hardware-category identity.
+  labels_hardware_fan:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-179
+    - src/pybind/mgr/prometheus/module.py:2084-2096
+    claim: Tentacle fan-speed values carry hostname and fan-name identity.
+  labels_hardware_temperature:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-179
+    - src/pybind/mgr/prometheus/module.py:2084-2096
+    claim: Tentacle temperature values carry hostname and sensor-name identity.
+  labels_hardware_firmware:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:143-156
+    - src/pybind/mgr/prometheus/module.py:2155-2163
+    claim: Tentacle firmware values carry hostname, component, and firmware-version identity.
+  delegation_hardware_metrics:
+    kind: delegation
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1039-1080
+    claim: Tentacle exposes distinct hardware inventory, health, fan, and temperature metric families that require hardware-specific profile treatment.
+  population_pg_rebuild:
+    kind: population
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-542
+    claim: Tentacle exposes PG-rebuild duration count, accumulated duration, maximum, and minimum observations for primary OSD recovery.
+  lifecycle_pg_rebuild_count:
+    kind: lifecycle
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-536
+    claim: Tentacle's PG-rebuild duration count is cumulative.
+  lifecycle_pg_rebuild_duration:
+    kind: lifecycle
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-542
+    claim: Tentacle's PG-rebuild duration total, maximum, and minimum observations have their declared cumulative or current source lifecycle.
+  unit_pg_rebuild_count:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-536
+    claim: Tentacle's PG-rebuild duration count uses count units.
+  unit_pg_rebuild_duration:
+    kind: unit
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-542
+    claim: Tentacle's PG-rebuild duration total, maximum, and minimum use seconds.
+  labels_pg_rebuild:
+    kind: label
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-542
+    claim: Tentacle's PG-rebuild perf-counter families retain the source daemon identity used for per-daemon recovery observations.
+  delegation_pg_rebuild:
+    kind: delegation
+    upstream: ceph_tentacle
+    locations:
+    - src/osd/osd_perf_counters.cc:534-542
+    claim: Tentacle exposes a distinct primary-OSD PG-rebuild recovery domain that requires recovery-specific profile treatment.
 environment:
   axes:
     source:
@@ -43959,6 +44107,8 @@ environment:
 component_policies: {}
 label_policies:
   labels_cluster_osd_blocklist_count: {}
+  labels_pg_rebuild:
+    ceph_daemon: {meaning: Stable Ceph daemon service identifier added by the producer, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: stable, evidence: [labels_pg_rebuild]}
 signals:
   asyncmessenger_rdmadispatcher_active_queue_pair:
     source:
@@ -119042,6 +119192,242 @@ signals:
         evidence:
         - labels_trackedop_slow_ops_count
     functional_dependencies: {}
+  hardware_cpu_cores:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_cpu_cores
+    population:
+      id: hardware_cpu_cores
+      meaning: Total CPU cores per reported processor.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: count, base: one, rate: none, object: cpu_cores, aspect: total, evidence: [unit_hardware_cpu_cores]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_cpu]}
+      cpu: {meaning: Processor identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_cpu]}
+      manufacturer: {meaning: Processor manufacturer, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_cpu]}
+      model: {meaning: Processor model, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_cpu]}
+      total_threads: {meaning: Processor thread-count identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_cpu]}
+  hardware_fan_rpm:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_fan_rpm
+    population:
+      id: hardware_fan_rpm
+      meaning: Current fan speed in rotations per minute.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: count, base: one, rate: none, object: fan_revolutions_per_minute, aspect: reported, evidence: [unit_hardware_fan_revolutions_per_minute]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_fan]}
+      fan_name: {meaning: Hardware fan identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_fan]}
+  hardware_firmware_info:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_firmware_info
+    population:
+      id: hardware_firmware_info
+      meaning: Firmware-version metadata per reported component.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: constant, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: count, base: one, rate: none, object: firmware_version_metadata, aspect: present, evidence: [unit_hardware_firmware_info]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_firmware]}
+      component: {meaning: Firmware component identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_firmware]}
+      version: {meaning: Firmware version identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_firmware]}
+  hardware_health:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_health
+    population:
+      id: hardware_health
+      meaning: Current ordinal health state per reported hardware component.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: state, base: one, rate: none, object: hardware_health, aspect: ordinal, evidence: [unit_hardware_health]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_health]}
+      component: {meaning: Hardware component identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_health]}
+      category: {meaning: Hardware component category, presence: required, domain: {kind: closed, values: [storage, processors, memory, power, network, fans, temperatures]}, endpoint_cardinality: {kind: closed_domain}, stability: stable, evidence: [labels_hardware_health]}
+  hardware_memory_capacity_bytes:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_memory_capacity_bytes
+    population:
+      id: hardware_memory_capacity_bytes
+      meaning: Memory capacity per reported DIMM.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: data, base: byte, rate: none, object: memory_capacity, aspect: reported, evidence: [unit_hardware_capacity_bytes]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_memory]}
+      dimm: {meaning: Memory-module identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_memory]}
+      type: {meaning: Memory-module type, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_memory]}
+  hardware_storage_capacity_bytes:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_storage_capacity_bytes
+    population:
+      id: hardware_storage_capacity_bytes
+      meaning: Storage capacity per reported device.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: data, base: byte, rate: none, object: storage_capacity, aspect: reported, evidence: [unit_hardware_capacity_bytes]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+      device: {meaning: Storage-device identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+      model: {meaning: Storage-device model, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+      protocol: {meaning: Storage-device protocol, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+      firmware_version: {meaning: Storage-device firmware version, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+      slot: {meaning: Storage-device slot identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+      serial_number: {meaning: Storage-device serial-number identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_storage]}
+  hardware_temperature_celsius:
+    source:
+      generated:
+        registry_groups:
+        - mgr_synthetic
+        scope:
+          registrations:
+          - ceph_hardware_temperature_celsius
+    population:
+      id: hardware_temperature_celsius
+      meaning: Current temperature per reported hardware sensor.
+      evidence: [population_hardware_metrics]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
+        unit: {quantity: temperature, base: celsius, rate: none, object: hardware_sensor, aspect: reported, evidence: [unit_hardware_temperature_celsius]}
+    functional_dependencies: {}
+    labels:
+      hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_temperature]}
+      sensor_name: {meaning: Hardware temperature-sensor identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_temperature]}
+  recoverystate_perf_pg_rebuild_duration_count:
+    source:
+      generated:
+        registry_groups:
+        - daemon_perf
+        scope:
+          registrations:
+          - ceph_recoverystate_perf_pg_rebuild_duration_count
+    population:
+      id: recoverystate_perf_pg_rebuild_duration_count
+      meaning: Primary-OSD PG-rebuild duration measurement count.
+      evidence: [population_pg_rebuild]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: cumulative, evidence: [lifecycle_pg_rebuild_count]}
+        unit: {quantity: count, base: one, rate: none, object: duration_measurements, aspect: pg_rebuild, evidence: [unit_pg_rebuild_count]}
+    functional_dependencies: {}
+    label_policy: labels_pg_rebuild
+  recoverystate_perf_pg_rebuild_duration_sum:
+    source:
+      generated:
+        registry_groups:
+        - exporter_perf
+        - mgr_perf
+        scope:
+          registrations:
+          - ceph_recoverystate_perf_pg_rebuild_duration_sum_exporter_perf
+          - ceph_recoverystate_perf_pg_rebuild_duration_sum_mgr_perf
+    population:
+      id: recoverystate_perf_pg_rebuild_duration_sum
+      meaning: Accumulated primary-OSD PG-rebuild duration.
+      evidence: [population_pg_rebuild]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: cumulative, evidence: [lifecycle_pg_rebuild_duration]}
+        unit: {quantity: duration, base: second, rate: none, object: accumulated_pg_rebuild_duration, aspect: primary_osd, evidence: [unit_pg_rebuild_duration]}
+    functional_dependencies: {}
+    label_policy: labels_pg_rebuild
+  recoverystate_perf_pg_rebuild_max_secs:
+    source:
+      generated:
+        registry_groups:
+        - daemon_perf
+        scope:
+          registrations:
+          - ceph_recoverystate_perf_pg_rebuild_max_secs
+    population:
+      id: recoverystate_perf_pg_rebuild_max_secs
+      meaning: Maximum primary-OSD PG-rebuild duration observed.
+      evidence: [population_pg_rebuild]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_pg_rebuild_duration]}
+        unit: {quantity: duration, base: second, rate: none, object: pg_rebuild_duration, aspect: maximum, evidence: [unit_pg_rebuild_duration]}
+    functional_dependencies: {}
+    label_policy: labels_pg_rebuild
+  recoverystate_perf_pg_rebuild_min_secs:
+    source:
+      generated:
+        registry_groups:
+        - daemon_perf
+        scope:
+          registrations:
+          - ceph_recoverystate_perf_pg_rebuild_min_secs
+    population:
+      id: recoverystate_perf_pg_rebuild_min_secs
+      meaning: Minimum primary-OSD PG-rebuild duration observed.
+      evidence: [population_pg_rebuild]
+    components:
+      value:
+        wire_role: scalar
+        lifecycle: {kind: current, evidence: [lifecycle_pg_rebuild_duration]}
+        unit: {quantity: duration, base: second, rate: none, object: pg_rebuild_duration, aspect: minimum, evidence: [unit_pg_rebuild_duration]}
+    functional_dependencies: {}
+    label_policy: labels_pg_rebuild
 relationships:
   data_sync_from_zone_fetch_bytes_count_mgr_duplicate:
     kind: equivalent

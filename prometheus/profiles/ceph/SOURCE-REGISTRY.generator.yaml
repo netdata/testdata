@@ -150,7 +150,7 @@ upstreams:
       - prometheus_client/metrics_core.py
   ceph_tentacle:
     repository: ceph/ceph
-    commit: 0fcffee29411e3a38036764817b6e1afc59741cc
+    commit: 06c2f9c35b67055a8a6fb99d1be236b3c4832ace
     paths:
       - src/blk/kernel/KernelDevice.cc
       - src/client/Client.cc

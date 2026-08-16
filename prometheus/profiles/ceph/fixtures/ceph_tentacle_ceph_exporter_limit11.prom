@@ -6565,3 +6565,19 @@ ceph_throttle_throttle_key_a_wait_sum{ceph_daemon="osd.0"} 1
 # HELP ceph_trackedop_slow_ops_count Number of operations taking over ten second.
 # TYPE ceph_trackedop_slow_ops_count counter
 ceph_trackedop_slow_ops_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_recoverystate_perf_pg_rebuild_duration_count Average PG rebuild duration on this OSD (primary role only) Count.
+# TYPE ceph_recoverystate_perf_pg_rebuild_duration_count counter
+ceph_recoverystate_perf_pg_rebuild_duration_count{ceph_daemon="osd.0"} 10
+
+# HELP ceph_recoverystate_perf_pg_rebuild_duration_sum Average PG rebuild duration on this OSD (primary role only) Total.
+# TYPE ceph_recoverystate_perf_pg_rebuild_duration_sum gauge
+ceph_recoverystate_perf_pg_rebuild_duration_sum{ceph_daemon="osd.0"} 120
+
+# HELP ceph_recoverystate_perf_pg_rebuild_max_secs Max PG rebuild duration seen on this OSD in seconds (primary role only).
+# TYPE ceph_recoverystate_perf_pg_rebuild_max_secs gauge
+ceph_recoverystate_perf_pg_rebuild_max_secs{ceph_daemon="osd.0"} 30
+
+# HELP ceph_recoverystate_perf_pg_rebuild_min_secs Min PG rebuild duration seen on this OSD in seconds (primary role only).
+# TYPE ceph_recoverystate_perf_pg_rebuild_min_secs gauge
+ceph_recoverystate_perf_pg_rebuild_min_secs{ceph_daemon="osd.0"} 2

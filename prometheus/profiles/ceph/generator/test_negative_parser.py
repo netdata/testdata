@@ -36,6 +36,55 @@ class FailClosedParserTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unsupported MGR source expression"):
             GENERATOR._mgr_expression(expression, {})
 
+    def test_parses_literal_sensor_metric_mapping(self):
+        expression = ast.parse(
+            "{'fans': sensor_metric('hardware_fan_rpm', 'Hardware fan speed in RPM', HW_FAN_LABELS)}",
+            mode="eval",
+        ).body
+        self.assertEqual(
+            GENERATOR._mgr_expression(expression, {"HW_FAN_LABELS": ("hostname", "fan_name")}),
+            {
+                "fans": {
+                    "metric": "hardware_fan_rpm",
+                    "description": "Hardware fan speed in RPM",
+                    "labels": ("hostname", "fan_name"),
+                },
+            },
+        )
+
+    def test_accepts_only_literal_mapping_values_loop(self):
+        statement = ast.parse("for sensor in SENSOR_METRICS.values():\n    pass").body[0]
+        assert isinstance(statement, ast.For)
+        sensor = {"metric": "hardware_fan_rpm"}
+        self.assertEqual(
+            GENERATOR._mgr_loop_items(
+                statement,
+                {"SENSOR_METRICS": {"fans": sensor}},
+                {"SENSOR_METRICS": ("module.py", 1, 4)},
+            ),
+            ("sensor", (sensor,), ("module.py", 1, 4)),
+        )
+
+    def test_rejects_other_mapping_loop_methods(self):
+        statement = ast.parse("for sensor in SENSOR_METRICS.items():\n    pass").body[0]
+        assert isinstance(statement, ast.For)
+        with self.assertRaisesRegex(ValueError, "unsupported MGR source loop"):
+            GENERATOR._mgr_loop_items(
+                statement,
+                {"SENSOR_METRICS": {"fans": {"metric": "hardware_fan_rpm"}}},
+                {"SENSOR_METRICS": ("module.py", 1, 4)},
+            )
+
+    def test_classifies_gauge_info_families(self):
+        self.assertEqual(
+            GENERATOR.metric_family_shape("ceph_hardware_firmware_info", "gauge", "scalar"),
+            "info",
+        )
+        self.assertEqual(
+            GENERATOR.metric_family_shape("ceph_hardware_firmware_info", "counter", "scalar"),
+            "scalar",
+        )
+
     def test_service_unique_id_is_terminal_identity(self):
         builder = GENERATOR.Builder(0, "plb", '"service_unique_id"', "service_unique_id")
         arguments = (

@@ -8980,7 +8980,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 17, end: 17}
@@ -9029,7 +9029,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 19, end: 19}
@@ -9078,7 +9078,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 18, end: 18}
@@ -9109,7 +9109,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 24, end: 24}
@@ -9158,7 +9158,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 22, end: 22}
@@ -9207,7 +9207,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 21, end: 21}
@@ -20613,7 +20613,7 @@ groups:
             range: {start: 13512, end: 13513}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13773, end: 13774}
+            range: {start: 13776, end: 13777}
       ceph_mds_cache_dir_send_discover:
         family: {exact: 'ceph_mds_cache_dir_send_discover'}
         prometheus: {type: counter, shape: scalar}
@@ -20639,7 +20639,7 @@ groups:
             range: {start: 13510, end: 13511}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13771, end: 13772}
+            range: {start: 13774, end: 13775}
       ceph_mds_cache_dir_try_discover:
         family: {exact: 'ceph_mds_cache_dir_try_discover'}
         prometheus: {type: counter, shape: scalar}
@@ -20665,7 +20665,7 @@ groups:
             range: {start: 13508, end: 13509}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13769, end: 13770}
+            range: {start: 13772, end: 13773}
       ceph_mds_cache_dir_update:
         family: {exact: 'ceph_mds_cache_dir_update'}
         prometheus: {type: counter, shape: scalar}
@@ -20691,7 +20691,7 @@ groups:
             range: {start: 13504, end: 13505}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13765, end: 13766}
+            range: {start: 13768, end: 13769}
       ceph_mds_cache_dir_update_receipt:
         family: {exact: 'ceph_mds_cache_dir_update_receipt'}
         prometheus: {type: counter, shape: scalar}
@@ -20717,7 +20717,7 @@ groups:
             range: {start: 13506, end: 13507}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13767, end: 13768}
+            range: {start: 13770, end: 13771}
       ceph_mds_cache_ireq_enqueue_scrub:
         family: {exact: 'ceph_mds_cache_ireq_enqueue_scrub'}
         prometheus: {type: counter, shape: scalar}
@@ -20743,7 +20743,7 @@ groups:
             range: {start: 13553, end: 13554}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13814, end: 13815}
+            range: {start: 13817, end: 13818}
       ceph_mds_cache_ireq_exportdir:
         family: {exact: 'ceph_mds_cache_ireq_exportdir'}
         prometheus: {type: counter, shape: scalar}
@@ -20769,7 +20769,7 @@ groups:
             range: {start: 13555, end: 13556}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13816, end: 13817}
+            range: {start: 13819, end: 13820}
       ceph_mds_cache_ireq_flush:
         family: {exact: 'ceph_mds_cache_ireq_flush'}
         prometheus: {type: counter, shape: scalar}
@@ -20795,7 +20795,7 @@ groups:
             range: {start: 13557, end: 13558}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13818, end: 13819}
+            range: {start: 13821, end: 13822}
       ceph_mds_cache_ireq_fragmentdir:
         family: {exact: 'ceph_mds_cache_ireq_fragmentdir'}
         prometheus: {type: counter, shape: scalar}
@@ -20821,7 +20821,7 @@ groups:
             range: {start: 13559, end: 13560}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13820, end: 13821}
+            range: {start: 13823, end: 13824}
       ceph_mds_cache_ireq_fragstats:
         family: {exact: 'ceph_mds_cache_ireq_fragstats'}
         prometheus: {type: counter, shape: scalar}
@@ -20847,7 +20847,7 @@ groups:
             range: {start: 13561, end: 13562}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13822, end: 13823}
+            range: {start: 13825, end: 13826}
       ceph_mds_cache_ireq_inodestats:
         family: {exact: 'ceph_mds_cache_ireq_inodestats'}
         prometheus: {type: counter, shape: scalar}
@@ -20873,7 +20873,7 @@ groups:
             range: {start: 13563, end: 13564}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13824, end: 13825}
+            range: {start: 13827, end: 13828}
       ceph_mds_cache_ireq_quiesce_inode:
         family: {exact: 'ceph_mds_cache_ireq_quiesce_inode'}
         prometheus: {type: counter, shape: scalar}
@@ -20896,7 +20896,7 @@ groups:
             range: {start: 13551, end: 13552}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13812, end: 13813}
+            range: {start: 13815, end: 13816}
       ceph_mds_cache_ireq_quiesce_path:
         family: {exact: 'ceph_mds_cache_ireq_quiesce_path'}
         prometheus: {type: counter, shape: scalar}
@@ -20919,7 +20919,7 @@ groups:
             range: {start: 13549, end: 13550}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13810, end: 13811}
+            range: {start: 13813, end: 13814}
       ceph_mds_cache_num_recovering_enqueued:
         family: {exact: 'ceph_mds_cache_num_recovering_enqueued'}
         prometheus: {type: gauge, shape: scalar}
@@ -20945,7 +20945,7 @@ groups:
             range: {start: 13518, end: 13520}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13779, end: 13781}
+            range: {start: 13782, end: 13784}
       ceph_mds_cache_num_recovering_prioritized:
         family: {exact: 'ceph_mds_cache_num_recovering_prioritized'}
         prometheus: {type: gauge, shape: scalar}
@@ -20971,7 +20971,7 @@ groups:
             range: {start: 13529, end: 13530}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13790, end: 13791}
+            range: {start: 13793, end: 13794}
       ceph_mds_cache_num_recovering_processing:
         family: {exact: 'ceph_mds_cache_num_recovering_processing'}
         prometheus: {type: gauge, shape: scalar}
@@ -20997,7 +20997,7 @@ groups:
             range: {start: 13527, end: 13528}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13788, end: 13789}
+            range: {start: 13791, end: 13792}
       ceph_mds_cache_num_strays:
         family: {exact: 'ceph_mds_cache_num_strays'}
         prometheus: {type: gauge, shape: scalar}
@@ -21023,7 +21023,7 @@ groups:
             range: {start: 13516, end: 13517}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13777, end: 13778}
+            range: {start: 13780, end: 13781}
       ceph_mds_cache_num_strays_delayed:
         family: {exact: 'ceph_mds_cache_num_strays_delayed'}
         prometheus: {type: gauge, shape: scalar}
@@ -21049,7 +21049,7 @@ groups:
             range: {start: 13535, end: 13536}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13796, end: 13797}
+            range: {start: 13799, end: 13800}
       ceph_mds_cache_num_strays_enqueuing:
         family: {exact: 'ceph_mds_cache_num_strays_enqueuing'}
         prometheus: {type: gauge, shape: scalar}
@@ -21075,7 +21075,7 @@ groups:
             range: {start: 13537, end: 13538}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13798, end: 13799}
+            range: {start: 13801, end: 13802}
       ceph_mds_cache_recovery_completed:
         family: {exact: 'ceph_mds_cache_recovery_completed'}
         prometheus: {type: counter, shape: scalar}
@@ -21101,7 +21101,7 @@ groups:
             range: {start: 13521, end: 13523}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13782, end: 13784}
+            range: {start: 13785, end: 13787}
       ceph_mds_cache_recovery_started:
         family: {exact: 'ceph_mds_cache_recovery_started'}
         prometheus: {type: counter, shape: scalar}
@@ -21127,7 +21127,7 @@ groups:
             range: {start: 13531, end: 13532}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13792, end: 13793}
+            range: {start: 13795, end: 13796}
       ceph_mds_cache_strays_created:
         family: {exact: 'ceph_mds_cache_strays_created'}
         prometheus: {type: counter, shape: scalar}
@@ -21153,7 +21153,7 @@ groups:
             range: {start: 13539, end: 13540}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13800, end: 13801}
+            range: {start: 13803, end: 13804}
       ceph_mds_cache_strays_enqueued:
         family: {exact: 'ceph_mds_cache_strays_enqueued'}
         prometheus: {type: counter, shape: scalar}
@@ -21179,7 +21179,7 @@ groups:
             range: {start: 13541, end: 13542}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13802, end: 13803}
+            range: {start: 13805, end: 13806}
       ceph_mds_cache_strays_migrated:
         family: {exact: 'ceph_mds_cache_strays_migrated'}
         prometheus: {type: counter, shape: scalar}
@@ -21205,7 +21205,7 @@ groups:
             range: {start: 13545, end: 13546}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13806, end: 13807}
+            range: {start: 13809, end: 13810}
       ceph_mds_cache_strays_reintegrated:
         family: {exact: 'ceph_mds_cache_strays_reintegrated'}
         prometheus: {type: counter, shape: scalar}
@@ -21231,7 +21231,7 @@ groups:
             range: {start: 13543, end: 13544}
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13804, end: 13805}
+            range: {start: 13807, end: 13808}
       ceph_mds_cache_uninline_started:
         family: {exact: 'ceph_mds_cache_uninline_started'}
         prometheus: {type: counter, shape: scalar}
@@ -21251,7 +21251,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13828, end: 13829}
+            range: {start: 13831, end: 13832}
       ceph_mds_cache_uninline_succeeded:
         family: {exact: 'ceph_mds_cache_uninline_succeeded'}
         prometheus: {type: counter, shape: scalar}
@@ -21271,7 +21271,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13830, end: 13831}
+            range: {start: 13833, end: 13834}
       ceph_mds_cache_uninline_write_failed:
         family: {exact: 'ceph_mds_cache_uninline_write_failed'}
         prometheus: {type: counter, shape: scalar}
@@ -21291,7 +21291,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/mds/MDCache.cc'
-            range: {start: 13832, end: 13833}
+            range: {start: 13835, end: 13836}
       ceph_mds_caps:
         family: {exact: 'ceph_mds_caps'}
         prometheus: {type: gauge, shape: scalar}
@@ -23417,7 +23417,7 @@ groups:
             range: {start: 181, end: 183}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 195, end: 197}
+            range: {start: 196, end: 198}
       ceph_mds_server_cap_revoke_eviction:
         family: {exact: 'ceph_mds_server_cap_revoke_eviction'}
         prometheus: {type: counter, shape: scalar}
@@ -23443,7 +23443,7 @@ groups:
             range: {start: 179, end: 180}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 193, end: 194}
+            range: {start: 194, end: 195}
       ceph_mds_server_dispatch_client_request:
         family: {exact: 'ceph_mds_server_dispatch_client_request'}
         prometheus: {type: counter, shape: scalar}
@@ -23469,7 +23469,7 @@ groups:
             range: {start: 251, end: 252}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 265, end: 266}
+            range: {start: 266, end: 267}
       ceph_mds_server_dispatch_server_request:
         family: {exact: 'ceph_mds_server_dispatch_server_request'}
         prometheus: {type: counter, shape: scalar}
@@ -23495,7 +23495,7 @@ groups:
             range: {start: 253, end: 254}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 267, end: 268}
+            range: {start: 268, end: 269}
       ceph_mds_server_handle_client_request:
         family: {exact: 'ceph_mds_server_handle_client_request'}
         prometheus: {type: counter, shape: scalar}
@@ -23521,7 +23521,7 @@ groups:
             range: {start: 172, end: 173}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 186, end: 187}
+            range: {start: 187, end: 188}
       ceph_mds_server_handle_client_session:
         family: {exact: 'ceph_mds_server_handle_client_session'}
         prometheus: {type: counter, shape: scalar}
@@ -23547,7 +23547,7 @@ groups:
             range: {start: 176, end: 178}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 190, end: 192}
+            range: {start: 191, end: 193}
       ceph_mds_server_handle_peer_request:
         family: {exact: 'ceph_mds_server_handle_peer_request'}
         prometheus: {type: counter, shape: scalar}
@@ -23573,7 +23573,7 @@ groups:
             range: {start: 174, end: 175}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 188, end: 189}
+            range: {start: 189, end: 190}
       ceph_mds_server_req_blockdiff_latency_count:
         family: {exact: 'ceph_mds_server_req_blockdiff_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23596,7 +23596,7 @@ groups:
             range: {start: 247, end: 248}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 261, end: 262}
+            range: {start: 262, end: 263}
       ceph_mds_server_req_create_latency_count:
         family: {exact: 'ceph_mds_server_req_create_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23622,7 +23622,7 @@ groups:
             range: {start: 219, end: 220}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 233, end: 234}
+            range: {start: 234, end: 235}
       ceph_mds_server_req_getattr_latency_count:
         family: {exact: 'ceph_mds_server_req_getattr_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23648,7 +23648,7 @@ groups:
             range: {start: 199, end: 200}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 213, end: 214}
+            range: {start: 214, end: 215}
       ceph_mds_server_req_getfilelock_latency_count:
         family: {exact: 'ceph_mds_server_req_getfilelock_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23674,7 +23674,7 @@ groups:
             range: {start: 217, end: 218}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 231, end: 232}
+            range: {start: 232, end: 233}
       ceph_mds_server_req_getvxattr_latency_count:
         family: {exact: 'ceph_mds_server_req_getvxattr_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23700,7 +23700,7 @@ groups:
             range: {start: 207, end: 208}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 221, end: 222}
+            range: {start: 222, end: 223}
       ceph_mds_server_req_link_latency_count:
         family: {exact: 'ceph_mds_server_req_link_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23726,7 +23726,7 @@ groups:
             range: {start: 225, end: 226}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 239, end: 240}
+            range: {start: 240, end: 241}
       ceph_mds_server_req_lookup_latency_count:
         family: {exact: 'ceph_mds_server_req_lookup_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23752,7 +23752,7 @@ groups:
             range: {start: 195, end: 196}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 209, end: 210}
+            range: {start: 210, end: 211}
       ceph_mds_server_req_lookuphash_latency_count:
         family: {exact: 'ceph_mds_server_req_lookuphash_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23778,7 +23778,7 @@ groups:
             range: {start: 187, end: 188}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 201, end: 202}
+            range: {start: 202, end: 203}
       ceph_mds_server_req_lookupino_latency_count:
         family: {exact: 'ceph_mds_server_req_lookupino_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23804,7 +23804,7 @@ groups:
             range: {start: 189, end: 190}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 203, end: 204}
+            range: {start: 204, end: 205}
       ceph_mds_server_req_lookupname_latency_count:
         family: {exact: 'ceph_mds_server_req_lookupname_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23830,7 +23830,7 @@ groups:
             range: {start: 193, end: 194}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 207, end: 208}
+            range: {start: 208, end: 209}
       ceph_mds_server_req_lookupparent_latency_count:
         family: {exact: 'ceph_mds_server_req_lookupparent_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23856,7 +23856,7 @@ groups:
             range: {start: 191, end: 192}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 205, end: 206}
+            range: {start: 206, end: 207}
       ceph_mds_server_req_lookupsnap_latency_count:
         family: {exact: 'ceph_mds_server_req_lookupsnap_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23882,7 +23882,7 @@ groups:
             range: {start: 197, end: 198}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 211, end: 212}
+            range: {start: 212, end: 213}
       ceph_mds_server_req_lssnap_latency_count:
         family: {exact: 'ceph_mds_server_req_lssnap_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23908,7 +23908,7 @@ groups:
             range: {start: 237, end: 238}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 251, end: 252}
+            range: {start: 252, end: 253}
       ceph_mds_server_req_mkdir_latency_count:
         family: {exact: 'ceph_mds_server_req_mkdir_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23934,7 +23934,7 @@ groups:
             range: {start: 233, end: 234}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 247, end: 248}
+            range: {start: 248, end: 249}
       ceph_mds_server_req_mknod_latency_count:
         family: {exact: 'ceph_mds_server_req_mknod_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23960,7 +23960,7 @@ groups:
             range: {start: 223, end: 224}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 237, end: 238}
+            range: {start: 238, end: 239}
       ceph_mds_server_req_mksnap_latency_count:
         family: {exact: 'ceph_mds_server_req_mksnap_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -23986,7 +23986,7 @@ groups:
             range: {start: 239, end: 240}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 253, end: 254}
+            range: {start: 254, end: 255}
       ceph_mds_server_req_open_latency_count:
         family: {exact: 'ceph_mds_server_req_open_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24012,7 +24012,7 @@ groups:
             range: {start: 221, end: 222}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 235, end: 236}
+            range: {start: 236, end: 237}
       ceph_mds_server_req_readdir_latency_count:
         family: {exact: 'ceph_mds_server_req_readdir_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24038,7 +24038,7 @@ groups:
             range: {start: 213, end: 214}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 227, end: 228}
+            range: {start: 228, end: 229}
       ceph_mds_server_req_rename_latency_count:
         family: {exact: 'ceph_mds_server_req_rename_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24064,7 +24064,7 @@ groups:
             range: {start: 231, end: 232}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 245, end: 246}
+            range: {start: 246, end: 247}
       ceph_mds_server_req_renamesnap_latency_count:
         family: {exact: 'ceph_mds_server_req_renamesnap_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24090,7 +24090,7 @@ groups:
             range: {start: 243, end: 244}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 257, end: 258}
+            range: {start: 258, end: 259}
       ceph_mds_server_req_rmdir_latency_count:
         family: {exact: 'ceph_mds_server_req_rmdir_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24116,7 +24116,7 @@ groups:
             range: {start: 229, end: 230}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 243, end: 244}
+            range: {start: 244, end: 245}
       ceph_mds_server_req_rmsnap_latency_count:
         family: {exact: 'ceph_mds_server_req_rmsnap_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24142,7 +24142,7 @@ groups:
             range: {start: 241, end: 242}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 255, end: 256}
+            range: {start: 256, end: 257}
       ceph_mds_server_req_rmxattr_latency_count:
         family: {exact: 'ceph_mds_server_req_rmxattr_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24168,7 +24168,7 @@ groups:
             range: {start: 211, end: 212}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 225, end: 226}
+            range: {start: 226, end: 227}
       ceph_mds_server_req_setattr_latency_count:
         family: {exact: 'ceph_mds_server_req_setattr_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24194,7 +24194,7 @@ groups:
             range: {start: 201, end: 202}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 215, end: 216}
+            range: {start: 216, end: 217}
       ceph_mds_server_req_setdirlayout_latency_count:
         family: {exact: 'ceph_mds_server_req_setdirlayout_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24220,7 +24220,7 @@ groups:
             range: {start: 205, end: 206}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 219, end: 220}
+            range: {start: 220, end: 221}
       ceph_mds_server_req_setfilelock_latency_count:
         family: {exact: 'ceph_mds_server_req_setfilelock_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24246,7 +24246,7 @@ groups:
             range: {start: 215, end: 216}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 229, end: 230}
+            range: {start: 230, end: 231}
       ceph_mds_server_req_setlayout_latency_count:
         family: {exact: 'ceph_mds_server_req_setlayout_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24272,7 +24272,7 @@ groups:
             range: {start: 203, end: 204}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 217, end: 218}
+            range: {start: 218, end: 219}
       ceph_mds_server_req_setxattr_latency_count:
         family: {exact: 'ceph_mds_server_req_setxattr_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24298,7 +24298,7 @@ groups:
             range: {start: 209, end: 210}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 223, end: 224}
+            range: {start: 224, end: 225}
       ceph_mds_server_req_snapdiff_latency_count:
         family: {exact: 'ceph_mds_server_req_snapdiff_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24324,7 +24324,7 @@ groups:
             range: {start: 245, end: 246}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 259, end: 260}
+            range: {start: 260, end: 261}
       ceph_mds_server_req_symlink_latency_count:
         family: {exact: 'ceph_mds_server_req_symlink_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24350,7 +24350,7 @@ groups:
             range: {start: 235, end: 236}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 249, end: 250}
+            range: {start: 250, end: 251}
       ceph_mds_server_req_unlink_latency_count:
         family: {exact: 'ceph_mds_server_req_unlink_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -24376,7 +24376,7 @@ groups:
             range: {start: 227, end: 228}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 241, end: 242}
+            range: {start: 242, end: 243}
       ceph_mds_sessions_average_load:
         family: {exact: 'ceph_mds_sessions_average_load'}
         prometheus: {type: gauge, shape: scalar}
@@ -24402,7 +24402,7 @@ groups:
             range: {start: 71, end: 71}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 110, end: 110}
+            range: {start: 111, end: 111}
       ceph_mds_sessions_avg_session_uptime:
         family: {exact: 'ceph_mds_sessions_avg_session_uptime'}
         prometheus: {type: gauge, shape: scalar}
@@ -24428,7 +24428,7 @@ groups:
             range: {start: 72, end: 73}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 111, end: 112}
+            range: {start: 112, end: 113}
       ceph_mds_sessions_mdthresh_evicted:
         family: {exact: 'ceph_mds_sessions_mdthresh_evicted'}
         prometheus: {type: gauge, shape: scalar}
@@ -24454,7 +24454,7 @@ groups:
             range: {start: 74, end: 75}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 113, end: 114}
+            range: {start: 114, end: 115}
       ceph_mds_sessions_session_add:
         family: {exact: 'ceph_mds_sessions_session_add'}
         prometheus: {type: counter, shape: scalar}
@@ -24480,7 +24480,7 @@ groups:
             range: {start: 62, end: 63}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 101, end: 102}
+            range: {start: 102, end: 103}
       ceph_mds_sessions_session_count:
         family: {exact: 'ceph_mds_sessions_session_count'}
         prometheus: {type: gauge, shape: scalar}
@@ -24506,7 +24506,7 @@ groups:
             range: {start: 58, end: 59}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 97, end: 98}
+            range: {start: 98, end: 99}
       ceph_mds_sessions_session_remove:
         family: {exact: 'ceph_mds_sessions_session_remove'}
         prometheus: {type: counter, shape: scalar}
@@ -24532,7 +24532,7 @@ groups:
             range: {start: 64, end: 65}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 103, end: 104}
+            range: {start: 104, end: 105}
       ceph_mds_sessions_sessions_open:
         family: {exact: 'ceph_mds_sessions_sessions_open'}
         prometheus: {type: gauge, shape: scalar}
@@ -24558,7 +24558,7 @@ groups:
             range: {start: 66, end: 67}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 105, end: 106}
+            range: {start: 106, end: 107}
       ceph_mds_sessions_sessions_stale:
         family: {exact: 'ceph_mds_sessions_sessions_stale'}
         prometheus: {type: gauge, shape: scalar}
@@ -24584,7 +24584,7 @@ groups:
             range: {start: 68, end: 69}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 107, end: 108}
+            range: {start: 108, end: 109}
       ceph_mds_sessions_total_load:
         family: {exact: 'ceph_mds_sessions_total_load'}
         prometheus: {type: gauge, shape: scalar}
@@ -24610,7 +24610,7 @@ groups:
             range: {start: 70, end: 70}
           - upstream: ceph_tentacle
             path: 'src/mds/SessionMap.cc'
-            range: {start: 109, end: 109}
+            range: {start: 110, end: 110}
       ceph_mds_slow_reply:
         family: {exact: 'ceph_mds_slow_reply'}
         prometheus: {type: counter, shape: scalar}
@@ -29474,7 +29474,7 @@ groups:
             range: {start: 272, end: 272}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 549, end: 549}
+            range: {start: 558, end: 558}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 246, end: 246}
@@ -29503,7 +29503,7 @@ groups:
             range: {start: 272, end: 272}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 548, end: 548}
+            range: {start: 557, end: 557}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 246, end: 246}
@@ -29601,7 +29601,7 @@ groups:
             range: {start: 272, end: 272}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 550, end: 550}
+            range: {start: 559, end: 559}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 246, end: 246}
@@ -29676,7 +29676,7 @@ groups:
             range: {start: 272, end: 272}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 547, end: 547}
+            range: {start: 556, end: 556}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 246, end: 246}
@@ -29889,7 +29889,7 @@ groups:
             range: {start: 272, end: 272}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 551, end: 551}
+            range: {start: 560, end: 560}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 246, end: 246}
@@ -29918,7 +29918,7 @@ groups:
             range: {start: 266, end: 266}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 549, end: 549}
+            range: {start: 558, end: 558}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 240, end: 240}
@@ -29947,7 +29947,7 @@ groups:
             range: {start: 266, end: 266}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 548, end: 548}
+            range: {start: 557, end: 557}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 240, end: 240}
@@ -30045,7 +30045,7 @@ groups:
             range: {start: 266, end: 266}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 550, end: 550}
+            range: {start: 559, end: 559}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 240, end: 240}
@@ -30120,7 +30120,7 @@ groups:
             range: {start: 266, end: 266}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 547, end: 547}
+            range: {start: 556, end: 556}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 240, end: 240}
@@ -30333,7 +30333,7 @@ groups:
             range: {start: 266, end: 266}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 551, end: 551}
+            range: {start: 560, end: 560}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 240, end: 240}
@@ -30962,7 +30962,7 @@ groups:
             range: {start: 269, end: 269}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 549, end: 549}
+            range: {start: 558, end: 558}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 243, end: 243}
@@ -30991,7 +30991,7 @@ groups:
             range: {start: 269, end: 269}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 548, end: 548}
+            range: {start: 557, end: 557}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 243, end: 243}
@@ -31089,7 +31089,7 @@ groups:
             range: {start: 269, end: 269}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 550, end: 550}
+            range: {start: 559, end: 559}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 243, end: 243}
@@ -31164,7 +31164,7 @@ groups:
             range: {start: 269, end: 269}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 547, end: 547}
+            range: {start: 556, end: 556}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 243, end: 243}
@@ -31377,7 +31377,7 @@ groups:
             range: {start: 269, end: 269}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 551, end: 551}
+            range: {start: 560, end: 560}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 243, end: 243}
@@ -31406,7 +31406,7 @@ groups:
             range: {start: 263, end: 263}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 549, end: 549}
+            range: {start: 558, end: 558}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 237, end: 237}
@@ -31435,7 +31435,7 @@ groups:
             range: {start: 263, end: 263}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 548, end: 548}
+            range: {start: 557, end: 557}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 237, end: 237}
@@ -31533,7 +31533,7 @@ groups:
             range: {start: 263, end: 263}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 550, end: 550}
+            range: {start: 559, end: 559}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 237, end: 237}
@@ -31608,7 +31608,7 @@ groups:
             range: {start: 263, end: 263}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 547, end: 547}
+            range: {start: 556, end: 556}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 237, end: 237}
@@ -31821,7 +31821,7 @@ groups:
             range: {start: 263, end: 263}
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
-            range: {start: 551, end: 551}
+            range: {start: 560, end: 560}
           - upstream: ceph_tentacle
             path: 'src/osd/scrubber/osd_scrub.h'
             range: {start: 237, end: 237}
@@ -35480,7 +35480,7 @@ groups:
             range: {start: 1633, end: 1635}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1637, end: 1639}
+            range: {start: 1656, end: 1658}
       ceph_rbd_mirror_snapshot_image_last_sync_time:
         family: {exact: 'ceph_rbd_mirror_snapshot_image_last_sync_time'}
         prometheus: {type: gauge, shape: scalar}
@@ -35506,7 +35506,7 @@ groups:
             range: {start: 1631, end: 1632}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1635, end: 1636}
+            range: {start: 1654, end: 1655}
       ceph_rbd_mirror_snapshot_image_local_timestamp:
         family: {exact: 'ceph_rbd_mirror_snapshot_image_local_timestamp'}
         prometheus: {type: gauge, shape: scalar}
@@ -35532,7 +35532,7 @@ groups:
             range: {start: 1629, end: 1630}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1633, end: 1634}
+            range: {start: 1652, end: 1653}
       ceph_rbd_mirror_snapshot_image_remote_timestamp:
         family: {exact: 'ceph_rbd_mirror_snapshot_image_remote_timestamp'}
         prometheus: {type: gauge, shape: scalar}
@@ -35558,7 +35558,7 @@ groups:
             range: {start: 1627, end: 1628}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1631, end: 1632}
+            range: {start: 1650, end: 1651}
       ceph_rbd_mirror_snapshot_image_snapshots:
         family: {exact: 'ceph_rbd_mirror_snapshot_image_snapshots'}
         prometheus: {type: counter, shape: scalar}
@@ -35584,7 +35584,7 @@ groups:
             range: {start: 1621, end: 1622}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1625, end: 1626}
+            range: {start: 1644, end: 1645}
       ceph_rbd_mirror_snapshot_image_sync_bytes:
         family: {exact: 'ceph_rbd_mirror_snapshot_image_sync_bytes'}
         prometheus: {type: counter, shape: scalar}
@@ -35610,7 +35610,7 @@ groups:
             range: {start: 1625, end: 1626}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1629, end: 1630}
+            range: {start: 1648, end: 1649}
       ceph_rbd_mirror_snapshot_image_sync_time_count:
         family: {exact: 'ceph_rbd_mirror_snapshot_image_sync_time_count'}
         prometheus: {type: counter, shape: scalar}
@@ -35636,7 +35636,7 @@ groups:
             range: {start: 1623, end: 1624}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1627, end: 1628}
+            range: {start: 1646, end: 1647}
       ceph_rbd_mirror_snapshot_snapshots:
         family: {exact: 'ceph_rbd_mirror_snapshot_snapshots'}
         prometheus: {type: counter, shape: scalar}
@@ -36053,6 +36053,66 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
             range: {start: 507, end: 507}
+      ceph_recoverystate_perf_pg_rebuild_duration_count:
+        family: {exact: 'ceph_recoverystate_perf_pg_rebuild_duration_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/osd/osd_perf_counters.cc'
+            range: {start: 534, end: 536}
+      ceph_recoverystate_perf_pg_rebuild_max_secs:
+        family: {exact: 'ceph_recoverystate_perf_pg_rebuild_max_secs'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/osd/osd_perf_counters.cc'
+            range: {start: 537, end: 539}
+      ceph_recoverystate_perf_pg_rebuild_min_secs:
+        family: {exact: 'ceph_recoverystate_perf_pg_rebuild_min_secs'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/osd/osd_perf_counters.cc'
+            range: {start: 540, end: 542}
       ceph_recoverystate_perf_primary_latency_count:
         family: {exact: 'ceph_recoverystate_perf_primary_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -38476,7 +38536,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 17, end: 17}
@@ -38498,7 +38558,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 24, end: 24}
@@ -38538,7 +38598,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 21, end: 21}
@@ -40420,7 +40480,7 @@ groups:
             range: {start: 247, end: 248}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 261, end: 262}
+            range: {start: 262, end: 263}
       ceph_mds_server_req_create_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_create_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40441,7 +40501,7 @@ groups:
             range: {start: 219, end: 220}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 233, end: 234}
+            range: {start: 234, end: 235}
       ceph_mds_server_req_getattr_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_getattr_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40462,7 +40522,7 @@ groups:
             range: {start: 199, end: 200}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 213, end: 214}
+            range: {start: 214, end: 215}
       ceph_mds_server_req_getfilelock_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_getfilelock_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40483,7 +40543,7 @@ groups:
             range: {start: 217, end: 218}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 231, end: 232}
+            range: {start: 232, end: 233}
       ceph_mds_server_req_getvxattr_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_getvxattr_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40504,7 +40564,7 @@ groups:
             range: {start: 207, end: 208}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 221, end: 222}
+            range: {start: 222, end: 223}
       ceph_mds_server_req_link_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_link_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40525,7 +40585,7 @@ groups:
             range: {start: 225, end: 226}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 239, end: 240}
+            range: {start: 240, end: 241}
       ceph_mds_server_req_lookup_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lookup_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40546,7 +40606,7 @@ groups:
             range: {start: 195, end: 196}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 209, end: 210}
+            range: {start: 210, end: 211}
       ceph_mds_server_req_lookuphash_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lookuphash_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40567,7 +40627,7 @@ groups:
             range: {start: 187, end: 188}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 201, end: 202}
+            range: {start: 202, end: 203}
       ceph_mds_server_req_lookupino_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lookupino_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40588,7 +40648,7 @@ groups:
             range: {start: 189, end: 190}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 203, end: 204}
+            range: {start: 204, end: 205}
       ceph_mds_server_req_lookupname_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lookupname_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40609,7 +40669,7 @@ groups:
             range: {start: 193, end: 194}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 207, end: 208}
+            range: {start: 208, end: 209}
       ceph_mds_server_req_lookupparent_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lookupparent_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40630,7 +40690,7 @@ groups:
             range: {start: 191, end: 192}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 205, end: 206}
+            range: {start: 206, end: 207}
       ceph_mds_server_req_lookupsnap_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lookupsnap_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40651,7 +40711,7 @@ groups:
             range: {start: 197, end: 198}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 211, end: 212}
+            range: {start: 212, end: 213}
       ceph_mds_server_req_lssnap_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_lssnap_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40672,7 +40732,7 @@ groups:
             range: {start: 237, end: 238}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 251, end: 252}
+            range: {start: 252, end: 253}
       ceph_mds_server_req_mkdir_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_mkdir_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40693,7 +40753,7 @@ groups:
             range: {start: 233, end: 234}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 247, end: 248}
+            range: {start: 248, end: 249}
       ceph_mds_server_req_mknod_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_mknod_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40714,7 +40774,7 @@ groups:
             range: {start: 223, end: 224}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 237, end: 238}
+            range: {start: 238, end: 239}
       ceph_mds_server_req_mksnap_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_mksnap_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40735,7 +40795,7 @@ groups:
             range: {start: 239, end: 240}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 253, end: 254}
+            range: {start: 254, end: 255}
       ceph_mds_server_req_open_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_open_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40756,7 +40816,7 @@ groups:
             range: {start: 221, end: 222}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 235, end: 236}
+            range: {start: 236, end: 237}
       ceph_mds_server_req_readdir_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_readdir_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40777,7 +40837,7 @@ groups:
             range: {start: 213, end: 214}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 227, end: 228}
+            range: {start: 228, end: 229}
       ceph_mds_server_req_rename_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_rename_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40798,7 +40858,7 @@ groups:
             range: {start: 231, end: 232}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 245, end: 246}
+            range: {start: 246, end: 247}
       ceph_mds_server_req_renamesnap_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_renamesnap_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40819,7 +40879,7 @@ groups:
             range: {start: 243, end: 244}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 257, end: 258}
+            range: {start: 258, end: 259}
       ceph_mds_server_req_rmdir_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_rmdir_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40840,7 +40900,7 @@ groups:
             range: {start: 229, end: 230}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 243, end: 244}
+            range: {start: 244, end: 245}
       ceph_mds_server_req_rmsnap_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_rmsnap_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40861,7 +40921,7 @@ groups:
             range: {start: 241, end: 242}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 255, end: 256}
+            range: {start: 256, end: 257}
       ceph_mds_server_req_rmxattr_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_rmxattr_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40882,7 +40942,7 @@ groups:
             range: {start: 211, end: 212}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 225, end: 226}
+            range: {start: 226, end: 227}
       ceph_mds_server_req_setattr_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_setattr_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40903,7 +40963,7 @@ groups:
             range: {start: 201, end: 202}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 215, end: 216}
+            range: {start: 216, end: 217}
       ceph_mds_server_req_setdirlayout_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_setdirlayout_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40924,7 +40984,7 @@ groups:
             range: {start: 205, end: 206}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 219, end: 220}
+            range: {start: 220, end: 221}
       ceph_mds_server_req_setfilelock_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_setfilelock_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40945,7 +41005,7 @@ groups:
             range: {start: 215, end: 216}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 229, end: 230}
+            range: {start: 230, end: 231}
       ceph_mds_server_req_setlayout_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_setlayout_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40966,7 +41026,7 @@ groups:
             range: {start: 203, end: 204}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 217, end: 218}
+            range: {start: 218, end: 219}
       ceph_mds_server_req_setxattr_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_setxattr_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -40987,7 +41047,7 @@ groups:
             range: {start: 209, end: 210}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 223, end: 224}
+            range: {start: 224, end: 225}
       ceph_mds_server_req_snapdiff_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_snapdiff_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -41008,7 +41068,7 @@ groups:
             range: {start: 245, end: 246}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 259, end: 260}
+            range: {start: 260, end: 261}
       ceph_mds_server_req_symlink_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_symlink_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -41029,7 +41089,7 @@ groups:
             range: {start: 235, end: 236}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 249, end: 250}
+            range: {start: 250, end: 251}
       ceph_mds_server_req_unlink_latency_sum_exporter_perf:
         family: {exact: 'ceph_mds_server_req_unlink_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -41050,7 +41110,7 @@ groups:
             range: {start: 227, end: 228}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 241, end: 242}
+            range: {start: 242, end: 243}
       ceph_osd_failed_scrubs_ec_elapsed_sum_exporter_perf:
         family: {exact: 'ceph_osd_failed_scrubs_ec_elapsed_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -42487,7 +42547,7 @@ groups:
             range: {start: 1623, end: 1624}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1627, end: 1628}
+            range: {start: 1646, end: 1647}
       ceph_rbd_mirror_snapshot_sync_time_sum_exporter_perf:
         family: {exact: 'ceph_rbd_mirror_snapshot_sync_time_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -42782,6 +42842,21 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
             range: {start: 507, end: 507}
+      ceph_recoverystate_perf_pg_rebuild_duration_sum_exporter_perf:
+        family: {exact: 'ceph_recoverystate_perf_pg_rebuild_duration_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/osd/osd_perf_counters.cc'
+            range: {start: 534, end: 536}
       ceph_recoverystate_perf_primary_latency_sum_exporter_perf:
         family: {exact: 'ceph_recoverystate_perf_primary_latency_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -44291,7 +44366,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 17, end: 17}
@@ -44314,7 +44389,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 24, end: 24}
@@ -44355,7 +44430,7 @@ groups:
             range: {start: 462, end: 476}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1769, end: 1794}
+            range: {start: 1850, end: 1875}
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 21, end: 21}
@@ -46324,7 +46399,7 @@ groups:
             range: {start: 247, end: 248}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 261, end: 262}
+            range: {start: 262, end: 263}
       ceph_mds_server_req_create_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_create_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46346,7 +46421,7 @@ groups:
             range: {start: 219, end: 220}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 233, end: 234}
+            range: {start: 234, end: 235}
       ceph_mds_server_req_getattr_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_getattr_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46368,7 +46443,7 @@ groups:
             range: {start: 199, end: 200}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 213, end: 214}
+            range: {start: 214, end: 215}
       ceph_mds_server_req_getfilelock_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_getfilelock_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46390,7 +46465,7 @@ groups:
             range: {start: 217, end: 218}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 231, end: 232}
+            range: {start: 232, end: 233}
       ceph_mds_server_req_getvxattr_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_getvxattr_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46412,7 +46487,7 @@ groups:
             range: {start: 207, end: 208}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 221, end: 222}
+            range: {start: 222, end: 223}
       ceph_mds_server_req_link_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_link_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46434,7 +46509,7 @@ groups:
             range: {start: 225, end: 226}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 239, end: 240}
+            range: {start: 240, end: 241}
       ceph_mds_server_req_lookup_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lookup_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46456,7 +46531,7 @@ groups:
             range: {start: 195, end: 196}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 209, end: 210}
+            range: {start: 210, end: 211}
       ceph_mds_server_req_lookuphash_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lookuphash_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46478,7 +46553,7 @@ groups:
             range: {start: 187, end: 188}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 201, end: 202}
+            range: {start: 202, end: 203}
       ceph_mds_server_req_lookupino_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lookupino_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46500,7 +46575,7 @@ groups:
             range: {start: 189, end: 190}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 203, end: 204}
+            range: {start: 204, end: 205}
       ceph_mds_server_req_lookupname_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lookupname_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46522,7 +46597,7 @@ groups:
             range: {start: 193, end: 194}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 207, end: 208}
+            range: {start: 208, end: 209}
       ceph_mds_server_req_lookupparent_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lookupparent_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46544,7 +46619,7 @@ groups:
             range: {start: 191, end: 192}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 205, end: 206}
+            range: {start: 206, end: 207}
       ceph_mds_server_req_lookupsnap_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lookupsnap_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46566,7 +46641,7 @@ groups:
             range: {start: 197, end: 198}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 211, end: 212}
+            range: {start: 212, end: 213}
       ceph_mds_server_req_lssnap_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_lssnap_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46588,7 +46663,7 @@ groups:
             range: {start: 237, end: 238}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 251, end: 252}
+            range: {start: 252, end: 253}
       ceph_mds_server_req_mkdir_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_mkdir_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46610,7 +46685,7 @@ groups:
             range: {start: 233, end: 234}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 247, end: 248}
+            range: {start: 248, end: 249}
       ceph_mds_server_req_mknod_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_mknod_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46632,7 +46707,7 @@ groups:
             range: {start: 223, end: 224}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 237, end: 238}
+            range: {start: 238, end: 239}
       ceph_mds_server_req_mksnap_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_mksnap_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46654,7 +46729,7 @@ groups:
             range: {start: 239, end: 240}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 253, end: 254}
+            range: {start: 254, end: 255}
       ceph_mds_server_req_open_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_open_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46676,7 +46751,7 @@ groups:
             range: {start: 221, end: 222}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 235, end: 236}
+            range: {start: 236, end: 237}
       ceph_mds_server_req_readdir_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_readdir_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46698,7 +46773,7 @@ groups:
             range: {start: 213, end: 214}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 227, end: 228}
+            range: {start: 228, end: 229}
       ceph_mds_server_req_rename_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_rename_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46720,7 +46795,7 @@ groups:
             range: {start: 231, end: 232}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 245, end: 246}
+            range: {start: 246, end: 247}
       ceph_mds_server_req_renamesnap_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_renamesnap_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46742,7 +46817,7 @@ groups:
             range: {start: 243, end: 244}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 257, end: 258}
+            range: {start: 258, end: 259}
       ceph_mds_server_req_rmdir_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_rmdir_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46764,7 +46839,7 @@ groups:
             range: {start: 229, end: 230}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 243, end: 244}
+            range: {start: 244, end: 245}
       ceph_mds_server_req_rmsnap_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_rmsnap_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46786,7 +46861,7 @@ groups:
             range: {start: 241, end: 242}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 255, end: 256}
+            range: {start: 256, end: 257}
       ceph_mds_server_req_rmxattr_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_rmxattr_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46808,7 +46883,7 @@ groups:
             range: {start: 211, end: 212}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 225, end: 226}
+            range: {start: 226, end: 227}
       ceph_mds_server_req_setattr_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_setattr_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46830,7 +46905,7 @@ groups:
             range: {start: 201, end: 202}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 215, end: 216}
+            range: {start: 216, end: 217}
       ceph_mds_server_req_setdirlayout_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_setdirlayout_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46852,7 +46927,7 @@ groups:
             range: {start: 205, end: 206}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 219, end: 220}
+            range: {start: 220, end: 221}
       ceph_mds_server_req_setfilelock_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_setfilelock_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46874,7 +46949,7 @@ groups:
             range: {start: 215, end: 216}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 229, end: 230}
+            range: {start: 230, end: 231}
       ceph_mds_server_req_setlayout_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_setlayout_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46896,7 +46971,7 @@ groups:
             range: {start: 203, end: 204}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 217, end: 218}
+            range: {start: 218, end: 219}
       ceph_mds_server_req_setxattr_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_setxattr_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46918,7 +46993,7 @@ groups:
             range: {start: 209, end: 210}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 223, end: 224}
+            range: {start: 224, end: 225}
       ceph_mds_server_req_snapdiff_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_snapdiff_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46940,7 +47015,7 @@ groups:
             range: {start: 245, end: 246}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 259, end: 260}
+            range: {start: 260, end: 261}
       ceph_mds_server_req_symlink_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_symlink_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46962,7 +47037,7 @@ groups:
             range: {start: 235, end: 236}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 249, end: 250}
+            range: {start: 250, end: 251}
       ceph_mds_server_req_unlink_latency_sum_mgr_perf:
         family: {exact: 'ceph_mds_server_req_unlink_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -46984,7 +47059,7 @@ groups:
             range: {start: 227, end: 228}
           - upstream: ceph_tentacle
             path: 'src/mds/Server.cc'
-            range: {start: 241, end: 242}
+            range: {start: 242, end: 243}
       ceph_osd_failed_scrubs_ec_elapsed_sum_mgr_perf:
         family: {exact: 'ceph_osd_failed_scrubs_ec_elapsed_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -48494,7 +48569,7 @@ groups:
             range: {start: 1623, end: 1624}
           - upstream: ceph_tentacle
             path: 'src/tools/rbd_mirror/image_replayer/snapshot/Replayer.cc'
-            range: {start: 1627, end: 1628}
+            range: {start: 1646, end: 1647}
       ceph_rbd_mirror_snapshot_sync_time_sum_mgr_perf:
         family: {exact: 'ceph_rbd_mirror_snapshot_sync_time_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -48803,6 +48878,22 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/osd/osd_perf_counters.cc'
             range: {start: 507, end: 507}
+      ceph_recoverystate_perf_pg_rebuild_duration_sum_mgr_perf:
+        family: {exact: 'ceph_recoverystate_perf_pg_rebuild_duration_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/osd/osd_perf_counters.cc'
+            range: {start: 534, end: 536}
       ceph_recoverystate_perf_primary_latency_sum_mgr_perf:
         family: {exact: 'ceph_recoverystate_perf_primary_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -49400,7 +49491,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 910, end: 915}
+            range: {start: 948, end: 953}
       ceph_cluster_by_class_total_bytes:
         family: {exact: 'ceph_cluster_by_class_total_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -49429,7 +49520,7 @@ groups:
             range: {start: 82, end: 82}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 964, end: 969}
+            range: {start: 1002, end: 1007}
       ceph_cluster_by_class_total_used_bytes:
         family: {exact: 'ceph_cluster_by_class_total_used_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -49458,7 +49549,7 @@ groups:
             range: {start: 82, end: 82}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 964, end: 969}
+            range: {start: 1002, end: 1007}
       ceph_cluster_by_class_total_used_raw_bytes:
         family: {exact: 'ceph_cluster_by_class_total_used_raw_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -49487,7 +49578,7 @@ groups:
             range: {start: 82, end: 82}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 964, end: 969}
+            range: {start: 1002, end: 1007}
       ceph_cluster_osd_blocklist_count:
         family: {exact: 'ceph_cluster_osd_blocklist_count'}
         prometheus: {type: gauge, shape: scalar}
@@ -49516,7 +49607,7 @@ groups:
             range: {start: 84, end: 84}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 980, end: 984}
+            range: {start: 1018, end: 1022}
       ceph_cluster_total_bytes:
         family: {exact: 'ceph_cluster_total_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -49545,7 +49636,7 @@ groups:
             range: {start: 82, end: 82}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 958, end: 962}
+            range: {start: 996, end: 1000}
       ceph_cluster_total_used_bytes:
         family: {exact: 'ceph_cluster_total_used_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -49574,7 +49665,7 @@ groups:
             range: {start: 82, end: 82}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 958, end: 962}
+            range: {start: 996, end: 1000}
       ceph_cluster_total_used_raw_bytes:
         family: {exact: 'ceph_cluster_total_used_raw_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -49603,7 +49694,7 @@ groups:
             range: {start: 82, end: 82}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 958, end: 962}
+            range: {start: 996, end: 1000}
       ceph_daemon_health_metrics:
         family: {exact: 'ceph_daemon_health_metrics'}
         prometheus: {type: gauge, shape: scalar}
@@ -49623,7 +49714,7 @@ groups:
             range: {start: 756, end: 761}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 897, end: 902}
+            range: {start: 935, end: 940}
       ceph_disk_occupation:
         family: {exact: 'ceph_disk_occupation'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -49643,7 +49734,7 @@ groups:
             range: {start: 699, end: 704}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 833, end: 838}
+            range: {start: 871, end: 876}
       ceph_disk_occupation_human:
         family: {exact: 'ceph_disk_occupation_human'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -49663,7 +49754,7 @@ groups:
             range: {start: 706, end: 712}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 840, end: 846}
+            range: {start: 878, end: 884}
       ceph_fs_metadata:
         family: {exact: 'ceph_fs_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -49683,7 +49774,111 @@ groups:
             range: {start: 647, end: 652}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 769, end: 774}
+            range: {start: 807, end: 812}
+      ceph_hardware_cpu_cores:
+        family: {exact: 'ceph_hardware_cpu_cores'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1046, end: 1051}
+      ceph_hardware_fan_rpm:
+        family: {exact: 'ceph_hardware_fan_rpm'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 168, end: 179}
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1068, end: 1073}
+      ceph_hardware_firmware_info:
+        family: {exact: 'ceph_hardware_firmware_info'}
+        prometheus: {type: gauge, shape: info}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1075, end: 1080}
+      ceph_hardware_health:
+        family: {exact: 'ceph_hardware_health'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1060, end: 1065}
+      ceph_hardware_memory_capacity_bytes:
+        family: {exact: 'ceph_hardware_memory_capacity_bytes'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1053, end: 1058}
+      ceph_hardware_storage_capacity_bytes:
+        family: {exact: 'ceph_hardware_storage_capacity_bytes'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1039, end: 1044}
+      ceph_hardware_temperature_celsius:
+        family: {exact: 'ceph_hardware_temperature_celsius'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 168, end: 179}
+          - upstream: ceph_tentacle
+            path: 'src/pybind/mgr/prometheus/module.py'
+            range: {start: 1068, end: 1073}
       ceph_health_detail:
         family: {exact: 'ceph_health_detail'}
         prometheus: {type: gauge, shape: scalar}
@@ -49703,7 +49898,7 @@ groups:
             range: {start: 742, end: 747}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 883, end: 888}
+            range: {start: 921, end: 926}
       ceph_health_status:
         family: {exact: 'ceph_health_status'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -49723,7 +49918,7 @@ groups:
             range: {start: 636, end: 640}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 758, end: 762}
+            range: {start: 796, end: 800}
       ceph_healthcheck_slow_ops:
         family: {exact: 'ceph_healthcheck_slow_ops'}
         prometheus: {type: gauge, shape: scalar}
@@ -49749,10 +49944,10 @@ groups:
             range: {start: 841, end: 845}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 146, end: 148}
+            range: {start: 184, end: 186}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 995, end: 999}
+            range: {start: 1033, end: 1037}
       ceph_mds_metadata:
         family: {exact: 'ceph_mds_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -49772,7 +49967,7 @@ groups:
             range: {start: 653, end: 658}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 775, end: 780}
+            range: {start: 813, end: 818}
       ceph_mgr_metadata:
         family: {exact: 'ceph_mgr_metadata'}
         prometheus: {type: gauge, shape: scalar}
@@ -49792,7 +49987,7 @@ groups:
             range: {start: 665, end: 670}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 787, end: 792}
+            range: {start: 825, end: 830}
       ceph_mgr_module_can_run:
         family: {exact: 'ceph_mgr_module_can_run'}
         prometheus: {type: gauge, shape: scalar}
@@ -49812,7 +50007,7 @@ groups:
             range: {start: 683, end: 688}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 805, end: 810}
+            range: {start: 843, end: 848}
       ceph_mgr_module_status:
         family: {exact: 'ceph_mgr_module_status'}
         prometheus: {type: gauge, shape: scalar}
@@ -49832,7 +50027,7 @@ groups:
             range: {start: 677, end: 682}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 799, end: 804}
+            range: {start: 837, end: 842}
       ceph_mgr_status:
         family: {exact: 'ceph_mgr_status'}
         prometheus: {type: gauge, shape: scalar}
@@ -49852,7 +50047,7 @@ groups:
             range: {start: 671, end: 676}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 793, end: 798}
+            range: {start: 831, end: 836}
       ceph_mon_metadata:
         family: {exact: 'ceph_mon_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -49872,7 +50067,7 @@ groups:
             range: {start: 659, end: 664}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 781, end: 786}
+            range: {start: 819, end: 824}
       ceph_mon_quorum_status:
         family: {exact: 'ceph_mon_quorum_status'}
         prometheus: {type: gauge, shape: scalar}
@@ -49892,7 +50087,7 @@ groups:
             range: {start: 641, end: 646}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 763, end: 768}
+            range: {start: 801, end: 806}
       ceph_num_objects_degraded:
         family: {exact: 'ceph_num_objects_degraded'}
         prometheus: {type: gauge, shape: scalar}
@@ -49921,7 +50116,7 @@ groups:
             range: {start: 138, end: 138}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 987, end: 991}
+            range: {start: 1025, end: 1029}
       ceph_num_objects_misplaced:
         family: {exact: 'ceph_num_objects_misplaced'}
         prometheus: {type: gauge, shape: scalar}
@@ -49950,7 +50145,7 @@ groups:
             range: {start: 138, end: 138}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 987, end: 991}
+            range: {start: 1025, end: 1029}
       ceph_num_objects_unfound:
         family: {exact: 'ceph_num_objects_unfound'}
         prometheus: {type: gauge, shape: scalar}
@@ -49979,7 +50174,7 @@ groups:
             range: {start: 138, end: 138}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 987, end: 991}
+            range: {start: 1025, end: 1029}
       ceph_osd_apply_latency_ms:
         family: {exact: 'ceph_osd_apply_latency_ms'}
         prometheus: {type: gauge, shape: scalar}
@@ -50008,7 +50203,7 @@ groups:
             range: {start: 124, end: 124}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 934, end: 939}
+            range: {start: 972, end: 977}
       ceph_osd_commit_latency_ms:
         family: {exact: 'ceph_osd_commit_latency_ms'}
         prometheus: {type: gauge, shape: scalar}
@@ -50037,7 +50232,7 @@ groups:
             range: {start: 124, end: 124}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 934, end: 939}
+            range: {start: 972, end: 977}
       ceph_osd_flag_nobackfill:
         family: {exact: 'ceph_osd_flag_nobackfill'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50066,7 +50261,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_nodeep_scrub:
         family: {exact: 'ceph_osd_flag_nodeep_scrub'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50095,7 +50290,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_nodown:
         family: {exact: 'ceph_osd_flag_nodown'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50124,7 +50319,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_noin:
         family: {exact: 'ceph_osd_flag_noin'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50153,7 +50348,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_noout:
         family: {exact: 'ceph_osd_flag_noout'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50182,7 +50377,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_norebalance:
         family: {exact: 'ceph_osd_flag_norebalance'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50211,7 +50406,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_norecover:
         family: {exact: 'ceph_osd_flag_norecover'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50240,7 +50435,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_noscrub:
         family: {exact: 'ceph_osd_flag_noscrub'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50269,7 +50464,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_flag_noup:
         family: {exact: 'ceph_osd_flag_noup'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50298,7 +50493,7 @@ groups:
             range: {start: 94, end: 95}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 919, end: 923}
+            range: {start: 957, end: 961}
       ceph_osd_full_ratio:
         family: {exact: 'ceph_osd_full_ratio'}
         prometheus: {type: gauge, shape: scalar}
@@ -50312,7 +50507,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 823, end: 828}
+            range: {start: 861, end: 866}
       ceph_osd_in:
         family: {exact: 'ceph_osd_in'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50341,7 +50536,7 @@ groups:
             range: {start: 122, end: 122}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 926, end: 931}
+            range: {start: 964, end: 969}
       ceph_osd_metadata:
         family: {exact: 'ceph_osd_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50361,7 +50556,7 @@ groups:
             range: {start: 689, end: 694}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 811, end: 816}
+            range: {start: 849, end: 854}
       ceph_osd_nearfull_ratio:
         family: {exact: 'ceph_osd_nearfull_ratio'}
         prometheus: {type: gauge, shape: scalar}
@@ -50375,7 +50570,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 817, end: 822}
+            range: {start: 855, end: 860}
       ceph_osd_up:
         family: {exact: 'ceph_osd_up'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50404,7 +50599,7 @@ groups:
             range: {start: 122, end: 122}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 926, end: 931}
+            range: {start: 964, end: 969}
       ceph_osd_weight:
         family: {exact: 'ceph_osd_weight'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -50433,7 +50628,7 @@ groups:
             range: {start: 122, end: 122}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 926, end: 931}
+            range: {start: 964, end: 969}
       ceph_pg_activating:
         family: {exact: 'ceph_pg_activating'}
         prometheus: {type: gauge, shape: scalar}
@@ -50462,7 +50657,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_active:
         family: {exact: 'ceph_pg_active'}
         prometheus: {type: gauge, shape: scalar}
@@ -50491,7 +50686,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_backfill_toofull:
         family: {exact: 'ceph_pg_backfill_toofull'}
         prometheus: {type: gauge, shape: scalar}
@@ -50520,7 +50715,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_backfill_unfound:
         family: {exact: 'ceph_pg_backfill_unfound'}
         prometheus: {type: gauge, shape: scalar}
@@ -50549,7 +50744,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_backfill_wait:
         family: {exact: 'ceph_pg_backfill_wait'}
         prometheus: {type: gauge, shape: scalar}
@@ -50578,7 +50773,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_backfilling:
         family: {exact: 'ceph_pg_backfilling'}
         prometheus: {type: gauge, shape: scalar}
@@ -50607,7 +50802,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_clean:
         family: {exact: 'ceph_pg_clean'}
         prometheus: {type: gauge, shape: scalar}
@@ -50636,7 +50831,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_creating:
         family: {exact: 'ceph_pg_creating'}
         prometheus: {type: gauge, shape: scalar}
@@ -50665,7 +50860,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_deep:
         family: {exact: 'ceph_pg_deep'}
         prometheus: {type: gauge, shape: scalar}
@@ -50694,7 +50889,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_degraded:
         family: {exact: 'ceph_pg_degraded'}
         prometheus: {type: gauge, shape: scalar}
@@ -50723,7 +50918,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_down:
         family: {exact: 'ceph_pg_down'}
         prometheus: {type: gauge, shape: scalar}
@@ -50752,7 +50947,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_failed_repair:
         family: {exact: 'ceph_pg_failed_repair'}
         prometheus: {type: gauge, shape: scalar}
@@ -50781,7 +50976,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_forced_backfill:
         family: {exact: 'ceph_pg_forced_backfill'}
         prometheus: {type: gauge, shape: scalar}
@@ -50810,7 +51005,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_forced_recovery:
         family: {exact: 'ceph_pg_forced_recovery'}
         prometheus: {type: gauge, shape: scalar}
@@ -50839,7 +51034,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_incomplete:
         family: {exact: 'ceph_pg_incomplete'}
         prometheus: {type: gauge, shape: scalar}
@@ -50868,7 +51063,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_inconsistent:
         family: {exact: 'ceph_pg_inconsistent'}
         prometheus: {type: gauge, shape: scalar}
@@ -50897,7 +51092,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_laggy:
         family: {exact: 'ceph_pg_laggy'}
         prometheus: {type: gauge, shape: scalar}
@@ -50926,7 +51121,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_peered:
         family: {exact: 'ceph_pg_peered'}
         prometheus: {type: gauge, shape: scalar}
@@ -50955,7 +51150,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_peering:
         family: {exact: 'ceph_pg_peering'}
         prometheus: {type: gauge, shape: scalar}
@@ -50984,7 +51179,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_premerge:
         family: {exact: 'ceph_pg_premerge'}
         prometheus: {type: gauge, shape: scalar}
@@ -51013,7 +51208,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_recovering:
         family: {exact: 'ceph_pg_recovering'}
         prometheus: {type: gauge, shape: scalar}
@@ -51042,7 +51237,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_recovery_toofull:
         family: {exact: 'ceph_pg_recovery_toofull'}
         prometheus: {type: gauge, shape: scalar}
@@ -51071,7 +51266,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_recovery_unfound:
         family: {exact: 'ceph_pg_recovery_unfound'}
         prometheus: {type: gauge, shape: scalar}
@@ -51100,7 +51295,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_recovery_wait:
         family: {exact: 'ceph_pg_recovery_wait'}
         prometheus: {type: gauge, shape: scalar}
@@ -51129,7 +51324,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_remapped:
         family: {exact: 'ceph_pg_remapped'}
         prometheus: {type: gauge, shape: scalar}
@@ -51158,7 +51353,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_repair:
         family: {exact: 'ceph_pg_repair'}
         prometheus: {type: gauge, shape: scalar}
@@ -51187,7 +51382,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_scrubbing:
         family: {exact: 'ceph_pg_scrubbing'}
         prometheus: {type: gauge, shape: scalar}
@@ -51216,7 +51411,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_snaptrim:
         family: {exact: 'ceph_pg_snaptrim'}
         prometheus: {type: gauge, shape: scalar}
@@ -51245,7 +51440,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_snaptrim_error:
         family: {exact: 'ceph_pg_snaptrim_error'}
         prometheus: {type: gauge, shape: scalar}
@@ -51274,7 +51469,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_snaptrim_wait:
         family: {exact: 'ceph_pg_snaptrim_wait'}
         prometheus: {type: gauge, shape: scalar}
@@ -51303,7 +51498,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_stale:
         family: {exact: 'ceph_pg_stale'}
         prometheus: {type: gauge, shape: scalar}
@@ -51332,7 +51527,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_total:
         family: {exact: 'ceph_pg_total'}
         prometheus: {type: gauge, shape: scalar}
@@ -51352,7 +51547,7 @@ groups:
             range: {start: 735, end: 740}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 876, end: 881}
+            range: {start: 914, end: 919}
       ceph_pg_undersized:
         family: {exact: 'ceph_pg_undersized'}
         prometheus: {type: gauge, shape: scalar}
@@ -51381,7 +51576,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_unknown:
         family: {exact: 'ceph_pg_unknown'}
         prometheus: {type: gauge, shape: scalar}
@@ -51410,7 +51605,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pg_wait:
         family: {exact: 'ceph_pg_wait'}
         prometheus: {type: gauge, shape: scalar}
@@ -51439,7 +51634,7 @@ groups:
             range: {start: 64, end: 99}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 950, end: 955}
+            range: {start: 988, end: 993}
       ceph_pool_avail_raw:
         family: {exact: 'ceph_pool_avail_raw'}
         prometheus: {type: gauge, shape: scalar}
@@ -51468,7 +51663,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_bytes_used:
         family: {exact: 'ceph_pool_bytes_used'}
         prometheus: {type: gauge, shape: scalar}
@@ -51497,7 +51692,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_compress_bytes_used:
         family: {exact: 'ceph_pool_compress_bytes_used'}
         prometheus: {type: gauge, shape: scalar}
@@ -51526,7 +51721,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_compress_under_bytes:
         family: {exact: 'ceph_pool_compress_under_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -51555,7 +51750,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_dirty:
         family: {exact: 'ceph_pool_dirty'}
         prometheus: {type: gauge, shape: scalar}
@@ -51584,7 +51779,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_max_avail:
         family: {exact: 'ceph_pool_max_avail'}
         prometheus: {type: gauge, shape: scalar}
@@ -51613,7 +51808,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_metadata:
         family: {exact: 'ceph_pool_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -51633,7 +51828,7 @@ groups:
             range: {start: 714, end: 719}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 848, end: 853}
+            range: {start: 886, end: 891}
       ceph_pool_num_bytes_recovered:
         family: {exact: 'ceph_pool_num_bytes_recovered'}
         prometheus: {type: gauge, shape: scalar}
@@ -51662,7 +51857,7 @@ groups:
             range: {start: 90, end: 92}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 942, end: 947}
+            range: {start: 980, end: 985}
       ceph_pool_num_objects_recovered:
         family: {exact: 'ceph_pool_num_objects_recovered'}
         prometheus: {type: gauge, shape: scalar}
@@ -51691,7 +51886,7 @@ groups:
             range: {start: 90, end: 92}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 942, end: 947}
+            range: {start: 980, end: 985}
       ceph_pool_objects:
         family: {exact: 'ceph_pool_objects'}
         prometheus: {type: gauge, shape: scalar}
@@ -51720,7 +51915,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_objects_repaired:
         family: {exact: 'ceph_pool_objects_repaired'}
         prometheus: {type: counter, shape: scalar}
@@ -51740,7 +51935,7 @@ groups:
             range: {start: 749, end: 754}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 890, end: 895}
+            range: {start: 928, end: 933}
       ceph_pool_percent_used:
         family: {exact: 'ceph_pool_percent_used'}
         prometheus: {type: gauge, shape: scalar}
@@ -51769,7 +51964,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_quota_bytes:
         family: {exact: 'ceph_pool_quota_bytes'}
         prometheus: {type: gauge, shape: scalar}
@@ -51798,7 +51993,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_quota_objects:
         family: {exact: 'ceph_pool_quota_objects'}
         prometheus: {type: gauge, shape: scalar}
@@ -51827,7 +52022,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_rd:
         family: {exact: 'ceph_pool_rd'}
         prometheus: {type: counter, shape: scalar}
@@ -51856,7 +52051,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_rd_bytes:
         family: {exact: 'ceph_pool_rd_bytes'}
         prometheus: {type: counter, shape: scalar}
@@ -51885,7 +52080,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_recovering_bytes_per_sec:
         family: {exact: 'ceph_pool_recovering_bytes_per_sec'}
         prometheus: {type: gauge, shape: scalar}
@@ -51914,7 +52109,7 @@ groups:
             range: {start: 90, end: 92}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 942, end: 947}
+            range: {start: 980, end: 985}
       ceph_pool_recovering_keys_per_sec:
         family: {exact: 'ceph_pool_recovering_keys_per_sec'}
         prometheus: {type: gauge, shape: scalar}
@@ -51943,7 +52138,7 @@ groups:
             range: {start: 90, end: 92}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 942, end: 947}
+            range: {start: 980, end: 985}
       ceph_pool_recovering_objects_per_sec:
         family: {exact: 'ceph_pool_recovering_objects_per_sec'}
         prometheus: {type: gauge, shape: scalar}
@@ -51972,7 +52167,7 @@ groups:
             range: {start: 90, end: 92}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 942, end: 947}
+            range: {start: 980, end: 985}
       ceph_pool_stored:
         family: {exact: 'ceph_pool_stored'}
         prometheus: {type: gauge, shape: scalar}
@@ -52001,7 +52196,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_stored_raw:
         family: {exact: 'ceph_pool_stored_raw'}
         prometheus: {type: gauge, shape: scalar}
@@ -52030,7 +52225,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_wr:
         family: {exact: 'ceph_pool_wr'}
         prometheus: {type: counter, shape: scalar}
@@ -52059,7 +52254,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_pool_wr_bytes:
         family: {exact: 'ceph_pool_wr_bytes'}
         prometheus: {type: counter, shape: scalar}
@@ -52088,7 +52283,7 @@ groups:
             range: {start: 86, end: 88}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 972, end: 977}
+            range: {start: 1010, end: 1015}
       ceph_prometheus_collect_duration_seconds_count:
         family: {exact: 'ceph_prometheus_collect_duration_seconds_count'}
         prometheus: {type: counter, shape: scalar}
@@ -52108,7 +52303,7 @@ groups:
             range: {start: 1606, end: 1609}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1806, end: 1809}
+            range: {start: 1887, end: 1890}
       ceph_prometheus_collect_duration_seconds_sum:
         family: {exact: 'ceph_prometheus_collect_duration_seconds_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -52128,7 +52323,7 @@ groups:
             range: {start: 1600, end: 1603}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 1800, end: 1803}
+            range: {start: 1881, end: 1884}
       ceph_rbd_image_metadata:
         family: {exact: 'ceph_rbd_image_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -52142,7 +52337,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 869, end: 874}
+            range: {start: 907, end: 912}
       ceph_rbd_mirror_metadata:
         family: {exact: 'ceph_rbd_mirror_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -52162,7 +52357,7 @@ groups:
             range: {start: 728, end: 733}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 862, end: 867}
+            range: {start: 900, end: 905}
       ceph_rgw_metadata:
         family: {exact: 'ceph_rgw_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -52182,7 +52377,7 @@ groups:
             range: {start: 721, end: 726}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 855, end: 860}
+            range: {start: 893, end: 898}
       ceph_smb_metadata:
         family: {exact: 'ceph_smb_metadata'}
         prometheus: {type: untyped, shape: scalar, classification: gauge}
@@ -52196,7 +52391,7 @@ groups:
         source_locations:
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 904, end: 909}
+            range: {start: 942, end: 947}
   mgr_rbd_stats:
     registrations:
       ceph_rbd_read_bytes:
@@ -52219,7 +52414,7 @@ groups:
             range: {start: 621, end: 622}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 743, end: 744}
+            range: {start: 781, end: 782}
       ceph_rbd_read_latency_count:
         family: {exact: 'ceph_rbd_read_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -52240,7 +52435,7 @@ groups:
             range: {start: 625, end: 626}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 747, end: 748}
+            range: {start: 785, end: 786}
       ceph_rbd_read_latency_sum:
         family: {exact: 'ceph_rbd_read_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -52261,7 +52456,7 @@ groups:
             range: {start: 625, end: 626}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 747, end: 748}
+            range: {start: 785, end: 786}
       ceph_rbd_read_ops:
         family: {exact: 'ceph_rbd_read_ops'}
         prometheus: {type: counter, shape: scalar}
@@ -52282,7 +52477,7 @@ groups:
             range: {start: 617, end: 618}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 739, end: 740}
+            range: {start: 777, end: 778}
       ceph_rbd_write_bytes:
         family: {exact: 'ceph_rbd_write_bytes'}
         prometheus: {type: counter, shape: scalar}
@@ -52303,7 +52498,7 @@ groups:
             range: {start: 619, end: 620}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 741, end: 742}
+            range: {start: 779, end: 780}
       ceph_rbd_write_latency_count:
         family: {exact: 'ceph_rbd_write_latency_count'}
         prometheus: {type: counter, shape: scalar}
@@ -52324,7 +52519,7 @@ groups:
             range: {start: 623, end: 624}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 745, end: 746}
+            range: {start: 783, end: 784}
       ceph_rbd_write_latency_sum:
         family: {exact: 'ceph_rbd_write_latency_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -52345,7 +52540,7 @@ groups:
             range: {start: 623, end: 624}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 745, end: 746}
+            range: {start: 783, end: 784}
       ceph_rbd_write_ops:
         family: {exact: 'ceph_rbd_write_ops'}
         prometheus: {type: counter, shape: scalar}
@@ -52366,7 +52561,7 @@ groups:
             range: {start: 615, end: 616}
           - upstream: ceph_tentacle
             path: 'src/pybind/mgr/prometheus/module.py'
-            range: {start: 737, end: 738}
+            range: {start: 775, end: 776}
   exporter_self:
     registrations:
       ceph_daemon_socket_up:

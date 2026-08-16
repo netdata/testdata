@@ -6996,3 +6996,53 @@ ceph_throttle_throttle_key_a_wait_sum{ceph_daemon="osd.0"} 100
 # HELP ceph_trackedop_slow_ops_count Number of operations taking over ten second.
 # TYPE ceph_trackedop_slow_ops_count counter
 ceph_trackedop_slow_ops_count{ceph_daemon="osd.0"} 100
+
+# HELP ceph_hardware_cpu_cores Total CPU cores.
+# TYPE ceph_hardware_cpu_cores gauge
+ceph_hardware_cpu_cores{hostname="node-a",cpu="cpu-0",manufacturer="vendor-a",model="model-a",total_threads="16"} 8
+
+# HELP ceph_hardware_fan_rpm Hardware fan speed in RPM.
+# TYPE ceph_hardware_fan_rpm gauge
+ceph_hardware_fan_rpm{hostname="node-a",fan_name="fan-0"} 7200
+
+# HELP ceph_hardware_firmware_info Firmware version information (value is always 1, version in label).
+# TYPE ceph_hardware_firmware_info gauge
+ceph_hardware_firmware_info{hostname="node-a",component="bios",version="1.2.3"} 1
+
+# HELP ceph_hardware_health Hardware component health status (0=OK, 1=Warning, 2=Error).
+# TYPE ceph_hardware_health gauge
+ceph_hardware_health{hostname="node-a",component="drive-0",category="storage"} 2
+ceph_hardware_health{hostname="node-a",component="cpu-0",category="processors"} 1
+ceph_hardware_health{hostname="node-a",component="dimm-0",category="memory"} 0
+ceph_hardware_health{hostname="node-a",component="psu-0",category="power"} 0
+ceph_hardware_health{hostname="node-a",component="nic-0",category="network"} 1
+ceph_hardware_health{hostname="node-a",component="fan-0",category="fans"} 2
+ceph_hardware_health{hostname="node-a",component="temp-0",category="temperatures"} 1
+
+# HELP ceph_hardware_memory_capacity_bytes Memory capacity in bytes.
+# TYPE ceph_hardware_memory_capacity_bytes gauge
+ceph_hardware_memory_capacity_bytes{hostname="node-a",dimm="dimm-0",type="DDR5"} 34359738368
+
+# HELP ceph_hardware_storage_capacity_bytes Storage device capacity in bytes.
+# TYPE ceph_hardware_storage_capacity_bytes gauge
+ceph_hardware_storage_capacity_bytes{hostname="node-a",device="drive-0",model="model-a",protocol="nvme",firmware_version="1.2.3",slot="slot-0",serial_number="serial-a"} 1000000000000
+
+# HELP ceph_hardware_temperature_celsius Hardware temperature sensor reading in Celsius.
+# TYPE ceph_hardware_temperature_celsius gauge
+ceph_hardware_temperature_celsius{hostname="node-a",sensor_name="temp-0"} 70
+
+# HELP ceph_recoverystate_perf_pg_rebuild_duration_count Average PG rebuild duration on this OSD (primary role only) Count.
+# TYPE ceph_recoverystate_perf_pg_rebuild_duration_count counter
+ceph_recoverystate_perf_pg_rebuild_duration_count{ceph_daemon="osd.0"} 10
+
+# HELP ceph_recoverystate_perf_pg_rebuild_duration_sum Average PG rebuild duration on this OSD (primary role only) Total.
+# TYPE ceph_recoverystate_perf_pg_rebuild_duration_sum counter
+ceph_recoverystate_perf_pg_rebuild_duration_sum{ceph_daemon="osd.0"} 120
+
+# HELP ceph_recoverystate_perf_pg_rebuild_max_secs Max PG rebuild duration seen on this OSD in seconds (primary role only).
+# TYPE ceph_recoverystate_perf_pg_rebuild_max_secs gauge
+ceph_recoverystate_perf_pg_rebuild_max_secs{ceph_daemon="osd.0"} 30
+
+# HELP ceph_recoverystate_perf_pg_rebuild_min_secs Min PG rebuild duration seen on this OSD in seconds (primary role only).
+# TYPE ceph_recoverystate_perf_pg_rebuild_min_secs gauge
+ceph_recoverystate_perf_pg_rebuild_min_secs{ceph_daemon="osd.0"} 2

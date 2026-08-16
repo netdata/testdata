@@ -378,6 +378,12 @@ def _mgr_expression(node: ast.AST, values: dict[str, object]) -> object:
             return left in right
         if isinstance(node.ops[0], ast.NotIn):
             return left not in right
+    if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+        arguments = [_mgr_expression(item, values) for item in node.args]
+        if node.keywords:
+            raise ValueError(f"unsupported keyword argument in MGR source expression at line {node.lineno}")
+        if node.func.id == "sensor_metric" and len(arguments) == 3:
+            return dict(zip(("metric", "description", "labels"), arguments))
     if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute):
         receiver = _mgr_expression(node.func.value, values)
         arguments = [_mgr_expression(item, values) for item in node.args]
@@ -388,6 +394,35 @@ def _mgr_expression(node: ast.AST, values: dict[str, object]) -> object:
         if node.func.attr == "lower" and isinstance(receiver, str) and not arguments:
             return receiver.lower()
     raise ValueError(f"unsupported MGR source expression {ast.dump(node, include_attributes=False)}")
+
+
+def _mgr_loop_items(
+    statement: ast.For,
+    environment: dict[str, object],
+    locations: dict[str, tuple[str, int, int]],
+) -> tuple[str, tuple[object, ...], tuple[str, int, int]]:
+    if not isinstance(statement.target, ast.Name):
+        raise ValueError(f"unsupported MGR source loop at line {statement.lineno}")
+    if isinstance(statement.iter, ast.Name):
+        registry_name = statement.iter.id
+        registry = environment.get(registry_name)
+        if registry_name not in locations or not isinstance(registry, (list, tuple)):
+            raise ValueError(f"unsupported MGR source loop at line {statement.lineno}")
+        return statement.target.id, tuple(registry), locations[registry_name]
+    if (
+        isinstance(statement.iter, ast.Call)
+        and not statement.iter.args
+        and not statement.iter.keywords
+        and isinstance(statement.iter.func, ast.Attribute)
+        and statement.iter.func.attr == "values"
+        and isinstance(statement.iter.func.value, ast.Name)
+    ):
+        registry_name = statement.iter.func.value.id
+        registry = environment.get(registry_name)
+        if registry_name not in locations or not isinstance(registry, dict):
+            raise ValueError(f"unsupported MGR source loop at line {statement.lineno}")
+        return statement.target.id, tuple(registry.values()), locations[registry_name]
+    raise ValueError(f"unsupported MGR source loop at line {statement.lineno}")
 
 
 def parse_mgr_static_registrations(root: Path, release: str) -> list[Registration]:
@@ -421,6 +456,28 @@ def parse_mgr_static_registrations(root: Path, release: str) -> list[Registratio
     values["HEALTH_CHECKS"] = health_checks
     locations["HEALTH_CHECKS"] = (source_path, health_assignment.lineno, health_assignment.end_lineno or health_assignment.lineno)
 
+    sensor_assignment = next((
+        node for node in tree.body
+        if isinstance(node, ast.AnnAssign)
+        and isinstance(node.target, ast.Name)
+        and node.target.id == "SENSOR_METRICS"
+    ), None)
+    if sensor_assignment is not None:
+        if not isinstance(sensor_assignment.value, ast.Dict):
+            raise ValueError(f"{source_path} SENSOR_METRICS is not a literal mapping")
+        sensors = _mgr_expression(sensor_assignment.value, values)
+        if not isinstance(sensors, dict) or not all(
+            isinstance(sensor, dict) and set(sensor) == {"metric", "description", "labels"}
+            for sensor in sensors.values()
+        ):
+            raise ValueError(f"{source_path} SENSOR_METRICS has an unsupported entry")
+        values["SENSOR_METRICS"] = sensors
+        locations["SENSOR_METRICS"] = (
+            source_path,
+            sensor_assignment.lineno,
+            sensor_assignment.end_lineno or sensor_assignment.lineno,
+        )
+
     module_class = next((node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == "Module"), None)
     if module_class is None:
         raise ValueError(f"{source_path} has no Module class")
@@ -437,14 +494,12 @@ def parse_mgr_static_registrations(root: Path, release: str) -> list[Registratio
         for statement in statements:
             if isinstance(statement, ast.Return):
                 continue
-            if isinstance(statement, ast.For) and isinstance(statement.target, ast.Name) and isinstance(statement.iter, ast.Name):
-                registry_name = statement.iter.id
-                if registry_name not in environment or registry_name not in locations:
-                    raise ValueError(f"unsupported MGR source loop at line {statement.lineno}")
-                for item in environment[registry_name]:
+            if isinstance(statement, ast.For):
+                target_name, items, location = _mgr_loop_items(statement, environment, locations)
+                for item in items:
                     nested = dict(environment)
-                    nested[statement.target.id] = item
-                    execute(statement.body, nested, inherited + (locations[registry_name],))
+                    nested[target_name] = item
+                    execute(statement.body, nested, inherited + (location,))
                 continue
             if not isinstance(statement, ast.Assign) or len(statement.targets) != 1:
                 raise ValueError(f"unsupported MGR source statement {type(statement).__name__} at line {statement.lineno}")
@@ -478,6 +533,7 @@ def parse_mgr_static_registrations(root: Path, release: str) -> list[Registratio
                 form=metric_name,
                 prometheus_type=metric_type_value,
                 priority=0,
+                shape=metric_family_shape(prometheus_name(metric_name), metric_type_value, "scalar"),
                 endpoint="mgr_synthetic",
                 classification="gauge" if metric_type_value == "untyped" else None,
                 exact_family_override=prometheus_name(metric_name),
