@@ -44000,12 +44000,6 @@ evidence:
     - src/pybind/mgr/prometheus/module.py:143-156
     - src/pybind/mgr/prometheus/module.py:2155-2163
     claim: Tentacle firmware values carry hostname, component, and firmware-version identity.
-  delegation_hardware_metrics:
-    kind: delegation
-    upstream: ceph_tentacle
-    locations:
-    - src/pybind/mgr/prometheus/module.py:1039-1080
-    claim: Tentacle exposes distinct hardware inventory, health, fan, and temperature metric families that require hardware-specific profile treatment.
   population_pg_rebuild:
     kind: population
     upstream: ceph_tentacle
@@ -44042,12 +44036,6 @@ evidence:
     locations:
     - src/osd/osd_perf_counters.cc:534-542
     claim: Tentacle's PG-rebuild perf-counter families retain the source daemon identity used for per-daemon recovery observations.
-  delegation_pg_rebuild:
-    kind: delegation
-    upstream: ceph_tentacle
-    locations:
-    - src/osd/osd_perf_counters.cc:534-542
-    claim: Tentacle exposes a distinct primary-OSD PG-rebuild recovery domain that requires recovery-specific profile treatment.
 environment:
   axes:
     source:

@@ -41,4 +41,8 @@ positive feature gate. Other generators use source-language-specific closed gram
 Prometheus profile validation uses the latest `netdata/testdata` `master`. Each profile has one stable directory; proof
 data and the matching Netdata profile proof are updated together when exporter coverage or validation behavior changes.
 
+Develop coordinated changes on paired feature branches in a contributor's testdata fork and Netdata checkout. Validate the
+Netdata proof against the local testdata branch, merge testdata first, update the Netdata checkout to merged testdata
+`master`, rerun the complete consumer proof, and merge the paired Netdata pull request promptly.
+
 Git owns transport integrity; this repository does not preserve historical proof revisions for old Netdata checkouts.
