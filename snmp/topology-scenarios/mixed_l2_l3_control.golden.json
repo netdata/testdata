@@ -47,6 +47,7 @@
         "hostnames": [],
         "id": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
         "ip_addresses": [
+          "10.10.10.2",
           "192.0.2.11"
         ],
         "layer": "network",
@@ -87,6 +88,7 @@
         "hostnames": [],
         "id": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
         "ip_addresses": [
+          "10.10.10.3",
           "192.0.2.12"
         ],
         "layer": "network",
@@ -121,7 +123,9 @@
         "hostnames": [],
         "id": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
         "ip_addresses": [
-          "192.0.2.1"
+          "10.10.10.1",
+          "192.0.2.1",
+          "198.51.100.1"
         ],
         "layer": "network",
         "lldp_neighbor_count": 1,
@@ -156,7 +160,8 @@
         "hostnames": [],
         "id": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
         "ip_addresses": [
-          "192.0.2.2"
+          "192.0.2.2",
+          "198.51.100.2"
         ],
         "layer": "network",
         "mac_addresses": [
@@ -1192,8 +1197,24 @@
               "key": "ip_address",
               "kind": "match",
               "source": "snmp-l2",
-              "value": "192.0.2.1",
+              "value": "10.10.10.1",
               "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
+              "key": "ip_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "192.0.2.1",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
+              "key": "ip_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "198.51.100.1",
+              "value_index": 2
             },
             {
               "actor": "mac:02:00:00:00:01:01,02:20:11:1c:54:5f,02:20:11:1c:56:12",
@@ -1512,6 +1533,14 @@
             },
             {
               "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
+              "key": "ip_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "198.51.100.2",
+              "value_index": 1
+            },
+            {
+              "actor": "mac:02:00:00:00:01:02,02:20:02:64:5d:77",
               "key": "layer",
               "kind": "identity",
               "source": "snmp-l2",
@@ -1821,8 +1850,16 @@
               "key": "ip_address",
               "kind": "match",
               "source": "snmp-l2",
-              "value": "192.0.2.11",
+              "value": "10.10.10.2",
               "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
+              "key": "ip_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "192.0.2.11",
+              "value_index": 1
             },
             {
               "actor": "mac:02:00:00:00:02:01,02:dd:ce:cc:45:64,02:dd:ce:cc:4a:7d",
@@ -2193,8 +2230,16 @@
               "key": "ip_address",
               "kind": "match",
               "source": "snmp-l2",
-              "value": "192.0.2.12",
+              "value": "10.10.10.3",
               "value_index": 0
+            },
+            {
+              "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
+              "key": "ip_address",
+              "kind": "match",
+              "source": "snmp-l2",
+              "value": "192.0.2.12",
+              "value_index": 1
             },
             {
               "actor": "mac:02:00:00:00:02:02,02:dd:c9:e4:b5:2c",
