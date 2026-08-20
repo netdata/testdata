@@ -3504,6 +3504,7 @@ ceph_mon_election_win{ceph_daemon="osd.0"} 100
 # HELP ceph_mon_metadata MON Metadata.
 # TYPE ceph_mon_metadata untyped
 ceph_mon_metadata{ceph_daemon="osd.0",ceph_version="ceph_version_a",hostname="hostname_a",public_addr="public_addr_a",rank="rank_a"} 1
+ceph_mon_metadata{ceph_daemon="osd.1",ceph_version="ceph_version_a",hostname="hostname_a",public_addr="public_addr_a",rank="rank_a"} 1
 
 # HELP ceph_mon_num_elections Elections participated in.
 # TYPE ceph_mon_num_elections counter
@@ -3516,6 +3517,7 @@ ceph_mon_num_sessions{ceph_daemon="osd.0"} 1
 # HELP ceph_mon_quorum_status Monitors in quorum.
 # TYPE ceph_mon_quorum_status gauge
 ceph_mon_quorum_status{ceph_daemon="osd.0"} 1
+ceph_mon_quorum_status{ceph_daemon="osd.1"} 0
 
 # HELP ceph_mon_session_add Created sessions.
 # TYPE ceph_mon_session_add counter
@@ -4773,6 +4775,7 @@ ceph_osd_messages_delayed_for_map{ceph_daemon="osd.0"} 100
 # HELP ceph_osd_metadata OSD Metadata.
 # TYPE ceph_osd_metadata untyped
 ceph_osd_metadata{back_iface="back_iface_a",ceph_daemon="osd.0",ceph_version="ceph_version_a",cluster_addr="cluster_addr_a",device_class="device_class_a",front_iface="front_iface_a",hostname="hostname_a",objectstore="objectstore_a",public_addr="public_addr_a"} 1
+ceph_osd_metadata{back_iface="back_iface_a",ceph_daemon="osd.1",ceph_version="ceph_version_a",cluster_addr="cluster_addr_a",device_class="device_class_a",front_iface="front_iface_a",hostname="hostname_a",objectstore="objectstore_a",public_addr="public_addr_a"} 1
 
 # HELP ceph_osd_missed_crc Total number of crc cache misses.
 # TYPE ceph_osd_missed_crc gauge
@@ -5181,6 +5184,7 @@ ceph_osd_tier_whiteout{ceph_daemon="osd.0"} 100
 # HELP ceph_osd_up OSD status up.
 # TYPE ceph_osd_up untyped
 ceph_osd_up{ceph_daemon="osd.0"} 1
+ceph_osd_up{ceph_daemon="osd.1"} 0
 
 # HELP ceph_osd_weight OSD status weight.
 # TYPE ceph_osd_weight untyped

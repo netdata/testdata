@@ -78864,10 +78864,10 @@ signals:
           evidence:
           - lifecycle_mon_metadata
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
+          object: monitors
           aspect: metadata
           evidence:
           - unit_mon_metadata
@@ -79057,10 +79057,10 @@ signals:
           evidence:
           - lifecycle_mon_quorum_status
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
+          object: monitors
           aspect: quorum_status
           evidence:
           - unit_mon_quorum_status
@@ -87761,10 +87761,10 @@ signals:
           evidence:
           - lifecycle_osd_in
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
+          object: osds
           aspect: in
           evidence:
           - unit_osd_in
@@ -88657,10 +88657,10 @@ signals:
           evidence:
           - lifecycle_osd_metadata
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
+          object: osds
           aspect: value
           evidence:
           - unit_osd_metadata
@@ -100212,10 +100212,10 @@ signals:
           evidence:
           - lifecycle_osd_up
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
+          object: osds
           aspect: up
           evidence:
           - unit_osd_up
