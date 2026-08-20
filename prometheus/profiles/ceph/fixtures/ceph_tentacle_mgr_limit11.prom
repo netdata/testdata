@@ -5904,6 +5904,7 @@ ceph_pg_activating{pool_id="pool_id_a"} 1
 # HELP ceph_pg_active PG active per pool.
 # TYPE ceph_pg_active gauge
 ceph_pg_active{pool_id="pool_id_a"} 1
+ceph_pg_active{pool_id="pool_id_b"} 1
 
 # HELP ceph_pg_backfill_toofull PG backfill_toofull per pool.
 # TYPE ceph_pg_backfill_toofull gauge
@@ -5924,6 +5925,7 @@ ceph_pg_backfilling{pool_id="pool_id_a"} 1
 # HELP ceph_pg_clean PG clean per pool.
 # TYPE ceph_pg_clean gauge
 ceph_pg_clean{pool_id="pool_id_a"} 1
+ceph_pg_clean{pool_id="pool_id_b"} 0
 
 # HELP ceph_pg_creating PG creating per pool.
 # TYPE ceph_pg_creating gauge
@@ -6024,6 +6026,7 @@ ceph_pg_stale{pool_id="pool_id_a"} 1
 # HELP ceph_pg_total PG Total Count per Pool.
 # TYPE ceph_pg_total gauge
 ceph_pg_total{pool_id="pool_id_a"} 1
+ceph_pg_total{pool_id="pool_id_b"} 2
 
 # HELP ceph_pg_undersized PG undersized per pool.
 # TYPE ceph_pg_undersized gauge
@@ -7018,6 +7021,8 @@ ceph_hardware_health{hostname="node-a",component="psu-0",category="power"} 0
 ceph_hardware_health{hostname="node-a",component="nic-0",category="network"} 1
 ceph_hardware_health{hostname="node-a",component="fan-0",category="fans"} 2
 ceph_hardware_health{hostname="node-a",component="temp-0",category="temperatures"} 1
+ceph_hardware_health{hostname="node-b",component="drive-0",category="storage"} 0
+ceph_hardware_health{hostname="node-b",component="drive-1",category="storage"} 1
 
 # HELP ceph_hardware_memory_capacity_bytes Memory capacity in bytes.
 # TYPE ceph_hardware_memory_capacity_bytes gauge
@@ -7029,7 +7034,14 @@ ceph_hardware_storage_capacity_bytes{hostname="node-a",device="drive-0",model="m
 
 # HELP ceph_hardware_temperature_celsius Hardware temperature sensor reading in Celsius.
 # TYPE ceph_hardware_temperature_celsius gauge
-ceph_hardware_temperature_celsius{hostname="node-a",sensor_name="temp-0"} 70
+ceph_hardware_temperature_celsius{hostname="node-a",sensor_name="MB_TEMP_0"} 61
+ceph_hardware_temperature_celsius{hostname="node-a",sensor_name="DIMM_0_TEMP"} 81
+ceph_hardware_temperature_celsius{hostname="node-a",sensor_name="CPU_TEMP_0"} 81
+ceph_hardware_temperature_celsius{hostname="node-a",sensor_name="NVME_0_TEMP"} 71
+ceph_hardware_temperature_celsius{hostname="node-b",sensor_name="MB_TEMP_0"} 59
+ceph_hardware_temperature_celsius{hostname="node-b",sensor_name="DIMM_0_TEMP"} 79
+ceph_hardware_temperature_celsius{hostname="node-b",sensor_name="CPU_TEMP_0"} 79
+ceph_hardware_temperature_celsius{hostname="node-b",sensor_name="NVME_0_TEMP"} 69
 
 # HELP ceph_recoverystate_perf_pg_rebuild_duration_count Average PG rebuild duration on this OSD (primary role only) Count.
 # TYPE ceph_recoverystate_perf_pg_rebuild_duration_count counter

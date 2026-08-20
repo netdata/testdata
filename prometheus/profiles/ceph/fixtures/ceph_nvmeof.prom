@@ -8,7 +8,7 @@ ceph_nvmeof_bdev_capacity_bytes{bdev_name="bdev_name_a"} 1
 
 # HELP ceph_nvmeof_bdev_metadata BDEV Metadata.
 # TYPE ceph_nvmeof_bdev_metadata gauge
-ceph_nvmeof_bdev_metadata{bdev_name="bdev_name_a",block_size="block_size_a",instance="instance_a",namespace="namespace_a",pool_name="pool_name_a",rbd_name="rbd_name_a"} 1
+ceph_nvmeof_bdev_metadata{bdev_name="bdev_name_a",block_size="block_size_a",namespace="namespace_a",pool_name="pool_name_a",rbd_name="rbd_name_a"} 1
 
 # HELP ceph_nvmeof_bdev_read_bytes_total Total number of bytes read successfully.
 # TYPE ceph_nvmeof_bdev_read_bytes_total counter
@@ -16,19 +16,23 @@ ceph_nvmeof_bdev_read_bytes_total{bdev_name="bdev_name_a"} 100
 
 # HELP ceph_nvmeof_bdev_read_seconds_total Total time spent servicing READ I/O.
 # TYPE ceph_nvmeof_bdev_read_seconds_total counter
-ceph_nvmeof_bdev_read_seconds_total{bdev_name="bdev_name_a",instance="instance_a"} 100
+ceph_nvmeof_bdev_read_seconds_total{bdev_name="bdev_slow"} 120
+ceph_nvmeof_bdev_read_seconds_total{bdev_name="bdev_fast"} 80
 
 # HELP ceph_nvmeof_bdev_reads_completed_total Total number of read operations completed.
 # TYPE ceph_nvmeof_bdev_reads_completed_total counter
-ceph_nvmeof_bdev_reads_completed_total{bdev_name="bdev_name_a",instance="instance_a"} 100
+ceph_nvmeof_bdev_reads_completed_total{bdev_name="bdev_slow"} 10000
+ceph_nvmeof_bdev_reads_completed_total{bdev_name="bdev_fast"} 10000
 
 # HELP ceph_nvmeof_bdev_write_seconds_total Total time spent servicing WRITE I/O.
 # TYPE ceph_nvmeof_bdev_write_seconds_total counter
-ceph_nvmeof_bdev_write_seconds_total{bdev_name="bdev_name_a",instance="instance_a"} 100
+ceph_nvmeof_bdev_write_seconds_total{bdev_name="bdev_slow"} 250
+ceph_nvmeof_bdev_write_seconds_total{bdev_name="bdev_fast"} 150
 
 # HELP ceph_nvmeof_bdev_writes_completed_total Total number of write operations completed.
 # TYPE ceph_nvmeof_bdev_writes_completed_total counter
-ceph_nvmeof_bdev_writes_completed_total{bdev_name="bdev_name_a",instance="instance_a"} 100
+ceph_nvmeof_bdev_writes_completed_total{bdev_name="bdev_slow"} 10000
+ceph_nvmeof_bdev_writes_completed_total{bdev_name="bdev_fast"} 10000
 
 # HELP ceph_nvmeof_bdev_written_bytes_total Total number of bytes written successfully.
 # TYPE ceph_nvmeof_bdev_written_bytes_total counter
@@ -36,7 +40,7 @@ ceph_nvmeof_bdev_written_bytes_total{bdev_name="bdev_name_a"} 100
 
 # HELP ceph_nvmeof_gateway_info Gateway information.
 # TYPE ceph_nvmeof_gateway_info gauge
-ceph_nvmeof_gateway_info{addr="addr_a",group="group_a",hostname="hostname_a",instance="instance_a",load_balancing_group="load_balancing_group_a",name="name_a",port="port_a",spdk_version="spdk_version_a",version="version_a"} 1
+ceph_nvmeof_gateway_info{addr="addr_a",group="group_a",hostname="hostname_a",load_balancing_group="load_balancing_group_a",name="name_a",port="port_a",spdk_version="spdk_version_a",version="version_a"} 1
 
 # HELP ceph_nvmeof_host_connection_state Host connection state 0=disconnected, 1=connected.
 # TYPE ceph_nvmeof_host_connection_state gauge
@@ -44,11 +48,16 @@ ceph_nvmeof_host_connection_state{gw_name="gw_name_a",host_addr="host_addr_a",ho
 
 # HELP ceph_nvmeof_host_keepalive_timeout Host keepalive timeout 0=no, 1=yes.
 # TYPE ceph_nvmeof_host_keepalive_timeout gauge
-ceph_nvmeof_host_keepalive_timeout{gw_name="gw_name_a",host_nqn="host_nqn_a",instance="instance_a",nqn="nqn_a"} 1
+ceph_nvmeof_host_keepalive_timeout{gw_name="gw_name_a",host_nqn="host_nqn_timeout",nqn="nqn_secure"} 1
+ceph_nvmeof_host_keepalive_timeout{gw_name="gw_name_a",host_nqn="host_nqn_connected",nqn="nqn_secure"} 0
 
 # HELP ceph_nvmeof_reactor_seconds_total Time reactor thread active with I/O.
 # TYPE ceph_nvmeof_reactor_seconds_total counter
-ceph_nvmeof_reactor_seconds_total{instance="instance_a",mode="mode_a",name="name_a"} 100
+# Gateway A reactor threads.
+ceph_nvmeof_reactor_seconds_total{mode="busy",name="reactor_0"} 5400
+ceph_nvmeof_reactor_seconds_total{mode="idle",name="reactor_0"} 600
+ceph_nvmeof_reactor_seconds_total{mode="busy",name="reactor_1"} 4800
+ceph_nvmeof_reactor_seconds_total{mode="idle",name="reactor_1"} 1200
 
 # HELP ceph_nvmeof_rpc_method_seconds Run times of the RPC method calls.
 # TYPE ceph_nvmeof_rpc_method_seconds gauge
@@ -60,7 +69,7 @@ ceph_nvmeof_subsystem_host_count{nqn="nqn_a"} 1
 
 # HELP ceph_nvmeof_subsystem_listener_count Number of listener addresses used by the subsystem.
 # TYPE ceph_nvmeof_subsystem_listener_count gauge
-ceph_nvmeof_subsystem_listener_count{instance="instance_a",nqn="nqn_a"} 1
+ceph_nvmeof_subsystem_listener_count{nqn="nqn_a"} 1
 
 # HELP ceph_nvmeof_subsystem_listener_iface_info Interface information.
 # TYPE ceph_nvmeof_subsystem_listener_iface_info gauge
@@ -76,16 +85,23 @@ ceph_nvmeof_subsystem_listener_iface_speed_bytes{device="device-a"} 1
 
 # HELP ceph_nvmeof_subsystem_metadata Metadata describing the subsystem configuration.
 # TYPE ceph_nvmeof_subsystem_metadata gauge
-ceph_nvmeof_subsystem_metadata{allow_any_host="allow_any_host_a",group="group_a",ha_enabled="ha_enabled_a",instance="instance_a",model_number="model_number_a",nqn="nqn_a",serial_number="serial_number_a"} 1
+ceph_nvmeof_subsystem_metadata{allow_any_host="yes",group="group_a",ha_enabled="yes",model_number="model_number_a",nqn="nqn_open",serial_number="serial_number_a"} 1
+ceph_nvmeof_subsystem_metadata{allow_any_host="no",group="group_a",ha_enabled="yes",model_number="model_number_a",nqn="nqn_secure",serial_number="serial_number_b"} 1
+ceph_nvmeof_subsystem_metadata{allow_any_host="no",group="group_b",ha_enabled="yes",model_number="model_number_b",nqn="nqn_secure",serial_number="serial_number_b"} 1
 
 # HELP ceph_nvmeof_subsystem_namespace_count Number of namespaces associated with the subsystem.
 # TYPE ceph_nvmeof_subsystem_namespace_count gauge
-ceph_nvmeof_subsystem_namespace_count{instance="instance_a",nqn="nqn_a"} 1
+ceph_nvmeof_subsystem_namespace_count{nqn="nqn_open"} 2
+ceph_nvmeof_subsystem_namespace_count{nqn="nqn_secure"} 1
 
 # HELP ceph_nvmeof_subsystem_namespace_limit Maximum namespaces supported.
 # TYPE ceph_nvmeof_subsystem_namespace_limit gauge
-ceph_nvmeof_subsystem_namespace_limit{nqn="nqn_a"} 1
+ceph_nvmeof_subsystem_namespace_limit{nqn="nqn_open"} 3
+ceph_nvmeof_subsystem_namespace_limit{nqn="nqn_secure"} 1
 
 # HELP ceph_nvmeof_subsystem_namespace_metadata Namespace information for the subsystem.
 # TYPE ceph_nvmeof_subsystem_namespace_metadata gauge
-ceph_nvmeof_subsystem_namespace_metadata{anagrpid="anagrpid_a",bdev_name="bdev_name_a",instance="instance_a",nqn="nqn_a",nsid="nsid_a",rados_namespace_name="rados_namespace_name_a"} 1
+ceph_nvmeof_subsystem_namespace_metadata{anagrpid="anagrpid_a",bdev_name="bdev_open_1",nqn="nqn_open",nsid="1",rados_namespace_name="rados_namespace_name_a"} 1
+ceph_nvmeof_subsystem_namespace_metadata{anagrpid="anagrpid_a",bdev_name="bdev_open_2",nqn="nqn_open",nsid="2",rados_namespace_name="rados_namespace_name_a"} 1
+ceph_nvmeof_subsystem_namespace_metadata{anagrpid="anagrpid_a",bdev_name="bdev_secure_1",nqn="nqn_secure",nsid="1",rados_namespace_name="rados_namespace_name_a"} 1
+ceph_nvmeof_subsystem_namespace_metadata{anagrpid="anagrpid_b",bdev_name="bdev_name_b",nqn="nqn_secure",nsid="1",rados_namespace_name="rados_namespace_name_b"} 1

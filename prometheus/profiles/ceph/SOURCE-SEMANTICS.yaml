@@ -78,6 +78,41 @@ evidence:
     - src/pybind/mgr/mgr_module.py:1447-1454
     claim: Daemon-perf producers add instance_id for RGW and ceph_daemon for every other daemon role, never both on one source
       series.
+  health_detail_name_severity_reef:
+    kind: relationship
+    upstream: ceph_reef
+    locations:
+    - src/pybind/mgr/prometheus/module.py:144-233
+    - src/pybind/mgr/prometheus/module.py:932-937
+    claim: MGR health history is keyed by health-check name and emits the severity recorded when each named record was created.
+  health_detail_name_severity_squid:
+    kind: relationship
+    upstream: ceph_squid
+    locations:
+    - src/pybind/mgr/prometheus/module.py:144-233
+    - src/pybind/mgr/prometheus/module.py:932-937
+    claim: MGR health history is keyed by health-check name and emits the severity recorded when each named record was created.
+  health_detail_name_severity_tentacle:
+    kind: relationship
+    upstream: ceph_tentacle
+    locations:
+    - src/pybind/mgr/prometheus/module.py:243-338
+    - src/pybind/mgr/prometheus/module.py:1160-1166
+    claim: MGR health history is keyed by health-check name and emits the severity recorded when each named record was created.
+  mon_member_additive_values:
+    kind: relationship
+    upstream: ceph_reef
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1017-1033
+    claim: MGR emits one metadata value of 1 and one quorum-state value of 0 or 1 for each monitor; ceph_daemon identifies
+      the member, determines its current metadata labels, and makes both values additive across the emitted monitor population.
+  osd_member_additive_values:
+    kind: relationship
+    upstream: ceph_reef
+    locations:
+    - src/pybind/mgr/prometheus/module.py:1121-1183
+    claim: MGR emits one metadata value of 1 and one up-state value of 0 or 1 for each eligible OSD; ceph_daemon identifies
+      the member, determines its current metadata labels, and makes both values additive across the emitted OSD population.
   objecter_handle_population:
     kind: population
     upstream: ceph_reef
@@ -10331,8 +10366,13 @@ evidence:
     kind: unit
     upstream: ceph_reef
     locations:
-    - src/pybind/mgr/prometheus/module.py:756-761
-    claim: The registered ceph_daemon_health_metrics value uses the declared source unit algebra.
+    - src/mgr/DaemonHealthMetric.h:10-60
+    - src/mgr/DaemonHealthMetricCollector.cc:13-52
+    - src/osd/OSD.cc:7935-8020
+    - src/mon/Monitor.cc:5987-6017
+    - src/pybind/mgr/prometheus/module.py:1630-1637
+    claim: The ceph_daemon_health_metrics value is a current count whose counted object is selected by the type label;
+      SLOW_OPS counts slow operations and emits zero when none are present.
   labels_daemon_health_metrics:
     kind: label
     upstream: ceph_reef
@@ -13480,9 +13520,11 @@ evidence:
     kind: unit
     upstream: ceph_reef
     locations:
+    - src/mgr/DaemonHealthMetricCollector.cc:13-52
     - src/pybind/mgr/prometheus/module.py:109-111
-    - src/pybind/mgr/prometheus/module.py:841-845
-    claim: The registered ceph_healthcheck_slow_ops value uses the declared source unit algebra.
+    - src/pybind/mgr/prometheus/module.py:903-929
+    claim: The ceph_healthcheck_slow_ops value is the current cluster slow-operation count parsed from the SLOW_OPS health
+      summary and is zero when that health check is inactive.
   population_ipv4_dpdk_ip_linearize_operations:
     kind: population
     upstream: ceph_reef
@@ -22400,6 +22442,13 @@ evidence:
     locations:
     - control/prometheus.py:438-441
     claim: The registered ceph_nvmeof_reactor_seconds_total source family observes Time reactor thread active with I/O
+  nvmeof_reactor_mode_partition:
+    kind: relationship
+    upstream: ceph_nvmeof
+    locations:
+    - control/prometheus.py:436-441
+    claim: Each reactor thread emits disjoint busy and idle cumulative time populations; mode selects exactly one of those
+      populations, so observations selected by a fixed mode never collide after mode is omitted.
   lifecycle_nvmeof_reactor_seconds_total:
     kind: lifecycle
     upstream: ceph_nvmeof
@@ -22596,6 +22645,14 @@ evidence:
     - control/prometheus.py:471-474
     claim: The registered ceph_nvmeof_subsystem_namespace_count source family observes Number of namespaces associated with
       the subsystem
+  nvmeof_gateway_namespace_population:
+    kind: relationship
+    upstream: ceph_nvmeof
+    locations:
+    - control/prometheus.py:471-474
+    - control/prometheus.py:503-508
+    claim: The exporter emits one current namespace count for each subsystem on one gateway endpoint; subsystem counts are
+      additive within that local endpoint and must not be combined across endpoints.
   lifecycle_nvmeof_subsystem_namespace_count:
     kind: lifecycle
     upstream: ceph_nvmeof
@@ -60009,11 +60066,11 @@ signals:
           evidence:
           - lifecycle_daemon_health_metrics
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
-          aspect: value
+          object: items
+          aspect: current
           evidence:
           - unit_daemon_health_metrics
     labels:
@@ -64906,7 +64963,16 @@ signals:
         stability: stable
         evidence:
         - labels_health_detail
-    functional_dependencies: {}
+    functional_dependencies:
+      name_severity:
+        determinants:
+        - name
+        dependents:
+        - severity
+        evidence:
+        - health_detail_name_severity_reef
+        - health_detail_name_severity_squid
+        - health_detail_name_severity_tentacle
   health_status:
     source:
       generated:
@@ -64958,11 +65024,11 @@ signals:
           evidence:
           - lifecycle_healthcheck_slow_ops
         unit:
-          quantity: state
+          quantity: count
           base: one
           rate: none
-          object: state
-          aspect: value
+          object: operations
+          aspect: slow
           evidence:
           - unit_healthcheck_slow_ops
     functional_dependencies: {}
@@ -78856,7 +78922,40 @@ signals:
         stability: stable
         evidence:
         - labels_mon_metadata
-    functional_dependencies: {}
+    functional_dependencies:
+      daemon_metadata:
+        determinants:
+        - ceph_daemon
+        dependents:
+        - ceph_version
+        - hostname
+        - public_addr
+        - rank
+        evidence:
+        - mon_member_additive_values
+    contributors:
+      variants:
+        monitors:
+          identity:
+          - ceph_daemon
+          cardinality:
+            kind: operational_population
+          concurrency: may_coexist
+          value_model:
+            value: additive
+          membership:
+            stability: dynamic
+          reset:
+            scope: per_contributor
+          join:
+            new_contributor_baseline: current_total
+          evidence:
+            population:
+            - population_mon_metadata
+            lifecycle:
+            - lifecycle_mon_metadata
+            relationship:
+            - mon_member_additive_values
   mon_num_elections:
     source:
       generated:
@@ -78977,6 +79076,29 @@ signals:
         evidence:
         - labels_mon_quorum_status
     functional_dependencies: {}
+    contributors:
+      variants:
+        monitors:
+          identity:
+          - ceph_daemon
+          cardinality:
+            kind: operational_population
+          concurrency: may_coexist
+          value_model:
+            value: additive
+          membership:
+            stability: dynamic
+          reset:
+            scope: per_contributor
+          join:
+            new_contributor_baseline: current_total
+          evidence:
+            population:
+            - population_mon_quorum_status
+            lifecycle:
+            - lifecycle_mon_quorum_status
+            relationship:
+            - mon_member_additive_values
   mon_session_add:
     source:
       generated:
@@ -79276,16 +79398,6 @@ signals:
         stability: stable
         evidence:
         - labels_nvmeof_bdev_metadata
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_bdev_metadata
       namespace:
         meaning: Ceph source label namespace.
         presence: required
@@ -79396,16 +79508,6 @@ signals:
         stability: stable
         evidence:
         - labels_nvmeof_bdev_read_seconds_total
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_bdev_read_seconds_total
     functional_dependencies: {}
   nvmeof_bdev_reads_completed_total:
     source:
@@ -79438,16 +79540,6 @@ signals:
     labels:
       bdev_name:
         meaning: Ceph source label bdev name.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_bdev_reads_completed_total
-      instance:
-        meaning: Ceph source label instance.
         presence: required
         domain:
           kind: open
@@ -79496,16 +79588,6 @@ signals:
         stability: stable
         evidence:
         - labels_nvmeof_bdev_write_seconds_total
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_bdev_write_seconds_total
     functional_dependencies: {}
   nvmeof_bdev_writes_completed_total:
     source:
@@ -79538,16 +79620,6 @@ signals:
     labels:
       bdev_name:
         meaning: Ceph source label bdev name.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_bdev_writes_completed_total
-      instance:
-        meaning: Ceph source label instance.
         presence: required
         domain:
           kind: open
@@ -79648,16 +79720,6 @@ signals:
         - labels_nvmeof_gateway_info
       hostname:
         meaning: Ceph source label hostname.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_gateway_info
-      instance:
-        meaning: Ceph source label instance.
         presence: required
         domain:
           kind: open
@@ -79836,16 +79898,6 @@ signals:
         stability: stable
         evidence:
         - labels_nvmeof_host_keepalive_timeout
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_host_keepalive_timeout
       nqn:
         meaning: Ceph source label nqn.
         presence: required
@@ -79886,37 +79938,35 @@ signals:
           evidence:
           - unit_nvmeof_reactor_seconds_total
     labels:
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_reactor_seconds_total
       mode:
-        meaning: Ceph exporter process CPU-time mode.
+        meaning: Reactor cumulative-time population selector, busy or idle.
         presence: required
         domain:
-          kind: open
+          kind: closed
+          values: [busy, idle]
         endpoint_cardinality:
-          kind: unknown
+          kind: closed_domain
         stability: stable
         evidence:
         - labels_nvmeof_reactor_seconds_total
       name:
-        meaning: Ceph source label name.
+        meaning: Reactor thread name.
         presence: required
         domain:
           kind: open
         endpoint_cardinality:
-          kind: unknown
+          kind: operational_population
         stability: stable
         evidence:
         - labels_nvmeof_reactor_seconds_total
-    functional_dependencies: {}
+    functional_dependencies:
+      reactor_mode_partition:
+        determinants:
+        - name
+        dependents:
+        - mode
+        evidence:
+        - nvmeof_reactor_mode_partition
   nvmeof_rpc_method_seconds:
     source:
       generated:
@@ -80026,16 +80076,6 @@ signals:
           evidence:
           - unit_nvmeof_subsystem_listener_count
     labels:
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_subsystem_listener_count
       nqn:
         meaning: Ceph source label nqn.
         presence: required
@@ -80267,16 +80307,6 @@ signals:
         stability: stable
         evidence:
         - labels_nvmeof_subsystem_metadata
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_subsystem_metadata
       model_number:
         meaning: Ceph source label model number.
         presence: required
@@ -80337,16 +80367,6 @@ signals:
           evidence:
           - unit_nvmeof_subsystem_namespace_count
     labels:
-      instance:
-        meaning: Ceph source label instance.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_subsystem_namespace_count
       nqn:
         meaning: Ceph source label nqn.
         presence: required
@@ -80358,6 +80378,30 @@ signals:
         evidence:
         - labels_nvmeof_subsystem_namespace_count
     functional_dependencies: {}
+    contributors:
+      variants:
+        subsystems:
+          identity:
+          - nqn
+          cardinality:
+            kind: operational_population
+          concurrency: may_coexist
+          value_model:
+            value: additive
+          membership:
+            stability: dynamic
+          reset:
+            scope: per_contributor
+          join:
+            new_contributor_baseline: current_total
+          evidence:
+            population:
+            - population_nvmeof_subsystem_namespace_count
+            lifecycle:
+            - lifecycle_nvmeof_subsystem_namespace_count
+            relationship:
+            - nvmeof_gateway_namespace_population
+
   nvmeof_subsystem_namespace_limit:
     source:
       generated:
@@ -80439,16 +80483,6 @@ signals:
         - labels_nvmeof_subsystem_namespace_metadata
       bdev_name:
         meaning: Ceph source label bdev name.
-        presence: required
-        domain:
-          kind: open
-        endpoint_cardinality:
-          kind: unknown
-        stability: stable
-        evidence:
-        - labels_nvmeof_subsystem_namespace_metadata
-      instance:
-        meaning: Ceph source label instance.
         presence: required
         domain:
           kind: open
@@ -88721,7 +88755,44 @@ signals:
         stability: stable
         evidence:
         - labels_osd_metadata
-    functional_dependencies: {}
+    functional_dependencies:
+      daemon_metadata:
+        determinants:
+        - ceph_daemon
+        dependents:
+        - back_iface
+        - ceph_version
+        - cluster_addr
+        - device_class
+        - front_iface
+        - hostname
+        - objectstore
+        - public_addr
+        evidence:
+        - osd_member_additive_values
+    contributors:
+      variants:
+        osds:
+          identity:
+          - ceph_daemon
+          cardinality:
+            kind: operational_population
+          concurrency: may_coexist
+          value_model:
+            value: additive
+          membership:
+            stability: dynamic
+          reset:
+            scope: per_contributor
+          join:
+            new_contributor_baseline: current_total
+          evidence:
+            population:
+            - population_osd_metadata
+            lifecycle:
+            - lifecycle_osd_metadata
+            relationship:
+            - osd_member_additive_values
   osd_missed_crc:
     source:
       generated:
@@ -100160,6 +100231,29 @@ signals:
         evidence:
         - labels_osd_up
     functional_dependencies: {}
+    contributors:
+      variants:
+        osds:
+          identity:
+          - ceph_daemon
+          cardinality:
+            kind: operational_population
+          concurrency: may_coexist
+          value_model:
+            value: additive
+          membership:
+            stability: dynamic
+          reset:
+            scope: per_contributor
+          join:
+            new_contributor_baseline: current_total
+          evidence:
+            population:
+            - population_osd_up
+            lifecycle:
+            - lifecycle_osd_up
+            relationship:
+            - osd_member_additive_values
   osd_watch_timeouts:
     source:
       generated:
@@ -119220,7 +119314,7 @@ signals:
       value:
         wire_role: scalar
         lifecycle: {kind: current, evidence: [lifecycle_hardware_metrics]}
-        unit: {quantity: count, base: one, rate: none, object: fan_revolutions_per_minute, aspect: reported, evidence: [unit_hardware_fan_revolutions_per_minute]}
+        unit: {quantity: count, base: one, rate: per_minute, object: fan_revolutions, aspect: reported, evidence: [unit_hardware_fan_revolutions_per_minute]}
     functional_dependencies: {}
     labels:
       hostname: {meaning: Node-proxy host identity, presence: required, domain: {kind: open}, endpoint_cardinality: {kind: operational_population}, stability: dynamic, evidence: [labels_hardware_fan]}
@@ -119417,6 +119511,35 @@ signals:
     functional_dependencies: {}
     label_policy: labels_pg_rebuild
 relationships:
+  nvmeof_reactor_time_modes:
+    kind: partition
+    whole:
+      signal: nvmeof_reactor_seconds_total
+      components:
+      - value
+    parts:
+    - signal: nvmeof_reactor_seconds_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: mode
+            op: eq
+            value: busy
+    - signal: nvmeof_reactor_seconds_total
+      components:
+      - value
+      where:
+        any:
+        - all:
+          - label: mode
+            op: eq
+            value: idle
+    disjoint: true
+    exhaustive: true
+    evidence:
+    - nvmeof_reactor_mode_partition
   data_sync_from_zone_fetch_bytes_count_mgr_duplicate:
     kind: equivalent
     left:
