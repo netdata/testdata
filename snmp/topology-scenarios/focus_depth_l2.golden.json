@@ -386,7 +386,7 @@
     "bgp_peer_rows": 0,
     "bridge_domains_total": 0,
     "depth": 1,
-    "devices_discovered": 2,
+    "devices_discovered": 3,
     "devices_total": 3,
     "endpoints_ambiguous_segments": 0,
     "endpoints_total": 0,
