@@ -164,11 +164,11 @@ ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_sum{c
 
 # HELP ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts Number of connections closed due to idleness.
 # TYPE ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts counter
-ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts{ceph_daemon="osd.0",id="id_a",instance_id="rgw.a"} 100
+ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts{instance_id="rgw.a",id="id_a"} 100
 
 # HELP ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts Number of not yet ready connections declared as dead.
 # TYPE ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts counter
-ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts{ceph_daemon="osd.0",id="id_a",instance_id="rgw.a"} 100
+ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts{instance_id="rgw.a",id="id_a"} 100
 
 # HELP ceph_KStore_state_done_lat_count Average done state latency Count.
 # TYPE ceph_KStore_state_done_lat_count counter

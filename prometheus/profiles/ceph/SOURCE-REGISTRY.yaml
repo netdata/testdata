@@ -1397,490 +1397,490 @@ family_grammars:
           prefix: 'ceph_objecter_'
           suffix: 'command_active'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       command_resend:
         canonical: {prefix: 'ceph_objecter_', suffix: 'command_resend'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'command_resend'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       command_send:
         canonical: {prefix: 'ceph_objecter_', suffix: 'command_send'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'command_send'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       linger_active:
         canonical: {prefix: 'ceph_objecter_', suffix: 'linger_active'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'linger_active'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       linger_ping:
         canonical: {prefix: 'ceph_objecter_', suffix: 'linger_ping'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'linger_ping'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       linger_resend:
         canonical: {prefix: 'ceph_objecter_', suffix: 'linger_resend'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'linger_resend'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       linger_send:
         canonical: {prefix: 'ceph_objecter_', suffix: 'linger_send'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'linger_send'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       map_epoch:
         canonical: {prefix: 'ceph_objecter_', suffix: 'map_epoch'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'map_epoch'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       map_full:
         canonical: {prefix: 'ceph_objecter_', suffix: 'map_full'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'map_full'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       map_inc:
         canonical: {prefix: 'ceph_objecter_', suffix: 'map_inc'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'map_inc'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       omap_del:
         canonical: {prefix: 'ceph_objecter_', suffix: 'omap_del'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'omap_del'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       omap_rd:
         canonical: {prefix: 'ceph_objecter_', suffix: 'omap_rd'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'omap_rd'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       omap_wr:
         canonical: {prefix: 'ceph_objecter_', suffix: 'omap_wr'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'omap_wr'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_active:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_active'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_active'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_inflight:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_inflight'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_inflight'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_laggy:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_laggy'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_laggy'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_latency_count:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_latency_count'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_latency_count'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_latency_sum:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_latency_sum'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_latency_sum'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_pg:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_pg'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_pg'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_r:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_r'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_r'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_reply:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_reply'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_reply'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_resend:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_resend'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_resend'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_rmw:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_rmw'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_rmw'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_send:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_send'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_send'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_send_bytes:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_send_bytes'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_send_bytes'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       op_w:
         canonical: {prefix: 'ceph_objecter_', suffix: 'op_w'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'op_w'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       oplen_avg_count:
         canonical: {prefix: 'ceph_objecter_', suffix: 'oplen_avg_count'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'oplen_avg_count'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       oplen_avg_sum:
         canonical: {prefix: 'ceph_objecter_', suffix: 'oplen_avg_sum'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'oplen_avg_sum'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osd_laggy:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osd_laggy'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osd_laggy'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osd_session_close:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osd_session_close'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osd_session_close'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osd_session_open:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osd_session_open'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osd_session_open'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osd_sessions:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osd_sessions'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osd_sessions'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_append:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_append'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_append'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_call:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_call'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_call'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_clonerange:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_clonerange'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_clonerange'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_cmpxattr:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_cmpxattr'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_cmpxattr'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_create:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_create'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_create'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_delete:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_delete'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_delete'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_getxattr:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_getxattr'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_getxattr'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_mapext:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_mapext'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_mapext'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_notify:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_notify'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_notify'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_other:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_other'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_other'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_pgls:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_pgls'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_pgls'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_pgls_filter:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_pgls_filter'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_pgls_filter'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_read:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_read'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_read'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_resetxattrs:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_resetxattrs'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_resetxattrs'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_rmxattr:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_rmxattr'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_rmxattr'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_setxattr:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_setxattr'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_setxattr'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_sparse_read:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_sparse_read'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_sparse_read'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_src_cmpxattr:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_src_cmpxattr'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_src_cmpxattr'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_stat:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_stat'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_stat'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_truncate:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_truncate'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_truncate'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_watch:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_watch'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_watch'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_write:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_write'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_write'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_writefull:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_writefull'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_writefull'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_writesame:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_writesame'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_writesame'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       osdop_zero:
         canonical: {prefix: 'ceph_objecter_', suffix: 'osdop_zero'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'osdop_zero'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       poolop_active:
         canonical: {prefix: 'ceph_objecter_', suffix: 'poolop_active'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'poolop_active'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       poolop_resend:
         canonical: {prefix: 'ceph_objecter_', suffix: 'poolop_resend'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'poolop_resend'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       poolop_send:
         canonical: {prefix: 'ceph_objecter_', suffix: 'poolop_send'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'poolop_send'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       poolstat_active:
         canonical: {prefix: 'ceph_objecter_', suffix: 'poolstat_active'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'poolstat_active'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       poolstat_resend:
         canonical: {prefix: 'ceph_objecter_', suffix: 'poolstat_resend'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'poolstat_resend'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       poolstat_send:
         canonical: {prefix: 'ceph_objecter_', suffix: 'poolstat_send'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'poolstat_send'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       replica_read_bounced:
         canonical: {prefix: 'ceph_objecter_', suffix: 'replica_read_bounced'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'replica_read_bounced'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       replica_read_completed:
         canonical: {prefix: 'ceph_objecter_', suffix: 'replica_read_completed'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'replica_read_completed'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       replica_read_sent:
         canonical: {prefix: 'ceph_objecter_', suffix: 'replica_read_sent'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'replica_read_sent'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       statfs_active:
         canonical: {prefix: 'ceph_objecter_', suffix: 'statfs_active'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'statfs_active'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       statfs_resend:
         canonical: {prefix: 'ceph_objecter_', suffix: 'statfs_resend'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'statfs_resend'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
       statfs_send:
         canonical: {prefix: 'ceph_objecter_', suffix: 'statfs_send'}
         embedded:
           prefix: 'ceph_objecter_'
           suffix: 'statfs_send'
           separator: '_'
-          identity_slot: {name: objecter_handle, nonempty: true}
+          identity_slot: {name: objecter_identity, nonempty: true}
   rdma_worker:
     forms:
       pending_sent_conns:
@@ -2004,6 +2004,31 @@ family_grammars:
           suffix: 'poll_latency_sum'
           separator: '_'
           identity_slot: {name: source_zone_fragment, nonempty: true}
+  rgw_sync_delta:
+    forms:
+      sync_delta:
+        canonical: {prefix: 'ceph_rgw_sync_delta_', suffix: 'sync_delta'}
+        embedded:
+          prefix: 'ceph_rgw_sync_delta_'
+          suffix: 'sync_delta'
+          separator: '_'
+          identity_slot: {name: sync_shard, nonempty: true}
+  rgw_topic:
+    forms:
+      persistent_topic_len:
+        canonical: {prefix: 'ceph_rgw_topic_', suffix: 'persistent_topic_len'}
+        embedded:
+          prefix: 'ceph_rgw_topic_'
+          suffix: 'persistent_topic_len'
+          separator: '_'
+          identity_slot: {name: topic, nonempty: true}
+      persistent_topic_size:
+        canonical: {prefix: 'ceph_rgw_topic_', suffix: 'persistent_topic_size'}
+        embedded:
+          prefix: 'ceph_rgw_topic_'
+          suffix: 'persistent_topic_size'
+          separator: '_'
+          identity_slot: {name: topic, nonempty: true}
   rocksdb_cache:
     forms:
       capacity:
@@ -6820,12 +6845,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 11}
+                - {axis: perf_priority_limit, op: min, value: 8}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 11}
+                - {axis: perf_priority_limit, op: min, value: 8}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -7000,12 +7025,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 11}
+                - {axis: perf_priority_limit, op: min, value: 8}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 11}
+                - {axis: perf_priority_limit, op: min, value: 8}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -7108,12 +7133,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 9}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 9}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -7216,12 +7241,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 11}
+                - {axis: perf_priority_limit, op: min, value: 8}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 11}
+                - {axis: perf_priority_limit, op: min, value: 8}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -9211,6 +9236,75 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
             range: {start: 21, end: 21}
+      rgw_sync_delta_sync_delta:
+        family: {grammar: rgw_sync_delta, form: sync_delta}
+        raw_branches: {embedded: {}}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/rgw/driver/rados/rgw_sync_counters.cc'
+            range: {start: 37, end: 37}
+      rgw_topic_persistent_topic_len:
+        family: {grammar: rgw_topic, form: persistent_topic_len}
+        raw_branches: {embedded: {}}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 97, end: 97}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 101, end: 101}
+      rgw_topic_persistent_topic_size:
+        family: {grammar: rgw_topic, form: persistent_topic_size}
+        raw_branches: {embedded: {}}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 98, end: 98}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 102, end: 102}
       rocksdb_cache_capacity:
         family: {grammar: rocksdb_cache, form: capacity}
         raw_branches: {embedded: {}}
@@ -36608,11 +36702,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36621,6 +36715,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 31, end: 31}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 27, end: 27}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 27, end: 27}
       ceph_rgw_cache_miss:
         family: {exact: 'ceph_rgw_cache_miss'}
         prometheus: {type: counter, shape: scalar}
@@ -36628,11 +36728,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36641,6 +36741,72 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 32, end: 32}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 28, end: 28}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 28, end: 28}
+      ceph_rgw_d4n_cache_evictions:
+        family: {exact: 'ceph_rgw_d4n_cache_evictions'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 65, end: 65}
+      ceph_rgw_d4n_cache_hits:
+        family: {exact: 'ceph_rgw_d4n_cache_hits'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 63, end: 63}
+      ceph_rgw_d4n_cache_misses:
+        family: {exact: 'ceph_rgw_d4n_cache_misses'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: eq, value: tentacle}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 64, end: 64}
       ceph_rgw_failed_req:
         family: {exact: 'ceph_rgw_failed_req'}
         prometheus: {type: counter, shape: scalar}
@@ -36648,11 +36814,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36661,6 +36827,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 19, end: 19}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 22, end: 22}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 22, end: 22}
       ceph_rgw_gc_retire_object:
         family: {exact: 'ceph_rgw_gc_retire_object'}
         prometheus: {type: counter, shape: scalar}
@@ -36668,11 +36840,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36681,6 +36853,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 37, end: 37}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 33, end: 33}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 33, end: 33}
       ceph_rgw_get:
         family: {exact: 'ceph_rgw_get'}
         prometheus: {type: counter, shape: scalar}
@@ -36748,11 +36926,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36761,6 +36939,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 34, end: 34}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 30, end: 30}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 30, end: 30}
       ceph_rgw_keystone_token_cache_miss:
         family: {exact: 'ceph_rgw_keystone_token_cache_miss'}
         prometheus: {type: counter, shape: scalar}
@@ -36768,11 +36952,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36781,6 +36965,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 35, end: 35}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 31, end: 31}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 31, end: 31}
       ceph_rgw_lc_abort_mpu:
         family: {exact: 'ceph_rgw_lc_abort_mpu'}
         prometheus: {type: counter, shape: scalar}
@@ -36788,11 +36978,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36801,6 +36991,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 50, end: 51}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 46, end: 47}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 46, end: 47}
       ceph_rgw_lc_expire_current:
         family: {exact: 'ceph_rgw_lc_expire_current'}
         prometheus: {type: counter, shape: scalar}
@@ -36808,11 +37004,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36821,6 +37017,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 39, end: 40}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 35, end: 36}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 35, end: 36}
       ceph_rgw_lc_expire_dm:
         family: {exact: 'ceph_rgw_lc_expire_dm'}
         prometheus: {type: counter, shape: scalar}
@@ -36828,11 +37030,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36841,6 +37043,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 43, end: 44}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 39, end: 40}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 39, end: 40}
       ceph_rgw_lc_expire_noncurrent:
         family: {exact: 'ceph_rgw_lc_expire_noncurrent'}
         prometheus: {type: counter, shape: scalar}
@@ -36848,11 +37056,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36861,6 +37069,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 41, end: 42}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 37, end: 38}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 37, end: 38}
       ceph_rgw_lc_transition_current:
         family: {exact: 'ceph_rgw_lc_transition_current'}
         prometheus: {type: counter, shape: scalar}
@@ -36868,11 +37082,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36881,6 +37095,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 45, end: 46}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 41, end: 42}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 41, end: 42}
       ceph_rgw_lc_transition_noncurrent:
         family: {exact: 'ceph_rgw_lc_transition_noncurrent'}
         prometheus: {type: counter, shape: scalar}
@@ -36888,11 +37108,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36901,6 +37121,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 47, end: 49}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 43, end: 45}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 43, end: 45}
       ceph_rgw_lua_current_vms:
         family: {exact: 'ceph_rgw_lua_current_vms'}
         prometheus: {type: gauge, shape: scalar}
@@ -36908,11 +37134,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36921,6 +37147,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 65, end: 65}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 61, end: 61}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 61, end: 61}
       ceph_rgw_lua_script_fail:
         family: {exact: 'ceph_rgw_lua_script_fail'}
         prometheus: {type: counter, shape: scalar}
@@ -36928,11 +37160,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36941,6 +37173,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 64, end: 64}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 60, end: 60}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 60, end: 60}
       ceph_rgw_lua_script_ok:
         family: {exact: 'ceph_rgw_lua_script_ok'}
         prometheus: {type: counter, shape: scalar}
@@ -36948,11 +37186,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36961,6 +37199,1254 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 63, end: 63}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 59, end: 59}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 59, end: 59}
+      ceph_rgw_op_copy_obj_bytes:
+        family: {exact: 'ceph_rgw_op_copy_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 84, end: 84}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+      ceph_rgw_op_copy_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_copy_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_copy_obj_ops:
+        family: {exact: 'ceph_rgw_op_copy_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 83, end: 83}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 87, end: 87}
+      ceph_rgw_op_del_bucket_lat_count:
+        family: {exact: 'ceph_rgw_op_del_bucket_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_del_bucket_ops:
+        family: {exact: 'ceph_rgw_op_del_bucket_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 80, end: 80}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 84, end: 84}
+      ceph_rgw_op_del_obj_bytes:
+        family: {exact: 'ceph_rgw_op_del_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 77, end: 77}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+      ceph_rgw_op_del_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_del_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_del_obj_ops:
+        family: {exact: 'ceph_rgw_op_del_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 76, end: 76}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 80, end: 80}
+      ceph_rgw_op_get_obj_bytes:
+        family: {exact: 'ceph_rgw_op_get_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 73, end: 73}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 77, end: 77}
+      ceph_rgw_op_get_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_get_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_get_obj_ops:
+        family: {exact: 'ceph_rgw_op_get_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 72, end: 72}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 76, end: 76}
+      ceph_rgw_op_list_buckets_lat_count:
+        family: {exact: 'ceph_rgw_op_list_buckets_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_list_buckets_ops:
+        family: {exact: 'ceph_rgw_op_list_buckets_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 90, end: 90}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 94, end: 94}
+      ceph_rgw_op_list_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_list_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_list_obj_ops:
+        family: {exact: 'ceph_rgw_op_list_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 87, end: 87}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+      ceph_rgw_op_per_bucket_copy_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_bucket_copy_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 84, end: 84}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+      ceph_rgw_op_per_bucket_copy_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_copy_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_per_bucket_copy_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_copy_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 83, end: 83}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 87, end: 87}
+      ceph_rgw_op_per_bucket_del_bucket_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_bucket_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_per_bucket_del_bucket_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_bucket_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 80, end: 80}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 84, end: 84}
+      ceph_rgw_op_per_bucket_del_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 77, end: 77}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+      ceph_rgw_op_per_bucket_del_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_per_bucket_del_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 76, end: 76}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 80, end: 80}
+      ceph_rgw_op_per_bucket_get_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_bucket_get_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 73, end: 73}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 77, end: 77}
+      ceph_rgw_op_per_bucket_get_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_get_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_per_bucket_get_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_get_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 72, end: 72}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 76, end: 76}
+      ceph_rgw_op_per_bucket_list_buckets_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_buckets_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_per_bucket_list_buckets_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_buckets_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 90, end: 90}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 94, end: 94}
+      ceph_rgw_op_per_bucket_list_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_bucket_list_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 87, end: 87}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+      ceph_rgw_op_per_bucket_put_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_bucket_put_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 69, end: 69}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 73, end: 73}
+      ceph_rgw_op_per_bucket_put_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_bucket_put_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_per_bucket_put_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_bucket_put_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 68, end: 68}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 72, end: 72}
+      ceph_rgw_op_per_user_copy_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_user_copy_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 84, end: 84}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+      ceph_rgw_op_per_user_copy_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_copy_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_per_user_copy_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_user_copy_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 83, end: 83}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 87, end: 87}
+      ceph_rgw_op_per_user_del_bucket_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_del_bucket_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_per_user_del_bucket_ops:
+        family: {exact: 'ceph_rgw_op_per_user_del_bucket_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 80, end: 80}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 84, end: 84}
+      ceph_rgw_op_per_user_del_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_user_del_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 77, end: 77}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+      ceph_rgw_op_per_user_del_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_del_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_per_user_del_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_user_del_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 76, end: 76}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 80, end: 80}
+      ceph_rgw_op_per_user_get_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_user_get_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 73, end: 73}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 77, end: 77}
+      ceph_rgw_op_per_user_get_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_get_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_per_user_get_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_user_get_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 72, end: 72}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 76, end: 76}
+      ceph_rgw_op_per_user_list_buckets_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_list_buckets_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_per_user_list_buckets_ops:
+        family: {exact: 'ceph_rgw_op_per_user_list_buckets_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 90, end: 90}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 94, end: 94}
+      ceph_rgw_op_per_user_list_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_list_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_user_list_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_user_list_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 87, end: 87}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+      ceph_rgw_op_per_user_put_obj_bytes:
+        family: {exact: 'ceph_rgw_op_per_user_put_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 69, end: 69}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 73, end: 73}
+      ceph_rgw_op_per_user_put_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_per_user_put_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_per_user_put_obj_ops:
+        family: {exact: 'ceph_rgw_op_per_user_put_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 68, end: 68}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 72, end: 72}
+      ceph_rgw_op_put_obj_bytes:
+        family: {exact: 'ceph_rgw_op_put_obj_bytes'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 69, end: 69}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 73, end: 73}
+      ceph_rgw_op_put_obj_lat_count:
+        family: {exact: 'ceph_rgw_op_put_obj_lat_count'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_put_obj_ops:
+        family: {exact: 'ceph_rgw_op_put_obj_ops'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 68, end: 68}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 72, end: 72}
       ceph_rgw_pubsub_event_lost:
         family: {exact: 'ceph_rgw_pubsub_event_lost'}
         prometheus: {type: counter, shape: scalar}
@@ -36968,11 +38454,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -36981,6 +38467,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 54, end: 54}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 50, end: 50}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 50, end: 50}
       ceph_rgw_pubsub_event_triggered:
         family: {exact: 'ceph_rgw_pubsub_event_triggered'}
         prometheus: {type: counter, shape: scalar}
@@ -36988,11 +38480,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37001,6 +38493,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 53, end: 53}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 49, end: 49}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 49, end: 49}
       ceph_rgw_pubsub_events:
         family: {exact: 'ceph_rgw_pubsub_events'}
         prometheus: {type: gauge, shape: scalar}
@@ -37008,11 +38506,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37021,6 +38519,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 57, end: 57}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 53, end: 53}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 53, end: 53}
       ceph_rgw_pubsub_missing_conf:
         family: {exact: 'ceph_rgw_pubsub_missing_conf'}
         prometheus: {type: counter, shape: scalar}
@@ -37028,11 +38532,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37041,6 +38545,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 61, end: 61}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 57, end: 57}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 57, end: 57}
       ceph_rgw_pubsub_push_failed:
         family: {exact: 'ceph_rgw_pubsub_push_failed'}
         prometheus: {type: counter, shape: scalar}
@@ -37048,11 +38558,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37061,6 +38571,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 59, end: 59}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 55, end: 55}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 55, end: 55}
       ceph_rgw_pubsub_push_ok:
         family: {exact: 'ceph_rgw_pubsub_push_ok'}
         prometheus: {type: counter, shape: scalar}
@@ -37068,11 +38584,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37081,6 +38597,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 58, end: 58}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 54, end: 54}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 54, end: 54}
       ceph_rgw_pubsub_push_pending:
         family: {exact: 'ceph_rgw_pubsub_push_pending'}
         prometheus: {type: gauge, shape: scalar}
@@ -37088,11 +38610,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37101,6 +38623,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 60, end: 60}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 56, end: 56}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 56, end: 56}
       ceph_rgw_pubsub_store_fail:
         family: {exact: 'ceph_rgw_pubsub_store_fail'}
         prometheus: {type: counter, shape: scalar}
@@ -37108,11 +38636,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37121,6 +38649,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 56, end: 56}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 52, end: 52}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 52, end: 52}
       ceph_rgw_pubsub_store_ok:
         family: {exact: 'ceph_rgw_pubsub_store_ok'}
         prometheus: {type: counter, shape: scalar}
@@ -37128,11 +38662,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37141,6 +38675,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 55, end: 55}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 51, end: 51}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 51, end: 51}
       ceph_rgw_put:
         family: {exact: 'ceph_rgw_put'}
         prometheus: {type: counter, shape: scalar}
@@ -37208,11 +38748,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37221,6 +38761,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 29, end: 29}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 25, end: 25}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 25, end: 25}
       ceph_rgw_qlen:
         family: {exact: 'ceph_rgw_qlen'}
         prometheus: {type: gauge, shape: scalar}
@@ -37228,11 +38774,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37241,6 +38787,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 28, end: 28}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 24, end: 24}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 24, end: 24}
       ceph_rgw_req:
         family: {exact: 'ceph_rgw_req'}
         prometheus: {type: counter, shape: scalar}
@@ -37248,11 +38800,11 @@ groups:
           any:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
-                - {axis: release, op: eq, value: reef}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
                 - {axis: perf_priority_limit, op: min, value: 6}
         components:
@@ -37261,6 +38813,12 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 18, end: 18}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 21, end: 21}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 21, end: 21}
       ceph_rocksdb_compact:
         family: {exact: 'ceph_rocksdb_compact'}
         prometheus: {type: counter, shape: scalar}
@@ -37269,12 +38827,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37295,12 +38853,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37321,12 +38879,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37347,12 +38905,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37373,12 +38931,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37399,12 +38957,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37425,12 +38983,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37451,12 +39009,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37477,12 +39035,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37503,12 +39061,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37529,12 +39087,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37555,12 +39113,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37581,12 +39139,12 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
             - all:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -37599,6 +39157,76 @@ groups:
           - upstream: ceph_tentacle
             path: 'src/kv/RocksDBStore.cc'
             range: {start: 1254, end: 1254}
+      ceph_simple_throttler_outstanding:
+        family: {exact: 'ceph_simple_throttler_outstanding'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 1}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 1}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_reef
+            path: 'src/rgw/rgw_dmclock_async_scheduler.h'
+            range: {start: 165, end: 165}
+          - upstream: ceph_reef
+            path: 'src/rgw/rgw_dmclock_scheduler_ctx.cc'
+            range: {start: 171, end: 171}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_dmclock_async_scheduler.h'
+            range: {start: 163, end: 163}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_dmclock_scheduler_ctx.cc'
+            range: {start: 171, end: 171}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_dmclock_async_scheduler.h'
+            range: {start: 163, end: 163}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_dmclock_scheduler_ctx.cc'
+            range: {start: 171, end: 171}
+      ceph_simple_throttler_throttle:
+        family: {exact: 'ceph_simple_throttler_throttle'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 1}
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [reef, squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 1}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_reef
+            path: 'src/rgw/rgw_dmclock_async_scheduler.h'
+            range: {start: 165, end: 165}
+          - upstream: ceph_reef
+            path: 'src/rgw/rgw_dmclock_scheduler_ctx.cc'
+            range: {start: 170, end: 170}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_dmclock_async_scheduler.h'
+            range: {start: 163, end: 163}
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_dmclock_scheduler_ctx.cc'
+            range: {start: 170, end: 170}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_dmclock_async_scheduler.h'
+            range: {start: 163, end: 163}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_dmclock_scheduler_ctx.cc'
+            range: {start: 170, end: 170}
       ceph_trackedop_slow_ops_count:
         family: {exact: 'ceph_trackedop_slow_ops_count'}
         prometheus: {type: counter, shape: scalar}
@@ -43250,6 +44878,384 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 23, end: 23}
+      ceph_rgw_op_copy_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_copy_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_del_bucket_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_del_bucket_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_del_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_del_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_get_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_get_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_list_buckets_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_list_buckets_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_list_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_list_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_bucket_copy_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_copy_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_per_bucket_del_bucket_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_bucket_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_per_bucket_del_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_per_bucket_get_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_get_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_per_bucket_list_buckets_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_buckets_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_per_bucket_list_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_bucket_put_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_put_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_per_user_copy_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_copy_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_per_user_del_bucket_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_del_bucket_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_per_user_del_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_del_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_per_user_get_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_get_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_per_user_list_buckets_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_list_buckets_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_per_user_list_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_list_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_user_put_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_per_user_put_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_put_obj_lat_sum_exporter_perf:
+        family: {exact: 'ceph_rgw_op_put_obj_lat_sum'}
+        prometheus: {type: gauge, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: ceph_exporter}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
       ceph_rgw_put_initial_lat_sum_exporter_perf:
         family: {exact: 'ceph_rgw_put_initial_lat_sum'}
         prometheus: {type: gauge, shape: scalar}
@@ -43273,7 +45279,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -43294,7 +45300,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -43315,7 +45321,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -43336,7 +45342,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -43357,7 +45363,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -43378,7 +45384,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -43399,7 +45405,7 @@ groups:
             - all:
                 - {axis: source, op: eq, value: ceph_exporter}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49306,6 +51312,405 @@ groups:
           - upstream: ceph_reef
             path: 'src/rgw/rgw_perf_counters.cc'
             range: {start: 23, end: 23}
+      ceph_rgw_op_copy_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_copy_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_del_bucket_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_del_bucket_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_del_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_del_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_get_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_get_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_list_buckets_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_list_buckets_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_list_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_list_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_bucket_copy_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_copy_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_per_bucket_del_bucket_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_bucket_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_per_bucket_del_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_del_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_per_bucket_get_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_get_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_per_bucket_list_buckets_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_buckets_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_per_bucket_list_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_list_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_bucket_put_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_bucket_put_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_per_user_copy_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_copy_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 89, end: 89}
+      ceph_rgw_op_per_user_del_bucket_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_del_bucket_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 81, end: 81}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 85, end: 85}
+      ceph_rgw_op_per_user_del_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_del_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 82, end: 82}
+      ceph_rgw_op_per_user_get_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_get_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 78, end: 78}
+      ceph_rgw_op_per_user_list_buckets_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_list_buckets_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 91, end: 91}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 95, end: 95}
+      ceph_rgw_op_per_user_list_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_list_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 88, end: 88}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 92, end: 92}
+      ceph_rgw_op_per_user_put_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_per_user_put_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
+      ceph_rgw_op_put_obj_lat_sum_mgr_perf:
+        family: {exact: 'ceph_rgw_op_put_obj_lat_sum'}
+        prometheus: {type: counter, shape: scalar}
+        when:
+          any:
+            - all:
+                - {axis: source, op: eq, value: mgr}
+                - {axis: release, op: in, values: [squid, tentacle]}
+                - {axis: mgr_perf_counters, op: eq, value: enabled}
+                - {axis: perf_priority_limit, op: min, value: 6}
+        components:
+          value: {wire_role: scalar}
+        source_locations:
+          - upstream: ceph_squid
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 70, end: 70}
+          - upstream: ceph_tentacle
+            path: 'src/rgw/rgw_perf_counters.cc'
+            range: {start: 74, end: 74}
       ceph_rgw_put_initial_lat_sum_mgr_perf:
         family: {exact: 'ceph_rgw_put_initial_lat_sum'}
         prometheus: {type: counter, shape: scalar}
@@ -49331,7 +51736,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49353,7 +51758,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49375,7 +51780,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49397,7 +51802,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49419,7 +51824,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49441,7 +51846,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:
@@ -49463,7 +51868,7 @@ groups:
                 - {axis: source, op: eq, value: mgr}
                 - {axis: release, op: in, values: [reef, squid, tentacle]}
                 - {axis: mgr_perf_counters, op: eq, value: enabled}
-                - {axis: perf_priority_limit, op: min, value: 1}
+                - {axis: perf_priority_limit, op: min, value: 6}
         components:
           value: {wire_role: scalar}
         source_locations:

@@ -89,10 +89,16 @@ GRAMMARS = {
     "dpdk_port": Grammar("ceph_dpdk_port_", "ceph_port", "dpdk_port"),
     "mds_client": Grammar("ceph_mds_per_client_", "ceph_mds_client_metrics_", "mds_filesystem_key"),
     "rocksdb_cache": Grammar("ceph_rocksdb_binned_cache_", "ceph_rocksdb_cache_", "rocksdb_cache_key"),
-    "objecter": Grammar("ceph_objecter_", "ceph_objecter_", "objecter_handle"),
+    "objecter": Grammar(
+        "ceph_objecter_",
+        "ceph_objecter_",
+        "objecter_identity",
+    ),
     "priority_cache": Grammar("ceph_bluestore_priority_cache_", "ceph_bluestore_pricache:", "priority_cache"),
     "rgw_dmclock": Grammar("ceph_rgw_dmclock_", "ceph_dmclock_", "dmclock_queue"),
     "rgw_sync": Grammar("ceph_data_sync_from_zone_", "ceph_data_sync_from_", "source_zone_fragment"),
+    "rgw_topic": Grammar("ceph_rgw_topic_", "ceph_rgw_topic_", "topic"),
+    "rgw_sync_delta": Grammar("ceph_rgw_sync_delta_", "ceph_rgw_sync_delta_", "sync_shard"),
     "osd_scrub": Grammar("ceph_osd_scrub_", "ceph_osd_scrub_", "scrub_phase"),
     "striper": Grammar("ceph_rados_striper_", "ceph_", "striper"),
     "service_unique_id": Grammar(
@@ -117,7 +123,6 @@ DYNAMIC_BUILDERS = {
     "src/kv/rocksdb_cache/BinnedLRUCache.cc": "rocksdb_cache",
     "src/common/PriorityCache.cc": "priority_cache",
     "src/rgw/rgw_dmclock_scheduler_ctx.cc": "rgw_dmclock",
-    "src/rgw/driver/rados/rgw_sync_counters.cc": "rgw_sync",
     "src/osd/osd_perf_counters.cc": "osd_scrub",
     "src/SimpleRADOSStriper.cc": "striper",
 }
@@ -129,6 +134,48 @@ class Builder:
     variable: str
     expression: str
     static_group: str | None
+
+
+@dataclass(frozen=True)
+class HelperRegistration:
+    parameter: str
+    start: int
+    end: int
+    calls: tuple[tuple[str, str, int, int], ...] = ()
+    default_priority: str | None = None
+
+
+def parse_builder_helpers(text: str) -> dict[str, HelperRegistration]:
+    helpers: dict[str, HelperRegistration] = {}
+    for match in re.finditer(
+        r"(?m)^\s*(?:void|std::shared_ptr<PerfCounters>|PerfCounters\*)\s+(\w+)\s*\("
+        r"\s*PerfCountersBuilder\s*[*&]\s*(\w+)\s*[^)]*\)\s*\{(?P<body>.*?)^\s*\}",
+        text,
+        re.DOTALL,
+    ):
+        name, parameter, body = match.group(1), match.group(2), match.group("body")
+        calls = tuple(
+            (call.group(1), call.group(2), match.start("body") + call.start(), match.start("body") + call.end())
+            for call in re.finditer(
+                rf"\b{re.escape(parameter)}(?:\.|->)add_([a-z0-9_]+)\s*\((.*?)\);",
+                body,
+                re.DOTALL,
+            )
+        )
+        defaults = re.findall(
+            rf"\b{re.escape(parameter)}(?:\.|->)set_prio_default\s*\(\s*PerfCountersBuilder::(PRIO_[A-Z]+)\s*\)",
+            body,
+        )
+        if len(set(defaults)) > 1:
+            raise ValueError(f"builder helper {name!r} has conflicting default priorities")
+        helpers[name] = HelperRegistration(
+            parameter=parameter,
+            start=match.start(),
+            end=match.end(),
+            calls=calls,
+            default_priority=defaults[-1] if defaults else None,
+        )
+    return helpers
 
 
 def line_number(text: str, offset: int) -> int:
@@ -763,6 +810,38 @@ def priority(root: Path, path: str, text: str, builder: Builder, call_offset: in
     raise ValueError(f"unsupported metric priority expression {expression!r} in {path}")
 
 
+def runtime_priority_adjustments(root: Path) -> dict[str, int]:
+    known = priority_values(root)
+    adjustments: dict[str, int] = {}
+
+    monitor_path = "src/mon/MonitorDBStore.h"
+    monitor = (root / monitor_path).read_text(encoding="utf-8")
+    rocksdb_pattern = (
+        r"db->get_perf_counters\(\)\s*->\s*set_prio_adjust\(\s*"
+        r"PerfCountersBuilder::(PRIO_[A-Z]+)\s*-\s*PerfCountersBuilder::(PRIO_[A-Z]+)\s*\)"
+    )
+    match = re.search(rocksdb_pattern, monitor)
+    if match is None or any(match.group(i) not in known for i in (1, 2)):
+        raise ValueError(f"{monitor_path} Monitor RocksDB priority adjustment changed")
+    adjustments["rocksdb"] = known[match.group(1)] - known[match.group(2)]
+
+    osd_path = "src/osd/OSD.cc"
+    osd = (root / osd_path).read_text(encoding="utf-8")
+    objecter_pattern = r"objecter->get_logger\(\)\s*->\s*set_prio_adjust\(\s*(-?[0-9]+)\s*\)"
+    match = re.search(objecter_pattern, osd)
+    if match is None or int(match.group(1)) != -3:
+        raise ValueError(f"{osd_path} OSD Objecter priority adjustment changed")
+    adjustments["objecter"] = int(match.group(1))
+    return adjustments
+
+
+def effective_priority(root: Path, group: str, declared: int) -> int:
+    adjustment = runtime_priority_adjustments(root).get(group)
+    if adjustment is None:
+        return declared
+    return max(0, min(11, declared + adjustment))
+
+
 @cache
 def priority_cache_groups(root: Path) -> dict[str, tuple[tuple[str, int, int], ...]]:
     result: dict[str, list[tuple[str, int, int]]] = defaultdict(list)
@@ -830,6 +909,17 @@ def dmclock_groups(root: Path) -> dict[str, tuple[str, int, int, str]]:
     throttle_count = sum(kind == "throttle_counters" for _, _, _, kind in result.values())
     if queue_count != 4 or throttle_count != 1:
         raise ValueError(f"{path} must construct four queue and one throttle dmclock groups")
+    header_path = root / "src/rgw/rgw_dmclock_async_scheduler.h"
+    header = header_path.read_text(encoding="utf-8")
+    simple = re.search(r"counters\s*\(\s*cct\s*,\s*\"simple-throttler\"\s*\)", header)
+    if simple is None:
+        raise ValueError(f"{header_path} has no fixed simple-throttler constructor")
+    result["simple-throttler"] = (
+        header_path.relative_to(root).as_posix(),
+        line_number(header, simple.start()),
+        line_number(header, simple.end()),
+        "throttle_counters",
+    )
     return result
 
 
@@ -956,6 +1046,225 @@ def terminal_identity_form(
     return "identity"
 
 
+def _enclosing_function_name(text: str, offset: int) -> str | None:
+    candidates = [
+        match.group(1)
+        for match in re.finditer(r"(?m)^\s*(?:[\w:<>&*,\s]+\s+)?(\w+)\s*\([^;{]*\)\s*\{", text[:offset])
+    ]
+    return candidates[-1] if candidates else None
+
+
+def _rgw_op_scope_at_call(text: str, offset: int) -> str | None:
+    window = text[max(0, offset - 2000):offset]
+    if re.search(r"\bglobal_op_counters_init\s*\(", window):
+        return "rgw_global_op_counters_key"
+    cache = re.search(
+        r"\b(\w+)_counters_cache\s*=\s*new\s+PerfCountersCache\s*\(", text[:offset]
+    )
+    if cache:
+        scope = cache.group(1)
+        if scope == "user":
+            return "rgw_user_op_counters_key"
+        if scope == "bucket":
+            return "rgw_bucket_op_counters_key"
+    # The shared factory's `name` instantiates either labeled cache scope. Emit
+    # both source-declarable cache scopes; exact output labels come from key_create.
+    if re.search(r"\bPerfCountersCache\b", window):
+        return "rgw_op_per_user,bucket"
+    return None
+
+
+def _namespace_before(text: str, offset: int, name: str) -> bool:
+    return bool(re.search(rf"namespace\s+{re.escape(name)}\s*\{{", text[:offset]))
+
+
+def _rgw_sync_counter_groups(text: str, builder: Builder) -> list[tuple[str, str | None]] | None:
+    namespaces = list(re.finditer(r"namespace\s+(sync_counters|sync_deltas)\s*\{", text[: builder.offset]))
+    if not namespaces:
+        return None
+    namespace = namespaces[-1].group(1)
+    if namespace == "sync_deltas":
+        return [("rgw_sync_delta", "rgw_sync_delta")]
+    return [("rgw_sync", "rgw_sync")]
+
+
+def helper_registrations(
+    *,
+    root: Path,
+    release: str,
+    relative: str,
+    text: str,
+    builder: Builder,
+    method: str,
+    arguments: str,
+    start: int,
+    end: int,
+    default_priority: str | None,
+) -> list[Registration]:
+    if method in IGNORED_METHODS:
+        return []
+    if method not in SUPPORTED_METHODS:
+        raise ValueError(f"unsupported builder-helper metric method {method!r} in {relative}")
+    names = string_literals(arguments)
+    if not names:
+        raise ValueError(f"builder-helper metric without a literal name in {relative}")
+    forms = [names[0]]
+    if method in AVERAGE_METHODS:
+        forms = [names[0] + "_count", names[0] + "_sum"]
+    priority_value = _helper_priority(
+        root,
+        relative,
+        text,
+        builder,
+        start,
+        arguments,
+        default_priority,
+    )
+    result: list[Registration] = []
+    groups = _builder_groups(root, relative, text, builder)
+    for group, grammar in groups:
+        group_priority = effective_priority(root, group, priority_value)
+        for form in forms:
+            if method in AVERAGE_METHODS:
+                variants = (("counter", "daemon_perf"),) if form.endswith("_count") else (
+                    ("gauge", "exporter_perf"),
+                    ("counter", "mgr_perf"),
+                )
+            else:
+                variants = ((metric_type(method), "daemon_perf"),)
+            for output_type, endpoint in variants:
+                result.append(Registration(
+                    source_variant=release,
+                    source_path=relative,
+                    line_start=line_number(text, start),
+                    line_end=line_number(text, end),
+                    group=group,
+                    grammar=grammar,
+                    form=form,
+                    prometheus_type=output_type,
+                    priority=group_priority,
+                    endpoint=endpoint,
+                    extra_locations=special_group_locations(root, relative, group) + grammar_locations(root, grammar),
+                ))
+    return result
+
+
+def _helper_priority(
+    root: Path,
+    relative: str,
+    text: str,
+    builder: Builder,
+    start: int,
+    arguments: str,
+    default_priority: str | None,
+) -> int:
+    known = priority_values(root)
+    default = known[default_priority] if default_priority else 0
+    call_arguments = split_cpp_arguments(arguments)
+    expression = call_arguments[4] if len(call_arguments) > 4 else "0"
+    token = expression.removeprefix("PerfCountersBuilder::")
+    if token in known:
+        explicit = known[token]
+        return explicit or default
+    if expression in {"0", "NULL", "nullptr"}:
+        return default
+    if re.fullmatch(r"[0-9]+", expression):
+        value = int(expression)
+        if value > 11:
+            raise ValueError(f"metric priority {value} is outside Ceph's supported 0..11 range")
+        return value or default
+    raise ValueError(f"unsupported builder-helper priority expression {expression!r} in {relative}")
+
+
+def _builder_groups(
+    root: Path,
+    relative: str,
+    text: str,
+    builder: Builder,
+) -> list[tuple[str, str | None]]:
+    if relative == "src/rgw/rgw_perf_counters.cc":
+        variable_groups = _rgw_builder_groups(builder.expression)
+        if variable_groups:
+            return variable_groups
+    groups = (builder.static_group,) if builder.static_group is not None else special_groups(root, relative, text, builder)
+    if groups is not None:
+        return [(group, "objecter" if group == "objecter" else None) for group in groups]
+    group, grammar = resolve_key_created_group(text, builder)
+    if group is not None:
+        return [(group, grammar)]
+    resolved = dynamic_builder(relative, builder.expression)
+    if resolved is not None:
+        return [(resolved, resolved)]
+    if relative == "src/rgw/rgw_perf_counters.cc":
+        expression = builder.expression
+        topic_assignment = re.search(
+            r"(?:const std::string|std::string)\s+topic_key\s*=\s*"
+            r"(?:ceph::perf_counters::)?key_create\(rgw_topic_counters_key",
+            text[: builder.offset],
+        )
+        if topic_assignment is not None:
+            return [("rgw_topic", "rgw_topic")]
+        variable_groups = _rgw_builder_groups(expression)
+        if variable_groups:
+            return variable_groups
+    if relative == "src/rgw/driver/rados/rgw_sync_counters.cc":
+        variable_groups = _rgw_sync_counter_groups(text, builder)
+        if variable_groups:
+            return variable_groups
+    # Legacy RGW source-zone builders may construct from a caller-supplied
+    # `name`; the enclosing namespace identifies the grammar.
+    if builder.expression == "name" and _namespace_before(text, builder.offset, "sync_counters"):
+        return [("rgw_sync", "rgw_sync")]
+    raise ValueError(f"unsupported builder group expression {builder.expression!r} in {relative}")
+
+
+def _rgw_builder_groups(expression: str) -> list[tuple[str, str | None]]:
+    known = {
+        "rgw": ("rgw", None),
+        "rgw_global_op_counters_key": ("rgw_op", None),
+        "rgw_user_op_counters_key": ("rgw_op_per_user", None),
+        "rgw_bucket_op_counters_key": ("rgw_op_per_bucket", None),
+        "rgw_op_per_user": ("rgw_op_per_user", None),
+        "rgw_op_per_bucket": ("rgw_op_per_bucket", None),
+        "name": ("rgw_op", None),
+        "rgw_topic_counters_key": ("rgw_topic", "rgw_topic"),
+        "topic_key": ("rgw_topic", "rgw_topic"),
+    }
+    result = known.get(expression)
+    return [result] if result else []
+
+
+SOURCE_CANDIDATE_PATTERN = re.compile(
+    r"\bPerfCountersBuilder\s+\w+\s*\(|\b\w+(?:\.|->)"
+    r"(?:add_u64|add_u64_avg|add_u64_counter|add_u64_counter_histogram|add_time|add_time_avg)\s*\("
+)
+
+SOURCE_INFRASTRUCTURE_PATHS = {
+    "src/common/perf_counters.cc",
+    "src/common/perf_counters.h",
+}
+
+
+def unresolved_source_inventory(root: Path, registration_paths: set[str]) -> list[tuple[str, int, str]]:
+    unresolved: list[tuple[str, int, str]] = []
+    for source in sorted(root.rglob("*")):
+        if not source.is_file() or source.suffix not in {".cc", ".h"} or "/test/" in source.as_posix():
+            continue
+        relative = source.relative_to(root).as_posix()
+        try:
+            text = source.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            unresolved.append((relative, 1, "non-utf8 source"))
+            continue
+        has_candidate = any(SOURCE_CANDIDATE_PATTERN.search(line) for line in text.splitlines())
+        if not has_candidate or relative in registration_paths or relative in SOURCE_INFRASTRUCTURE_PATHS:
+            continue
+        for number, line in enumerate(text.splitlines(), 1):
+            if SOURCE_CANDIDATE_PATTERN.search(line):
+                unresolved.append((relative, number, line.strip()))
+    return unresolved
+
+
 def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter[tuple[str, str]]]:
     validate_endpoint_contracts(root)
     registrations: list[Registration] = []
@@ -964,8 +1273,9 @@ def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter
         if not source.is_file() or source.suffix not in {".cc", ".h"} or "/test/" in source.as_posix():
             continue
         relative = source.relative_to(root).as_posix()
-        text = source.read_text(encoding="utf-8", errors="replace")
+        text = source.read_text(encoding="utf-8")
         builders: list[Builder] = []
+        helpers = parse_builder_helpers(text)
         for match in re.finditer(
             r"PerfCountersBuilder\s+(\w+)\s*\(\s*[^,]+,\s*([^,]+),",
             text,
@@ -973,7 +1283,52 @@ def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter
         ):
             expression = " ".join(match.group(2).split())
             builders.append(Builder(match.start(), match.group(1), expression, static_group(expression)))
-        for match in re.finditer(r"\b(\w+)\.add_([a-z0-9_]+)\s*\((.*?)\);", text, re.DOTALL):
+        if helpers:
+            helper_call_pattern = r"\b(" + "|".join(re.escape(name) for name in helpers) + r")\s*\(\s*&?(\w+)\s*\)\s*;"
+            for match in re.finditer(helper_call_pattern, text):
+                helper_name, argument = match.groups()
+                helper = helpers[helper_name]
+                if argument not in {item.variable for item in builders}:
+                    unclassified[(relative, f"{helper_name}({argument}) on non-builder argument")] += 1
+                    continue
+                call_builder = max(
+                    (item for item in builders if item.variable == argument and item.offset < match.start()),
+                    key=lambda item: item.offset,
+                    default=None,
+                )
+                if call_builder is None:
+                    unclassified[(relative, f"{helper_name}({argument}) before builder construction")] += 1
+                    continue
+                scope_expressions = [None]
+                if relative == "src/rgw/rgw_perf_counters.cc" and helper_name == "add_rgw_op_counters":
+                    scope_expression = _rgw_op_scope_at_call(text, match.start())
+                    if scope_expression is None:
+                        unclassified[(relative, f"{helper_name} at unsupported call site")] += 1
+                        continue
+                    scope_expressions = scope_expression.split(",")
+                for scope in scope_expressions:
+                    expression = scope or call_builder.expression
+                    if scope == "user":
+                        expression = "rgw_user_op_counters_key"
+                    elif scope == "bucket":
+                        expression = "rgw_bucket_op_counters_key"
+                    call_scope_builder = Builder(
+                        call_builder.offset, call_builder.variable, expression, static_group(expression)
+                    )
+                    for method, arguments, call_start, call_end in helper.calls:
+                        registrations.extend(helper_registrations(
+                            root=root,
+                            release=release,
+                            relative=relative,
+                            text=text,
+                            builder=call_scope_builder,
+                            method=method,
+                            arguments=arguments,
+                            start=call_start,
+                            end=call_end,
+                            default_priority=helper.default_priority,
+                        ))
+        for match in re.finditer(r"\b(\w+)(?:\.|->)add_([a-z0-9_]+)\s*\((.*?)\);", text, re.DOTALL):
             variable, method, arguments = match.groups()
             if method in IGNORED_METHODS:
                 continue
@@ -996,30 +1351,29 @@ def parse_release(root: Path, release: str) -> tuple[list[Registration], Counter
             if not candidates:
                 continue
             builder = max(candidates, key=lambda item: item.offset)
-            grammar = None
             terminal_form = terminal_identity_form(relative, builder, method, arguments)
+            grammars = {}
             if terminal_form is not None:
                 grammar = "service_unique_id"
                 groups = (grammar,)
+                grammars = {grammar: grammar}
             else:
-                groups = (builder.static_group,) if builder.static_group is not None else special_groups(root, relative, text, builder)
-                if groups is None:
-                    group, grammar = resolve_key_created_group(text, builder)
-                    groups = (group,) if group is not None else None
-                if groups is None:
-                    grammar = dynamic_builder(relative, builder.expression)
-                    if grammar is None:
-                        unclassified[(relative, builder.expression)] += 1
-                        continue
-                    groups = (grammar,)
-                if relative == "src/osdc/Objecter.cc" and groups == ("objecter",):
-                    grammar = "objecter"
-                    groups = ("objecter",)
+                try:
+                    resolved_groups = _builder_groups(root, relative, text, builder)
+                except ValueError as error:
+                    unclassified[(relative, str(error))] += 1
+                    continue
+                resolved = resolved_groups
+                groups = tuple(group for group, _ in resolved)
+                grammars = dict(resolved)
+                grammar = grammars.get(groups[0]) if groups else None
             forms = [terminal_form] if terminal_form is not None else [names[0]]
             if method in AVERAGE_METHODS:
                 forms = [names[0] + "_count", names[0] + "_sum"]
             registration_priority = priority(root, relative, text, builder, match.start(), arguments)
             for group in groups:
+                registration_priority = effective_priority(root, group, registration_priority)
+                grammar = grammars.get(group)
                 for form in forms:
                     if method in AVERAGE_METHODS:
                         variants = (("counter", "daemon_perf"),) if form.endswith("_count") else (
@@ -1417,6 +1771,8 @@ def parse_nvmeof_registrations(root: Path, client_root: Path) -> list[Registrati
 def exact_family(registration: Registration) -> str | None:
     if registration.exact_family_override is not None:
         return registration.exact_family_override
+    if registration.group in {"rgw_op", "rgw_op_per_user", "rgw_op_per_bucket"}:
+        return prometheus_name(registration.group + "_" + registration.form)
     if registration.grammar is not None:
         return None
     if registration.group == "ceph_exporter":
@@ -1517,6 +1873,11 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
         if unclassified:
             detail = ", ".join(f"{count}x {path}: {expr}" for (path, expr), count in sorted(unclassified.items()))
             raise ValueError(f"{release} has unclassified metric constructors: {detail}")
+        registration_paths = {item.source_path for item in registrations}
+        unresolved_sources = unresolved_source_inventory(source_roots[release], registration_paths)
+        if unresolved_sources:
+            detail = ", ".join(f"{path}:{number}:{line}" for path, number, line in unresolved_sources[:20])
+            raise ValueError(f"{release} has unresolved source inventory candidates: {detail}")
         by_variant[release] = registrations
     for source in ("nvmeof", "prometheus_client_python"):
         if source not in source_roots:
@@ -1531,6 +1892,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
         if registration.grammar is not None:
             used_grammars[registration.grammar].add(registration.form)
 
+    grammars_requiring_longest_suffix = {"librbd_pwl"}
     lines = [
         "# SPDX-License-Identifier: GPL-3.0-or-later",
         "",
@@ -1542,7 +1904,7 @@ def generate_registry(source_roots: dict[str, Path]) -> str:
     for grammar_id in sorted(used_grammars):
         grammar = GRAMMARS[grammar_id]
         lines.append(f"  {grammar_id}:")
-        if grammar_id == "librbd_pwl":
+        if grammar_id in grammars_requiring_longest_suffix:
             lines.append("    interpretation: longest_known_suffix")
         lines.append("    forms:")
         for form in sorted(used_grammars[grammar_id]):

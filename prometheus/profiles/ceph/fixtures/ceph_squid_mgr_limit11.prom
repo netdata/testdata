@@ -164,11 +164,11 @@ ceph_AsyncMessenger_Worker_messenger_worker_a_msgr_send_messages_queue_lat_sum{c
 
 # HELP ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts Number of connections closed due to idleness.
 # TYPE ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts counter
-ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts{ceph_daemon="osd.0",id="id_a",instance_id="rgw.a"} 100
+ceph_AsyncMessenger_Worker_msgr_connection_idle_timeouts{instance_id="rgw.a",id="id_a"} 100
 
 # HELP ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts Number of not yet ready connections declared as dead.
 # TYPE ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts counter
-ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts{ceph_daemon="osd.0",id="id_a",instance_id="rgw.a"} 100
+ceph_AsyncMessenger_Worker_msgr_connection_ready_timeouts{instance_id="rgw.a",id="id_a"} 100
 
 # HELP ceph_KStore_state_done_lat_count Average done state latency Count.
 # TYPE ceph_KStore_state_done_lat_count counter
@@ -5972,7 +5972,7 @@ ceph_pool_max_avail{pool_id="pool_id_a"} 1
 
 # HELP ceph_pool_metadata POOL Metadata.
 # TYPE ceph_pool_metadata untyped
-ceph_pool_metadata{application="application_a",compression_mode="compression_mode_a",description="description_a",name="name_a",pool_id="pool_id_a",type="type_a"} 1
+ceph_pool_metadata{compression_mode="compression_mode_a",description="description_a",name="name_a",pool_id="pool_id_a",type="type_a"} 1
 
 # HELP ceph_pool_num_bytes_recovered OSD pool stats: num_bytes_recovered.
 # TYPE ceph_pool_num_bytes_recovered gauge
@@ -6857,3 +6857,312 @@ ceph_throttle_throttle_key_a_wait_count{ceph_daemon="osd.0"} 100
 # HELP ceph_throttle_throttle_key_a_wait_sum Source-derived dynamic Throttle metric: throttle_fixture_a_wait_sum.
 # TYPE ceph_throttle_throttle_key_a_wait_sum counter
 ceph_throttle_throttle_key_a_wait_sum{ceph_daemon="osd.0"} 100
+
+# HELP ceph_rgw_op_copy_obj_bytes Size of copy objects
+# TYPE ceph_rgw_op_copy_obj_bytes counter
+ceph_rgw_op_copy_obj_bytes{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_copy_obj_lat_count Copy object latency Count
+# TYPE ceph_rgw_op_copy_obj_lat_count counter
+ceph_rgw_op_copy_obj_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_copy_obj_lat_sum Copy object latency Total
+# TYPE ceph_rgw_op_copy_obj_lat_sum counter
+ceph_rgw_op_copy_obj_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_copy_obj_ops Copy objects
+# TYPE ceph_rgw_op_copy_obj_ops counter
+ceph_rgw_op_copy_obj_ops{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_bucket_lat_count Delete bucket latency Count
+# TYPE ceph_rgw_op_del_bucket_lat_count counter
+ceph_rgw_op_del_bucket_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_bucket_lat_sum Delete bucket latency Total
+# TYPE ceph_rgw_op_del_bucket_lat_sum counter
+ceph_rgw_op_del_bucket_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_bucket_ops Delete Buckets
+# TYPE ceph_rgw_op_del_bucket_ops counter
+ceph_rgw_op_del_bucket_ops{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_obj_bytes Size of delete objects
+# TYPE ceph_rgw_op_del_obj_bytes counter
+ceph_rgw_op_del_obj_bytes{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_obj_lat_count Delete object latency Count
+# TYPE ceph_rgw_op_del_obj_lat_count counter
+ceph_rgw_op_del_obj_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_obj_lat_sum Delete object latency Total
+# TYPE ceph_rgw_op_del_obj_lat_sum counter
+ceph_rgw_op_del_obj_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_del_obj_ops Delete objects
+# TYPE ceph_rgw_op_del_obj_ops counter
+ceph_rgw_op_del_obj_ops{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_get_obj_bytes Size of gets
+# TYPE ceph_rgw_op_get_obj_bytes counter
+ceph_rgw_op_get_obj_bytes{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_get_obj_lat_count Get latency Count
+# TYPE ceph_rgw_op_get_obj_lat_count counter
+ceph_rgw_op_get_obj_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_get_obj_lat_sum Get latency Total
+# TYPE ceph_rgw_op_get_obj_lat_sum counter
+ceph_rgw_op_get_obj_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_get_obj_ops Gets
+# TYPE ceph_rgw_op_get_obj_ops counter
+ceph_rgw_op_get_obj_ops{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_list_buckets_lat_count List buckets latency Count
+# TYPE ceph_rgw_op_list_buckets_lat_count counter
+ceph_rgw_op_list_buckets_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_list_buckets_lat_sum List buckets latency Total
+# TYPE ceph_rgw_op_list_buckets_lat_sum counter
+ceph_rgw_op_list_buckets_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_list_buckets_ops List buckets
+# TYPE ceph_rgw_op_list_buckets_ops counter
+ceph_rgw_op_list_buckets_ops{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_list_obj_lat_count List objects latency Count
+# TYPE ceph_rgw_op_list_obj_lat_count counter
+ceph_rgw_op_list_obj_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_list_obj_lat_sum List objects latency Total
+# TYPE ceph_rgw_op_list_obj_lat_sum counter
+ceph_rgw_op_list_obj_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_list_obj_ops List objects
+# TYPE ceph_rgw_op_list_obj_ops counter
+ceph_rgw_op_list_obj_ops{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_put_obj_bytes Size of puts
+# TYPE ceph_rgw_op_put_obj_bytes counter
+ceph_rgw_op_put_obj_bytes{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_put_obj_lat_count Put latency Count
+# TYPE ceph_rgw_op_put_obj_lat_count counter
+ceph_rgw_op_put_obj_lat_count{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_put_obj_lat_sum Put latency Total
+# TYPE ceph_rgw_op_put_obj_lat_sum counter
+ceph_rgw_op_put_obj_lat_sum{instance_id="fixture"} 100
+
+# HELP ceph_rgw_op_put_obj_ops Puts
+# TYPE ceph_rgw_op_put_obj_ops counter
+ceph_rgw_op_put_obj_ops{instance_id="fixture"} 100
+
+# HELP ceph_simple_throttler_outstanding Requests currently throttled by the RGW simple scheduler
+# TYPE ceph_simple_throttler_outstanding gauge
+ceph_simple_throttler_outstanding{instance_id="fixture"} 1
+
+# HELP ceph_simple_throttler_throttle Requests throttled by the simple scheduler
+# TYPE ceph_simple_throttler_throttle gauge
+ceph_simple_throttler_throttle{instance_id="fixture"} 2
+
+# Tenant-present labeled RGW operation source branches
+# HELP ceph_rgw_op_per_user_copy_obj_bytes Size of copy objects
+# TYPE ceph_rgw_op_per_user_copy_obj_bytes counter
+ceph_rgw_op_per_user_copy_obj_bytes{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_copy_obj_lat_count Copy object latency Count
+# TYPE ceph_rgw_op_per_user_copy_obj_lat_count counter
+ceph_rgw_op_per_user_copy_obj_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_copy_obj_lat_sum Copy object latency Total
+# TYPE ceph_rgw_op_per_user_copy_obj_lat_sum counter
+ceph_rgw_op_per_user_copy_obj_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_copy_obj_ops Copy objects
+# TYPE ceph_rgw_op_per_user_copy_obj_ops counter
+ceph_rgw_op_per_user_copy_obj_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_bucket_lat_count Delete bucket latency Count
+# TYPE ceph_rgw_op_per_user_del_bucket_lat_count counter
+ceph_rgw_op_per_user_del_bucket_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_bucket_lat_sum Delete bucket latency Total
+# TYPE ceph_rgw_op_per_user_del_bucket_lat_sum counter
+ceph_rgw_op_per_user_del_bucket_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_bucket_ops Delete Buckets
+# TYPE ceph_rgw_op_per_user_del_bucket_ops counter
+ceph_rgw_op_per_user_del_bucket_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_obj_bytes Size of delete objects
+# TYPE ceph_rgw_op_per_user_del_obj_bytes counter
+ceph_rgw_op_per_user_del_obj_bytes{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_obj_lat_count Delete object latency Count
+# TYPE ceph_rgw_op_per_user_del_obj_lat_count counter
+ceph_rgw_op_per_user_del_obj_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_obj_lat_sum Delete object latency Total
+# TYPE ceph_rgw_op_per_user_del_obj_lat_sum counter
+ceph_rgw_op_per_user_del_obj_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_del_obj_ops Delete objects
+# TYPE ceph_rgw_op_per_user_del_obj_ops counter
+ceph_rgw_op_per_user_del_obj_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_get_obj_bytes Size of gets
+# TYPE ceph_rgw_op_per_user_get_obj_bytes counter
+ceph_rgw_op_per_user_get_obj_bytes{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_get_obj_lat_count Get latency Count
+# TYPE ceph_rgw_op_per_user_get_obj_lat_count counter
+ceph_rgw_op_per_user_get_obj_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_get_obj_lat_sum Get latency Total
+# TYPE ceph_rgw_op_per_user_get_obj_lat_sum counter
+ceph_rgw_op_per_user_get_obj_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_get_obj_ops Gets
+# TYPE ceph_rgw_op_per_user_get_obj_ops counter
+ceph_rgw_op_per_user_get_obj_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_list_buckets_lat_count List buckets latency Count
+# TYPE ceph_rgw_op_per_user_list_buckets_lat_count counter
+ceph_rgw_op_per_user_list_buckets_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_list_buckets_lat_sum List buckets latency Total
+# TYPE ceph_rgw_op_per_user_list_buckets_lat_sum counter
+ceph_rgw_op_per_user_list_buckets_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_list_buckets_ops List buckets
+# TYPE ceph_rgw_op_per_user_list_buckets_ops counter
+ceph_rgw_op_per_user_list_buckets_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_list_obj_lat_count List objects latency Count
+# TYPE ceph_rgw_op_per_user_list_obj_lat_count counter
+ceph_rgw_op_per_user_list_obj_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_list_obj_lat_sum List objects latency Total
+# TYPE ceph_rgw_op_per_user_list_obj_lat_sum counter
+ceph_rgw_op_per_user_list_obj_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_list_obj_ops List objects
+# TYPE ceph_rgw_op_per_user_list_obj_ops counter
+ceph_rgw_op_per_user_list_obj_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_put_obj_bytes Size of puts
+# TYPE ceph_rgw_op_per_user_put_obj_bytes counter
+ceph_rgw_op_per_user_put_obj_bytes{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_put_obj_lat_count Put latency Count
+# TYPE ceph_rgw_op_per_user_put_obj_lat_count counter
+ceph_rgw_op_per_user_put_obj_lat_count{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_put_obj_lat_sum Put latency Total
+# TYPE ceph_rgw_op_per_user_put_obj_lat_sum counter
+ceph_rgw_op_per_user_put_obj_lat_sum{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_user_put_obj_ops Puts
+# TYPE ceph_rgw_op_per_user_put_obj_ops counter
+ceph_rgw_op_per_user_put_obj_ops{instance_id="fixture",user="fixture-user",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_copy_obj_bytes Size of copy objects
+# TYPE ceph_rgw_op_per_bucket_copy_obj_bytes counter
+ceph_rgw_op_per_bucket_copy_obj_bytes{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_copy_obj_lat_count Copy object latency Count
+# TYPE ceph_rgw_op_per_bucket_copy_obj_lat_count counter
+ceph_rgw_op_per_bucket_copy_obj_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_copy_obj_lat_sum Copy object latency Total
+# TYPE ceph_rgw_op_per_bucket_copy_obj_lat_sum counter
+ceph_rgw_op_per_bucket_copy_obj_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_copy_obj_ops Copy objects
+# TYPE ceph_rgw_op_per_bucket_copy_obj_ops counter
+ceph_rgw_op_per_bucket_copy_obj_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_bucket_lat_count Delete bucket latency Count
+# TYPE ceph_rgw_op_per_bucket_del_bucket_lat_count counter
+ceph_rgw_op_per_bucket_del_bucket_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_bucket_lat_sum Delete bucket latency Total
+# TYPE ceph_rgw_op_per_bucket_del_bucket_lat_sum counter
+ceph_rgw_op_per_bucket_del_bucket_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_bucket_ops Delete Buckets
+# TYPE ceph_rgw_op_per_bucket_del_bucket_ops counter
+ceph_rgw_op_per_bucket_del_bucket_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_obj_bytes Size of delete objects
+# TYPE ceph_rgw_op_per_bucket_del_obj_bytes counter
+ceph_rgw_op_per_bucket_del_obj_bytes{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_obj_lat_count Delete object latency Count
+# TYPE ceph_rgw_op_per_bucket_del_obj_lat_count counter
+ceph_rgw_op_per_bucket_del_obj_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_obj_lat_sum Delete object latency Total
+# TYPE ceph_rgw_op_per_bucket_del_obj_lat_sum counter
+ceph_rgw_op_per_bucket_del_obj_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_del_obj_ops Delete objects
+# TYPE ceph_rgw_op_per_bucket_del_obj_ops counter
+ceph_rgw_op_per_bucket_del_obj_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_get_obj_bytes Size of gets
+# TYPE ceph_rgw_op_per_bucket_get_obj_bytes counter
+ceph_rgw_op_per_bucket_get_obj_bytes{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_get_obj_lat_count Get latency Count
+# TYPE ceph_rgw_op_per_bucket_get_obj_lat_count counter
+ceph_rgw_op_per_bucket_get_obj_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_get_obj_lat_sum Get latency Total
+# TYPE ceph_rgw_op_per_bucket_get_obj_lat_sum counter
+ceph_rgw_op_per_bucket_get_obj_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_get_obj_ops Gets
+# TYPE ceph_rgw_op_per_bucket_get_obj_ops counter
+ceph_rgw_op_per_bucket_get_obj_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_list_buckets_lat_count List buckets latency Count
+# TYPE ceph_rgw_op_per_bucket_list_buckets_lat_count counter
+ceph_rgw_op_per_bucket_list_buckets_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_list_buckets_lat_sum List buckets latency Total
+# TYPE ceph_rgw_op_per_bucket_list_buckets_lat_sum counter
+ceph_rgw_op_per_bucket_list_buckets_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_list_buckets_ops List buckets
+# TYPE ceph_rgw_op_per_bucket_list_buckets_ops counter
+ceph_rgw_op_per_bucket_list_buckets_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_list_obj_lat_count List objects latency Count
+# TYPE ceph_rgw_op_per_bucket_list_obj_lat_count counter
+ceph_rgw_op_per_bucket_list_obj_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_list_obj_lat_sum List objects latency Total
+# TYPE ceph_rgw_op_per_bucket_list_obj_lat_sum counter
+ceph_rgw_op_per_bucket_list_obj_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_list_obj_ops List objects
+# TYPE ceph_rgw_op_per_bucket_list_obj_ops counter
+ceph_rgw_op_per_bucket_list_obj_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_put_obj_bytes Size of puts
+# TYPE ceph_rgw_op_per_bucket_put_obj_bytes counter
+ceph_rgw_op_per_bucket_put_obj_bytes{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_put_obj_lat_count Put latency Count
+# TYPE ceph_rgw_op_per_bucket_put_obj_lat_count counter
+ceph_rgw_op_per_bucket_put_obj_lat_count{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_put_obj_lat_sum Put latency Total
+# TYPE ceph_rgw_op_per_bucket_put_obj_lat_sum counter
+ceph_rgw_op_per_bucket_put_obj_lat_sum{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101
+
+# HELP ceph_rgw_op_per_bucket_put_obj_ops Puts
+# TYPE ceph_rgw_op_per_bucket_put_obj_ops counter
+ceph_rgw_op_per_bucket_put_obj_ops{instance_id="fixture",bucket="fixture-bucket",tenant="fixture-tenant"} 101

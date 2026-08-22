@@ -54,6 +54,7 @@ class RegistryRunnerSandboxTest(unittest.TestCase):
 
             with (
                 mock.patch.object(runner, "_materialize_upstream", side_effect=materialize),
+                mock.patch.object(runner, "_verify_source_closure"),
                 mock.patch.object(runner, "_run_isolated", side_effect=run_isolated),
             ):
                 runner.verify_profile(profile)
@@ -62,6 +63,30 @@ class RegistryRunnerSandboxTest(unittest.TestCase):
         self.assertEqual(len(sandbox_roots), 2)
         self.assertNotIn(private_roots[0], sandbox_roots[0].parents)
         self.assertEqual(sandbox_roots[0].parent, Path("/tmp").resolve())
+
+    def test_rejects_metric_candidate_omitted_from_source_closure(self):
+        upstream = runner.Upstream(
+            repository="owner/repository",
+            commit="0" * 40,
+            paths=("declared.cc",),
+        )
+        entries = [
+            b"100644 blob " + b"a" * 40 + b"\tdeclared.cc",
+            b"100644 blob " + b"b" * 40 + b"\tunrelated.cc",
+        ]
+        contents = {
+            ("git", "-C", "/repo/git-source", "ls-tree", "-r", "-z", upstream.commit): b"\0".join(entries),
+            ("git", "-C", "/repo/git-source", "show", f"{upstream.commit}:declared.cc"): b"PerfCountersBuilder x(",
+            ("git", "-C", "/repo/git-source", "show", f"{upstream.commit}:unrelated.cc"): b"builder->add_u64_counter(x",
+        }
+
+        def run(command, **_kwargs):
+            return contents[tuple(command)]
+
+        temporary = Path("/repo")
+        with mock.patch.object(runner, "_run", side_effect=run):
+            with self.assertRaisesRegex(ValueError, "source closure omits candidates: unrelated.cc"):
+                runner._verify_source_closure(temporary, "source", upstream)
 
 
 if __name__ == "__main__":

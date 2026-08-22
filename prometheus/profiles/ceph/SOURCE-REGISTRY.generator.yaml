@@ -8,6 +8,8 @@ upstreams:
     repository: ceph/ceph-nvmeof
     commit: c79b6f44bd2288f7ec5c48e3cc47f6e566573d3f
     paths:
+      - control/server.py
+      - control/utils.py
       - control/prometheus.py
       - pyproject.toml
   ceph_reef:
@@ -16,6 +18,15 @@ upstreams:
     paths:
       - src/blk/kernel/KernelDevice.cc
       - src/client/Client.cc
+      - src/common/options/rgw.yaml.in
+      - src/rgw/driver/rados/rgw_data_sync.cc
+      - src/rgw/driver/rados/rgw_notify.cc
+      - src/rgw/driver/rados/rgw_rados.cc
+      - src/rgw/driver/rados/rgw_sync_counters.h
+      - src/rgw/rgw_perf_counters.h
+      - src/common/perf_counters_key.cc
+      - src/common/perf_counters_key.h
+      - src/osd/OSD.cc
       - src/common/ceph_context.cc
       - src/common/Finisher.cc
       - src/common/Finisher.h
@@ -66,6 +77,7 @@ upstreams:
       - src/pybind/mgr/prometheus/module.py
       - src/rgw/driver/rados/rgw_sync_counters.cc
       - src/rgw/rgw_dmclock_scheduler_ctx.cc
+      - src/rgw/rgw_dmclock_async_scheduler.h
       - src/rgw/rgw_perf_counters.cc
       - src/SimpleRADOSStriper.cc
       - src/tools/cephfs_mirror/FSMirror.cc
@@ -81,6 +93,17 @@ upstreams:
     paths:
       - src/blk/kernel/KernelDevice.cc
       - src/client/Client.cc
+      - src/common/options/rgw.yaml.in
+      - src/rgw/driver/rados/rgw_data_sync.cc
+      - src/rgw/driver/rados/rgw_notify.cc
+      - src/rgw/driver/rados/rgw_rados.cc
+      - src/rgw/driver/rados/rgw_sync_counters.h
+      - src/rgw/rgw_perf_counters.h
+      - src/common/perf_counters_key.cc
+      - src/common/perf_counters_key.h
+      - src/common/perf_counters_cache.cc
+      - src/common/perf_counters_cache.h
+      - src/osd/OSD.cc
       - src/common/ceph_context.cc
       - src/common/Finisher.cc
       - src/common/Finisher.h
@@ -133,6 +156,7 @@ upstreams:
       - src/pybind/mgr/prometheus/module.py
       - src/rgw/driver/rados/rgw_sync_counters.cc
       - src/rgw/rgw_dmclock_scheduler_ctx.cc
+      - src/rgw/rgw_dmclock_async_scheduler.h
       - src/rgw/rgw_perf_counters.cc
       - src/SimpleRADOSStriper.cc
       - src/tools/cephfs_mirror/FSMirror.cc
@@ -154,6 +178,17 @@ upstreams:
     paths:
       - src/blk/kernel/KernelDevice.cc
       - src/client/Client.cc
+      - src/common/options/rgw.yaml.in
+      - src/rgw/driver/rados/rgw_data_sync.cc
+      - src/rgw/driver/rados/rgw_notify.cc
+      - src/rgw/driver/rados/rgw_rados.cc
+      - src/rgw/driver/rados/rgw_sync_counters.h
+      - src/rgw/rgw_perf_counters.h
+      - src/common/perf_counters_key.cc
+      - src/common/perf_counters_key.h
+      - src/common/perf_counters_cache.cc
+      - src/common/perf_counters_cache.h
+      - src/osd/OSD.cc
       - src/common/ceph_context.cc
       - src/common/Finisher.cc
       - src/common/options/ceph-exporter.yaml.in
@@ -208,6 +243,7 @@ upstreams:
       - src/pybind/mgr/prometheus/module.py
       - src/rgw/driver/rados/rgw_sync_counters.cc
       - src/rgw/rgw_dmclock_scheduler_ctx.cc
+      - src/rgw/rgw_dmclock_async_scheduler.h
       - src/rgw/rgw_perf_counters.cc
       - src/SimpleRADOSStriper.cc
       - src/tools/cephfs_mirror/FSMirror.cc

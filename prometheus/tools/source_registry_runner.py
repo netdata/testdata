@@ -25,6 +25,10 @@ ID_PATTERN = re.compile(r"[a-z][a-z0-9_]*\Z")
 REPOSITORY_PATTERN = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\Z")
 COMMIT_PATTERN = re.compile(r"[0-9a-f]{40}\Z")
 GENERATOR_FILE_PATTERN = re.compile(r"[a-z][a-z0-9_]*\.py\Z")
+SOURCE_CANDIDATE_PATTERN = re.compile(
+    rb"\bPerfCountersBuilder\s+\w+\s*\(|\b\w+(?:\.|->)"
+    rb"(?:add_u64|add_u64_avg|add_u64_counter|add_u64_counter_histogram|add_time|add_time_avg)\s*\("
+)
 
 
 @dataclass(frozen=True)
@@ -147,6 +151,7 @@ def verify_profile(profile_directory: Path) -> None:
         upstream_root.mkdir()
         for upstream_id, upstream in manifest.upstreams.items():
             _materialize_upstream(private_root, upstream_root, upstream_id, upstream)
+            _verify_source_closure(private_root, upstream_id, upstream)
         target_generator = work / GENERATOR_DIRECTORY
         target_generator.mkdir()
         for source in generator_files:
@@ -208,6 +213,36 @@ def _generator_files(directory: Path) -> list[Path]:
     if not any(name.startswith("test_negative_") for name in names):
         raise ValueError(f"{directory}: missing a test_negative_*.py fail-closed test")
     return files
+
+
+def _verify_source_closure(private_root: Path, upstream_id: str, upstream: Upstream) -> None:
+    if upstream_id == "prometheus_client_python":
+        return
+    repository = private_root / f"git-{upstream_id}"
+    tree = _run(
+        ["git", "-C", str(repository), "ls-tree", "-r", "-z", upstream.commit],
+        capture=True,
+    )
+    declared = set(upstream.paths)
+    missing: list[str] = []
+    for entry in tree.split(b"\0"):
+        if not entry:
+            continue
+        metadata, path = entry.split(b"\t", 1)
+        if not metadata.startswith((b"100644 blob ", b"100755 blob ")):
+            continue
+        relative = path.decode("utf-8")
+        if not relative.endswith((".cc", ".h")) or "/test/" in relative:
+            continue
+        content = _run(
+            ["git", "-C", str(repository), "show", f"{upstream.commit}:{relative}"],
+            capture=True,
+        )
+        if SOURCE_CANDIDATE_PATTERN.search(content) and relative not in declared:
+            missing.append(relative)
+    if missing:
+        detail = ", ".join(missing[:20])
+        raise ValueError(f"{upstream.repository}@{upstream.commit}: source closure omits candidates: {detail}")
 
 
 def _materialize_upstream(

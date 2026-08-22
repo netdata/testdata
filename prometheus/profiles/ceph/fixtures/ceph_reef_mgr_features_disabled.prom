@@ -324,7 +324,7 @@ ceph_pool_max_avail{pool_id="pool_id_a"} 1
 
 # HELP ceph_pool_metadata POOL Metadata.
 # TYPE ceph_pool_metadata untyped
-ceph_pool_metadata{application="application_a",compression_mode="compression_mode_a",description="description_a",name="name_a",pool_id="pool_id_a",type="type_a"} 1
+ceph_pool_metadata{compression_mode="compression_mode_a",description="description_a",name="name_a",pool_id="pool_id_a",type="type_a"} 1
 
 # HELP ceph_pool_num_bytes_recovered OSD pool stats: num_bytes_recovered.
 # TYPE ceph_pool_num_bytes_recovered gauge
