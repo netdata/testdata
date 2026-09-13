@@ -1,0 +1,1122 @@
+# Synthetic observations from pinned public SGLang instrumentation; no operational data.
+# One native unified endpoint; separate DP workers and request partitions where configured.
+# HELP sglang:process_cpu_seconds_total Total CPU time consumed by this process (user + system)
+# TYPE sglang:process_cpu_seconds_total counter
+sglang:process_cpu_seconds_total{component="scheduler"} 2
+# HELP sglang:func_latency_seconds Function latency in seconds
+# TYPE sglang:func_latency_seconds histogram
+sglang:func_latency_seconds_bucket{le="0.05",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.07500000000000001",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.1125",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.16875",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.253125",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="0.3796875",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="0.56953125",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="0.8542968750000001",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="1.2814453125",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="1.9221679687500002",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="2.8832519531250003",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="4.3248779296875",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="6.487316894531251",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="9.730975341796876",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="14.596463012695313",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="21.89469451904297",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="32.84204177856446",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="49.26306266784668",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="+Inf",name="forward"} 2
+sglang:func_latency_seconds_count{name="forward"} 2
+sglang:func_latency_seconds_sum{name="forward"} 0.25
+# HELP sglang:num_running_reqs The number of running requests.
+# TYPE sglang:num_running_reqs gauge
+sglang:num_running_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_queue_reqs The number of requests in the waiting queue.
+# TYPE sglang:num_queue_reqs gauge
+sglang:num_queue_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+# HELP sglang:num_grammar_queue_reqs The number of requests in the grammar waiting queue.
+# TYPE sglang:num_grammar_queue_reqs gauge
+sglang:num_grammar_queue_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:gen_throughput The generation throughput (token/s).
+# TYPE sglang:gen_throughput gauge
+sglang:gen_throughput{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:cache_hit_rate The prefix cache hit rate.
+# TYPE sglang:cache_hit_rate gauge
+sglang:cache_hit_rate{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:decode_sum_seq_lens The sum of all sequence lengths in decode.
+# TYPE sglang:decode_sum_seq_lens gauge
+sglang:decode_sum_seq_lens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 64
+# HELP sglang:token_usage The token usage.
+# TYPE sglang:token_usage gauge
+sglang:token_usage{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.125
+# HELP sglang:full_token_usage The token usage for full attention layers.
+# TYPE sglang:full_token_usage gauge
+sglang:full_token_usage{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.125
+# HELP sglang:swa_token_usage The token usage for SWA layers.
+# TYPE sglang:swa_token_usage gauge
+sglang:swa_token_usage{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.125
+# HELP sglang:mamba_usage The token usage for Mamba layers.
+# TYPE sglang:mamba_usage gauge
+sglang:mamba_usage{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_used_tokens The number of used tokens.
+# TYPE sglang:num_used_tokens gauge
+sglang:num_used_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 512
+# HELP sglang:kv_available_tokens Number of free token slots in the KV cache pool.
+# TYPE sglang:kv_available_tokens gauge
+sglang:kv_available_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 3072
+# HELP sglang:kv_evictable_tokens Number of evictable (radix-cached) token slots in the KV cache pool.
+# TYPE sglang:kv_evictable_tokens gauge
+sglang:kv_evictable_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 512
+# HELP sglang:kv_used_tokens Number of actively used token slots in the KV cache pool.
+# TYPE sglang:kv_used_tokens gauge
+sglang:kv_used_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 512
+# HELP sglang:swa_available_tokens Number of free token slots in the SWA pool (hybrid-SWA only).
+# TYPE sglang:swa_available_tokens gauge
+sglang:swa_available_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1536
+# HELP sglang:swa_evictable_tokens Number of evictable (radix-cached) token slots in the SWA pool.
+# TYPE sglang:swa_evictable_tokens gauge
+sglang:swa_evictable_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 256
+# HELP sglang:swa_used_tokens Number of actively used token slots in the SWA pool.
+# TYPE sglang:swa_used_tokens gauge
+sglang:swa_used_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 256
+# HELP sglang:mamba_available_tokens Number of free state slots in the mamba SSM pool (hybrid-SSM only).
+# TYPE sglang:mamba_available_tokens gauge
+sglang:mamba_available_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:mamba_evictable_tokens Number of evictable (radix-cached) state slots in the mamba SSM pool.
+# TYPE sglang:mamba_evictable_tokens gauge
+sglang:mamba_evictable_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:mamba_used_tokens Number of actively used state slots in the mamba SSM pool.
+# TYPE sglang:mamba_used_tokens gauge
+sglang:mamba_used_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:weight_load_duration_seconds Wall time of the most recent update_weights_from_<source> call on this scheduler rank (seconds). `source` label is one of: disk, distributed, tensor, ipc. Event-detection via changes(...[<range>]) > 0 — no separate counter needed.
+# TYPE sglang:weight_load_duration_seconds gauge
+sglang:weight_load_duration_seconds{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",source="disk",tp_rank="0"} 0
+# HELP sglang:spec_accept_length Mean acceptance length of speculative decoding (accepted drafts + bonus token per forward).
+# TYPE sglang:spec_accept_length gauge
+sglang:spec_accept_length{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:spec_accept_rate Speculative acceptance rate (`accepted drafts / proposed drafts` in batch).
+# TYPE sglang:spec_accept_rate gauge
+sglang:spec_accept_rate{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:spec_cap_length Mean DSpark confidence-scheduled verify window per verify step, incl the bonus slot (0 when no cap is scheduled).
+# TYPE sglang:spec_cap_length gauge
+sglang:spec_cap_length{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:spec_block_accept_length Mean uncapped full-block accept length per verify step (accept + cap-trimmed drafts; exact only in DSpark cap-accept mode).
+# TYPE sglang:spec_block_accept_length gauge
+sglang:spec_block_accept_length{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:spec_num_steps Currently active speculative_num_steps.
+# TYPE sglang:spec_num_steps gauge
+sglang:spec_num_steps{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:spec_num_draft_tokens Currently active speculative_num_draft_tokens (decouples from steps under topk>1).
+# TYPE sglang:spec_num_draft_tokens gauge
+sglang:spec_num_draft_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_retracted_reqs The number of retracted requests.
+# TYPE sglang:num_retracted_reqs gauge
+sglang:num_retracted_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_retracted_requests_total Total number of retracted requests.
+# TYPE sglang:num_retracted_requests_total counter
+sglang:num_retracted_requests_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_retracted_input_tokens_total Total number of retracted input tokens.
+# TYPE sglang:num_retracted_input_tokens_total counter
+sglang:num_retracted_input_tokens_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_retracted_output_tokens_total Total number of retracted output tokens.
+# TYPE sglang:num_retracted_output_tokens_total counter
+sglang:num_retracted_output_tokens_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_paused_reqs The number of paused requests by async weight sync.
+# TYPE sglang:num_paused_reqs gauge
+sglang:num_paused_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_prefill_bootstrap_queue_reqs The number of requests in the prefill bootstrap queue.
+# TYPE sglang:num_prefill_bootstrap_queue_reqs gauge
+sglang:num_prefill_bootstrap_queue_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_prefill_inflight_queue_reqs The number of requests in the prefill inflight queue.
+# TYPE sglang:num_prefill_inflight_queue_reqs gauge
+sglang:num_prefill_inflight_queue_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_decode_prealloc_queue_reqs The number of requests in the decode prealloc queue.
+# TYPE sglang:num_decode_prealloc_queue_reqs gauge
+sglang:num_decode_prealloc_queue_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_decode_transfer_queue_reqs The number of requests in the decode transfer queue.
+# TYPE sglang:num_decode_transfer_queue_reqs gauge
+sglang:num_decode_transfer_queue_reqs{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:pending_prealloc_token_usage The token usage for pending preallocated tokens (not preallocated yet).
+# TYPE sglang:pending_prealloc_token_usage gauge
+sglang:pending_prealloc_token_usage{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_bootstrap_failed_reqs_total The number of bootstrap failed requests.
+# TYPE sglang:num_bootstrap_failed_reqs_total counter
+sglang:num_bootstrap_failed_reqs_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_transfer_failed_reqs_total The number of transfer failed requests.
+# TYPE sglang:num_transfer_failed_reqs_total counter
+sglang:num_transfer_failed_reqs_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_prefill_retries_total Total number of prefill retries.
+# TYPE sglang:num_prefill_retries_total counter
+sglang:num_prefill_retries_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:utilization The utilization.
+# TYPE sglang:utilization gauge
+sglang:utilization{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:fwd_occupancy Forward pass GPU occupancy percentage.
+# TYPE sglang:fwd_occupancy gauge
+sglang:fwd_occupancy{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:new_token_ratio The new token ratio.
+# TYPE sglang:new_token_ratio gauge
+sglang:new_token_ratio{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:is_cuda_graph Whether the batch is using CUDA graph.
+# TYPE sglang:is_cuda_graph gauge
+sglang:is_cuda_graph{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:cuda_graph_passes_total Total number of forward passes categorized by CUDA graph.
+# TYPE sglang:cuda_graph_passes_total counter
+sglang:cuda_graph_passes_total{engine_type="unified",mode="decode",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:lora_pool_slots_used Number of LoRA adapter slots currently occupied in GPU memory.
+# TYPE sglang:lora_pool_slots_used gauge
+sglang:lora_pool_slots_used{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+# HELP sglang:lora_pool_slots_total Total number of LoRA adapter slots available (max_loras_per_batch).
+# TYPE sglang:lora_pool_slots_total gauge
+sglang:lora_pool_slots_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 4
+# HELP sglang:lora_pool_utilization LoRA pool utilization ratio (used/total). 1.0 means pool is full.
+# TYPE sglang:lora_pool_utilization gauge
+sglang:lora_pool_utilization{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:hicache_host_used_tokens Number of tokens currently used in the host KV cache.
+# TYPE sglang:hicache_host_used_tokens gauge
+sglang:hicache_host_used_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:hicache_host_total_tokens Total capacity of the host KV cache in tokens.
+# TYPE sglang:hicache_host_total_tokens gauge
+sglang:hicache_host_total_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 8192
+# HELP sglang:num_streaming_sessions The number of streaming sessions.
+# TYPE sglang:num_streaming_sessions gauge
+sglang:num_streaming_sessions{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:streaming_session_held_tokens The number of KV tokens currently held by streaming session slots.
+# TYPE sglang:streaming_session_held_tokens gauge
+sglang:streaming_session_held_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:num_unique_running_routing_keys Number of unique routing keys in running batch.
+# TYPE sglang:num_unique_running_routing_keys gauge
+sglang:num_unique_running_routing_keys{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:routing_key_running_req_count Distribution of routing keys by running request count (gt < count <= le).
+# TYPE sglang:routing_key_running_req_count gauge
+sglang:routing_key_running_req_count{engine_type="unified",gt="0",le="1",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:routing_key_running_req_count{engine_type="unified",gt="1",le="2",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:routing_key_running_req_count{engine_type="unified",gt="2",le="3",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="3",le="5",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="5",le="7",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="7",le="10",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="10",le="20",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="20",le="50",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="50",le="100",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="100",le="200",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_running_req_count{engine_type="unified",gt="200",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:routing_key_all_req_count Distribution of routing keys by running+waiting request count (gt < count <= le).
+# TYPE sglang:routing_key_all_req_count gauge
+sglang:routing_key_all_req_count{engine_type="unified",gt="0",le="1",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:routing_key_all_req_count{engine_type="unified",gt="1",le="2",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:routing_key_all_req_count{engine_type="unified",gt="2",le="3",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="3",le="5",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="5",le="7",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="7",le="10",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="10",le="20",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="20",le="50",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="50",le="100",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="100",le="200",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:routing_key_all_req_count{engine_type="unified",gt="200",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+# HELP sglang:queue_time_seconds Histogram of queueing time in seconds.
+# TYPE sglang:queue_time_seconds histogram
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.001",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.005",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.01",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.05",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.1",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.2",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="0.5",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="1.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="2.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="3.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="4.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="10.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="15.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="20.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="30.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="40.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="50.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="60.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="70.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="80.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="90.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="100.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="200.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="300.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="400.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="500.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="600.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="700.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="800.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="900.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="1000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="1200.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="1400.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="1600.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="1800.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="2000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="2500.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="3000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:queue_time_seconds_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:per_stage_req_latency_seconds The latency of each stage of requests.
+# TYPE sglang:per_stage_req_latency_seconds histogram
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.001",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.0016200000000000001",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.0026244000000000007",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.004251528",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.006887475360000002",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.011157710083200004",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.018075490334784006",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.029282294342350097",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.047437316834607154",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.07684845327206359",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 1
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.12449449430074302",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 1
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.20168108076720373",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.3267233508428701",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.5292918283654495",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="0.8574527619520282",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="1.389073474362286",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="2.2502990284669036",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="3.6454844261163837",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="5.905684770308542",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="9.567209327899839",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="15.49887911119774",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="25.10818416014034",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="40.67525833942735",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="65.89391850987231",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="106.74814798599316",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="172.93199973730896",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="280.1498395744405",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="453.84274011059364",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="735.2252389791618",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="1191.064887146242",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 2
+sglang:per_stage_req_latency_seconds_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",stage="prefill",tp_rank="0"} 0.25
+# HELP sglang:grammar_compilation_time_seconds Histogram of grammar compilation time in seconds.
+# TYPE sglang:grammar_compilation_time_seconds histogram
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.01",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.02",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.05",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.1",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.2",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="0.5",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="1.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="2.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="10.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="20.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="30.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="60.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="90.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="120.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="240.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_compilation_time_seconds_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:num_grammar_cache_hit_total Number of grammar cache hits.
+# TYPE sglang:num_grammar_cache_hit_total counter
+sglang:num_grammar_cache_hit_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_grammar_aborted_total Number of grammar aborted requests.
+# TYPE sglang:num_grammar_aborted_total counter
+sglang:num_grammar_aborted_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_grammar_timeout_total Number of grammar timeouts.
+# TYPE sglang:num_grammar_timeout_total counter
+sglang:num_grammar_timeout_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:num_grammar_total Number of the total grammar requests.
+# TYPE sglang:num_grammar_total counter
+sglang:num_grammar_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:grammar_schema_count Histogram of grammar schema count.
+# TYPE sglang:grammar_schema_count histogram
+sglang:grammar_schema_count_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_schema_count_bucket{engine_type="unified",le="1.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_schema_count_bucket{engine_type="unified",le="2.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="10.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="20.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="30.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="40.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="60.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="80.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="100.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="120.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="140.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="160.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="180.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="200.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="300.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="400.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="500.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="700.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="1000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_schema_count_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 3
+# HELP sglang:grammar_ebnf_size Histogram of grammar EBNF size.
+# TYPE sglang:grammar_ebnf_size histogram
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="50.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="100.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="200.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="300.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="500.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="1000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="2000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="3000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="5000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="10000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="20000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="30000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="50000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="100000.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_ebnf_size_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 3
+# HELP sglang:grammar_tree_traversal_time_avg Histogram of average grammar tree traversal time in seconds.
+# TYPE sglang:grammar_tree_traversal_time_avg histogram
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.01",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.02",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.05",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.1",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.2",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="0.5",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="1.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="2.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="10.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="15.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="30.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="60.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="90.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="120.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="240.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_avg_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:grammar_tree_traversal_time_max Histogram of max grammar tree traversal time in seconds.
+# TYPE sglang:grammar_tree_traversal_time_max histogram
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.01",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.02",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.05",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.1",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 1
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.2",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="0.5",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="1.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="2.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="10.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="15.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="30.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="60.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="90.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="120.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="240.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:grammar_tree_traversal_time_max_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:eplb_balancedness Balancedness of MoE in expert parallelism.
+# TYPE sglang:eplb_balancedness summary
+sglang:eplb_balancedness_count{engine_type="unified",forward_mode="decode",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:eplb_balancedness_sum{engine_type="unified",forward_mode="decode",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:realtime_tokens_total Total number of tokens processed (updated on each log interval). mode: prefill_compute, prefill_cache, decode.
+# TYPE sglang:realtime_tokens_total counter
+sglang:realtime_tokens_total{engine_type="unified",mode="decode",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:prefill_effective_tokens_total Effective prefill tokens with retracted-request re-counts excluded, updated on each log interval. mode: device_hit, host_hit, storage_hit, input. Windowed prefix cache hit rate = rate(sum of *_hit) / rate(sum of all modes); per-tier rate uses a single *_hit mode in the numerator.
+# TYPE sglang:prefill_effective_tokens_total counter
+sglang:prefill_effective_tokens_total{engine_type="unified",mode="input",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:forward_execution_seconds_total Total time that GPU is busy executing model forward passes. Refer to ForwardMode for category labels.
+# TYPE sglang:forward_execution_seconds_total counter
+sglang:forward_execution_seconds_total{category="decode",engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:estimated_flops_per_gpu_total Estimated number of floating point operations per GPU (for Model FLOPs Utilization calculations).
+# TYPE sglang:estimated_flops_per_gpu_total counter
+sglang:estimated_flops_per_gpu_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:estimated_read_bytes_per_gpu_total Estimated number of bytes read from memory per GPU (for Model FLOPs Utilization calculations).
+# TYPE sglang:estimated_read_bytes_per_gpu_total counter
+sglang:estimated_read_bytes_per_gpu_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:estimated_write_bytes_per_gpu_total Estimated number of bytes written to memory per GPU (for Model FLOPs Utilization calculations).
+# TYPE sglang:estimated_write_bytes_per_gpu_total counter
+sglang:estimated_write_bytes_per_gpu_total{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:dp_cooperation_realtime_tokens_total Total number of tokens processed with labels about DP cooperation. mode: prefill_compute, prefill_cache, decode.
+# TYPE sglang:dp_cooperation_realtime_tokens_total counter
+sglang:dp_cooperation_realtime_tokens_total{engine_type="unified",mode="decode",model_name="model_a",moe_ep_rank="0",num_prefill_ranks="1",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:dp_cooperation_forward_execution_seconds_total Total time that GPU is busy executing model forward passes, with labels about DP cooperation. Refer to ForwardMode for category labels.
+# TYPE sglang:dp_cooperation_forward_execution_seconds_total counter
+sglang:dp_cooperation_forward_execution_seconds_total{category="decode",engine_type="unified",model_name="model_a",moe_ep_rank="0",num_prefill_ranks="1",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:prefill_delayer_wait_forward_passes Histogram of forward passes waited by prefill delayer.
+# TYPE sglang:prefill_delayer_wait_forward_passes histogram
+sglang:prefill_delayer_wait_forward_passes_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:prefill_delayer_wait_forward_passes_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_forward_passes_bucket{engine_type="unified",le="20.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_forward_passes_bucket{engine_type="unified",le="50.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_forward_passes_bucket{engine_type="unified",le="99.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_forward_passes_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_forward_passes_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_forward_passes_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 3
+# HELP sglang:prefill_delayer_wait_seconds Histogram of wait time in seconds by prefill delayer.
+# TYPE sglang:prefill_delayer_wait_seconds histogram
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="0.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="1.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="2.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="5.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="10.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="20.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="50.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="100.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="200.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="500.0",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_bucket{engine_type="unified",le="+Inf",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_count{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+sglang:prefill_delayer_wait_seconds_sum{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 0.25
+# HELP sglang:prefill_delayer_outcomes_total Prefill delayer outcome counts.
+# TYPE sglang:prefill_delayer_outcomes_total counter
+sglang:prefill_delayer_outcomes_total{actual_execution="True",engine_type="unified",input_estimation="mixed",model_name="model_a",moe_ep_rank="0",output_allow="True",output_reason="wait_timeout",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:max_total_num_tokens Maximum total number of tokens in the KV cache pool.
+# TYPE sglang:max_total_num_tokens gauge
+sglang:max_total_num_tokens{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 4096
+# HELP sglang:max_total_num_tokens_swa Maximum total number of tokens in the SWA KV cache pool.
+# TYPE sglang:max_total_num_tokens_swa gauge
+sglang:max_total_num_tokens_swa{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2048
+# HELP sglang:weight_memory_usage_gb Memory used by model weights in GB.
+# TYPE sglang:weight_memory_usage_gb gauge
+sglang:weight_memory_usage_gb{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 20
+# HELP sglang:kv_cache_memory_usage_gb Memory used by the KV cache pools in GB.
+# TYPE sglang:kv_cache_memory_usage_gb gauge
+sglang:kv_cache_memory_usage_gb{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 2
+# HELP sglang:graph_memory_usage_gb Memory used by captured device graphs in GB.
+# TYPE sglang:graph_memory_usage_gb gauge
+sglang:graph_memory_usage_gb{engine_type="unified",model_name="model_a",moe_ep_rank="0",phase="total",pp_rank="0",tp_rank="0"} 1
+# HELP sglang:page_size KV cache page size in tokens.
+# TYPE sglang:page_size gauge
+sglang:page_size{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 16
+# HELP sglang:num_pages Number of KV cache pages.
+# TYPE sglang:num_pages gauge
+sglang:num_pages{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 256
+# HELP sglang:context_len Maximum context length.
+# TYPE sglang:context_len gauge
+sglang:context_len{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 4096
+# HELP sglang:startup_available_gpu_memory_gb Available GPU memory in GB at startup.
+# TYPE sglang:startup_available_gpu_memory_gb gauge
+sglang:startup_available_gpu_memory_gb{engine_type="unified",model_name="model_a",moe_ep_rank="0",pp_rank="0",tp_rank="0"} 70
+# HELP sglang:startup_time_seconds Engine startup duration by phase in seconds.
+# TYPE sglang:startup_time_seconds gauge
+sglang:startup_time_seconds{engine_type="unified",model_name="model_a",phase="tokenizer_e2e"} 0
+# HELP sglang:startup_cuda_graph_time_seconds CUDA graph capture duration by phase in seconds.
+# TYPE sglang:startup_cuda_graph_time_seconds gauge
+sglang:startup_cuda_graph_time_seconds{engine_type="unified",model_name="model_a",phase="total"} 0
+# HELP sglang:prompt_tokens_total Number of prefill tokens processed.
+# TYPE sglang:prompt_tokens_total counter
+sglang:prompt_tokens_total{engine_type="unified",is_streaming="false",model_name="model_a"} 96
+sglang:prompt_tokens_total{engine_type="unified",is_streaming="true",model_name="model_a"} 96
+# HELP sglang:generation_tokens_total Number of generation tokens processed.
+# TYPE sglang:generation_tokens_total counter
+sglang:generation_tokens_total{engine_type="unified",is_streaming="false",model_name="model_a"} 24
+sglang:generation_tokens_total{engine_type="unified",is_streaming="true",model_name="model_a"} 24
+# HELP sglang:spec_verify_calls_total Number of speculative decoding verification calls.
+# TYPE sglang:spec_verify_calls_total counter
+sglang:spec_verify_calls_total{engine_type="unified",model_name="model_a"} 2
+# HELP sglang:prompt_tokens_histogram Histogram of prompt token length.
+# TYPE sglang:prompt_tokens_histogram histogram
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="100.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="300.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="500.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="700.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="1000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="1500.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="2000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="3000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="4000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="5000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="6000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="7000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="8000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="9000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="10000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="12500.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="15000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="17500.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="20000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="22500.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="25000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="27500.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="30000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="35000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="40000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="60000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="80000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="100000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="200000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="300000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="400000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="600000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="800000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="1000000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="1100000.0",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_bucket{engine_type="unified",le="+Inf",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_count{engine_type="unified",model_name="model_a"} 4
+sglang:prompt_tokens_histogram_sum{engine_type="unified",model_name="model_a"} 192
+# HELP sglang:uncached_prompt_tokens_histogram Histogram of uncached (compute) prompt token length.
+# TYPE sglang:uncached_prompt_tokens_histogram histogram
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="100.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="300.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="500.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="700.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="1000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="1500.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="2000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="3000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="4000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="5000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="6000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="7000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="8000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="9000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="10000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="12500.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="15000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="17500.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="20000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="22500.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="25000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="27500.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="30000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="35000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="40000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="60000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="80000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="100000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="200000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="300000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="400000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="600000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="800000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="1000000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="1100000.0",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_bucket{engine_type="unified",le="+Inf",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_count{engine_type="unified",model_name="model_a"} 4
+sglang:uncached_prompt_tokens_histogram_sum{engine_type="unified",model_name="model_a"} 96
+# HELP sglang:generation_tokens_histogram Histogram of generation token length.
+# TYPE sglang:generation_tokens_histogram histogram
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="100.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="300.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="500.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="700.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="1000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="1500.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="2000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="3000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="4000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="5000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="6000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="7000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="8000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="9000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="10000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="12500.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="15000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="17500.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="20000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="22500.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="25000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="27500.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="30000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="35000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="40000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="60000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="80000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="100000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="200000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="300000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="400000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="600000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="800000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="1000000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="1100000.0",model_name="model_a"} 4
+sglang:generation_tokens_histogram_bucket{engine_type="unified",le="+Inf",model_name="model_a"} 4
+sglang:generation_tokens_histogram_count{engine_type="unified",model_name="model_a"} 4
+sglang:generation_tokens_histogram_sum{engine_type="unified",model_name="model_a"} 48
+# HELP sglang:cached_tokens_total Number of cached prompt tokens by source (device/host/storage).
+# TYPE sglang:cached_tokens_total counter
+sglang:cached_tokens_total{cache_source="device",engine_type="unified",model_name="model_a"} 96
+# HELP sglang:num_requests_total Number of requests processed.
+# TYPE sglang:num_requests_total counter
+sglang:num_requests_total{engine_type="unified",is_streaming="false",model_name="model_a"} 2
+sglang:num_requests_total{engine_type="unified",is_streaming="true",model_name="model_a"} 2
+# HELP sglang:get_loads_duration_seconds Time spent serving /v1/loads requests (seconds).
+# TYPE sglang:get_loads_duration_seconds histogram
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.0001",model_name="model_a"} 0
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.0005",model_name="model_a"} 0
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.001",model_name="model_a"} 0
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.005",model_name="model_a"} 0
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.01",model_name="model_a"} 0
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.05",model_name="model_a"} 1
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.1",model_name="model_a"} 1
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="0.5",model_name="model_a"} 2
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="1.0",model_name="model_a"} 2
+sglang:get_loads_duration_seconds_bucket{engine_type="unified",le="+Inf",model_name="model_a"} 2
+sglang:get_loads_duration_seconds_count{engine_type="unified",model_name="model_a"} 2
+sglang:get_loads_duration_seconds_sum{engine_type="unified",model_name="model_a"} 0.25
+# HELP sglang:num_so_requests_total Number of structured output requests processed.
+# TYPE sglang:num_so_requests_total counter
+sglang:num_so_requests_total{engine_type="unified",model_name="model_a"} 2
+# HELP sglang:num_aborted_requests_total Number of requests aborted.
+# TYPE sglang:num_aborted_requests_total counter
+sglang:num_aborted_requests_total{engine_type="unified",model_name="model_a"} 2
+# HELP sglang:time_to_first_token_seconds Histogram of time to first token in seconds.
+# TYPE sglang:time_to_first_token_seconds histogram
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="0.1",model_name="model_a"} 1
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="0.2",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="0.4",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="0.6",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="0.8",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="1.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="2.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="4.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="6.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="8.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="10.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="20.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="40.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="60.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="80.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="100.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="200.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="400.0",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="false",le="+Inf",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_count{engine_type="unified",is_streaming="false",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_sum{engine_type="unified",is_streaming="false",model_name="model_a"} 0.25
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="0.1",model_name="model_a"} 2
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="0.2",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="0.4",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="0.6",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="0.8",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="1.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="2.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="4.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="6.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="8.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="10.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="20.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="40.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="60.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="80.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="100.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="200.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="400.0",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_bucket{engine_type="unified",is_streaming="true",le="+Inf",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_count{engine_type="unified",is_streaming="true",model_name="model_a"} 4
+sglang:time_to_first_token_seconds_sum{engine_type="unified",is_streaming="true",model_name="model_a"} 0.5
+# HELP sglang:inter_token_latency_seconds Histogram of inter-token latency in seconds.
+# TYPE sglang:inter_token_latency_seconds histogram
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.002",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.004",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.006",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.008",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.01",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.015",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.02",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.025",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.03",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.035",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.04",model_name="model_a"} 0
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.06",model_name="model_a"} 1
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.08",model_name="model_a"} 1
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.1",model_name="model_a"} 1
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.2",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.4",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.6",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="0.8",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="1.0",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="2.0",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="4.0",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="6.0",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="8.0",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_bucket{engine_type="unified",le="+Inf",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_count{engine_type="unified",model_name="model_a"} 2
+sglang:inter_token_latency_seconds_sum{engine_type="unified",model_name="model_a"} 0.25
+# HELP sglang:e2e_request_latency_seconds Histogram of End-to-end request latency in seconds
+# TYPE sglang:e2e_request_latency_seconds histogram
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="0.1",model_name="model_a"} 1
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="0.2",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="0.4",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="0.6",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="0.8",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="1.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="2.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="4.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="6.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="8.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="10.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="20.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="40.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="60.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="80.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="100.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="200.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="400.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="600.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="1200.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="1800.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="2400.0",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="false",le="+Inf",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_count{engine_type="unified",is_streaming="false",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_sum{engine_type="unified",is_streaming="false",model_name="model_a"} 0.25
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="0.1",model_name="model_a"} 2
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="0.2",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="0.4",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="0.6",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="0.8",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="1.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="2.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="4.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="6.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="8.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="10.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="20.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="40.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="60.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="80.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="100.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="200.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="400.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="600.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="1200.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="1800.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="2400.0",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_bucket{engine_type="unified",is_streaming="true",le="+Inf",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_count{engine_type="unified",is_streaming="true",model_name="model_a"} 4
+sglang:e2e_request_latency_seconds_sum{engine_type="unified",is_streaming="true",model_name="model_a"} 0.5
+# HELP sglang:prefetched_tokens_total Number of prefetched prompt tokens.
+# TYPE sglang:prefetched_tokens_total counter
+sglang:prefetched_tokens_total{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+# HELP sglang:backuped_tokens_total Number of backuped tokens.
+# TYPE sglang:backuped_tokens_total counter
+sglang:backuped_tokens_total{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+# HELP sglang:prefetch_pgs Histogram of prefetch pages of batches.
+# TYPE sglang:prefetch_pgs histogram
+sglang:prefetch_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="1.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 1
+sglang:prefetch_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="5.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="10.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="50.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="100.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="+Inf",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_pgs_count{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_pgs_sum{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 3
+# HELP sglang:backup_pgs Histogram of backup pages of batches.
+# TYPE sglang:backup_pgs histogram
+sglang:backup_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="1.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 1
+sglang:backup_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="5.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="10.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="50.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="100.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_pgs_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="+Inf",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_pgs_count{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_pgs_sum{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 3
+# HELP sglang:prefetch_bandwidth Histogram of prefetch bandwidth in GB/s.
+# TYPE sglang:prefetch_bandwidth histogram
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="0.1",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 1
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="0.5",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="1.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="5.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="10.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="50.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="100.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="+Inf",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_count{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:prefetch_bandwidth_sum{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 0.25
+# HELP sglang:backup_bandwidth Histogram of backup bandwidth in GB/s.
+# TYPE sglang:backup_bandwidth histogram
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="0.1",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 1
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="0.5",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="1.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="5.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="10.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="50.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="100.0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_bucket{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",le="+Inf",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_count{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 2
+sglang:backup_bandwidth_sum{attn_cp_rank="0",attn_cp_size="1",dp_rank="0",pp_rank="0",pp_size="1",storage_backend="mooncake",tp_rank="0"} 0.25
+# HELP sglang:eplb_gpu_physical_count The selected count of physical experts on each layer and GPU rank.
+# TYPE sglang:eplb_gpu_physical_count histogram
+sglang:eplb_gpu_physical_count_bucket{layer="0",le="0.0"} 0
+sglang:eplb_gpu_physical_count_bucket{layer="0",le="1.0"} 1
+sglang:eplb_gpu_physical_count_bucket{layer="0",le="+Inf"} 2
+sglang:eplb_gpu_physical_count_count{layer="0"} 2
+sglang:eplb_gpu_physical_count_sum{layer="0"} 3
+# HELP sglang:eviction_duration_seconds End-to-end time of a device eviction pass in seconds; under --hicache-write-policy write_back this includes the blocking D->H backup (see sglang:hicache_backup_duration_seconds for the copy alone).
+# TYPE sglang:eviction_duration_seconds histogram
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.001"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.002"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.003"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.004"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.005"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.006"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.007"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.008"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.009"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.01"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.02"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.03"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.04"} 0
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.05"} 1
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.1"} 1
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.2"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.5"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="1.0"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="2.0"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="5.0"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="10.0"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="30.0"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="60.0"} 2
+sglang:eviction_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="+Inf"} 2
+sglang:eviction_duration_seconds_count{cache_type="UnifiedRadixCache"} 2
+sglang:eviction_duration_seconds_sum{cache_type="UnifiedRadixCache"} 0.25
+# HELP sglang:evicted_tokens_total The number of device KV token slots freed by eviction, regardless of whether the data was backed up to host (see sglang:hicache_backup_tokens_total) or destroyed (see sglang:hicache_dropped_tokens_total).
+# TYPE sglang:evicted_tokens_total counter
+sglang:evicted_tokens_total{cache_type="UnifiedRadixCache"} 2
+# HELP sglang:load_back_duration_seconds Time taken to load KV cache from CPU back to GPU in seconds.
+# TYPE sglang:load_back_duration_seconds histogram
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.001"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.002"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.003"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.004"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.005"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.006"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.007"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.008"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.009"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.01"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.02"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.03"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.04"} 0
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.05"} 1
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.1"} 1
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.2"} 2
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.5"} 2
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="1.0"} 2
+sglang:load_back_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="+Inf"} 2
+sglang:load_back_duration_seconds_count{cache_type="UnifiedRadixCache"} 2
+sglang:load_back_duration_seconds_sum{cache_type="UnifiedRadixCache"} 0.25
+# HELP sglang:load_back_tokens_total The number of tokens loaded back from local host DRAM (L2) to GPU, by host pool (kv, swa, mamba, ...).
+# TYPE sglang:load_back_tokens_total counter
+sglang:load_back_tokens_total{cache_type="UnifiedRadixCache",pool="kv"} 2
+# HELP sglang:hicache_backup_duration_seconds Time taken to back up KV cache from GPU to local host DRAM (L2) in seconds, per merged write op. Covers all D->H backups regardless of --hicache-write-policy. Distinct from the host-to-storage (L3) sglang:backuped_tokens_total.
+# TYPE sglang:hicache_backup_duration_seconds histogram
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.001"} 0
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.002"} 0
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.005"} 0
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.01"} 0
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.02"} 0
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.05"} 1
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.1"} 1
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.2"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="0.5"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="1.0"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="2.0"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="5.0"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="10.0"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="30.0"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="60.0"} 2
+sglang:hicache_backup_duration_seconds_bucket{cache_type="UnifiedRadixCache",le="+Inf"} 2
+sglang:hicache_backup_duration_seconds_count{cache_type="UnifiedRadixCache"} 2
+sglang:hicache_backup_duration_seconds_sum{cache_type="UnifiedRadixCache"} 0.25
+# HELP sglang:hicache_backup_bytes_total Bytes backed up from GPU to local host DRAM (L2), all pools combined, including draft/sidecar transfers that the token counter excludes. Divided by the rate of hicache_backup_duration_seconds_sum, gives the achieved D->H bandwidth while transferring.
+# TYPE sglang:hicache_backup_bytes_total counter
+sglang:hicache_backup_bytes_total{cache_type="UnifiedRadixCache"} 2
+# HELP sglang:load_back_bytes_total Bytes loaded back from local host DRAM (L2) to GPU, all pools combined, including draft/sidecar transfers that the token counter excludes. Divided by the rate of load_back_duration_seconds_sum, gives the achieved H->D bandwidth while transferring.
+# TYPE sglang:load_back_bytes_total counter
+sglang:load_back_bytes_total{cache_type="UnifiedRadixCache"} 2
+# HELP sglang:hicache_backup_tokens_total The number of tokens backed up from GPU to local host DRAM (L2), by host pool (kv, swa, mamba, ...). Covers all D->H backups regardless of --hicache-write-policy. Distinct from the host-to-storage (L3) sglang:backuped_tokens_total.
+# TYPE sglang:hicache_backup_tokens_total counter
+sglang:hicache_backup_tokens_total{cache_type="UnifiedRadixCache",pool="kv"} 2
+# HELP sglang:hicache_dropped_tokens_total The number of device KV tokens destroyed without a host backup, by pool (kv, swa, ...) and reason (e.g. write-back backup failure under host memory pressure).
+# TYPE sglang:hicache_dropped_tokens_total counter
+sglang:hicache_dropped_tokens_total{cache_type="UnifiedRadixCache",pool="kv",reason="host_pressure"} 2
+# HELP sglang:startup_latency_breakdown_seconds_max Startup latency breakdown in seconds by context, only records the maximum duration if the context is called multiple times.
+# TYPE sglang:startup_latency_breakdown_seconds_max gauge
+sglang:startup_latency_breakdown_seconds_max{context="startup"} 0
+# HELP sglang:http_requests_total Total number of HTTP requests by endpoint and method
+# TYPE sglang:http_requests_total counter
+sglang:http_requests_total{endpoint="/generate",method="GET"} 2
+sglang:http_requests_total{endpoint="/generate",method="HEAD"} 4
+sglang:http_requests_total{endpoint="/generate",method="POST"} 2
+sglang:http_requests_total{endpoint="/generate",method="PUT"} 4
+sglang:http_requests_total{endpoint="/generate",method="DELETE"} 2
+sglang:http_requests_total{endpoint="/generate",method="CONNECT"} 4
+sglang:http_requests_total{endpoint="/generate",method="OPTIONS"} 2
+sglang:http_requests_total{endpoint="/generate",method="TRACE"} 4
+sglang:http_requests_total{endpoint="/generate",method="PATCH"} 2
+sglang:http_requests_total{endpoint="/generate",method="BREW"} 4
+sglang:http_requests_total{endpoint="/generate",method="123"} 2
+sglang:http_requests_total{endpoint="/health",method="GET"} 4
+sglang:http_requests_total{endpoint="/health",method="HEAD"} 2
+sglang:http_requests_total{endpoint="/health",method="POST"} 4
+sglang:http_requests_total{endpoint="/health",method="PUT"} 2
+sglang:http_requests_total{endpoint="/health",method="DELETE"} 4
+sglang:http_requests_total{endpoint="/health",method="CONNECT"} 2
+sglang:http_requests_total{endpoint="/health",method="OPTIONS"} 4
+sglang:http_requests_total{endpoint="/health",method="TRACE"} 2
+sglang:http_requests_total{endpoint="/health",method="PATCH"} 4
+sglang:http_requests_total{endpoint="/health",method="BREW"} 2
+sglang:http_requests_total{endpoint="/health",method="123"} 4
+# HELP sglang:http_responses_total Total number of HTTP responses by endpoint and status code
+# TYPE sglang:http_responses_total counter
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="123",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="600"} 4
+# HELP sglang:http_requests_active Number of currently active HTTP requests
+# TYPE sglang:http_requests_active gauge
+sglang:http_requests_active{endpoint="/generate",method="GET"} 1
+sglang:http_requests_active{endpoint="/generate",method="HEAD"} 2
+sglang:http_requests_active{endpoint="/generate",method="POST"} 1
+sglang:http_requests_active{endpoint="/generate",method="PUT"} 2
+sglang:http_requests_active{endpoint="/generate",method="DELETE"} 1
+sglang:http_requests_active{endpoint="/generate",method="CONNECT"} 2
+sglang:http_requests_active{endpoint="/generate",method="OPTIONS"} 1
+sglang:http_requests_active{endpoint="/generate",method="TRACE"} 2
+sglang:http_requests_active{endpoint="/generate",method="PATCH"} 1
+sglang:http_requests_active{endpoint="/generate",method="BREW"} 2
+sglang:http_requests_active{endpoint="/generate",method="123"} 1
+sglang:http_requests_active{endpoint="/health",method="GET"} 2
+sglang:http_requests_active{endpoint="/health",method="HEAD"} 1
+sglang:http_requests_active{endpoint="/health",method="POST"} 2
+sglang:http_requests_active{endpoint="/health",method="PUT"} 1
+sglang:http_requests_active{endpoint="/health",method="DELETE"} 2
+sglang:http_requests_active{endpoint="/health",method="CONNECT"} 1
+sglang:http_requests_active{endpoint="/health",method="OPTIONS"} 2
+sglang:http_requests_active{endpoint="/health",method="TRACE"} 1
+sglang:http_requests_active{endpoint="/health",method="PATCH"} 2
+sglang:http_requests_active{endpoint="/health",method="BREW"} 1
+sglang:http_requests_active{endpoint="/health",method="123"} 2
+# HELP sglang:routing_keys_active Number of unique routing keys with active requests
+# TYPE sglang:routing_keys_active gauge
+sglang:routing_keys_active 0

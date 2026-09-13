@@ -1,0 +1,480 @@
+# Synthetic observations from pinned public SGLang instrumentation; no operational data.
+# One native encoder endpoint; separate DP workers and request partitions where configured.
+# HELP sglang:encoder_dp_pending_requests Number of pending requests per encoder DP rank.
+# TYPE sglang:encoder_dp_pending_requests gauge
+sglang:encoder_dp_pending_requests{dp_rank="0",model_name="model_a"} 1
+sglang:encoder_dp_pending_requests{dp_rank="1",model_name="model_a"} 2
+# HELP sglang:process_cpu_seconds_total Total CPU time consumed by this process (user + system)
+# TYPE sglang:process_cpu_seconds_total counter
+sglang:process_cpu_seconds_total{component="scheduler"} 2
+# HELP sglang:func_latency_seconds Function latency in seconds
+# TYPE sglang:func_latency_seconds histogram
+sglang:func_latency_seconds_bucket{le="0.05",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.07500000000000001",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.1125",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.16875",name="forward"} 1
+sglang:func_latency_seconds_bucket{le="0.253125",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="0.3796875",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="0.56953125",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="0.8542968750000001",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="1.2814453125",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="1.9221679687500002",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="2.8832519531250003",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="4.3248779296875",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="6.487316894531251",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="9.730975341796876",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="14.596463012695313",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="21.89469451904297",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="32.84204177856446",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="49.26306266784668",name="forward"} 2
+sglang:func_latency_seconds_bucket{le="+Inf",name="forward"} 2
+sglang:func_latency_seconds_count{name="forward"} 2
+sglang:func_latency_seconds_sum{name="forward"} 0.25
+# HELP sglang:encoder_cache_evictions_total Total cache evictions.
+# TYPE sglang:encoder_cache_evictions_total counter
+sglang:encoder_cache_evictions_total{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_cache_evictions_total{dp_rank="1",modality="image",model_name="model_a"} 4
+# HELP sglang:encoder_cache_size_mb Current cache size in MB.
+# TYPE sglang:encoder_cache_size_mb gauge
+sglang:encoder_cache_size_mb{dp_rank="0",model_name="model_a"} 1
+sglang:encoder_cache_size_mb{dp_rank="1",model_name="model_a"} 2
+# HELP sglang:encoder_cache_entries Current number of cache entries.
+# TYPE sglang:encoder_cache_entries gauge
+sglang:encoder_cache_entries{dp_rank="0",model_name="model_a"} 2
+sglang:encoder_cache_entries{dp_rank="1",model_name="model_a"} 3
+# HELP sglang:encoder_cache_hit_tokens_total Total tokens served from cache (cache hits).
+# TYPE sglang:encoder_cache_hit_tokens_total counter
+sglang:encoder_cache_hit_tokens_total{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_cache_hit_tokens_total{dp_rank="1",modality="image",model_name="model_a"} 4
+# HELP sglang:encoder_cache_total_tokens_total Total tokens processed (hit + miss).
+# TYPE sglang:encoder_cache_total_tokens_total counter
+sglang:encoder_cache_total_tokens_total{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_cache_total_tokens_total{dp_rank="1",modality="image",model_name="model_a"} 4
+# HELP sglang:encoder_cache_hit_files_total Total files served from cache.
+# TYPE sglang:encoder_cache_hit_files_total counter
+sglang:encoder_cache_hit_files_total{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_cache_hit_files_total{dp_rank="1",modality="image",model_name="model_a"} 4
+# HELP sglang:encoder_cache_total_files_total Total files processed (hit + miss).
+# TYPE sglang:encoder_cache_total_files_total counter
+sglang:encoder_cache_total_files_total{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_cache_total_files_total{dp_rank="1",modality="image",model_name="model_a"} 4
+# HELP sglang:encoder_requests_total Total encoder requests by modality and status.
+# TYPE sglang:encoder_requests_total counter
+sglang:encoder_requests_total{dp_rank="0",modality="image",model_name="model_a",status="success"} 2
+sglang:encoder_requests_total{dp_rank="1",modality="image",model_name="model_a",status="success"} 4
+# HELP sglang:encoder_requests_received_total Total requests received by encoder (at receive time), per DP rank.
+# TYPE sglang:encoder_requests_received_total counter
+sglang:encoder_requests_received_total{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_requests_received_total{dp_rank="1",modality="image",model_name="model_a"} 4
+# HELP sglang:encoder_mm_items_per_batch Histogram of multimodal items processed per encoder batch.
+# TYPE sglang:encoder_mm_items_per_batch histogram
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="1.0",modality="image",model_name="model_a"} 1
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="2.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="3.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="4.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="5.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="6.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="7.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="8.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="9.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="10.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="11.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="12.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="13.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="14.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="15.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="16.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="32.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="64.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="128.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="0",le="+Inf",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_count{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_sum{dp_rank="0",modality="image",model_name="model_a"} 3
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="1.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="2.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="3.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="4.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="5.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="6.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="7.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="8.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="9.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="10.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="11.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="12.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="13.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="14.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="15.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="16.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="32.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="64.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="128.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_bucket{dp_rank="1",le="+Inf",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_count{dp_rank="1",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_batch_sum{dp_rank="1",modality="image",model_name="model_a"} 6
+# HELP sglang:encoder_mm_items_per_request Histogram of multimodal items per individual encoder request.
+# TYPE sglang:encoder_mm_items_per_request histogram
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="1.0",modality="image",model_name="model_a"} 1
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="2.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="3.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="4.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="5.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="6.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="7.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="8.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="10.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="12.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="16.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="24.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="32.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="64.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="0",le="+Inf",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_count{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_sum{dp_rank="0",modality="image",model_name="model_a"} 3
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="1.0",modality="image",model_name="model_a"} 2
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="2.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="3.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="4.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="5.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="6.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="7.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="8.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="10.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="12.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="16.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="24.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="32.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="64.0",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_bucket{dp_rank="1",le="+Inf",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_count{dp_rank="1",modality="image",model_name="model_a"} 4
+sglang:encoder_mm_items_per_request_sum{dp_rank="1",modality="image",model_name="model_a"} 6
+# HELP sglang:encoder_request_e2e_latency_seconds Histogram of per-request end-to-end encoder latency in seconds (queue wait + encode).
+# TYPE sglang:encoder_request_e2e_latency_seconds histogram
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="0.02",modality="image",model_name="model_a"} 0
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="0.05",modality="image",model_name="model_a"} 1
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="0.1",modality="image",model_name="model_a"} 1
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="0.2",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="0.5",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="1.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="2.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="5.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="10.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="20.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="30.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="60.0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="0",le="+Inf",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_count{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_sum{dp_rank="0",modality="image",model_name="model_a"} 0.25
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="0.02",modality="image",model_name="model_a"} 0
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="0.05",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="0.1",modality="image",model_name="model_a"} 2
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="0.2",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="0.5",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="1.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="2.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="5.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="10.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="20.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="30.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="60.0",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_bucket{dp_rank="1",le="+Inf",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_count{dp_rank="1",modality="image",model_name="model_a"} 4
+sglang:encoder_request_e2e_latency_seconds_sum{dp_rank="1",modality="image",model_name="model_a"} 0.5
+# HELP sglang:encoder_queue_wait_seconds Time request spent waiting in scheduler queue.
+# TYPE sglang:encoder_queue_wait_seconds histogram
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="0.001",modality="image",model_name="model_a"} 0
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="0.005",modality="image",model_name="model_a"} 0
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="0.05",modality="image",model_name="model_a"} 1
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="0.1",modality="image",model_name="model_a"} 1
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="0.5",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="1.0",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="2.0",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="5.0",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="10.0",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="0",le="+Inf",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_count{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_sum{dp_rank="0",modality="image",model_name="model_a"} 0.25
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="0.001",modality="image",model_name="model_a"} 0
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="0.005",modality="image",model_name="model_a"} 0
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="0.05",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="0.1",modality="image",model_name="model_a"} 2
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="0.5",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="1.0",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="2.0",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="5.0",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="10.0",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_bucket{dp_rank="1",le="+Inf",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_count{dp_rank="1",modality="image",model_name="model_a"} 4
+sglang:encoder_queue_wait_seconds_sum{dp_rank="1",modality="image",model_name="model_a"} 0.5
+# HELP sglang:encoder_preprocess_seconds Data loading and preprocessing latency.
+# TYPE sglang:encoder_preprocess_seconds histogram
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="0.05",modality="image",model_name="model_a"} 1
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="0.1",modality="image",model_name="model_a"} 1
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="0.2",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="0.5",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="1.0",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="2.0",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="5.0",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="10.0",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="30.0",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="0",le="+Inf",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_count{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_sum{dp_rank="0",modality="image",model_name="model_a"} 0.25
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="0.05",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="0.1",modality="image",model_name="model_a"} 2
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="0.2",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="0.5",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="1.0",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="2.0",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="5.0",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="10.0",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="30.0",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_bucket{dp_rank="1",le="+Inf",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_count{dp_rank="1",modality="image",model_name="model_a"} 4
+sglang:encoder_preprocess_seconds_sum{dp_rank="1",modality="image",model_name="model_a"} 0.5
+# HELP sglang:encoder_model_forward_seconds GPU model forward pass latency.
+# TYPE sglang:encoder_model_forward_seconds histogram
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="0.02",modality="image",model_name="model_a"} 0
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="0.05",modality="image",model_name="model_a"} 1
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="0.1",modality="image",model_name="model_a"} 1
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="0.2",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="0.5",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="1.0",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="2.0",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="5.0",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="0",le="+Inf",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_count{dp_rank="0",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_sum{dp_rank="0",modality="image",model_name="model_a"} 0.25
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="0.01",modality="image",model_name="model_a"} 0
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="0.02",modality="image",model_name="model_a"} 0
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="0.05",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="0.1",modality="image",model_name="model_a"} 2
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="0.2",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="0.5",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="1.0",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="2.0",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="5.0",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_bucket{dp_rank="1",le="+Inf",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_count{dp_rank="1",modality="image",model_name="model_a"} 4
+sglang:encoder_model_forward_seconds_sum{dp_rank="1",modality="image",model_name="model_a"} 0.5
+# HELP sglang:encoder_transfer_seconds Embedding transfer latency to prefill node.
+# TYPE sglang:encoder_transfer_seconds histogram
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.001",model_name="model_a"} 0
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.005",model_name="model_a"} 0
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.01",model_name="model_a"} 0
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.05",model_name="model_a"} 1
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.1",model_name="model_a"} 1
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.2",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="0.5",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="1.0",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="2.0",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="0",le="+Inf",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_count{backend="mooncake",dp_rank="0",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_sum{backend="mooncake",dp_rank="0",model_name="model_a"} 0.25
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.001",model_name="model_a"} 0
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.005",model_name="model_a"} 0
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.01",model_name="model_a"} 0
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.05",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.1",model_name="model_a"} 2
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.2",model_name="model_a"} 4
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="0.5",model_name="model_a"} 4
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="1.0",model_name="model_a"} 4
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="2.0",model_name="model_a"} 4
+sglang:encoder_transfer_seconds_bucket{backend="mooncake",dp_rank="1",le="+Inf",model_name="model_a"} 4
+sglang:encoder_transfer_seconds_count{backend="mooncake",dp_rank="1",model_name="model_a"} 4
+sglang:encoder_transfer_seconds_sum{backend="mooncake",dp_rank="1",model_name="model_a"} 0.5
+# HELP sglang:startup_latency_breakdown_seconds_max Startup latency breakdown in seconds by context, only records the maximum duration if the context is called multiple times.
+# TYPE sglang:startup_latency_breakdown_seconds_max gauge
+sglang:startup_latency_breakdown_seconds_max{context="startup"} 0
+# HELP sglang:http_requests_total Total number of HTTP requests by endpoint and method
+# TYPE sglang:http_requests_total counter
+sglang:http_requests_total{endpoint="/generate",method="GET"} 2
+sglang:http_requests_total{endpoint="/generate",method="HEAD"} 4
+sglang:http_requests_total{endpoint="/generate",method="POST"} 2
+sglang:http_requests_total{endpoint="/generate",method="PUT"} 4
+sglang:http_requests_total{endpoint="/generate",method="DELETE"} 2
+sglang:http_requests_total{endpoint="/generate",method="CONNECT"} 4
+sglang:http_requests_total{endpoint="/generate",method="OPTIONS"} 2
+sglang:http_requests_total{endpoint="/generate",method="TRACE"} 4
+sglang:http_requests_total{endpoint="/generate",method="PATCH"} 2
+sglang:http_requests_total{endpoint="/generate",method="BREW"} 4
+sglang:http_requests_total{endpoint="/generate",method="123"} 2
+sglang:http_requests_total{endpoint="/health",method="GET"} 4
+sglang:http_requests_total{endpoint="/health",method="HEAD"} 2
+sglang:http_requests_total{endpoint="/health",method="POST"} 4
+sglang:http_requests_total{endpoint="/health",method="PUT"} 2
+sglang:http_requests_total{endpoint="/health",method="DELETE"} 4
+sglang:http_requests_total{endpoint="/health",method="CONNECT"} 2
+sglang:http_requests_total{endpoint="/health",method="OPTIONS"} 4
+sglang:http_requests_total{endpoint="/health",method="TRACE"} 2
+sglang:http_requests_total{endpoint="/health",method="PATCH"} 4
+sglang:http_requests_total{endpoint="/health",method="BREW"} 2
+sglang:http_requests_total{endpoint="/health",method="123"} 4
+# HELP sglang:http_responses_total Total number of HTTP responses by endpoint and status code
+# TYPE sglang:http_responses_total counter
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="GET",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="HEAD",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="POST",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="PUT",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="DELETE",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="CONNECT",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="OPTIONS",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="TRACE",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="PATCH",status_code="600"} 2
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="100"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="200"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="300"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="400"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="500"} 4
+sglang:http_responses_total{endpoint="/generate",method="BREW",status_code="600"} 4
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="100"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="200"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="300"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="400"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="500"} 2
+sglang:http_responses_total{endpoint="/generate",method="123",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="GET",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="HEAD",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="POST",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="PUT",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="DELETE",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="CONNECT",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="OPTIONS",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="TRACE",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="PATCH",status_code="600"} 4
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="100"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="200"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="300"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="400"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="500"} 2
+sglang:http_responses_total{endpoint="/health",method="BREW",status_code="600"} 2
+sglang:http_responses_total{endpoint="/health",method="123",status_code="100"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="200"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="300"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="400"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="500"} 4
+sglang:http_responses_total{endpoint="/health",method="123",status_code="600"} 4
+# HELP sglang:http_requests_active Number of currently active HTTP requests
+# TYPE sglang:http_requests_active gauge
+sglang:http_requests_active{endpoint="/generate",method="GET"} 1
+sglang:http_requests_active{endpoint="/generate",method="HEAD"} 2
+sglang:http_requests_active{endpoint="/generate",method="POST"} 1
+sglang:http_requests_active{endpoint="/generate",method="PUT"} 2
+sglang:http_requests_active{endpoint="/generate",method="DELETE"} 1
+sglang:http_requests_active{endpoint="/generate",method="CONNECT"} 2
+sglang:http_requests_active{endpoint="/generate",method="OPTIONS"} 1
+sglang:http_requests_active{endpoint="/generate",method="TRACE"} 2
+sglang:http_requests_active{endpoint="/generate",method="PATCH"} 1
+sglang:http_requests_active{endpoint="/generate",method="BREW"} 2
+sglang:http_requests_active{endpoint="/generate",method="123"} 1
+sglang:http_requests_active{endpoint="/health",method="GET"} 2
+sglang:http_requests_active{endpoint="/health",method="HEAD"} 1
+sglang:http_requests_active{endpoint="/health",method="POST"} 2
+sglang:http_requests_active{endpoint="/health",method="PUT"} 1
+sglang:http_requests_active{endpoint="/health",method="DELETE"} 2
+sglang:http_requests_active{endpoint="/health",method="CONNECT"} 1
+sglang:http_requests_active{endpoint="/health",method="OPTIONS"} 2
+sglang:http_requests_active{endpoint="/health",method="TRACE"} 1
+sglang:http_requests_active{endpoint="/health",method="PATCH"} 2
+sglang:http_requests_active{endpoint="/health",method="BREW"} 1
+sglang:http_requests_active{endpoint="/health",method="123"} 2
+# HELP sglang:routing_keys_active Number of unique routing keys with active requests
+# TYPE sglang:routing_keys_active gauge
+sglang:routing_keys_active 0
