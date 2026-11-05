@@ -1779,6 +1779,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -1895,16 +1904,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -2908,6 +2907,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -3024,16 +3032,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -4188,6 +4186,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -4304,16 +4311,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -5490,6 +5487,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -5606,16 +5612,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -6780,6 +6776,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -6896,16 +6901,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -7909,6 +7904,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -8025,16 +8029,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -9038,6 +9032,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -9154,16 +9157,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -10167,6 +10160,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -10283,16 +10285,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -11455,6 +11447,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -11571,16 +11572,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -12584,6 +12575,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -12700,16 +12700,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -13713,6 +13703,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -13829,16 +13828,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -14842,6 +14831,15 @@
                     }
                   },
                   {
+                    "cell": "text",
+                    "id": "if_alias",
+                    "label": "Alias",
+                    "projection": {
+                      "column": "if_alias",
+                      "kind": "direct"
+                    }
+                  },
+                  {
                     "cell": "badge",
                     "id": "oper_status",
                     "label": "Status",
@@ -14958,16 +14956,6 @@
                     "label": "ifDescr",
                     "projection": {
                       "column": "if_descr",
-                      "kind": "direct"
-                    },
-                    "visibility": "expanded"
-                  },
-                  {
-                    "cell": "text",
-                    "id": "if_alias",
-                    "label": "Alias",
-                    "projection": {
-                      "column": "if_alias",
                       "kind": "direct"
                     },
                     "visibility": "expanded"
@@ -18928,6 +18916,15 @@
               }
             },
             {
+              "cell": "text",
+              "id": "if_alias",
+              "label": "Alias",
+              "projection": {
+                "column": "if_alias",
+                "kind": "direct"
+              }
+            },
+            {
               "cell": "badge",
               "id": "oper_status",
               "label": "Status",
@@ -19044,16 +19041,6 @@
               "label": "ifDescr",
               "projection": {
                 "column": "if_descr",
-                "kind": "direct"
-              },
-              "visibility": "expanded"
-            },
-            {
-              "cell": "text",
-              "id": "if_alias",
-              "label": "Alias",
-              "projection": {
-                "column": "if_alias",
                 "kind": "direct"
               },
               "visibility": "expanded"
